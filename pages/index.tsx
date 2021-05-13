@@ -51,7 +51,7 @@ const Profile = () => {
 	const socials: { component: any; url: string; isUrl: boolean }[] = [
 		{
 			component: HiOutlineMail,
-			url: 'mailto:hi@amienamry.com',
+			url: 'mailto:hi@amienamry.dev',
 			isUrl: false,
 		},
 		{
