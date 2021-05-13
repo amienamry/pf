@@ -18,11 +18,11 @@ const App = () => {
 				<meta name='twitter:card' content="You don't know item" key='twcard' />
 				<meta name='twitter:creator' content='amienamry' key='twhandle' />
 				<meta name='twitter:url' content='https://amienamry.dev/' key='twurl' />
-				<meta name='twitter:image' content='/images/logo/logo.jpg' key='twimage' />
+				<meta name='twitter:image' content='https://www.amienamry.dev/images/logo/logo.jpg' key='twimage' />
 
 				{/* Open Graph */}
 				<meta property='og:url' content='https://www.amienamry.dev' key='ogurl' />
-				<meta property='og:image' content='/images/logo/logo.jpg' key='ogimage' />
+				<meta property='og:image' content='https://www.amienamry.dev/images/logo/logo.jpg' key='ogimage' />
 				<meta property='og:site_name' content='https://amienamry.dev' key='ogsitename' />
 				<meta property='og:title' content='Amien Amry | Fullstack Developer' key='ogtitle' />
 				<meta property='og:description' content="You don't know item" key='ogdesc' />
