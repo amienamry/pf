@@ -8,7 +8,7 @@ import { HiOutlineMail } from 'react-icons/hi';
 
 const App = () => {
 	return (
-		<div>
+		<div className='pb-10'>
 			<Head>
 				<title>Amien Amry | Fullstack Developer</title>
 				<meta name='description' content="You don't know item" />
@@ -24,7 +24,7 @@ const App = () => {
 
 const Content = () => {
 	return (
-		<div className='flex flex-1 max-w-screen-xl p-5 mt-5 flex-col md:flex-row'>
+		<div className='flex flex-1 max-w-screen-xl mt-20 p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md'>
 			{/* left */}
 			<Profile />
 			{/* right */}

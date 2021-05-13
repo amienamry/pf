@@ -6,18 +6,19 @@ export const Navbar = () => {
 	const [active, setActive] = useState(false);
 
 	const handleClick = () => {
+		console.log('click');
 		setActive(!active);
 	};
 
 	return (
-		<nav className='flex items-center flex-wrap bg-green-800 p-3 '>
+		<nav className='flex items-center flex-wrap p-3 fixed w-full z-10 bg-black bg-opacity-70'>
 			<Link href='/'>
 				<a className='inline-flex items-center p-2 mr-4 '>
 					<Image src='/images/logo/android-chrome-192x192.png' alt='amienamry' width={50} height={50} />
 				</a>
 			</Link>
 			<button
-				className=' inline-flex p-3 hover:bg-green-600 rounded lg:hidden text-white ml-auto hover:text-white outline-none'
+				className='inline-flex p-3 hover:text-gray-200 rounded lg:hidden text-gray-100 ml-auto outline-none'
 				onClick={handleClick}>
 				<svg
 					className='w-6 h-6'
@@ -30,25 +31,15 @@ export const Navbar = () => {
 			</button>
 			{/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
 			<div className={`${active ? '' : 'hidden'} w-full lg:inline-flex lg:flex-grow lg:w-auto`}>
-				<div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'>
+				<div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start bg flex flex-col lg:h-auto'>
 					<Link href='/'>
-						<a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>
+						<a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-100 text-xl items-center justify-center hover:text-gray-200'>
 							Home
 						</a>
 					</Link>
 					<Link href='/experience'>
-						<a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white'>
-							Services
-						</a>
-					</Link>
-					<Link href='/'>
-						<a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white'>
-							About us
-						</a>
-					</Link>
-					<Link href='/'>
-						<a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white'>
-							Contact us
+						<a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-100 text-xl items-center justify-center hover:text-gray-200'>
+							Experience
 						</a>
 					</Link>
 				</div>
