@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import '../styles/main.css';
+import '../styles/custom.css';
 import { AppProps } from 'next/app';
 import { Navbar } from '../components/Navbar';
 import Image from 'next/image';

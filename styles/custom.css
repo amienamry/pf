@@ -1,0 +1,6 @@
+.text-gradient-custom {
+	background: linear-gradient(90deg, #ce1126 0%, rgb(60, 60, 60) 35%, rgb(235, 235, 235) 65%, #007a3d 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
