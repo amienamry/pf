@@ -85,7 +85,7 @@ const Profile = () => {
 					priority
 					className='rounded-full'
 					src='/images/amien.jpg'
-					alt='amienamry'
+					alt='Amien Amry'
 					width={250}
 					height={250}
 				/>
