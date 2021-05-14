@@ -13,14 +13,18 @@ const App = () => {
 		<div className='pb-20'>
 			<Head>
 				<title>Amien Amry | Fullstack Developer</title>
+				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<meta name='description' content="You don't know item" />
 				<link rel='icon' href='/favicon.ico' />
 
 				{/* Twitter */}
-				<meta name='twitter:card' content="You don't know item" key='twcard' />
-				<meta name='twitter:creator' content='amienamry' key='twhandle' />
-				<meta name='twitter:url' content='https://amienamry.dev/' key='twurl' />
-				<meta name='twitter:image' content='https://www.amienamry.dev/images/logo/logo.jpg' key='twimage' />
+				<meta property='twitter:card' content='summary_large_image' key='twcard' />
+				<meta property='twitter:title' content='Amien Amry | Fullstack Developer' key='twtitle' />
+				<meta property='twitter:description' content="You don't know item" key='twdesc' />
+				<meta property='twitter:url' content='https://amienamry.dev' key='twurl' />
+				<meta property='twitter:image' content='https://www.amienamry.dev/images/logo/logo.jpg' key='twimage' />
+				<meta name='twitter:creator' content='@amienamry' key='twhandle' />
+				<meta name='twitter:site' content='@amienamry' key='twsite' />
 
 				{/* Open Graph */}
 				<meta property='og:url' content='https://www.amienamry.dev' key='ogurl' />
