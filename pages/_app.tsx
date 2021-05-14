@@ -16,8 +16,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 	};
 
 	useScrollPosition(
-		({ prevPos, currPos }) => {
-			const isShow: boolean = currPos.y > prevPos.y;
+		({ currPos }) => {
+			const isShow: boolean = currPos.y > -35;
 			if (isShow !== isTransparent) setTransparent(isShow);
 		},
 		[isTransparent]
