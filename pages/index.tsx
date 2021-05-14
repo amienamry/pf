@@ -32,6 +32,7 @@ const App = () => {
 				<meta property='og:site_name' content='https://amienamry.dev' key='ogsitename' />
 				<meta property='og:title' content='Amien Amry | Fullstack Developer' key='ogtitle' />
 				<meta property='og:description' content="You don't know item" key='ogdesc' />
+				<meta property='og:type' content='website' />
 			</Head>
 
 			<main className='flex flex-1 justify-center'>
