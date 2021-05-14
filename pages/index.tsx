@@ -5,10 +5,12 @@ import { FiDatabase } from 'react-icons/fi';
 import { DiJavascript1 } from 'react-icons/di';
 import { GrMysql } from 'react-icons/gr';
 import { HiOutlineMail } from 'react-icons/hi';
+import { AiOutlineRobot } from 'react-icons/ai';
+import { MdLockOutline } from 'react-icons/md';
 
 const App = () => {
 	return (
-		<div className='pb-10'>
+		<div className='pb-20'>
 			<Head>
 				<title>Amien Amry | Fullstack Developer</title>
 				<meta name='description' content="You don't know item" />
@@ -79,7 +81,14 @@ const Profile = () => {
 	return (
 		<div className='flex flex-initial flex-col p-3 md:p-5 justify-center md:justify-start'>
 			<div className='flex justify-center'>
-				<Image className='rounded-full' src='/images/amien.jpg' alt='amienamry' width={250} height={250} />
+				<Image
+					priority
+					className='rounded-full'
+					src='/images/amien.jpg'
+					alt='amienamry'
+					width={250}
+					height={250}
+				/>
 			</div>
 			<h1 className='text-4xl font-semi-bold text-gray-100 my-1 pt-5 text-center md:text-left'>Amien Amry</h1>
 			<p className='text-xl mt-2 text-center md:text-left'>Fullstack Developer</p>
@@ -126,40 +135,57 @@ const Biography = () => {
 
 const Extra = () => {
 	return (
-		<div className='flex flex-1 flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
-			<div className='flex flex-1 flex-col mt-6'>
-				<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Skills</h3>
-				<div>
-					<ul>
-						<li className='flex items-center text-xl mb-1'>
-							<FaLaptop className='mr-3 text-2xl' /> Web Development
-						</li>
-						<li className='flex items-center text-xl mb-1'>
-							<FaMobileAlt className='mr-3 text-2xl' /> Mobile App Development
-						</li>
-						<li className='flex items-center text-xl mb-1'>
-							<FiDatabase className='mr-3 text-2xl' /> Database Management
-						</li>
-					</ul>
+		<>
+			<div className='flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
+				<div className='flex flex-1 flex-col mt-6'>
+					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Skills</h3>
+					<div>
+						<ul>
+							<li className='flex items-center text-xl mb-1'>
+								<FaLaptop className='mr-3 text-2xl' /> Web Development
+							</li>
+							<li className='flex items-center text-xl mb-1'>
+								<FaMobileAlt className='mr-3 text-2xl' /> Mobile App Development
+							</li>
+							<li className='flex items-center text-xl mb-1'>
+								<FiDatabase className='mr-3 text-2xl' /> Database Management
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div className='flex flex-1 flex-col mt-6'>
+					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Languages</h3>
+					<div>
+						<ul>
+							<li className='flex items-center text-xl mb-1'>
+								<FaPhp className='mr-3 text-2xl' /> PHP
+							</li>
+							<li className='flex items-center text-xl mb-1'>
+								<DiJavascript1 className='mr-3 text-2xl' /> Javascript/Typescript
+							</li>
+							<li className='flex items-center text-xl mb-1'>
+								<GrMysql className='mr-3 text-2xl' /> MySQL
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-			<div className='flex flex-1 flex-col mt-6'>
-				<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Languages</h3>
-				<div>
-					<ul>
-						<li className='flex items-center text-xl mb-1'>
-							<FaPhp className='mr-3 text-2xl' /> PHP
-						</li>
-						<li className='flex items-center text-xl mb-1'>
-							<DiJavascript1 className='mr-3 text-2xl' /> Javascript/Typescript
-						</li>
-						<li className='flex items-center text-xl mb-1'>
-							<GrMysql className='mr-3 text-2xl' /> MySQL
-						</li>
-					</ul>
+			<div className='flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
+				<div className='flex flex-1 flex-col mt-6'>
+					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Keen to Explore</h3>
+					<div>
+						<ul>
+							<li className='flex items-center text-xl mb-1'>
+								<AiOutlineRobot className='mr-3 text-2xl' /> AI & Machine Learning
+							</li>
+							<li className='flex items-center text-xl mb-1'>
+								<MdLockOutline className='mr-3 text-2xl' /> Cybersecurity
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
