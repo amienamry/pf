@@ -143,7 +143,7 @@ const Extra = () => {
 					</ul>
 				</div>
 			</div>
-			<div className='flex flex-1 flex-col mt-6   '>
+			<div className='flex flex-1 flex-col mt-6'>
 				<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Languages</h3>
 				<div>
 					<ul>
