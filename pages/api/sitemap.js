@@ -18,11 +18,11 @@ export default async (req, res) => {
 		// 	});
 		// });
 
-		smStream.write({
-			url: `/`,
-			changefreq: 'daily',
-			priority: 0.9,
-		});
+		// smStream.write({
+		// 	url: `/`,
+		// 	changefreq: 'daily',
+		// 	priority: 0.9,
+		// });
 
 		// End sitemap stream
 		smStream.end();

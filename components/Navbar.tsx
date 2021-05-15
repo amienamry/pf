@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import { useState } from 'react';
+// import { useState } from 'react';
 import Image from 'next/image';
 
+import FreePalestine from './FreePalestine';
+
 export const Navbar = (props: { isTransparent: boolean }) => {
-	const [active, setActive] = useState(false);
+	// const [active, setActive] = useState(false);
 
 	// const handleClick = () => {
 	// 	console.log('click');
@@ -58,24 +60,5 @@ export const Navbar = (props: { isTransparent: boolean }) => {
 			</div> */}
 			</nav>
 		</>
-	);
-};
-
-const FreePalestine = () => {
-	return (
-		<a
-			href='https://quran.com/75'
-			rel='noopener noreferrer'
-			style={{
-				top: '5.5%',
-				left: '50%',
-				transform: 'translate(-50%, -50%)',
-			}}
-			className='fixed text-white z-20 animate-pulse hover:animate-none'
-			target='_blank'>
-			<h1 className='text-gradient-custom text-xl sm:text-3xl md:text-3xl lg:md:text-3xl xl:text-3xl 2xl:text-3xl 3xl:text-3xl font-bold'>
-				#FreePalestine
-			</h1>
-		</a>
 	);
 };
