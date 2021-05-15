@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/main.css';
 import '../styles/custom.css';
 import { AppProps } from 'next/app';
@@ -6,10 +6,23 @@ import { Navbar } from '../components/Navbar';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useScrollPosition } from '../hooks/useScrollPosition';
+import { useRouter } from 'next/router';
+import * as gtag from '../lib/gtag';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	const [hasVideoError, setHasVideoError] = useState<boolean>(false);
 	const [isTransparent, setTransparent] = useState<boolean>(true);
+	const router = useRouter();
+
+	useEffect(() => {
+		const handleRouteChange = (url) => {
+			gtag.pageview(url);
+		};
+		router.events.on('routeChangeComplete', handleRouteChange);
+		return () => {
+			router.events.off('routeChangeComplete', handleRouteChange);
+		};
+	}, [router.events]);
 
 	const videoError = () => {
 		setHasVideoError(true);
