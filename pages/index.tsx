@@ -124,7 +124,7 @@ const Biography = () => {
 			</h3>
 			<p className='text-xl mb-3'>
 				Fullstack Developer with {exp} years experience in designing and developing user interfaces, data
-				structure and debugging within mobile app and web technologies. Proven ability in optimizing those
+				structure and debugging within mobile app and web technologies. Proven ability in optimizing
 				functionalities that improve data retrieval and workflow efficiencies.
 			</p>
 			<p className='text-xl mb-3'>
