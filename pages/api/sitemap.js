@@ -19,8 +19,14 @@ export default async (req, res) => {
 		// });
 
 		smStream.write({
+			url: `/`,
+			changefreq: 'weekly',
+			priority: 1,
+		});
+
+		smStream.write({
 			url: `/experience`,
-			changefreq: 'daily',
+			changefreq: 'weekly',
 			priority: 0.9,
 		});
 
