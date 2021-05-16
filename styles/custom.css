@@ -4,3 +4,11 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
+
+.bg-transparent-custom {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.bg-opaque-custom {
+	background-color: rgba(0, 0, 0, 1);
+}

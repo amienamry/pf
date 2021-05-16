@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import { FaLaptop, FaMobileAlt, FaPhp, FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { FiDatabase } from 'react-icons/fi';
@@ -7,33 +6,20 @@ import { GrMysql } from 'react-icons/gr';
 import { HiOutlineMail } from 'react-icons/hi';
 import { AiOutlineRobot } from 'react-icons/ai';
 import { MdLockOutline } from 'react-icons/md';
+import MetaTag from '../components/MetaTag';
+import { MetaData } from '../types/MetaData';
 
 const App = () => {
+	const metaData: MetaData = {
+		title: 'Amien Amry | Fullstack Developer',
+		description: "You don't know item",
+		image_url: `${process.env.NEXT_APP_URL}/images/logo/logo.jpg`,
+		path: `${process.env.NEXT_APP_URL}`,
+	};
+
 	return (
 		<div className='pb-20'>
-			<Head>
-				<title>Amien Amry | Fullstack Developer</title>
-				<meta name='viewport' content='width=device-width, initial-scale=1' />
-				<meta name='description' content="You don't know item" />
-				<link rel='icon' href='/favicon.ico' />
-
-				{/* Twitter */}
-				<meta property='twitter:card' content='summary_large_image' key='twcard' />
-				<meta property='twitter:title' content='Amien Amry | Fullstack Developer' key='twtitle' />
-				<meta property='twitter:description' content="You don't know item" key='twdesc' />
-				<meta property='twitter:url' content='https://amienamry.dev' key='twurl' />
-				<meta property='twitter:image' content='https://www.amienamry.dev/images/logo/logo.jpg' key='twimage' />
-				<meta name='twitter:creator' content='@amienamry' key='twhandle' />
-				<meta name='twitter:site' content='@amienamry' key='twsite' />
-
-				{/* Open Graph */}
-				<meta property='og:url' content='https://www.amienamry.dev' key='ogurl' />
-				<meta property='og:image' content='https://www.amienamry.dev/images/logo/logo.jpg' key='ogimage' />
-				<meta property='og:site_name' content='https://amienamry.dev' key='ogsitename' />
-				<meta property='og:title' content='Amien Amry | Fullstack Developer' key='ogtitle' />
-				<meta property='og:description' content="You don't know item" key='ogdesc' />
-				<meta property='og:type' content='website' />
-			</Head>
+			<MetaTag {...metaData} />
 
 			<main className='flex flex-1 justify-center'>
 				<Content />
