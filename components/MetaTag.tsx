@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import MetaData from '../types/MetaData';
+import { MetaData } from '../types/MetaData';
 
 const MetaTag = (props: MetaData) => {
 	return (
