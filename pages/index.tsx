@@ -13,8 +13,8 @@ const App = () => {
 	const metaData: MetaData = {
 		title: 'Amien Amry | Fullstack Developer',
 		description: "You don't know item",
-		image_url: `${process.env.NEXT_APP_URL}/images/logo/logo.jpg`,
-		path: `${process.env.NEXT_APP_URL}`,
+		image_url: 'https://www.amienamry.dev/images/logo/logo.jpg',
+		path: 'https://www.amienamry.dev',
 	};
 
 	return (
