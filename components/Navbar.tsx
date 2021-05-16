@@ -11,6 +11,10 @@ export const Navbar = (props: { isTransparent: boolean }) => {
 		setActive(!active);
 	};
 
+	const close = () => {
+		setActive(false);
+	};
+
 	return (
 		<>
 			<Link href='/'>
@@ -52,14 +56,14 @@ export const Navbar = (props: { isTransparent: boolean }) => {
 					<div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start bg flex flex-col lg:h-auto pt-3'>
 						<Link href='/'>
 							<a
-								onClick={handleClick}
+								onClick={close}
 								className='lg:inline-flex lg:w-auto w-full px-3 py-3 rounded text-gray-100 text-xl items-center justify-center hover:text-gray-200'>
 								Home
 							</a>
 						</Link>
 						<Link href='/experience'>
 							<a
-								onClick={handleClick}
+								onClick={close}
 								className='lg:inline-flex lg:w-auto w-full px-3 py-3 rounded text-gray-100 text-xl items-center justify-center hover:text-gray-200'>
 								Experience
 							</a>
