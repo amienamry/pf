@@ -1,4 +1,5 @@
 import { SitemapStream, streamToPromise } from 'sitemap';
+import { format } from 'date-fns';
 
 export default async (req, res) => {
 	try {
@@ -22,12 +23,14 @@ export default async (req, res) => {
 			url: `/`,
 			changefreq: 'weekly',
 			priority: 1,
+			lastmod: format(new Date(), 'yyyy-MM-dd'),
 		});
 
 		smStream.write({
 			url: `/experience`,
 			changefreq: 'weekly',
 			priority: 0.9,
+			lastmod: format(new Date(), 'yyyy-MM-dd'),
 		});
 
 		// End sitemap stream
