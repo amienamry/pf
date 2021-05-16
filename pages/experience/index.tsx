@@ -10,8 +10,8 @@ const Experience = () => {
 	const metaData: MetaData = {
 		title: 'Amien Amry | Experience',
 		description: 'My experience',
-		image_url: 'https://www.amienamry.dev/images/logo/experience.jpg',
-		path: 'https://www.amienamry.dev/experience',
+		image_url: 'https://amienamry.dev/images/logo/experience.jpg',
+		path: 'https://amienamry.dev/experience',
 	};
 
 	return (

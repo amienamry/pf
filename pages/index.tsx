@@ -13,8 +13,8 @@ const App = () => {
 	const metaData: MetaData = {
 		title: 'Amien Amry | Fullstack Developer',
 		description: "You don't know item",
-		image_url: 'https://www.amienamry.dev/images/logo/logo.jpg',
-		path: 'https://www.amienamry.dev',
+		image_url: 'https://amienamry.dev/images/logo/logo.jpg',
+		path: 'https://amienamry.dev',
 	};
 
 	return (
