@@ -53,7 +53,7 @@ export const Navbar = (props: { isTransparent: boolean }) => {
 				</button>
 				{/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
 				<div className={`${active ? '' : 'hidden'} w-full lg:inline-flex lg:flex-grow lg:w-auto`}>
-					<div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start bg flex flex-col lg:h-auto pt-3'>
+					<div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start bg flex flex-col lg:h-auto'>
 						<Link href='/'>
 							<a
 								onClick={close}
