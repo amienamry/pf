@@ -1,7 +1,7 @@
 const FreePalestine = () => {
 	return (
 		<a
-			href='https://quran.com/75'
+			href='https://quran.com/17/4'
 			rel='noopener noreferrer'
 			style={{
 				top: '5.5%',
