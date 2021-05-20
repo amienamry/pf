@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import MetaTag from '../../components/MetaTag';
@@ -7,6 +8,7 @@ import exps from '../../mock/experience';
 import { format, isSameDay } from 'date-fns';
 
 const Experience = () => {
+	const [isAnimated, setIsAnimated] = useState<boolean>(true)
 	const metaData: MetaData = {
 		title: 'Amien Amry | Experience',
 		description: 'My experience',
@@ -14,21 +16,27 @@ const Experience = () => {
 		path: 'https://amienamry.dev/experience',
 	};
 
+	useEffect(() => {
+		setTimeout(() => {
+			setIsAnimated(false);
+		}, 1000);
+	}, []);
+
 	return (
 		<div className='pb-20'>
 			<MetaTag {...metaData} />
 
 			<main className='flex flex-1 justify-center'>
-				<Content />
+				<Content isAnimated={isAnimated} />
 			</main>
 		</div>
 	);
 };
 
-const Content = () => {
+const Content = (props: {isAnimated: boolean}) => {
 	return (
 		<div className='flex flex-1 max-w-screen-xl mt-20 p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md'>
-			<VerticalTimeline>
+			<VerticalTimeline animate={props.isAnimated}>
 				{exps.map((exp: ExperienceType, i: number) => {
 					const isLastItem = exps.length - 1 === i;
 					const date = isLastItem
