@@ -6,26 +6,20 @@ import { GrMysql } from 'react-icons/gr';
 import { HiOutlineMail } from 'react-icons/hi';
 import { AiOutlineRobot } from 'react-icons/ai';
 import { MdLockOutline } from 'react-icons/md';
-import MetaTag from '../components/MetaTag';
-import { MetaData } from '../types/MetaData';
+import { MetaDataType } from '../types/MetaData';
+import MainLayout from '../components/MainLayout';
 
 const App = () => {
-	const metaData: MetaData = {
+	const metaData: MetaDataType = {
 		title: 'Amien Amry | Fullstack Developer',
 		description: "You don't know item",
-		image_url: 'https://amienamry.dev/images/logo/logo.jpg',
+		image_url: 'https://amienamry.dev/images/logo/logo.png',
 		path: 'https://amienamry.dev',
 	};
 
 	return (
-		<div className='pb-20'>
-			<MetaTag {...metaData} />
-
-			<main className='flex flex-1 justify-center'>
-				<Content />
-			</main>
-		</div>
-	);
+		<MainLayout metaData={metaData} Content={() => <Content />} />
+	)
 };
 
 const Content = () => {

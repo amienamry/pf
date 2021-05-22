@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons';
 
-export type ExperienceType = {
+export type EducationType = {
 	year_from: Date;
 	year_to?: Date;
 	title: string;

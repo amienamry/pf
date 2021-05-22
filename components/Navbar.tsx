@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 import FreePalestine from './FreePalestine';
+import navbarList from '../mock/navbarList';
 
 export const Navbar = (props: { isTransparent: boolean }) => {
 	const [active, setActive] = useState(false);
@@ -54,20 +55,19 @@ export const Navbar = (props: { isTransparent: boolean }) => {
 				{/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
 				<div className={`${active ? '' : 'hidden'} w-full lg:inline-flex lg:flex-grow lg:w-auto`}>
 					<div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start bg flex flex-col lg:h-auto'>
-						<Link href='/'>
-							<a
-								onClick={close}
-								className='lg:inline-flex lg:w-auto w-full px-3 py-3 rounded text-gray-100 text-xl items-center justify-center hover:text-gray-200'>
-								Home
-							</a>
-						</Link>
-						<Link href='/experience'>
-							<a
-								onClick={close}
-								className='lg:inline-flex lg:w-auto w-full px-3 py-3 rounded text-gray-100 text-xl items-center justify-center hover:text-gray-200'>
-								Experience
-							</a>
-						</Link>
+						{
+							navbarList.map(nav => {
+								return (
+									<Link key={nav.path + nav.display_name} href={nav.path}>
+										<a
+											onClick={close}
+											className='lg:inline-flex lg:w-auto w-full px-3 py-3 rounded text-gray-100 text-xl items-center justify-center hover:text-gray-200'>
+											{nav.display_name}
+										</a>
+									</Link>
+								)
+							})
+						}
 					</div>
 				</div>
 			</nav>

@@ -1,8 +1,8 @@
 import { FiUser } from 'react-icons/fi';
 import { BiCalendarStar, BiCodeAlt } from 'react-icons/bi';
-import { Experience } from '../types/Experience';
+import { ExperienceType } from '../types/Experience';
 
-const exps: Experience[] = [
+const exps: ExperienceType[] = [
 	{
 		year_from: new Date('2019-10-01'),
 		year_to: new Date(),

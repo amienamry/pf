@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { MetaDataType } from '../../types/MetaData';
-import exps from '../../mock/experience';
-import Timeline from '../../components/Timeline';
 import MainLayout from '../../components/MainLayout';
+import Timeline from '../../components/Timeline';
+import edus from '../../mock/education';
+import { MetaDataType } from '../../types/MetaData';
 
-const Experience = () => {
+const Education = () => {
 	const [isAnimated, setIsAnimated] = useState<boolean>(true)
 	const metaData: MetaDataType = {
-		title: 'Amien Amry | Experience',
-		description: 'My experience',
-		image_url: 'https://amienamry.dev/images/logo/experience.jpg',
-		path: 'https://amienamry.dev/experience',
+		title: 'Amien Amry | Education',
+		description: 'My education',
+		image_url: 'https://amienamry.dev/images/logo/education.jpg',
+		path: 'https://amienamry.dev/education',
 	};
 
 	useEffect(() => {
@@ -29,9 +29,9 @@ const Experience = () => {
 const Content = (props: {isAnimated: boolean}) => {
 	return (
 		<div className='flex flex-1 max-w-screen-xl mt-20 p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md'>
-			<Timeline isAnimated={props.isAnimated} data={exps} />
+			<Timeline isAnimated={props.isAnimated} data={edus} />
 		</div>
 	)
 }
 
-export default Experience;
+export default Education;
