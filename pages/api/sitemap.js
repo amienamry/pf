@@ -2,6 +2,12 @@ import { SitemapStream, streamToPromise } from 'sitemap';
 import { format } from 'date-fns';
 
 export default async (req, res) => {
+	const paths = [
+		'/',
+		'/experience',
+		'/education',
+	];
+
 	try {
 		const smStream = new SitemapStream({
 			hostname: `https://${req.headers.host}`,
@@ -19,19 +25,23 @@ export default async (req, res) => {
 		// 	});
 		// });
 
-		smStream.write({
-			url: `/`,
-			changefreq: 'weekly',
-			priority: 1,
-			lastmod: format(new Date(), 'yyyy-MM-dd'),
-		});
-
-		smStream.write({
-			url: `/experience`,
-			changefreq: 'weekly',
-			priority: 0.9,
-			lastmod: format(new Date(), 'yyyy-MM-dd'),
-		});
+		paths.forEach((url, i) => {
+			if (i === 0) {
+				smStream.write({
+					url,
+					changefreq: 'weekly',
+					priority: 1,
+					lastmod: format(new Date(), 'yyyy-MM-dd'),
+				});
+			} else {
+				smStream.write({
+					url,
+					changefreq: 'weekly',
+					priority: 0.9,
+					lastmod: format(new Date(), 'yyyy-MM-dd'),
+				});
+			}
+		})
 
 		// End sitemap stream
 		smStream.end();

@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import { FaLaptop, FaMobileAlt, FaPhp, FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaLaptop, FaMobileAlt, FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { FiDatabase } from 'react-icons/fi';
-import { DiJavascript1 } from 'react-icons/di';
+import { DiJavascript1, DiPhp } from 'react-icons/di';
 import { GrMysql } from 'react-icons/gr';
 import { HiOutlineMail } from 'react-icons/hi';
 import { AiOutlineRobot } from 'react-icons/ai';
 import { MdLockOutline } from 'react-icons/md';
+import { IoLogoLaravel, IoLogoAngular, IoLogoReact } from 'react-icons/io5';
 import { MetaDataType } from '../types/MetaData';
 import MainLayout from '../components/MainLayout';
 
@@ -143,7 +144,7 @@ const Extra = () => {
 					<div>
 						<ul>
 							<li className='flex items-center text-xl mb-1'>
-								<FaPhp className='mr-3 text-2xl' /> PHP
+								<DiPhp className='mr-3 text-2xl' /> PHP
 							</li>
 							<li className='flex items-center text-xl mb-1'>
 								<DiJavascript1 className='mr-3 text-2xl' /> Javascript/Typescript
@@ -156,6 +157,22 @@ const Extra = () => {
 				</div>
 			</div>
 			<div className='flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
+				<div className='flex flex-1 flex-col mt-6'>
+					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Frameworks</h3>
+					<div>
+						<ul>
+							<li className='flex items-center text-xl mb-1'>
+								<IoLogoLaravel className='mr-3 text-2xl' /> Laravel
+							</li>
+							<li className='flex items-center text-xl mb-1'>
+								<IoLogoAngular className='mr-3 text-2xl' /> Angular
+							</li>
+							<li className='flex items-center text-xl mb-1'>
+								<IoLogoReact className='mr-3 text-2xl' /> React JS/Native
+							</li>
+						</ul>
+					</div>
+				</div>
 				<div className='flex flex-1 flex-col mt-6'>
 					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Keen to Explore</h3>
 					<div>
