@@ -2,5 +2,6 @@ Sitemap: https://amienamry.dev/api/sitemap
 
 User-agent: *
 Allow: /*
-
+Allow: /api/sitemap.js
 Disallow: /api/*
+Crawl-delay: 10
