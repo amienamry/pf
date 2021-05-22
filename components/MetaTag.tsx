@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import { MetaData } from '../types/MetaData';
+import { MetaDataType } from '../types/MetaData';
 
-const MetaTag = (props: MetaData) => {
+const MetaTag = (props: MetaDataType) => {
 	return (
 		<Head>
 			<title> {props.title} </title>
