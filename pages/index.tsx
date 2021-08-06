@@ -1,26 +1,32 @@
-import Image from 'next/image';
-import { FaLaptop, FaMobileAlt, FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { FiDatabase } from 'react-icons/fi';
-import { DiJavascript1, DiPhp } from 'react-icons/di';
-import { GrMysql } from 'react-icons/gr';
-import { HiOutlineMail } from 'react-icons/hi';
-import { AiOutlineRobot } from 'react-icons/ai';
-import { MdLockOutline } from 'react-icons/md';
-import { IoLogoLaravel, IoLogoAngular, IoLogoReact } from 'react-icons/io5';
-import { MetaDataType } from '../types/MetaData';
-import MainLayout from '../components/MainLayout';
+import Image from "next/image";
+import {
+	FaLaptop,
+	FaMobileAlt,
+	FaGithub,
+	FaLinkedinIn,
+	FaTwitter,
+	FaInstagram,
+} from "react-icons/fa";
+import { FiDatabase } from "react-icons/fi";
+import { DiJavascript1, DiPhp } from "react-icons/di";
+import { GrMysql } from "react-icons/gr";
+import { HiOutlineMail } from "react-icons/hi";
+import { AiOutlineRobot } from "react-icons/ai";
+import { MdLockOutline } from "react-icons/md";
+import { IoLogoLaravel, IoLogoAngular, IoLogoReact } from "react-icons/io5";
+import { MetaDataType } from "../types/MetaData";
+import MainLayout from "../components/MainLayout";
+import { differenceInYears } from "date-fns";
 
 const App = () => {
 	const metaData: MetaDataType = {
-		title: 'Amien Amry | Fullstack Developer',
+		title: "Amien Amry | Fullstack Developer",
 		description: "You don't know item",
-		image_url: 'https://amienamry.dev/images/logo/logo.png',
-		path: 'https://amienamry.dev',
+		image_url: "https://amienamry.dev/images/logo/logo.png",
+		path: "https://amienamry.dev",
 	};
 
-	return (
-		<MainLayout metaData={metaData} Content={() => <Content />} />
-	)
+	return <MainLayout metaData={metaData} Content={() => <Content />} />;
 };
 
 const Content = () => {
@@ -39,27 +45,27 @@ const Profile = () => {
 	const socials: { component: any; url: string; isUrl: boolean }[] = [
 		{
 			component: HiOutlineMail,
-			url: 'mailto:hi@amienamry.dev',
+			url: "mailto:hi@amienamry.dev",
 			isUrl: false,
 		},
 		{
 			component: FaGithub,
-			url: 'https://github.com/amienamry',
+			url: "https://github.com/amienamry",
 			isUrl: true,
 		},
 		{
 			component: FaLinkedinIn,
-			url: 'https://linkedin.com/in/amienamry',
+			url: "https://linkedin.com/in/amienamry",
 			isUrl: true,
 		},
 		{
 			component: FaTwitter,
-			url: 'https://twitter.com/amienamry',
+			url: "https://twitter.com/amienamry",
 			isUrl: true,
 		},
 		{
 			component: FaInstagram,
-			url: 'https://instagram.com/amienamry',
+			url: "https://instagram.com/amienamry",
 			isUrl: true,
 		},
 	];
@@ -76,15 +82,28 @@ const Profile = () => {
 					height={250}
 				/>
 			</div>
-			<h1 className='text-4xl font-semi-bold text-gray-100 my-1 pt-5 text-center md:text-left'>Amien Amry</h1>
-			<p className='text-xl mt-2 text-center md:text-left'>Fullstack Developer</p>
-			<p className='text-xl text-center md:text-left'>{age} &#8729; Selangor/KL</p>
+			<h1 className='text-4xl font-semi-bold text-gray-100 my-1 pt-5 text-center md:text-left'>
+				Amien Amry
+			</h1>
+			<p className='text-xl mt-2 text-center md:text-left'>
+				Fullstack Developer
+			</p>
+			<p className='text-xl text-center md:text-left'>
+				{age} &#8729; Selangor/KL
+			</p>
 
 			<div className='flex flex-1 items-stretch flex-row mt-8 mb-3'>
 				{socials.map((social, i) => {
 					return (
-						<div key={social.url + i} className='flex flex-1 justify-center mx-1'>
-							<a href={social.url} target={social.isUrl ? '_blank' : undefined} rel='noopener noreferrer'>
+						<div
+							key={social.url + i}
+							className='flex flex-1 justify-center mx-1'
+						>
+							<a
+								href={social.url}
+								target={social.isUrl ? "_blank" : undefined}
+								rel='noopener noreferrer'
+							>
 								<social.component className='text-5xl md:text-4xl lg:text-4xl xl:text-4xl min-w-full hover:opacity-80' />
 							</a>
 						</div>
@@ -96,7 +115,7 @@ const Profile = () => {
 };
 
 const Biography = () => {
-	const exp = new Date().getFullYear() - 2019;
+	const exp = differenceInYears(new Date(), new Date("2019-06-16"));
 
 	return (
 		<div className='flex flex-1 flex-col pb-5 px-3 md:px-5'>
@@ -104,14 +123,17 @@ const Biography = () => {
 				Biography
 			</h3>
 			<p className='text-xl mb-3'>
-				Fullstack Developer with {exp} years experience in designing and developing user interfaces, data
-				structure and debugging within mobile app and web technologies. Proven ability in optimizing
-				functionalities that improve data retrieval and workflow efficiencies.
+				Fullstack Developer with {exp}+ years experience in designing
+				and developing user interfaces, data structure and debugging
+				within mobile app and web technologies. Proven ability in
+				optimizing functionalities that improve data retrieval and
+				workflow efficiencies.
 			</p>
 			<p className='text-xl mb-3'>
-				Familiar with Laravel, Angular, React-JS/Native, MySQL and Object Oriented/Functional Programming.
-				Experience in common third-party APIs and passionate about giving the best design and following coding
-				practices.
+				Familiar with Laravel, Angular, React-JS/Native, MySQL and
+				Object Oriented/Functional Programming. Experience in common
+				third-party APIs and passionate about giving the best design and
+				following coding practices.
 			</p>
 
 			<Extra />
@@ -124,30 +146,38 @@ const Extra = () => {
 		<>
 			<div className='flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
 				<div className='flex flex-1 flex-col mt-6'>
-					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Skills</h3>
+					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
+						Skills
+					</h3>
 					<div>
 						<ul>
 							<li className='flex items-center text-xl mb-1'>
-								<FaLaptop className='mr-3 text-2xl' /> Web Development
+								<FaLaptop className='mr-3 text-2xl' /> Web
+								Development
 							</li>
 							<li className='flex items-center text-xl mb-1'>
-								<FaMobileAlt className='mr-3 text-2xl' /> Mobile App Development
+								<FaMobileAlt className='mr-3 text-2xl' /> Mobile
+								App Development
 							</li>
 							<li className='flex items-center text-xl mb-1'>
-								<FiDatabase className='mr-3 text-2xl' /> Database Management
+								<FiDatabase className='mr-3 text-2xl' />{" "}
+								Database Management
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div className='flex flex-1 flex-col mt-6'>
-					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Languages</h3>
+					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
+						Languages
+					</h3>
 					<div>
 						<ul>
 							<li className='flex items-center text-xl mb-1'>
 								<DiPhp className='mr-3 text-2xl' /> PHP
 							</li>
 							<li className='flex items-center text-xl mb-1'>
-								<DiJavascript1 className='mr-3 text-2xl' /> Javascript/Typescript
+								<DiJavascript1 className='mr-3 text-2xl' />{" "}
+								Javascript/Typescript
 							</li>
 							<li className='flex items-center text-xl mb-1'>
 								<GrMysql className='mr-3 text-2xl' /> MySQL
@@ -158,30 +188,39 @@ const Extra = () => {
 			</div>
 			<div className='flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
 				<div className='flex flex-1 flex-col mt-6'>
-					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Frameworks</h3>
+					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
+						Frameworks
+					</h3>
 					<div>
 						<ul>
 							<li className='flex items-center text-xl mb-1'>
-								<IoLogoLaravel className='mr-3 text-2xl' /> Laravel
+								<IoLogoLaravel className='mr-3 text-2xl' />{" "}
+								Laravel
 							</li>
 							<li className='flex items-center text-xl mb-1'>
-								<IoLogoAngular className='mr-3 text-2xl' /> Angular
+								<IoLogoAngular className='mr-3 text-2xl' />{" "}
+								Angular
 							</li>
 							<li className='flex items-center text-xl mb-1'>
-								<IoLogoReact className='mr-3 text-2xl' /> React JS/Native
+								<IoLogoReact className='mr-3 text-2xl' /> React
+								JS/Native
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div className='flex flex-1 flex-col mt-6'>
-					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>Keen to Explore</h3>
+					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
+						Keen to Explore
+					</h3>
 					<div>
 						<ul>
 							<li className='flex items-center text-xl mb-1'>
-								<AiOutlineRobot className='mr-3 text-2xl' /> AI & Machine Learning
+								<AiOutlineRobot className='mr-3 text-2xl' /> AI
+								& Machine Learning
 							</li>
 							<li className='flex items-center text-xl mb-1'>
-								<MdLockOutline className='mr-3 text-2xl' /> Cybersecurity
+								<MdLockOutline className='mr-3 text-2xl' />{" "}
+								Cybersecurity
 							</li>
 						</ul>
 					</div>
