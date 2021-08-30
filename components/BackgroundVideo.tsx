@@ -1,7 +1,22 @@
+import React, { useRef, useEffect } from "react";
+
 const BackgroundVideo = (props: { videoError: () => void }) => {
+	const videoRef = useRef(null);
+
+	useEffect(() => {
+		const videoReplayInterval = setInterval(() => {
+			if (videoRef.current.paused || videoRef.current.ended) {
+				videoRef.current.play();
+			}
+		}, 1000);
+
+		return () => clearInterval(videoReplayInterval);
+	}, []);
+
 	return (
 		<video
 			onError={props.videoError}
+			ref={videoRef}
 			autoPlay
 			muted
 			loop
