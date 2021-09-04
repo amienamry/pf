@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
-import '../styles/main.css';
-import '../styles/custom.css';
-import { AppProps } from 'next/app';
-import { Navbar } from '../components/Navbar';
-import { useScrollPosition } from '../hooks/useScrollPosition';
-import { useRouter } from 'next/router';
-import * as ga from '../lib/gtag';
+import { useState, useEffect } from "react";
+import "../styles/main.css";
+import "../styles/custom.css";
+import { AppProps } from "next/app";
+import { Navbar } from "../components/Navbar";
+import { useScrollPosition } from "../hooks/useScrollPosition";
+import { useRouter } from "next/router";
+import * as ga from "../lib/gtag";
 
-import Error404 from '../components/Error404';
-import BackgroundVideo from '../components/BackgroundVideo';
-import CreditFooter from '../components/CreditFooter';
+import Error404 from "../components/Error404";
+import BackgroundVideo from "../components/BackgroundVideo";
+import CreditFooter from "../components/CreditFooter";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 	const [hasVideoError, setHasVideoError] = useState<boolean>(false);
 	const [isTransparent, setTransparent] = useState<boolean>(true);
 	const router = useRouter();
@@ -20,9 +20,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 		const handleRouteChange = (url) => {
 			ga.pageview(url);
 		};
-		router.events.on('routeChangeComplete', handleRouteChange);
+		router.events.on("routeChangeComplete", handleRouteChange);
 		return () => {
-			router.events.off('routeChangeComplete', handleRouteChange);
+			router.events.off("routeChangeComplete", handleRouteChange);
 		};
 	}, [router.events]);
 
@@ -41,17 +41,26 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 	return (
 		<div
 			className={`${
-				hasVideoError ? 'bg-gray-900 ' : ''
-			} relative text-gray-200 font-sans font-normal min-h-screen `}>
+				hasVideoError ? "bg-gray-900 " : ""
+			} relative text-gray-200 font-sans font-normal min-h-screen `}
+		>
 			{pageProps?.statusCode === 404 && <Error404 />}
 
-			{pageProps?.statusCode !== 404 && <BackgroundVideo videoError={videoError} />}
+			{pageProps?.statusCode !== 404 &&
+				componentRouter.route !== "/r/[social]" && (
+					<BackgroundVideo videoError={videoError} />
+				)}
 
-			{pageProps?.statusCode !== 404 && <Navbar isTransparent={isTransparent} />}
+			{pageProps?.statusCode !== 404 &&
+				componentRouter.route !== "/r/[social]" && (
+					<Navbar isTransparent={isTransparent} />
+				)}
 
 			<Component {...pageProps} />
 
-			{pageProps?.statusCode !== 404 && !hasVideoError && <CreditFooter />}
+			{pageProps?.statusCode !== 404 &&
+				componentRouter.route !== "/r/[social]" &&
+				!hasVideoError && <CreditFooter />}
 		</div>
 	);
 };
