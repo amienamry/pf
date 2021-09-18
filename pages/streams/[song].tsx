@@ -30,7 +30,7 @@ const Song = () => {
 	}
 
 	const metaData: MetaDataType = {
-		title: `Arai Junior | ${song?.title}`,
+		title: song?.title,
 		description: song?.description,
 		image_url: song?.img_url,
 		path: `https://amienamry.dev/streams/${song?.key}`,
