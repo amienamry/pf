@@ -38,6 +38,8 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 		[isTransparent]
 	);
 
+	const excludedRoutes = ["/r/[social]", "/streams/[song]"];
+
 	return (
 		<div
 			className={`${
@@ -47,19 +49,19 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 			{pageProps?.statusCode === 404 && <Error404 />}
 
 			{pageProps?.statusCode !== 404 &&
-				componentRouter.route !== "/r/[social]" && (
+				!excludedRoutes.includes(componentRouter.route) && (
 					<BackgroundVideo videoError={videoError} />
 				)}
 
 			{pageProps?.statusCode !== 404 &&
-				componentRouter.route !== "/r/[social]" && (
+				!excludedRoutes.includes(componentRouter.route) && (
 					<Navbar isTransparent={isTransparent} />
 				)}
 
 			<Component {...pageProps} />
 
 			{pageProps?.statusCode !== 404 &&
-				componentRouter.route !== "/r/[social]" &&
+				!excludedRoutes.includes(componentRouter.route) &&
 				!hasVideoError && <CreditFooter />}
 		</div>
 	);
