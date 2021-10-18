@@ -6,6 +6,7 @@ import {
 	FaLinkedinIn,
 	FaTwitter,
 	FaInstagram,
+	FaSpotify,
 } from "react-icons/fa";
 import { FiDatabase } from "react-icons/fi";
 import { DiJavascript1, DiPhp } from "react-icons/di";
@@ -17,6 +18,7 @@ import { IoLogoLaravel, IoLogoAngular, IoLogoReact } from "react-icons/io5";
 import { MetaDataType } from "../types/MetaData";
 import MainLayout from "../components/MainLayout";
 import { differenceInYears } from "date-fns";
+import { useRouter } from "next/router";
 
 const App = () => {
 	const metaData: MetaDataType = {
@@ -41,34 +43,60 @@ const Content = () => {
 };
 
 const Profile = () => {
+	const router = useRouter();
+
 	const age: number = new Date().getFullYear() - 1998;
-	const socials: { component: any; url: string; isUrl: boolean }[] = [
+	const socials: {
+		index?: number;
+		component: any;
+		url: string;
+		isUrl: boolean;
+	}[] = [
 		{
 			component: HiOutlineMail,
 			url: "mailto:hi@amienamry.dev",
 			isUrl: false,
 		},
 		{
+			index: 3,
 			component: FaGithub,
 			url: "https://github.com/amienamry",
 			isUrl: true,
 		},
 		{
+			index: 2,
 			component: FaLinkedinIn,
 			url: "https://linkedin.com/in/amienamry",
 			isUrl: true,
 		},
 		{
+			index: 1,
 			component: FaTwitter,
 			url: "https://twitter.com/amienamry",
 			isUrl: true,
 		},
 		{
+			index: 0,
 			component: FaInstagram,
 			url: "https://instagram.com/amienamry",
 			isUrl: true,
 		},
-	];
+		{
+			component: FaSpotify,
+			url: "https://open.spotify.com/artist/3SwgFLDekh43vfME5GUVPd",
+			isUrl: true,
+		},
+	].filter((social) => {
+		if (
+			!router.query?.src ||
+			+router.query?.src > 3 ||
+			+router.query?.src < 0
+		) {
+			return social.index !== 1;
+		}
+
+		return social.index !== +router.query?.src;
+	});
 
 	return (
 		<div className='flex flex-initial flex-col p-3 md:p-5 justify-center md:justify-start'>
