@@ -14,6 +14,11 @@
 		"isolatedModules": true,
 		"jsx": "preserve"
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/sitemap.js"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"pages/api/sitemap.xml.js"
+	],
 	"exclude": ["node_modules"]
 }
