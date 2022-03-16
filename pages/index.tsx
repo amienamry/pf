@@ -19,10 +19,11 @@ import { MetaDataType } from "../types/MetaData";
 import MainLayout from "../components/MainLayout";
 import { differenceInYears } from "date-fns";
 import { useRouter } from "next/router";
+import { useCurrentRole } from "../hooks/useCurrentRole";
 
 const App = () => {
 	const metaData: MetaDataType = {
-		title: "Amien Amry | Fullstack Developer",
+		title: `Amien Amry | ${useCurrentRole().title}`,
 		description: "You don't know item",
 		image_url: "https://amienamry.dev/images/logo/logo.png",
 		path: "https://amienamry.dev",
@@ -114,7 +115,7 @@ const Profile = () => {
 				Amien Amry
 			</h1>
 			<p className='text-xl mt-2 text-center md:text-left'>
-				Fullstack Developer
+				{useCurrentRole().title}
 			</p>
 			<p className='text-xl text-center md:text-left'>
 				{age} &#8729; Selangor/KL
@@ -149,10 +150,10 @@ const Biography = () => {
 		<div className='flex flex-1 flex-col pb-5 px-3 md:px-5'>
 			<h3 className='hidden md:block text-4xl mt-8 md:mt-3 xl:mt-3 lg:mt-3 xl:mt-3 mb-5 font-semi-bold text-gray-100'></h3>
 			<p className='text-xl mb-3'>
-				Fullstack Developer with {exp}+ years experience in designing
-				and developing user interfaces, data structure and debugging
-				within mobile app and web technologies. Proven ability in
-				optimizing functionalities that improve data retrieval and
+				{useCurrentRole().title} with {exp}+ years experience in
+				designing and developing user interfaces, data structure and
+				debugging within mobile app and web technologies. Proven ability
+				in optimizing functionalities that improve data retrieval and
 				workflow efficiencies.
 			</p>
 			<p className='text-xl mb-3'>
