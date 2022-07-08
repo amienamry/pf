@@ -5,7 +5,7 @@ import { ExperienceType } from "../types/Experience";
 const exps: ExperienceType[] = [
 	{
 		year_from: new Date("2021-12-13"),
-		year_to: new Date(),
+		year_to: new Date("2022-07-02"),
 		title: "Software Engineer",
 		company: "KSK City Labs",
 		points: ["Developed web CMS and APIs."],
