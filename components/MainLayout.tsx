@@ -1,6 +1,5 @@
-
-import { MainLayoutType } from '../types/MainLayout';
-import MetaTag from './MetaTag';
+import { MainLayoutType } from "../types/MainLayout";
+import MetaTag from "./MetaTag";
 
 const MainLayout = (props: MainLayoutType) => {
 	return (
@@ -8,10 +7,10 @@ const MainLayout = (props: MainLayoutType) => {
 			<MetaTag {...props.metaData} />
 
 			<main className='flex flex-1 justify-center'>
-                <props.Content />
+				<props.Content />
 			</main>
 		</div>
 	);
-}
+};
 
 export default MainLayout;

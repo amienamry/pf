@@ -1,4 +1,4 @@
-import { IconType } from 'react-icons';
+import { IconType } from "react-icons";
 
 export type ExperienceType = {
 	year_from: Date;
@@ -8,5 +8,6 @@ export type ExperienceType = {
 	points?: string[];
 	background_color: string;
 	background_color2?: string;
+	link?: string;
 	icon: IconType;
 };
