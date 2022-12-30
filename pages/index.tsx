@@ -4,9 +4,9 @@ import {
 	FaMobileAlt,
 	FaGithub,
 	FaLinkedinIn,
-	FaTwitter,
 	FaInstagram,
 	FaSpotify,
+	FaYoutube,
 } from "react-icons/fa";
 import { FiDatabase } from "react-icons/fi";
 import { DiJavascript1, DiPhp } from "react-icons/di";
@@ -72,8 +72,8 @@ const Profile = () => {
 		},
 		{
 			index: 1,
-			component: FaTwitter,
-			url: "https://twitter.com/amienamry",
+			component: FaYoutube,
+			url: "https://youtube.com/araijunior",
 			isUrl: true,
 		},
 		{
@@ -105,7 +105,7 @@ const Profile = () => {
 				<Image
 					priority
 					className='rounded-full'
-					src='/images/amien.jpg'
+					src='/images/amien1.jpg'
 					alt='Amien Amry'
 					width={250}
 					height={250}
@@ -157,7 +157,7 @@ const Biography = () => {
 				workflow efficiencies.
 			</p>
 			<p className='text-xl mb-3'>
-				Familiar with Laravel, Angular, React-JS/Native, MySQL and
+				Familiar with Angular, Laravel, ReactJS, React Native, MySQL and
 				Object Oriented/Functional Programming. Experience in common
 				third-party APIs and passionate about giving the best design and
 				following coding practices.
@@ -200,11 +200,11 @@ const Extra = () => {
 					<div>
 						<ul>
 							<li className='flex items-center text-xl mb-1'>
-								<DiPhp className='mr-3 text-2xl' /> PHP
+								<DiJavascript1 className='mr-3 text-2xl' />{" "}
+								JavaScript/TypeScript
 							</li>
 							<li className='flex items-center text-xl mb-1'>
-								<DiJavascript1 className='mr-3 text-2xl' />{" "}
-								Javascript/Typescript
+								<DiPhp className='mr-3 text-2xl' /> PHP
 							</li>
 							<li className='flex items-center text-xl mb-1'>
 								<GrMysql className='mr-3 text-2xl' /> MySQL
@@ -221,12 +221,12 @@ const Extra = () => {
 					<div>
 						<ul>
 							<li className='flex items-center text-xl mb-1'>
-								<IoLogoLaravel className='mr-3 text-2xl' />{" "}
-								Laravel
-							</li>
-							<li className='flex items-center text-xl mb-1'>
 								<IoLogoAngular className='mr-3 text-2xl' />{" "}
 								Angular
+							</li>
+							<li className='flex items-center text-xl mb-1'>
+								<IoLogoLaravel className='mr-3 text-2xl' />{" "}
+								Laravel
 							</li>
 							<li className='flex items-center text-xl mb-1'>
 								<IoLogoReact className='mr-3 text-2xl' /> React
