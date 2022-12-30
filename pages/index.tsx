@@ -25,7 +25,7 @@ const App = () => {
 	const metaData: MetaDataType = {
 		title: `Amien Amry | ${useCurrentRole().title}`,
 		description: "You don't know item",
-		image_url: "https://amienamry.dev/images/amien.jpg",
+		image_url: "https://amienamry.dev/images/amien1.jpg",
 		path: "https://amienamry.dev",
 	};
 
