@@ -34,7 +34,7 @@ const App = () => {
 
 const Content = () => {
 	return (
-		<div className='flex flex-1 max-w-screen-xl mt-20 p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md'>
+		<div className='flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md'>
 			{/* left */}
 			<Profile />
 			{/* right */}

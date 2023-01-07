@@ -48,7 +48,10 @@ const Timeline = (props: TimelineType) => {
 						icon={<data.icon />}
 					>
 						<span className='text-sm text-gray-100'>
-							{date} {!!duration && <span>· {duration}</span>}
+							{date}{" "}
+							{!!duration && data?.showYearDiff && (
+								<span>· {duration}</span>
+							)}
 						</span>
 
 						<h3 className='text-xl sm:text-2xl font-semibold'>

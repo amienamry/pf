@@ -1,8 +1,9 @@
-import { IconType } from 'react-icons';
+import { IconType } from "react-icons";
 
 export type EducationType = {
 	year_from: Date;
 	year_to?: Date;
+	showYearDiff?: boolean;
 	title: string;
 	company?: string;
 	points?: string[];
