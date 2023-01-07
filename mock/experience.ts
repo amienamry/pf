@@ -6,10 +6,11 @@ const exps: ExperienceType[] = [
 	{
 		year_from: new Date("2022-07-12"),
 		year_to: new Date(),
+		showYearDiff: true,
 		title: "Full Stack Developer",
 		company: "SoftwareQ",
 		points: [
-			"Designed, modified, and implemented technology solutions for clients using Angular.",
+			"Designed, implemented, and modified  technology solutions for clients using Angular.",
 		],
 		background_color: "#5A9367",
 		link: "https://softwareq.com",
@@ -18,10 +19,11 @@ const exps: ExperienceType[] = [
 	{
 		year_from: new Date("2021-12-13"),
 		year_to: new Date("2022-07-02"),
+		showYearDiff: true,
 		title: "Software Engineer",
 		company: "KSK City Labs",
 		points: [
-			"Developed core modules for API (e-Directory, Event Management, e-Document, and Payment - iPay88); consumed by 8Conlay (residence assistant) mobile app.",
+			"Developed core modules for API (e-Directory, Event Management, e-Document, and Payment - iPay88) using Laravel; consumed by 8Conlay (residence assistant) mobile app.",
 		],
 		background_color: "#5A9367",
 		link: "https://kskcitylabs.com",
@@ -30,6 +32,7 @@ const exps: ExperienceType[] = [
 	{
 		year_from: new Date("2019-10-01"),
 		year_to: new Date("2021-12-06"),
+		showYearDiff: true,
 		title: "Full Stack Developer",
 		company: "GogoKids",
 		points: [
@@ -46,10 +49,11 @@ const exps: ExperienceType[] = [
 	{
 		year_from: new Date("2018-09-01"),
 		year_to: new Date("2019-06-30"),
+		showYearDiff: true,
 		title: "Admin",
 		company: "J&T Express (Outlet)",
 		points: [
-			"Developed a simple customer CRUD application (JavaScript and PHP) locally that increased work efficiency by 50%.",
+			"Developed a simple customer CRUD application (JavaScript and PHP) that increased work efficiency by 50%.",
 			"Served walk-in customers, managed packages, supervised monetary transactions and prepared daily sales reports.",
 			"Marketed and secured prospects into a VIP customer that increased the outlet's revenue by 150% in 6 months.",
 		],

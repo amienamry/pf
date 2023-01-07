@@ -3,6 +3,7 @@ import { IconType } from "react-icons";
 export type ExperienceType = {
 	year_from: Date;
 	year_to?: Date;
+	showYearDiff?: boolean;
 	title: string;
 	company?: string;
 	points?: string[];
