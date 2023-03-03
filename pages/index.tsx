@@ -150,7 +150,7 @@ const Biography = () => {
 		<div className='flex flex-1 flex-col pb-5 px-3 md:px-5'>
 			<h3 className='hidden md:block text-4xl mt-8 md:mt-3 xl:mt-3 lg:mt-3 xl:mt-3 mb-5 font-semi-bold text-gray-100'></h3>
 			<p className='text-xl mb-3'>
-				{useCurrentRole().title} with {exp}+ years experience in
+				{useCurrentRole().title} with {exp}+ years of experience in
 				designing and developing user interfaces, data structure and
 				debugging within mobile app and web technologies. Proven ability
 				in optimizing functionalities that improve data retrieval and
