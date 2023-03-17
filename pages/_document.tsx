@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
 	render() {
@@ -10,6 +10,11 @@ export default class MyDocument extends Document {
 						async
 						src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
 					/>
+					<script
+						async
+						src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1152873338537811"
+						crossOrigin="anonymous"
+					></script>
 					<script
 						dangerouslySetInnerHTML={{
 							__html: `
