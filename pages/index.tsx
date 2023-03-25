@@ -34,7 +34,7 @@ const App = () => {
 
 const Content = () => {
 	return (
-		<div className='flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md'>
+		<div className="flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md">
 			{/* left */}
 			<Profile />
 			{/* right */}
@@ -100,40 +100,40 @@ const Profile = () => {
 	});
 
 	return (
-		<div className='flex flex-initial flex-col p-3 md:p-5 justify-center md:justify-start'>
-			<div className='flex justify-center'>
+		<div className="flex flex-initial flex-col p-3 md:p-5 justify-center md:justify-start">
+			<div className="flex justify-center">
 				<Image
 					priority
-					className='rounded-full'
-					src='/images/amien1.jpg'
-					alt='Amien Amry'
+					className="rounded-full"
+					src="/images/amien1.jpg"
+					alt="Amien Amry"
 					width={250}
 					height={250}
 				/>
 			</div>
-			<h1 className='text-4xl font-semi-bold text-gray-100 my-1 pt-5 text-center md:text-left'>
+			<h1 className="text-4xl font-semi-bold text-gray-100 my-1 pt-5 text-center md:text-left">
 				Amien Amry
 			</h1>
-			<p className='text-xl mt-2 text-center md:text-left'>
+			<p className="text-xl mt-2 text-center md:text-left">
 				{useCurrentRole().title}
 			</p>
-			<p className='text-xl text-center md:text-left'>
+			<p className="text-xl text-center md:text-left">
 				{age} &#8729; Selangor/KL
 			</p>
 
-			<div className='flex flex-1 items-stretch flex-row mt-8 mb-3'>
+			<div className="flex flex-1 items-stretch flex-row mt-8 mb-3">
 				{socials.map((social, i) => {
 					return (
 						<div
 							key={social.url + i}
-							className='flex flex-1 justify-center mx-1'
+							className="flex flex-1 justify-center mx-1"
 						>
 							<a
 								href={social.url}
 								target={social.isUrl ? "_blank" : undefined}
-								rel='noopener noreferrer'
+								rel="noopener noreferrer"
 							>
-								<social.component className='text-5xl md:text-4xl lg:text-4xl xl:text-4xl min-w-full hover:opacity-80' />
+								<social.component className="text-5xl md:text-4xl lg:text-4xl xl:text-4xl min-w-full hover:opacity-80" />
 							</a>
 						</div>
 					);
@@ -147,18 +147,18 @@ const Biography = () => {
 	const exp = differenceInYears(new Date(), new Date("2019-06-16"));
 
 	return (
-		<div className='flex flex-1 flex-col pb-5 px-3 md:px-5'>
-			<h3 className='hidden md:block text-4xl mt-8 md:mt-3 xl:mt-3 lg:mt-3 xl:mt-3 mb-5 font-semi-bold text-gray-100'></h3>
-			<p className='text-xl mb-3'>
+		<div className="flex flex-1 flex-col pb-5 px-3 md:px-5">
+			<h3 className="hidden md:block text-4xl mt-8 md:mt-3 xl:mt-3 lg:mt-3 xl:mt-3 mb-5 font-semi-bold text-gray-100"></h3>
+			<p className="text-xl mb-3">
 				{useCurrentRole().title} with {exp}+ years of experience in
 				designing and developing user interfaces, data structure and
 				debugging within mobile app and web technologies. Proven ability
 				in optimizing functionalities that improve data retrieval and
 				workflow efficiencies.
 			</p>
-			<p className='text-xl mb-3'>
+			<p className="text-xl mb-3">
 				Familiar with Angular, Laravel, ReactJS, React Native, MySQL and
-				Object Oriented/Functional Programming. Experience in common
+				Object Oriented/Functional Programming. Experienced in various
 				third-party APIs and passionate about giving the best design and
 				following coding practices.
 			</p>
@@ -171,82 +171,82 @@ const Biography = () => {
 const Extra = () => {
 	return (
 		<>
-			<div className='flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
-				<div className='flex flex-1 flex-col mt-6'>
-					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
+			<div className="flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
+				<div className="flex flex-1 flex-col mt-6">
+					<h3 className="text-4xl mt-3 mb-5 font-semi-bold text-gray-100">
 						Skills
 					</h3>
 					<div>
 						<ul>
-							<li className='flex items-center text-xl mb-1'>
-								<FaLaptop className='mr-3 text-2xl' /> Web
+							<li className="flex items-center text-xl mb-1">
+								<FaLaptop className="mr-3 text-2xl" /> Web
 								Development
 							</li>
-							<li className='flex items-center text-xl mb-1'>
-								<FaMobileAlt className='mr-3 text-2xl' /> Mobile
+							<li className="flex items-center text-xl mb-1">
+								<FaMobileAlt className="mr-3 text-2xl" /> Mobile
 								App Development
 							</li>
-							<li className='flex items-center text-xl mb-1'>
-								<FiDatabase className='mr-3 text-2xl' />{" "}
+							<li className="flex items-center text-xl mb-1">
+								<FiDatabase className="mr-3 text-2xl" />{" "}
 								Database Management
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div className='flex flex-1 flex-col mt-6'>
-					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
+				<div className="flex flex-1 flex-col mt-6">
+					<h3 className="text-4xl mt-3 mb-5 font-semi-bold text-gray-100">
 						Languages
 					</h3>
 					<div>
 						<ul>
-							<li className='flex items-center text-xl mb-1'>
-								<DiJavascript1 className='mr-3 text-2xl' />{" "}
+							<li className="flex items-center text-xl mb-1">
+								<DiJavascript1 className="mr-3 text-2xl" />{" "}
 								JavaScript/TypeScript
 							</li>
-							<li className='flex items-center text-xl mb-1'>
-								<DiPhp className='mr-3 text-2xl' /> PHP
+							<li className="flex items-center text-xl mb-1">
+								<DiPhp className="mr-3 text-2xl" /> PHP
 							</li>
-							<li className='flex items-center text-xl mb-1'>
-								<GrMysql className='mr-3 text-2xl' /> MySQL
+							<li className="flex items-center text-xl mb-1">
+								<GrMysql className="mr-3 text-2xl" /> MySQL
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			<div className='flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
-				<div className='flex flex-1 flex-col mt-6'>
-					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
+			<div className="flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
+				<div className="flex flex-1 flex-col mt-6">
+					<h3 className="text-4xl mt-3 mb-5 font-semi-bold text-gray-100">
 						Frameworks
 					</h3>
 					<div>
 						<ul>
-							<li className='flex items-center text-xl mb-1'>
-								<IoLogoAngular className='mr-3 text-2xl' />{" "}
+							<li className="flex items-center text-xl mb-1">
+								<IoLogoAngular className="mr-3 text-2xl" />{" "}
 								Angular
 							</li>
-							<li className='flex items-center text-xl mb-1'>
-								<IoLogoLaravel className='mr-3 text-2xl' />{" "}
+							<li className="flex items-center text-xl mb-1">
+								<IoLogoLaravel className="mr-3 text-2xl" />{" "}
 								Laravel
 							</li>
-							<li className='flex items-center text-xl mb-1'>
-								<IoLogoReact className='mr-3 text-2xl' /> React
+							<li className="flex items-center text-xl mb-1">
+								<IoLogoReact className="mr-3 text-2xl" /> React
 								JS/Native
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div className='flex flex-1 flex-col mt-6'>
-					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
+				<div className="flex flex-1 flex-col mt-6">
+					<h3 className="text-4xl mt-3 mb-5 font-semi-bold text-gray-100">
 						Keen to Explore
 					</h3>
 					<div>
 						<ul>
-							<li className='flex items-center text-xl mb-1'>
-								<AiOutlineRobot className='mr-3 text-2xl' /> AI
+							<li className="flex items-center text-xl mb-1">
+								<AiOutlineRobot className="mr-3 text-2xl" /> AI
 								& Machine Learning
 							</li>
-							<li className='flex items-center text-xl mb-1'>
-								<MdLockOutline className='mr-3 text-2xl' />{" "}
+							<li className="flex items-center text-xl mb-1">
+								<MdLockOutline className="mr-3 text-2xl" />{" "}
 								Cybersecurity
 							</li>
 						</ul>

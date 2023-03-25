@@ -1,17 +1,32 @@
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect, useEffect } from "react";
 
 const isBrowser = typeof window !== `undefined`;
+const useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect;
 
-const getScrollPosition = ({ element, useWindow }: { element?: any; useWindow?: any }) => {
+const getScrollPosition = ({
+	element,
+	useWindow,
+}: {
+	element?: any;
+	useWindow?: any;
+}) => {
 	if (!isBrowser) return { x: 0, y: 0 };
 
 	const target = element ? element.current : document.body;
 	const position = target.getBoundingClientRect();
 
-	return useWindow ? { x: window.scrollX, y: window.scrollY } : { x: position.left, y: position.top };
+	return useWindow
+		? { x: window.scrollX, y: window.scrollY }
+		: { x: position.left, y: position.top };
 };
 
-export const useScrollPosition = (effect, deps, element = null, useWindow = null, wait = null) => {
+export const useScrollPosition = (
+	effect,
+	deps,
+	element = null,
+	useWindow = null,
+	wait = null
+) => {
 	const position = useRef(getScrollPosition({ useWindow }));
 
 	let throttleTimeout = null;
@@ -23,7 +38,7 @@ export const useScrollPosition = (effect, deps, element = null, useWindow = null
 		throttleTimeout = null;
 	};
 
-	useLayoutEffect(() => {
+	useIsomorphicLayoutEffect(() => {
 		const handleScroll = () => {
 			if (wait) {
 				if (throttleTimeout === null) {
@@ -34,8 +49,8 @@ export const useScrollPosition = (effect, deps, element = null, useWindow = null
 			}
 		};
 
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener("scroll", handleScroll);
 
-		return () => window.removeEventListener('scroll', handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
 	}, deps);
 };
