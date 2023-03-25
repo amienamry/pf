@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import "../styles/main.css";
-import "../styles/custom.css";
+import "../styles/global.css";
 import { AppProps } from "next/app";
 import { Navbar } from "../components/Navbar";
 import { useScrollPosition } from "../hooks/useScrollPosition";
