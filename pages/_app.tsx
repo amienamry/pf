@@ -2,17 +2,14 @@ import { useState, useEffect } from "react";
 import "../styles/global.css";
 import { AppProps } from "next/app";
 import { Navbar } from "../components/Navbar";
-import { useScrollPosition } from "../hooks/useScrollPosition";
 import { useRouter } from "next/router";
 import * as ga from "../lib/gtag";
-
 import Error404 from "../components/Error404";
 import BackgroundVideo from "../components/BackgroundVideo";
 import CreditFooter from "../components/CreditFooter";
 
 const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 	const [hasVideoError, setHasVideoError] = useState<boolean>(false);
-	const [isTransparent, setTransparent] = useState<boolean>(true);
 	const router = useRouter();
 
 	useEffect(() => {
@@ -28,14 +25,6 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 	const videoError = () => {
 		setHasVideoError(true);
 	};
-
-	useScrollPosition(
-		({ currPos }) => {
-			const isShow: boolean = currPos.y > -35;
-			if (isShow !== isTransparent) setTransparent(isShow);
-		},
-		[isTransparent]
-	);
 
 	const excludedRoutes = ["/r/[social]", "/streams/[song]"];
 
@@ -53,9 +42,7 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 				)}
 
 			{pageProps?.statusCode !== 404 &&
-				!excludedRoutes.includes(componentRouter.route) && (
-					<Navbar isTransparent={isTransparent} />
-				)}
+				!excludedRoutes.includes(componentRouter.route) && <Navbar />}
 
 			<Component {...pageProps} />
 

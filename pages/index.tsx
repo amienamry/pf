@@ -1,20 +1,12 @@
 import Image from "next/image";
 import {
-	FaLaptop,
-	FaMobileAlt,
 	FaGithub,
 	FaLinkedinIn,
 	FaInstagram,
 	FaSpotify,
 	FaYoutube,
 } from "react-icons/fa";
-import { FiDatabase } from "react-icons/fi";
-import { DiJavascript1, DiPhp } from "react-icons/di";
-import { GrMysql } from "react-icons/gr";
 import { HiOutlineMail } from "react-icons/hi";
-import { AiOutlineRobot } from "react-icons/ai";
-import { MdLockOutline } from "react-icons/md";
-import { IoLogoLaravel, IoLogoAngular, IoLogoReact } from "react-icons/io5";
 import { MetaDataType } from "../types/MetaData";
 import MainLayout from "../components/MainLayout";
 import { differenceInYears } from "date-fns";
@@ -22,6 +14,7 @@ import { useRouter } from "next/router";
 import { useCurrentRole } from "../hooks/useCurrentRole";
 import Experience from "./experience";
 import Education from "./education";
+import ExtraDetails from "../components/ExtraDetails";
 
 const App = () => {
 	const metaData: MetaDataType = {
@@ -175,97 +168,8 @@ const Biography = () => {
 				following coding practices.
 			</p>
 
-			<Extra />
+			<ExtraDetails />
 		</div>
-	);
-};
-
-const Extra = () => {
-	return (
-		<>
-			<div className="flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
-				<div className="flex flex-1 flex-col mt-6">
-					<h3 className="text-4xl mt-3 mb-5 font-semi-bold text-gray-100">
-						Skills
-					</h3>
-					<div>
-						<ul>
-							<li className="flex items-center text-xl mb-1">
-								<FaLaptop className="mr-3 text-2xl" /> Web
-								Development
-							</li>
-							<li className="flex items-center text-xl mb-1">
-								<FaMobileAlt className="mr-3 text-2xl" /> Mobile
-								App Development
-							</li>
-							<li className="flex items-center text-xl mb-1">
-								<FiDatabase className="mr-3 text-2xl" />{" "}
-								Database Management
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div className="flex flex-1 flex-col mt-6">
-					<h3 className="text-4xl mt-3 mb-5 font-semi-bold text-gray-100">
-						Languages
-					</h3>
-					<div>
-						<ul>
-							<li className="flex items-center text-xl mb-1">
-								<DiJavascript1 className="mr-3 text-2xl" />{" "}
-								JavaScript/TypeScript
-							</li>
-							<li className="flex items-center text-xl mb-1">
-								<DiPhp className="mr-3 text-2xl" /> PHP
-							</li>
-							<li className="flex items-center text-xl mb-1">
-								<GrMysql className="mr-3 text-2xl" /> MySQL
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div className="flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
-				<div className="flex flex-1 flex-col mt-6">
-					<h3 className="text-4xl mt-3 mb-5 font-semi-bold text-gray-100">
-						Frameworks
-					</h3>
-					<div>
-						<ul>
-							<li className="flex items-center text-xl mb-1">
-								<IoLogoAngular className="mr-3 text-2xl" />{" "}
-								Angular
-							</li>
-							<li className="flex items-center text-xl mb-1">
-								<IoLogoLaravel className="mr-3 text-2xl" />{" "}
-								Laravel
-							</li>
-							<li className="flex items-center text-xl mb-1">
-								<IoLogoReact className="mr-3 text-2xl" /> React
-								JS/Native
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div className="flex flex-1 flex-col mt-6">
-					<h3 className="text-4xl mt-3 mb-5 font-semi-bold text-gray-100">
-						Keen to Explore
-					</h3>
-					<div>
-						<ul>
-							<li className="flex items-center text-xl mb-1">
-								<AiOutlineRobot className="mr-3 text-2xl" /> AI
-								& Machine Learning
-							</li>
-							<li className="flex items-center text-xl mb-1">
-								<MdLockOutline className="mr-3 text-2xl" />{" "}
-								Cybersecurity
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</>
 	);
 };
 
