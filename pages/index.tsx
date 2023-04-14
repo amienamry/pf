@@ -20,6 +20,8 @@ import MainLayout from "../components/MainLayout";
 import { differenceInYears } from "date-fns";
 import { useRouter } from "next/router";
 import { useCurrentRole } from "../hooks/useCurrentRole";
+import Experience from "./experience";
+import Education from "./education";
 
 const App = () => {
 	const metaData: MetaDataType = {
@@ -34,11 +36,21 @@ const App = () => {
 
 const Content = () => {
 	return (
-		<div className="flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md">
-			{/* left */}
-			<Profile />
-			{/* right */}
-			<Biography />
+		<div className="flex flex-col flex-1 max-w-screen-xl mt-20 bg-black bg-opacity-40 rounded-md">
+			<div className="flex flex-1 p-2.5 sm:p-5 flex-col md:flex-row">
+				{/* left */}
+				<Profile />
+				{/* right */}
+				<Biography />
+			</div>
+
+			<BasicWrapper marginClassName="mt-2" title="Experience">
+				<Experience asChild />
+			</BasicWrapper>
+
+			<BasicWrapper marginClassName="mt-12 sm:mt-20" title="Education">
+				<Education asChild />
+			</BasicWrapper>
 		</div>
 	);
 };
@@ -254,6 +266,20 @@ const Extra = () => {
 				</div>
 			</div>
 		</>
+	);
+};
+
+const BasicWrapper = (props) => {
+	return (
+		<div
+			className={`flex flex-col flex-1 p-2.5 sm:p-0 ${props.marginClassName}`}
+		>
+			<h3 className="text-4xl md:text-center ml-3 sm:ml-8 md:ml-0 mb-6 font-semi-bold text-gray-100">
+				{props.title}
+			</h3>
+
+			{props.children}
+		</div>
 	);
 };
 

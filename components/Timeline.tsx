@@ -8,7 +8,7 @@ import { format, intervalToDuration, isSameDay } from "date-fns";
 
 const Timeline = (props: TimelineType) => {
 	return (
-		<VerticalTimeline animate={props.isAnimated}>
+		<VerticalTimeline animate={props.isAnimated ?? false}>
 			{props.data.map((data, i: number) => {
 				const isLastItem = props.data.length - 1 === i;
 
@@ -47,40 +47,40 @@ const Timeline = (props: TimelineType) => {
 						}}
 						icon={<data.icon />}
 					>
-						<span className='text-sm text-gray-100'>
+						<span className="text-sm text-gray-100">
 							{date}{" "}
 							{!!duration && data?.showYearDiff && (
 								<span>· {duration}</span>
 							)}
 						</span>
 
-						<h3 className='text-xl sm:text-2xl font-semibold'>
+						<h3 className="text-xl sm:text-2xl font-semibold">
 							{data?.title}
 						</h3>
 
 						{!isLastItem && !!data.link && (
 							<a
-								className='text-lg sm:text-xl'
+								className="text-lg sm:text-xl"
 								href={data.link}
-								target='_blank'
-								rel='noopener noreferrer'
+								target="_blank"
+								rel="noopener noreferrer"
 							>
 								{data.company}
 							</a>
 						)}
 						{!isLastItem && !data.link && (
-							<h4 className='text-lg sm:text-xl'>
+							<h4 className="text-lg sm:text-xl">
 								{data?.company}
 							</h4>
 						)}
 
 						{!isLastItem && (
-							<ul className='list-disc pl-5'>
+							<ul className="list-disc pl-5">
 								{data?.points.map((point, i) => {
 									return (
 										<li
 											key={point + i.toString()}
-											className='text-lg sm:text-xl text-white my-3'
+											className="text-lg sm:text-xl text-white my-3"
 										>
 											{point}
 										</li>

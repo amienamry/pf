@@ -4,8 +4,10 @@ import Timeline from "../../components/Timeline";
 import edus from "../../mock/education";
 import { MetaDataType } from "../../types/MetaData";
 
-const Education = () => {
-	const [isAnimated, setIsAnimated] = useState<boolean>(true);
+const Education = ({ asChild }: { asChild?: boolean }) => {
+	const isChild = asChild !== undefined && asChild;
+
+	const [isAnimated, setIsAnimated] = useState<boolean>(!isChild);
 	const metaData: MetaDataType = {
 		title: "Amien Amry | Education",
 		description: "My education",
@@ -14,12 +16,18 @@ const Education = () => {
 	};
 
 	useEffect(() => {
+		if (isChild) return;
+
 		setTimeout(() => {
 			setIsAnimated(false);
 		}, 500);
 
 		return;
 	}, []);
+
+	if (isChild) {
+		return <Timeline data={edus} />;
+	}
 
 	return (
 		<MainLayout
@@ -31,7 +39,7 @@ const Education = () => {
 
 const Content = (props: { isAnimated: boolean }) => {
 	return (
-		<div className='flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md'>
+		<div className="flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md">
 			<Timeline isAnimated={props.isAnimated} data={edus} />
 		</div>
 	);

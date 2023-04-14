@@ -4,8 +4,10 @@ import exps from "../../mock/experience";
 import Timeline from "../../components/Timeline";
 import MainLayout from "../../components/MainLayout";
 
-const Experience = () => {
-	const [isAnimated, setIsAnimated] = useState<boolean>(true);
+const Experience = ({ asChild }: { asChild?: boolean }) => {
+	const isChild = asChild !== undefined && asChild;
+
+	const [isAnimated, setIsAnimated] = useState<boolean>(!isChild);
 	const metaData: MetaDataType = {
 		title: "Amien Amry | Experience",
 		description: "My experience",
@@ -14,12 +16,18 @@ const Experience = () => {
 	};
 
 	useEffect(() => {
+		if (isChild) return;
+
 		setTimeout(() => {
 			setIsAnimated(false);
 		}, 500);
 
 		return;
 	}, []);
+
+	if (isChild) {
+		return <Timeline data={exps} />;
+	}
 
 	return (
 		<MainLayout
@@ -31,7 +39,7 @@ const Experience = () => {
 
 const Content = (props: { isAnimated: boolean }) => {
 	return (
-		<div className='flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md'>
+		<div className="flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md">
 			<Timeline isAnimated={props.isAnimated} data={exps} />
 		</div>
 	);
