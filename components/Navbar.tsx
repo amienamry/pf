@@ -4,9 +4,19 @@ import Image from "next/image";
 
 import FreePalestine from "./FreePalestine";
 import navbarList from "../mock/navbarList";
+import { useScrollPosition } from "../hooks/useScrollPosition";
 
-export const Navbar = (props: { isTransparent: boolean }) => {
+export const Navbar = () => {
 	const [active, setActive] = useState(false);
+	const [isTransparent, setTransparent] = useState<boolean>(true);
+
+	useScrollPosition(
+		({ currPos }) => {
+			const isShow: boolean = currPos.y > -35;
+			if (isShow !== isTransparent) setTransparent(isShow);
+		},
+		[isTransparent]
+	);
 
 	const handleClick = () => {
 		setActive(!active);
@@ -38,7 +48,7 @@ export const Navbar = (props: { isTransparent: boolean }) => {
 					transitionDuration: "0.5s",
 				}}
 				className={`flex items-center flex-wrap p-3 fixed w-full z-10 bg-black ${
-					active || !props.isTransparent
+					active || !isTransparent
 						? "bg-opaque-custom"
 						: "bg-transparent-custom"
 				}`}
