@@ -137,6 +137,7 @@ const Profile = () => {
 								href={social.url}
 								target={social.isUrl ? "_blank" : undefined}
 								rel="noopener noreferrer"
+								className="h-fit"
 							>
 								<social.component className="text-5xl md:text-4xl lg:text-4xl xl:text-4xl min-w-full hover:opacity-80" />
 							</a>
@@ -162,7 +163,7 @@ const Biography = () => {
 				workflow efficiencies.
 			</p>
 			<p className="text-xl mb-3">
-				Familiar with Angular, Laravel, ReactJS, React Native, MySQL and
+				Familiar with Angular, Laravel, Next JS, React Native, MySQL and
 				Object Oriented/Functional Programming. Experienced in various
 				third-party APIs and passionate about giving the best design and
 				following coding practices.

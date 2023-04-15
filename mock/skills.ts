@@ -1,18 +1,12 @@
-import { AiOutlineApi } from "react-icons/ai";
 import { BiTestTube } from "react-icons/bi";
-import { DiTerminal } from "react-icons/di";
-import {
-	FaArrowsAltH,
-	FaLaptop,
-	FaMobileAlt,
-	FaStream,
-	FaUsers,
-	FaWaveSquare,
-} from "react-icons/fa";
-import { FiDatabase } from "react-icons/fi";
+import { TiFlowSwitch } from "react-icons/ti";
+import { FaLaptop, FaMobileAlt, FaUsers } from "react-icons/fa";
+import { FiDatabase, FiTerminal } from "react-icons/fi";
+import { GiLifeInTheBalance, GiSoundWaves } from "react-icons/gi";
 import { MdDataObject } from "react-icons/md";
-import { VscDebugContinue } from "react-icons/vsc";
+import { TbApi, TbBinaryTree } from "react-icons/tb";
 import { Extra } from "../types/Extra";
+import { BsInfinity } from "react-icons/bs";
 
 export const skills: Extra[] = [
 	{
@@ -33,27 +27,31 @@ export const skills: Extra[] = [
 	},
 	{
 		name: "RESTful API",
-		icon: AiOutlineApi,
+		icon: TbApi,
 	},
 	{
 		name: "State Management",
-		icon: FaStream,
+		icon: TiFlowSwitch,
 	},
 	{
-		name: "Shell Scripting",
-		icon: DiTerminal,
+		name: "Linux CLI",
+		icon: FiTerminal,
 	},
 	{
 		name: "CI/CD",
-		icon: VscDebugContinue,
+		icon: BsInfinity,
 	},
 	{
-		name: "Unit & E2E Testing",
+		name: "Unit/E2E Testing",
 		icon: BiTestTube,
 	},
 	{
 		name: "Domain-Driven Design",
-		icon: FaArrowsAltH,
+		icon: TbBinaryTree,
+	},
+	{
+		name: "Honesty & Integrity",
+		icon: GiLifeInTheBalance,
 	},
 	{
 		name: "Teamwork & Leadership",
@@ -61,6 +59,6 @@ export const skills: Extra[] = [
 	},
 	{
 		name: "Audio Engineering",
-		icon: FaWaveSquare,
+		icon: GiSoundWaves,
 	},
 ];
