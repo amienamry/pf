@@ -1,5 +1,5 @@
 import { AiFillGithub } from "react-icons/ai";
-import { DiJavascript1, DiJqueryLogo } from "react-icons/di";
+import { DiGit, DiJavascript1, DiJqueryLogo } from "react-icons/di";
 import { FaDocker, FaRegMoneyBillAlt } from "react-icons/fa";
 import { IoLogoAngular, IoLogoLaravel, IoLogoReact } from "react-icons/io5";
 import { RxVercelLogo } from "react-icons/rx";
@@ -32,6 +32,10 @@ export const frameworks: Extra[] = [
 	{
 		name: "React Native",
 		icon: IoLogoReact,
+	},
+	{
+		name: "Git",
+		icon: DiGit,
 	},
 	{
 		name: "Tailwind",

@@ -1,5 +1,5 @@
 import { AiFillHtml5 } from "react-icons/ai";
-import { DiJavascript1, DiPhp, DiCss3, DiGit } from "react-icons/di";
+import { DiJavascript1, DiPhp, DiCss3 } from "react-icons/di";
 import { GrMysql } from "react-icons/gr";
 import { SiCsharp } from "react-icons/si";
 import { Extra } from "../types/Extra";
@@ -24,10 +24,6 @@ export const languages: Extra[] = [
 	{
 		name: "CSS",
 		icon: DiCss3,
-	},
-	{
-		name: "Git",
-		icon: DiGit,
 	},
 	{
 		name: "C#",
