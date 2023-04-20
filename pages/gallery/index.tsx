@@ -2,9 +2,9 @@ import MainLayout from "../../components/MainLayout";
 import { MetaDataType } from "../../types/MetaData";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { shuffle } from "../../lib/ArrayHelper";
-
-const images = shuffle(Array.from(Array(72).keys()));
+import { useImagePreview } from "../../hooks/useImagePreview";
+import { ImagePreview } from "../../components/ImagePreview";
+import { images as IMAGES } from "../../mock/images";
 
 const Gallery = () => {
 	const metaData: MetaDataType = {
@@ -18,13 +18,28 @@ const Gallery = () => {
 };
 
 const Content = () => {
+	const [images, setImages] = useState([]);
+	const { path, isOpen, isLoading, openPreview, closePreview, loadComplete } =
+		useImagePreview();
 	const [size, setSize] = useState(0);
 	const imgContainerRef = useRef<HTMLDivElement>();
 
-	useEffect(() => {
+	const handleWidth = () => {
 		const containerWidth =
 			imgContainerRef.current.getBoundingClientRect().width;
 		setSize(containerWidth / 3);
+	};
+
+	useEffect(() => {
+		setImages(IMAGES);
+
+		window.addEventListener("resize", handleWidth);
+
+		return () => window.removeEventListener("resize", handleWidth);
+	}, []);
+
+	useEffect(() => {
+		handleWidth();
 	}, [imgContainerRef]);
 
 	return (
@@ -34,27 +49,37 @@ const Content = () => {
 				className="flex flex-row flex-wrap w-full mt-3 sm:mt-12"
 			>
 				{images.map((image) => {
-					const name = `amienamry${image}.jpeg`;
 					return (
 						<div
-							key={name}
-							className="relative"
+							key={image.path}
+							className="relative border border-neutral-900"
 							style={{ width: size, height: size }}
+							onClick={() => openPreview(image.path)}
 						>
 							<Image
 								fill={true}
-								src={`/images/gallery/${name}`}
-								alt={name}
+								src={image.path}
+								alt={image.path}
 								className="object-cover"
 								quality={size > 250 ? 15 : 5}
 								sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
+								placeholder="blur"
+								blurDataURL="/images/blink.svg"
 							/>
 						</div>
 					);
 				})}
 			</div>
+
+			<ImagePreview
+				path={path}
+				isOpen={isOpen}
+				isLoading={isLoading}
+				closePreview={closePreview}
+				loadComplete={loadComplete}
+			/>
 		</div>
 	);
 };
