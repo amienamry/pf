@@ -11,7 +11,7 @@ const Experience = ({ asChild }: { asChild?: boolean }) => {
 	const metaData: MetaDataType = {
 		title: "Amien Amry | Experience",
 		description: "My experience",
-		image_url: "https://amienamry.dev/images/logo/experience.jpg",
+		image_url: "https://amienamry.dev/images/logo/experience.png",
 		path: "https://amienamry.dev/experience",
 	};
 
