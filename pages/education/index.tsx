@@ -11,7 +11,7 @@ const Education = ({ asChild }: { asChild?: boolean }) => {
 	const metaData: MetaDataType = {
 		title: "Amien Amry | Education",
 		description: "My education",
-		image_url: "https://amienamry.dev/images/logo/education.jpg",
+		image_url: "https://amienamry.dev/images/logo/education.png",
 		path: "https://amienamry.dev/education",
 	};
 
