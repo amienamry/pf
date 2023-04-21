@@ -18,7 +18,6 @@ const Gallery = () => {
 };
 
 const Content = () => {
-	useImagePreview();
 	const router = useRouter();
 	const [images, setImages] = useState([]);
 	const [size, setSize] = useState(0);

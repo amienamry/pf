@@ -52,7 +52,7 @@ const Content = ({ image }: { image: PfImage }) => {
 		useImagePreview();
 
 	useEffect(() => {
-		openPreview(image.path);
+		openPreview(image);
 	}, []);
 
 	return (
