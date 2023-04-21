@@ -7,6 +7,9 @@ const nextConfig = {
 		// Enables the styled-components SWC transform
 		styledComponents: true,
 	},
+	experimental: {
+		scrollRestoration: true,
+	},
 };
 
 module.exports = nextConfig;
