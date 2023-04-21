@@ -1,7 +1,8 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export const useImagePreview = () => {
-	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const router = useRouter();
 	const [path, setPath] = useState<null | string>(null);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -19,16 +20,16 @@ export const useImagePreview = () => {
 			throw new Error("Path is empty, please provide a valid path");
 		}
 		setIsLoading(true);
-		setIsOpen(true);
 		setPath(path);
-		document.body.style.overflow = "hidden";
 	};
 
 	const closePreview = () => {
 		setIsLoading(false);
-		setIsOpen(false);
 		setPath(null);
-		document.body.style.overflow = "auto";
+
+		window.history.state.options?.shallow
+			? router.push("/gallery", undefined, { scroll: true })
+			: router.back();
 	};
 
 	const loadComplete = () => {
@@ -37,7 +38,6 @@ export const useImagePreview = () => {
 
 	return {
 		path,
-		isOpen,
 		isLoading,
 		openPreview,
 		closePreview,

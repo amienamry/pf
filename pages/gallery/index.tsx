@@ -2,9 +2,9 @@ import MainLayout from "../../components/MainLayout";
 import { MetaDataType } from "../../types/MetaData";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useImagePreview } from "../../hooks/useImagePreview";
-import { ImagePreview } from "../../components/ImagePreview";
 import { images as IMAGES } from "../../mock/images";
+import { useRouter } from "next/router";
+import { useImagePreview } from "../../hooks/useImagePreview";
 
 const Gallery = () => {
 	const metaData: MetaDataType = {
@@ -18,68 +18,84 @@ const Gallery = () => {
 };
 
 const Content = () => {
+	useImagePreview();
+	const router = useRouter();
 	const [images, setImages] = useState([]);
-	const { path, isOpen, isLoading, openPreview, closePreview, loadComplete } =
-		useImagePreview();
 	const [size, setSize] = useState(0);
+	const [minHeight, setMinHeight] = useState(5000);
+
 	const imgContainerRef = useRef<HTMLDivElement>();
 
-	const handleWidth = () => {
+	const handleSize = () => {
 		const containerWidth =
 			imgContainerRef.current.getBoundingClientRect().width;
 		setSize(containerWidth / 3);
+
+		delayedHeightChange();
+	};
+
+	const delayedHeightChange = () => {
+		setTimeout(() => {
+			setMinHeight(imgContainerRef.current.offsetHeight);
+		});
 	};
 
 	useEffect(() => {
+		delayedHeightChange();
+
+		handleSize();
+
 		setImages(IMAGES);
 
-		window.addEventListener("resize", handleWidth);
+		window.addEventListener("orientationchange", handleSize);
 
-		return () => window.removeEventListener("resize", handleWidth);
+		window.addEventListener("resize", handleSize);
+
+		return () => {
+			window.removeEventListener("orientationchange", handleSize);
+			window.removeEventListener("resize", handleSize);
+		};
 	}, []);
-
-	useEffect(() => {
-		handleWidth();
-	}, [imgContainerRef]);
 
 	return (
 		<div className="flex flex-1 max-w-screen-xl mt-16 sm:mt-20 -mb-20 px-0 pt-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md">
 			<div
-				ref={imgContainerRef}
-				className="flex flex-row flex-wrap w-full mt-3 sm:mt-12"
+				style={{
+					minHeight,
+				}}
+				className="flex w-full"
 			>
-				{images.map((image) => {
-					return (
-						<div
-							key={image.path}
-							className="relative border border-neutral-900"
-							style={{ width: size, height: size }}
-							onClick={() => openPreview(image.path)}
-						>
-							<Image
-								fill={true}
-								src={image.path}
-								alt={image.path}
-								className="object-cover"
-								quality={size > 250 ? 15 : 5}
-								sizes="(max-width: 768px) 100vw,
+				<div
+					ref={imgContainerRef}
+					className="flex flex-row flex-wrap w-full mt-3 sm:mt-12 h-fit"
+				>
+					{images.map((image) => {
+						return (
+							<div
+								key={image.id}
+								className="relative border border-neutral-900"
+								style={{ width: size, height: size }}
+								onClick={() =>
+									router.push(`/gallery/${image.id}`)
+								}
+							>
+								<Image
+									fill={true}
+									src={image.path}
+									alt={image.path}
+									className="object-cover cursor-pointer hover:blur-xs ease-in duration-100"
+									quality={size > 250 ? 15 : 5}
+									sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
-								placeholder="blur"
-								blurDataURL="/images/blink.svg"
-							/>
-						</div>
-					);
-				})}
+									placeholder="blur"
+									blurDataURL="/images/blink.svg"
+								/>
+							</div>
+						);
+					})}
+				</div>
 			</div>
-
-			<ImagePreview
-				path={path}
-				isOpen={isOpen}
-				isLoading={isLoading}
-				closePreview={closePreview}
-				loadComplete={loadComplete}
-			/>
 		</div>
 	);
 };
