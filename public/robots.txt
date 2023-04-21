@@ -1,7 +1,7 @@
-Sitemap: https://amienamry.dev/api/sitemap
+Sitemap: https://amienamry.dev/api/sitemap.xml
 
 User-agent: *
 Allow: /*
-Allow: /api/sitemap.js
+Allow: /api/sitemap.xml
 Disallow: /api/*
 Crawl-delay: 10
