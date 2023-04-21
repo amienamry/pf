@@ -2,9 +2,14 @@ import { SitemapStream, streamToPromise } from "sitemap";
 import { format } from "date-fns";
 import socialMedias from "../../mock/socialMediaList";
 import songs from "../../mock/songList";
+import { images } from "../../mock/images";
 
 export default async (req, res) => {
-	const paths = ["/", "/experience", "/education"];
+	const paths = ["/", "/experience", "/education", "/gallery"];
+
+	images.forEach((image) => {
+		paths.push(`/gallery/${image.id}`);
+	});
 
 	socialMedias.forEach((sm) => {
 		paths.push(`/r/${sm.key}`);
