@@ -17,8 +17,6 @@ const LoadingPage = () => (
 const Preview = () => {
 	const router = useRouter();
 
-	if (!router.isReady) return <LoadingPage />;
-
 	const { id } = router.query;
 
 	const img = images.find((img) => img.id === id);
@@ -65,6 +63,12 @@ const Content = ({ image }: { image: PfImage }) => {
 			loadComplete={loadComplete}
 		/>
 	);
+};
+
+export const getServerSideProps = (context) => {
+	return {
+		props: { params: context.params },
+	};
 };
 
 export default Preview;
