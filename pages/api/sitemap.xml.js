@@ -49,9 +49,8 @@ export default async (req, res) => {
 		const sitemapOutput = (await streamToPromise(smStream)).toString();
 
 		// Change headers
-		res.writeHead(200, {
-			"Content-Type": "application/xml",
-		});
+		res.setHeader("Content-Type", "application/xml; charset=utf-8");
+		res.setHeader("Cache-control", "stale-while-revalidate, s-maxage=3600");
 
 		// Display output to user
 		res.end(sitemapOutput);
