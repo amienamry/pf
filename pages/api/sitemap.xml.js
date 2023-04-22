@@ -9,6 +9,7 @@ export default async (req, res) => {
 
 	images.forEach((image) => {
 		paths.push(`/gallery/${image.id}`);
+		paths.push(image.path);
 	});
 
 	socialMedias.forEach((sm) => {
@@ -21,7 +22,7 @@ export default async (req, res) => {
 
 	try {
 		const smStream = new SitemapStream({
-			hostname: `https://${req.headers.host}`,
+			hostname: `https://amienamry.dev/`,
 		});
 
 		paths.forEach((url, i) => {
