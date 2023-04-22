@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { images as IMAGES } from "../../mock/images";
 import { useRouter } from "next/router";
-import { useImagePreview } from "../../hooks/useImagePreview";
 
 const Gallery = () => {
 	const metaData: MetaDataType = {
