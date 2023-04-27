@@ -6,7 +6,8 @@ import { GiLifeInTheBalance, GiSoundWaves } from "react-icons/gi";
 import { MdDataObject } from "react-icons/md";
 import { TbApi, TbBinaryTree } from "react-icons/tb";
 import { Extra } from "../types/Extra";
-import { BsInfinity } from "react-icons/bs";
+import { BsInfinity, BsSearch } from "react-icons/bs";
+import { SiGoogle } from "react-icons/si";
 
 export const skills: Extra[] = [
 	{
@@ -30,6 +31,10 @@ export const skills: Extra[] = [
 		icon: TbApi,
 	},
 	{
+		name: "Googling",
+		icon: SiGoogle,
+	},
+	{
 		name: "State Management",
 		icon: TiFlowSwitch,
 	},
@@ -48,6 +53,10 @@ export const skills: Extra[] = [
 	{
 		name: "Domain-Driven Design",
 		icon: TbBinaryTree,
+	},
+	{
+		name: "Attention to Detail",
+		icon: BsSearch,
 	},
 	{
 		name: "Honesty & Integrity",
