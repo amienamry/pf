@@ -12,6 +12,7 @@ import {
 	SiBlazor,
 	SiRazer,
 	SiTailwindcss,
+	SiXstate,
 } from "react-icons/si";
 import { TbSquareRoundedNumber8 } from "react-icons/tb";
 import { Extra } from "../types/Extra";
@@ -44,6 +45,10 @@ export const frameworks: Extra[] = [
 	{
 		name: "JQuery",
 		icon: DiJqueryLogo,
+	},
+	{
+		name: "NGXS",
+		icon: SiXstate,
 	},
 	{
 		name: "Redux",
