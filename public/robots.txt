@@ -1,4 +1,4 @@
-Sitemap: https://amienamry.dev/sitemap.xml
+Sitemap: https://amienamry.dev/api/sitemap.xml
 
 User-agent: *
 Allow: /*

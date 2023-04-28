@@ -7,11 +7,48 @@ const songs: Song[] = [
 		fullTitle: "ALE UTO by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'ALE UTO'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--F885E4E5-326E-4085-B2568F24EDF8C954--1630733923527--aleuto1500x1500.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/ale-uto/thumb.jpeg",
+		imgBg: "/images/streams/ale-uto/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25505036_B01B30D8-F2D9-4831-94405F3E3D16AFA8.mp3",
+		releasedDate: "",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/50hmD8L47toInOreZNj7KL",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/4ZamS0w7QEA",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/ale-uto-original-mix",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/ale-uto-single/1584670120",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/ale-uto-single/1584670120",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B09FKKT16P",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/256900852",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "shake-it",
@@ -19,11 +56,48 @@ const songs: Song[] = [
 		fullTitle: "Shake It by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Shake It'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--EE95DD4F-7649-4D33-844E51A4B5A34807--1631782760560--shakeit.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/shake-it/thumb.jpeg",
+		imgBg: "/images/streams/shake-it/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793109_F6775A4C-2A10-42ED-B07CAF0B2D1B76C3.mp3",
+		releasedDate: "",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/3UUYZ5h0rs8mkcT6rYpyrG",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/UjO7l6sDQG0",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/shake-it-original-mix",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/shake-it-single/1586199501",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/shake-it-single/1586199501",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B09GGVKZ7W",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259368202",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "bong",
@@ -31,11 +105,48 @@ const songs: Song[] = [
 		fullTitle: "Bong by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Bong'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--9C705480-C540-4AE3-A454C706F02F2937--1631782991040--bong.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/bong/thumb.jpeg",
+		imgBg: "/images/streams/bong/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793144_D22E9DA4-C93A-41AA-82007005F9F29297.mp3",
+		releasedDate: "",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/5he3KzKcOnTIWJwxhTtZAS",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/f9s4FAkH-W8",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/bong-original-mix",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/bong-single/1586182309",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/bong-single/1586182309",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B09GH1NB7M",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259368992",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "lengleng",
@@ -43,11 +154,48 @@ const songs: Song[] = [
 		fullTitle: "Lengleng by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Lengleng'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--B751E79D-4A71-4E41-9CE5484DC5D845BF--1631783301170--lengleng.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/lengleng/thumb.jpeg",
+		imgBg: "/images/streams/lengleng/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793200_E1F76197-2A1B-4114-BA174A405BB4A40F.mp3",
+		releasedDate: "",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/2skWKW9X3e5ao0HEZYO5ki",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/rJHVhQgqUrM",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/arai-junior-lengleng-original-mix",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/lengleng-single/1586183200",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/lengleng-single/1586183200",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B09GH5JFNC",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259369832",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "badut",
@@ -55,11 +203,43 @@ const songs: Song[] = [
 		fullTitle: "Badut by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Badut'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--2B7D70F9-60E7-4057-ACCA9C802D01FE4A--1631783907122--badut.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/badut/thumb.jpeg",
+		imgBg: "/images/streams/badut/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793263_970E58C3-CE98-46C8-B8F9BFBCAD3B6E09.mp3",
+		releasedDate: "",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/2DYQLWZtgoyRJcJNGk8QW2",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/badut-original-mix",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/badut-single/1586173554",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/badut-single/1586173554",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B09GGGN8NS",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259358502",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "bedal",
@@ -67,11 +247,48 @@ const songs: Song[] = [
 		fullTitle: "Bedal by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Bedal'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--E7D006F3-18BC-4733-BC00D6098ED543E6--1631784084007--bedal.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/bedal/thumb.jpeg",
+		imgBg: "/images/streams/bedal/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793277_15D52882-8206-4284-AECD4574ED9C7F75.mp3",
+		releasedDate: "",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/3dbjUhosy48aZGCzhYPp7a",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/1mkx-qnKWSk",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/bedal-original-mix",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/bedal-single/1586190386",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/bedal-single/1586190386",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B09GHCBL5K",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259377102",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "reborn",
@@ -79,11 +296,48 @@ const songs: Song[] = [
 		fullTitle: "Reborn by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Reborn'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--3D048E25-E23D-4FA2-83EEF9D81E91AAFE--1631784366769--reborn.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/reborn/thumb.jpeg",
+		imgBg: "/images/streams/reborn/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793334_8E07E42E-F96F-4109-B0C02B7D47092512.mp3",
+		releasedDate: "",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/25G766EEUKaOCpefHmonwE",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/Sp46akoqA8Y",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/reborn-original-mix",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/reborn-single/1586174075",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/reborn-single/1586174075",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B09GGDLM2V",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259358472",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "smks4bk",
@@ -95,6 +349,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/smks4bk/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793433_01804C37-956D-4EA0-B0E468F09F24C833.mp3",
+		releasedDate: "",
 		platforms: [
 			{
 				name: "Spotify",
@@ -123,7 +378,7 @@ const songs: Song[] = [
 			},
 			{
 				name: "Amazon Music",
-				url: "http://www.amazon.com/gp/product/B09GH6TMVF",
+				url: "https://www.amazon.com/gp/product/B09GH6TMVF",
 				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
 			{
@@ -143,6 +398,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/ale-uto-hardstyle-remix/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793633_A1FF5187-7BC9-48CD-8F7065C7DDBD7DFB.mp3",
+		releasedDate: "",
 		platforms: [
 			{
 				name: "Spotify",
@@ -171,7 +427,7 @@ const songs: Song[] = [
 			},
 			{
 				name: "Amazon Music",
-				url: "http://www.amazon.com/gp/product/B09GHCYBMW",
+				url: "https://www.amazon.com/gp/product/B09GHCYBMW",
 				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
 			{
@@ -191,6 +447,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/anarchy/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25794929_EE8D8671-74F6-4644-BCC25035B30408B4.mp3",
+		releasedDate: "",
 		platforms: [
 			{
 				name: "Spotify",
@@ -214,7 +471,7 @@ const songs: Song[] = [
 			},
 			{
 				name: "Amazon Music",
-				url: "http://www.amazon.com/gp/product/B09GHLZZK4",
+				url: "https://www.amazon.com/gp/product/B09GHLZZK4",
 				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
 			{
@@ -234,6 +491,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/boncai/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795043_99422357-1DE7-463E-958603676A2C1C5B.mp3",
+		releasedDate: "",
 		platforms: [
 			{
 				name: "Spotify",
@@ -257,7 +515,7 @@ const songs: Song[] = [
 			},
 			{
 				name: "Amazon Music",
-				url: "http://www.amazon.com/gp/product/B09GH7DB8J",
+				url: "https://www.amazon.com/gp/product/B09GH7DB8J",
 				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
 			{
@@ -277,6 +535,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/cincai/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795079_C6BA4E62-12BB-4907-A0CE9690ADF63595.mp3",
+		releasedDate: "",
 		platforms: [
 			{
 				name: "Spotify",
@@ -300,7 +559,7 @@ const songs: Song[] = [
 			},
 			{
 				name: "Amazon Music",
-				url: "http://www.amazon.com/gp/product/B09GHB3KM6",
+				url: "https://www.amazon.com/gp/product/B09GHB3KM6",
 				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
 			{
@@ -320,6 +579,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/hush/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795133_A6C3334B-BF4D-488F-A067756A7B649927.mp3",
+		releasedDate: "",
 		platforms: [
 			{
 				name: "Spotify",
@@ -343,7 +603,7 @@ const songs: Song[] = [
 			},
 			{
 				name: "Amazon Music",
-				url: "http://www.amazon.com/gp/product/B09GHGFXT1",
+				url: "https://www.amazon.com/gp/product/B09GHGFXT1",
 				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
 			{
@@ -363,6 +623,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/null/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795234_A6F64264-E6A9-4283-848AD5CFA0D20506.mp3",
+		releasedDate: "",
 		platforms: [
 			{
 				name: "Spotify",
@@ -386,7 +647,7 @@ const songs: Song[] = [
 			},
 			{
 				name: "Amazon Music",
-				url: "http://www.amazon.com/gp/product/B09GGZL2XX",
+				url: "https://www.amazon.com/gp/product/B09GGZL2XX",
 				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
 			{
@@ -406,6 +667,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/rararera/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795306_73A2407E-695D-4AF8-9BFE39611DA40C84.mp3",
+		releasedDate: "",
 		platforms: [
 			{
 				name: "Spotify",
@@ -429,7 +691,7 @@ const songs: Song[] = [
 			},
 			{
 				name: "Amazon Music",
-				url: "http://www.amazon.com/gp/product/B09GH2B2D5",
+				url: "https://www.amazon.com/gp/product/B09GH2B2D5",
 				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
 			{
@@ -449,6 +711,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/rekt/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795353_3DDCE651-0CB9-4DA4-86F67B1C58EFEC69.mp3",
+		releasedDate: "",
 		platforms: [
 			{
 				name: "Spotify",
