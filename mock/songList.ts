@@ -198,6 +198,11 @@ const songs: Song[] = [
 				imgUrl: "/images/streams/spotify.jpeg",
 			},
 			{
+				name: "Youtube",
+				url: "https://youtu.be/mamwrk-Pl4w",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
 				name: "Apple Music",
 				url: "https://music.apple.com/us/album/rekt-single/1586199767",
 				imgUrl: "/images/streams/apple-music.jpeg",

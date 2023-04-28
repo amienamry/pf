@@ -22,10 +22,12 @@
 		"react-dom": "^18.2.0",
 		"react-icons": "^4.2.0",
 		"react-vertical-timeline-component": "^3.3.3",
-		"sitemap": "^7.0.0"
+		"sitemap": "^7.0.0",
+		"wavesurfer.js": "^6.6.3"
 	},
 	"devDependencies": {
 		"@types/react": "^18.0.28",
+		"@types/wavesurfer.js": "^6.0.5",
 		"autoprefixer": "^10.4.14",
 		"postcss": "^8.4.21",
 		"tailwindcss": "^3.2.7",

@@ -6,32 +6,98 @@ import { Song, StreamingPlatform } from "../../types/Song";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { BsPauseCircle, BsPlayCircle } from "react-icons/bs";
+import { InputRange } from "../../components/InputRange";
+import redirect from "nextjs-redirect";
 
-const Song = () => {
+const Song = ({ isMobile }) => {
 	const router = useRouter();
 
 	const song = songs.find((sm) => sm.key === router.query.song);
 
+	if (!router.isReady) return "Loading...";
+
 	if (!song) {
-		return "song not found";
+		const Redirect = redirect("https://amienamry.dev");
+		return <Redirect> Not found </Redirect>;
 	}
 
 	const metaData: MetaDataType = {
 		title: song.fullTitle,
 		description: song.description,
-		image_url: song.imgThumb,
+		image_url: `https://amienamry.dev${song.imgThumb}`,
 		path: `https://amienamry.dev/streams/${song.key}`,
 	};
 
 	return (
 		<MainLayout
 			metaData={metaData}
-			Content={() => <Content song={song} />}
+			Content={() => <Content song={song} isMobile={isMobile} />}
 		/>
 	);
 };
 
-const Content = ({ song }: { song: Song }) => {
+const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
+	const [isPlaying, setIsPlaying] = useState(false);
+	const [isReady, setIsReady] = useState(false);
+	const [volume, setVolume] = useState(isMobile ? 1 : 0.65);
+	const [waveSurfer, setWaveSurfer] = useState<undefined | WaveSurfer>(
+		undefined
+	);
+
+	const initWaveSurfer = async () => {
+		if (!song) return;
+
+		const WaveSurfer = (await import("wavesurfer.js")).default;
+
+		const waveInstance = WaveSurfer.create({
+			container: "#waveform",
+			waveColor: "#8a9c8e",
+			progressColor: "#5A9367",
+			height: 100,
+			cursorColor: "#566b5b",
+			responsive: true,
+		});
+
+		waveInstance.load(song.audioUrl);
+
+		waveInstance.setVolume(volume);
+
+		waveInstance.on("finish", () => {
+			setIsPlaying(false);
+			waveInstance.setCurrentTime(0);
+		});
+
+		waveInstance.on("ready", () => {
+			setIsReady(true);
+		});
+
+		setWaveSurfer(waveInstance);
+	};
+
+	useEffect(() => {
+		initWaveSurfer();
+
+		return () => waveSurfer?.destroy();
+	}, [song]);
+
+	const toggleAudio = () => {
+		if (!waveSurfer || !waveSurfer.isReady) return;
+
+		waveSurfer.isPlaying() ? waveSurfer.pause() : waveSurfer.play();
+
+		setIsPlaying(waveSurfer.isPlaying());
+	};
+
+	const handleVolume = (volume: number) => {
+		if (!waveSurfer || !waveSurfer.isReady) return;
+
+		const newVolume = volume / 100;
+		setVolume(newVolume);
+		waveSurfer.setVolume(newVolume);
+	};
+
 	return (
 		<>
 			<div className="fixed top-[-50%] left-[-50%] w-[200%] h-[200%] bg-black z-[-100] overflow-hidden">
@@ -40,14 +106,15 @@ const Content = ({ song }: { song: Song }) => {
 					src={song.imgBg}
 				/>
 			</div>
-			<div className="flex flex-col w-full max-w-2xl pt-20 sm:pt-36 text-gray-100 px-4 sm:px-0">
-				<div className="w-full flex flex-col items-center sm:bg-neutral-800 rounded-xl mb-5 bg-opacity-75">
+			<div className="flex flex-col w-full max-w-2xl pt-32 sm:pt-48 text-gray-100 px-4 sm:px-0">
+				<div className="w-full flex flex-col items-center sm:bg-neutral-800 sm:bg-opacity-30 rounded-xl mb-5">
 					<div className="relative w-48 h-48 -mt-8 mb-6">
 						<Image
 							className="absolute rounded-xl"
 							alt={`${song.title}'s album cover`}
 							src={song.imgThumb}
 							fill={true}
+							priority={true}
 						/>
 					</div>
 
@@ -55,12 +122,40 @@ const Content = ({ song }: { song: Song }) => {
 					<h3 className="text-lg mb-3 sm:mb-8">{song.artist}</h3>
 				</div>
 
-				<div className="w-full flex flex-col items-center bg-neutral-700 rounded-xl mb-5">
-					wave
+				<div className="w-full flex flex-row items-center bg-neutral-700 bg-opacity-30  rounded-xl mb-5">
+					<button
+						onClick={() => toggleAudio()}
+						className="w-[75px] h-[100px] rounded-l-xl flex justify-center items-center bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 cursor-pointer"
+						style={{
+							boxShadow: "0px 0px 5px #000000",
+						}}
+					>
+						{isPlaying ? (
+							<BsPauseCircle className="h-10 w-10 text-[#5A9367]" />
+						) : (
+							<BsPlayCircle className="h-10 w-10 text-gray-100" />
+						)}
+					</button>
+
+					<div
+						id="waveform"
+						className="w-full h-full cursor-pointer"
+					></div>
+
+					{!isMobile && (
+						<InputRange
+							onChange={(e) => handleVolume(+e.target.value)}
+							value={volume * 100}
+							disabled={!isReady}
+						/>
+					)}
 				</div>
 
 				{song.platforms.map((platform) => (
-					<Platform platform={platform} />
+					<Platform
+						key={platform.name + platform.url}
+						platform={platform}
+					/>
 				))}
 			</div>
 		</>
@@ -69,7 +164,7 @@ const Content = ({ song }: { song: Song }) => {
 
 const Platform = ({ platform }: { platform: StreamingPlatform }) => {
 	return (
-		<div className="w-full flex flex-row items-center bg-neutral-700 rounded-xl mb-5 hover:bg-neutral-700 bg-opacity-75">
+		<div className="w-full flex flex-row items-center bg-neutral-700 rounded-xl mb-5 hover:bg-opacity-70 bg-opacity-50">
 			<Link
 				className="w-full flex flex-row"
 				href={platform.url}
@@ -93,6 +188,20 @@ const Platform = ({ platform }: { platform: StreamingPlatform }) => {
 			</Link>
 		</div>
 	);
+};
+
+export const getServerSideProps = (ctx) => {
+	const userAgent = ctx?.req
+		? ctx.req.headers["user-agent"]
+		: navigator.userAgent;
+
+	return {
+		props: {
+			isMobile: !!userAgent.match(
+				/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+			),
+		},
+	};
 };
 
 export default Song;
