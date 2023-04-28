@@ -1,6 +1,5 @@
 import { SitemapStream, streamToPromise } from "sitemap";
 import { format } from "date-fns";
-import socialMedias from "../../mock/socialMediaList";
 import songs from "../../mock/songList";
 import { images } from "../../mock/images";
 
@@ -10,10 +9,6 @@ export default async (req, res) => {
 	images.forEach((image) => {
 		paths.push(`/gallery/${image.id}`);
 		paths.push(image.path);
-	});
-
-	socialMedias.forEach((sm) => {
-		paths.push(`/r/${sm.key}`);
 	});
 
 	songs.forEach((song) => {
