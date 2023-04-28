@@ -41,9 +41,9 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 					<BackgroundVideo videoError={videoError} />
 				)}
 
-			{(pageProps?.statusCode !== 404 &&
+			{((pageProps?.statusCode !== 404 &&
 				!excludedRoutes.includes(componentRouter.route)) ||
-				(componentRouter.route === "/streams/[song]" && <Navbar />)}
+				componentRouter.route === "/streams/[song]") && <Navbar />}
 
 			<Component {...pageProps} />
 
