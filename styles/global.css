@@ -42,7 +42,7 @@ input[type="range"] {
 	-webkit-appearance: none;
 	appearance: none;
 	overflow: hidden;
-	height: 33px;
+	height: 37px;
 	width: 100px;
 	background-color: transparent;
 }
@@ -74,7 +74,6 @@ input[type="range"] {
 	width: 1px;
 	height: 40px;
 	box-shadow: -200px 0 0 200px #5a9367;
-	box-sizing: border-box;
 }
 
 ::-ms-fill-lower {
@@ -85,7 +84,6 @@ input[type="range"] {
 	background: #5a9367;
 	width: 1px;
 	height: 40px;
-	box-sizing: border-box;
 }
 
 ::-ms-ticks-after {
@@ -105,4 +103,9 @@ input[type="range"] {
 
 ::-ms-tooltip {
 	display: none;
+}
+
+wave {
+	border-top-right-radius: 1rem;
+	border-top-left-radius: 1rem;
 }

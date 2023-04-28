@@ -20,13 +20,18 @@ export const InputRange = ({ onChange, value, disabled }: InputRangeProps) => {
 		timer && clearTimeout(timer);
 
 		timer = setTimeout(() => {
-			console.log("show volume change to false");
 			setShowVolume(false);
 		}, 300);
 	};
 
 	return (
-		<div className="relative w-10 flex justify-center items-center rounded-r-xl">
+		<div
+			className="z-[4] relative  flex justify-center items-center rounded-r-xl h-full"
+			style={{
+				boxShadow: "-5px 0px 10px -5px rgba(0,0,0,0.75)",
+				width: 42,
+			}}
+		>
 			{showVolume && (
 				<div className="select-none z-10 flex flex-col justify-center items-center">
 					<HiOutlineSpeakerWave className="h-5 w-5 mb-0.5" />
@@ -38,7 +43,7 @@ export const InputRange = ({ onChange, value, disabled }: InputRangeProps) => {
 				onChange={(e) => handleOnChange(e)}
 				className={` ${
 					disabled ? "cursor-default" : "cursor-pointer"
-				} absolute rounded outline-none rounded-t-none rounded-b-xl`}
+				} absolute rounded outline-none rounded-t-none rounded-b-xl hover:opacity-90`}
 				style={{
 					transform: "rotate(270deg)",
 				}}

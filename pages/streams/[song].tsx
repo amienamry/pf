@@ -58,6 +58,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 			height: 100,
 			cursorColor: "#566b5b",
 			responsive: true,
+			cursorWidth: 0,
 		});
 
 		waveInstance.load(song.audioUrl);
@@ -118,16 +119,21 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 						/>
 					</div>
 
-					<h1 className="text-3xl font-bold mb-2">{song.title}</h1>
-					<h3 className="text-lg mb-3 sm:mb-8">{song.artist}</h3>
+					<h1 className="text-3xl font-bold mb-2 text-center px-4">
+						{song.title}
+					</h1>
+					<h3 className="text-lg mb-3 sm:mb-8 px-4">{song.artist}</h3>
 				</div>
 
 				<div className="w-full flex flex-row items-center bg-neutral-700 bg-opacity-30  rounded-xl mb-5">
 					<button
+						disabled={!isReady}
 						onClick={() => toggleAudio()}
-						className="w-[75px] h-[100px] rounded-l-xl flex justify-center items-center bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 cursor-pointer"
+						className={`${
+							isReady ? "hover:bg-opacity-70" : ""
+						} z-[4] w-[80px] h-[100px] rounded-l-xl flex justify-center items-center bg-neutral-700 bg-opacity-50`}
 						style={{
-							boxShadow: "0px 0px 5px #000000",
+							boxShadow: "5px 0px 10px -5px rgba(0,0,0,0.75)",
 						}}
 					>
 						{isPlaying ? (
@@ -137,10 +143,17 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 						)}
 					</button>
 
-					<div
-						id="waveform"
-						className="w-full h-full cursor-pointer"
-					></div>
+					<div id="waveform" className="relative w-full h-full">
+						<span className="absolute select-none z-[4] text-xs py-1 px-2.5 bg-neutral-700 bg-opacity-50 rounded-br-lg">
+							{isReady ? (
+								<>
+									Preview: <b>{song.title}</b>
+								</>
+							) : (
+								"Loading..."
+							)}
+						</span>
+					</div>
 
 					{!isMobile && (
 						<InputRange

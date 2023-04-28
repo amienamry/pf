@@ -91,11 +91,47 @@ const songs: Song[] = [
 		fullTitle: "SMKS4BK by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'SMKS4BK'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--FEE6B4A3-54EB-45FF-8FA0B6552D4C45CD--1631784858690--smks4.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/smks4bk/thumb.jpeg",
+		imgBg: "/images/streams/smks4bk/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793433_01804C37-956D-4EA0-B0E468F09F24C833.mp3",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/7wRKHA4jK2487eLplx7cwH",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/UnVNpAmXInM",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/arai-junior-smks4bk",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/smks4bk-single/1586182354",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/smks4bk-single/1586182354",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "http://www.amazon.com/gp/product/B09GH6TMVF",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259368622",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "ale-uto-hardstyle-remix",
@@ -103,11 +139,47 @@ const songs: Song[] = [
 		fullTitle: "ALE UTO (Hardstyle Remix) by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'ALE UTO (Hardstyle Remix)'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--B591C249-6D40-40D2-8796BB42411CF7F5--1631786205122--aleutoremix.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/ale-uto-hardstyle-remix/thumb.jpeg",
+		imgBg: "/images/streams/ale-uto-hardstyle-remix/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793633_A1FF5187-7BC9-48CD-8F7065C7DDBD7DFB.mp3",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/5zLDJ30X0g2sLCLc1wjBkz",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/X4PhE2V5JKE",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/ale-uto-hardstyle-remix",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/ale-uto-hardstyle-remix-hardstyle-remix-single/1586190443",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/ale-uto-hardstyle-remix-hardstyle-remix-single/1586190443",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "http://www.amazon.com/gp/product/B09GHCYBMW",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259377642",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "anarchy",
@@ -115,11 +187,42 @@ const songs: Song[] = [
 		fullTitle: "Anarchy by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Anarchy'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--730A5AC3-AB67-409D-A23E44326BF789CE--1631794010101--anarchy.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/anarchy/thumb.jpeg",
+		imgBg: "/images/streams/anarchy/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25794929_EE8D8671-74F6-4644-BCC25035B30408B4.mp3",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/391hRd00OptEX3Il7r505L",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/UpRsnilzXlw",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/anarchy-single/1586182254",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/anarchy-single/1586182254",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "http://www.amazon.com/gp/product/B09GHLZZK4",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259367952",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "boncai",
@@ -127,11 +230,42 @@ const songs: Song[] = [
 		fullTitle: "Boncai by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Boncai'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--FAB9F89D-B65D-4279-A4C6C87070F3D1A8--1631794432678--boncai.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/boncai/thumb.jpeg",
+		imgBg: "/images/streams/boncai/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795043_99422357-1DE7-463E-958603676A2C1C5B.mp3",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/0iqlEEyubT3oZKtZ307cpJ",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/ZsN85IfMQHg",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/boncai-single/1586182250",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/boncai-single/1586182250",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "http://www.amazon.com/gp/product/B09GH7DB8J",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259368852",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "cincai",
@@ -139,11 +273,42 @@ const songs: Song[] = [
 		fullTitle: "Cincai by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Cincai'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--14FD437D-3AFD-42C7-AE5F357495140921--1631794612641--cincai.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/cincai/thumb.jpeg",
+		imgBg: "/images/streams/cincai/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795079_C6BA4E62-12BB-4907-A0CE9690ADF63595.mp3",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/1AE0tsVMY7rEt4Qt3PrjIQ",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/bbswlaQozlc",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/cincai-single/1586199595",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/cincai-single/1586199595",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "http://www.amazon.com/gp/product/B09GHB3KM6",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259367452",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "hush",
@@ -151,11 +316,42 @@ const songs: Song[] = [
 		fullTitle: "Hush by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Hush'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--46FAA267-1DEB-4A99-83D3D301F32C6737--1631794798222--hush.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/hush/thumb.jpeg",
+		imgBg: "/images/streams/hush/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795133_A6C3334B-BF4D-488F-A067756A7B649927.mp3",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/4NK041gQZUeqUKhhUL7vr8",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/Bmnm9WJIkF4",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/hush-single/1586207449",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/hush-single/1586207449",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "http://www.amazon.com/gp/product/B09GHGFXT1",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259379452",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "null",
@@ -163,11 +359,42 @@ const songs: Song[] = [
 		fullTitle: "null by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'null'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--923FAA2C-5AD7-4B12-89C95716FCA2F626--1631795284525--null.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/null/thumb.jpeg",
+		imgBg: "/images/streams/null/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795234_A6F64264-E6A9-4283-848AD5CFA0D20506.mp3",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/0RrftcmRBYRU40kSrZJTPO",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/1pLPP0zZL9w",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/null-single/1586182516",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/null-single/1586182516",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "http://www.amazon.com/gp/product/B09GGZL2XX",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259370442",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "rararera",
@@ -175,11 +402,42 @@ const songs: Song[] = [
 		fullTitle: "Rararera by Arai Junior",
 		artist: "Arai Junior",
 		description: "Stream and Save 'Rararera'",
-		imgThumb:
-			"https://s3.amazonaws.com/gather.fandalism.com/300x300-3293743--5BDCD56B-0E61-421D-9C0471E3E2D69113--1631795935758--rararera.jpg",
-		imgBg: "",
-		audioUrl: "",
-		platforms: [],
+		imgThumb: "/images/streams/rararera/thumb.jpeg",
+		imgBg: "/images/streams/rararera/bg.jpeg",
+		audioUrl:
+			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795306_73A2407E-695D-4AF8-9BFE39611DA40C84.mp3",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/3DgvBS8PqEzojcoCPahC5G",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/onPSsVI_Udk",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/rararera-single/1586199453",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/rararera-single/1586199453",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "http://www.amazon.com/gp/product/B09GH2B2D5",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/259369712",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
 	},
 	{
 		key: "rekt",
