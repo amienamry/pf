@@ -1,10 +1,13 @@
 import MainLayout from "../../components/MainLayout";
 import { useSongList } from "../../hooks/useSongList";
 import { MetaDataType } from "../../types/MetaData";
-import { Song } from "../../types/Song";
+import { Song, StreamingPlatform } from "../../types/Song";
 import Image from "next/image";
 import Link from "next/link";
 import { formatDistance } from "date-fns";
+import { IoLinkSharp } from "react-icons/io5";
+import { useState } from "react";
+import { BsCheck2Square } from "react-icons/bs";
 
 const Stream = () => {
 	const metaData: MetaDataType = {
@@ -38,6 +41,8 @@ const Content = () => {
 };
 
 const Track = ({ song }: { song: Song }) => {
+	const [linkCopied, setLinkCopied] = useState(false);
+
 	const releaseDate = formatDistance(
 		new Date(song.releasedDate),
 		new Date(),
@@ -46,11 +51,46 @@ const Track = ({ song }: { song: Song }) => {
 		}
 	);
 
+	const handlePlatformClick = (
+		e: React.MouseEvent<HTMLImageElement, MouseEvent>,
+		platform: StreamingPlatform
+	) => {
+		e.preventDefault();
+		window.open(platform.url, "_blank");
+	};
+
+	const handleCopyLink = (
+		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+	) => {
+		e.preventDefault();
+
+		navigator.clipboard.writeText(`${location.href}/${song.key}`);
+
+		setLinkCopied(true);
+	};
+
 	return (
 		<Link
-			className="shadow-2xl mb-5 bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 rounded-xl"
+			className="relative shadow-2xl mb-5 bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 rounded-xl"
 			href={`streams/${song.key}`}
 		>
+			<button
+				onClick={(e) => handleCopyLink(e)}
+				className={`${
+					linkCopied
+						? "sm:text-[#5A9367]"
+						: "sm:text-neutral-400 sm:hover:bg-neutral-900"
+				} absolute top-1 right-0.5 z-[1] flex flex-row items-center shadow-2xl px-2 py-0.5 rounded`}
+			>
+				<span className="hidden sm:flex text-sm mr-1">
+					{linkCopied ? "Link copied to clipboard" : "Copy song link"}
+				</span>{" "}
+				{linkCopied ? (
+					<BsCheck2Square className="h-7 w-7 sm:h-4 sm:w-4" />
+				) : (
+					<IoLinkSharp className="h-7 w-7 sm:h-4 sm:w-4" />
+				)}
+			</button>
 			<div
 				className="flex flex-col sm:flex-row w-full"
 				key={song.key + song.title}
@@ -71,8 +111,8 @@ const Track = ({ song }: { song: Song }) => {
 					className="hidden sm:flex rounded-l-xl"
 					src={song.imgThumb}
 					alt={`${song.title}'s album cover`}
-					width={200}
-					height={200}
+					width={150}
+					height={150}
 					sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
@@ -87,7 +127,10 @@ const Track = ({ song }: { song: Song }) => {
 							{song.platforms.map((platform) => {
 								return (
 									<Image
-										className="mr-1"
+										onClick={(e) =>
+											handlePlatformClick(e, platform)
+										}
+										className="mr-1 hover:opacity-90"
 										key={
 											"stream-all-" +
 											song.key +
