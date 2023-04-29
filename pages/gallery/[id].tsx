@@ -36,7 +36,7 @@ const Preview = () => {
 			img.description ? " - " + img.description : ""
 		}`,
 		image_url: `https://amienamry.dev${img.path}`,
-		path: `https://amienamry.dev${img.path}`,
+		path: `https://amienamry.dev/gallery/${img.id}`,
 	};
 
 	return (

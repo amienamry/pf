@@ -11,7 +11,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/ale-uto/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25505036_B01B30D8-F2D9-4831-94405F3E3D16AFA8.mp3",
-		releasedDate: "",
+		releasedDate: "2014-10-03",
 		platforms: [
 			{
 				name: "Spotify",
@@ -60,7 +60,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/shake-it/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793109_F6775A4C-2A10-42ED-B07CAF0B2D1B76C3.mp3",
-		releasedDate: "",
+		releasedDate: "2014-10-26",
 		platforms: [
 			{
 				name: "Spotify",
@@ -109,7 +109,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/bong/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793144_D22E9DA4-C93A-41AA-82007005F9F29297.mp3",
-		releasedDate: "",
+		releasedDate: "2014-11-09",
 		platforms: [
 			{
 				name: "Spotify",
@@ -158,7 +158,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/lengleng/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793200_E1F76197-2A1B-4114-BA174A405BB4A40F.mp3",
-		releasedDate: "",
+		releasedDate: "2015-09-26",
 		platforms: [
 			{
 				name: "Spotify",
@@ -207,7 +207,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/badut/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793263_970E58C3-CE98-46C8-B8F9BFBCAD3B6E09.mp3",
-		releasedDate: "",
+		releasedDate: "2015-12-26",
 		platforms: [
 			{
 				name: "Spotify",
@@ -251,7 +251,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/bedal/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793277_15D52882-8206-4284-AECD4574ED9C7F75.mp3",
-		releasedDate: "",
+		releasedDate: "2017-12-30",
 		platforms: [
 			{
 				name: "Spotify",
@@ -300,7 +300,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/reborn/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793334_8E07E42E-F96F-4109-B0C02B7D47092512.mp3",
-		releasedDate: "",
+		releasedDate: "2019-02-24",
 		platforms: [
 			{
 				name: "Spotify",
@@ -349,7 +349,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/smks4bk/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793433_01804C37-956D-4EA0-B0E468F09F24C833.mp3",
-		releasedDate: "",
+		releasedDate: "2019-04-17",
 		platforms: [
 			{
 				name: "Spotify",
@@ -398,7 +398,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/ale-uto-hardstyle-remix/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25793633_A1FF5187-7BC9-48CD-8F7065C7DDBD7DFB.mp3",
-		releasedDate: "",
+		releasedDate: "2019-12-01",
 		platforms: [
 			{
 				name: "Spotify",
@@ -447,7 +447,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/anarchy/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25794929_EE8D8671-74F6-4644-BCC25035B30408B4.mp3",
-		releasedDate: "",
+		releasedDate: "2021-09-04",
 		platforms: [
 			{
 				name: "Spotify",
@@ -491,7 +491,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/boncai/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795043_99422357-1DE7-463E-958603676A2C1C5B.mp3",
-		releasedDate: "",
+		releasedDate: "2021-09-04",
 		platforms: [
 			{
 				name: "Spotify",
@@ -535,7 +535,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/cincai/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795079_C6BA4E62-12BB-4907-A0CE9690ADF63595.mp3",
-		releasedDate: "",
+		releasedDate: "2021-09-04",
 		platforms: [
 			{
 				name: "Spotify",
@@ -579,7 +579,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/hush/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795133_A6C3334B-BF4D-488F-A067756A7B649927.mp3",
-		releasedDate: "",
+		releasedDate: "2021-09-04",
 		platforms: [
 			{
 				name: "Spotify",
@@ -623,7 +623,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/null/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795234_A6F64264-E6A9-4283-848AD5CFA0D20506.mp3",
-		releasedDate: "",
+		releasedDate: "2021-09-04",
 		platforms: [
 			{
 				name: "Spotify",
@@ -667,7 +667,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/rararera/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795306_73A2407E-695D-4AF8-9BFE39611DA40C84.mp3",
-		releasedDate: "",
+		releasedDate: "2021-09-04",
 		platforms: [
 			{
 				name: "Spotify",
@@ -711,7 +711,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/rekt/bg.jpeg",
 		audioUrl:
 			"https://s3.amazonaws.com/audio.distrokid.com/preview_25795353_3DDCE651-0CB9-4DA4-86F67B1C58EFEC69.mp3",
-		releasedDate: "",
+		releasedDate: "2021-09-04",
 		platforms: [
 			{
 				name: "Spotify",
@@ -742,6 +742,30 @@ const songs: Song[] = [
 				name: "Deezer",
 				url: "https://www.deezer.com/en/album/259367092",
 				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
+	},
+	{
+		key: "balik-kampung",
+		title: "Balik Kampung (Hardstyle Remix)",
+		fullTitle: "Balik Kampung (Hardstyle Remix) by Arai Junior",
+		artist: "Dato' Sudirman",
+		description: "Stream and Save 'Balik Kampung (Hardstyle Remix)'",
+		imgThumb: "/images/streams/balik-kampung/thumb.jpeg",
+		imgBg: "/images/streams/balik-kampung/bg.jpeg",
+		audioUrl:
+			"https://download1523.mediafire.com/ogc2e9exhcygbsYH4r_Nt-XfHYcx_cnHpHtXUImEw8OCh-Sag9Q0NklfC-9Il1NZFJsPrFAbQsKkXyPdaG2SE8t9nX1LSJXrW3mSxxO-ZWRYZbgaJVgsk2OxvqZp_tvPIC0aSZSNbx96dRRJNdcVJTqGnwusTkSA13ikxuibFNbE/5kh7f0sm44dyqo9/balikkg-preview.mp3",
+		releasedDate: "2023-04-27",
+		platforms: [
+			{
+				name: "Youtube",
+				url: "https://youtu.be/T9giCT68jN4",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/balik-kampung-arai-junior-bootleg",
+				imgUrl: "/images/streams/soundcloud.jpeg",
 			},
 		],
 	},

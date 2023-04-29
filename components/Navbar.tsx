@@ -88,7 +88,7 @@ export const Navbar = () => {
 									key={nav.path + nav.display_name}
 									href={nav.path}
 									onClick={close}
-									className="lg:inline-flex lg:w-auto w-full px-3 py-3 rounded text-gray-100 text-xl items-center justify-center hover:text-gray-200"
+									className="lg:inline-flex lg:w-auto w-full px-3 py-3 rounded text-gray-100 text-lg items-center justify-center hover:text-gray-200"
 								>
 									{nav.display_name}
 								</Link>
