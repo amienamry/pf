@@ -12,9 +12,9 @@ import { BiSearch } from "react-icons/bi";
 
 const Stream = () => {
 	const metaData: MetaDataType = {
-		title: `Amien Amry | My music as Arai Junior`,
+		title: `Amien Amry | Arai Junior - Composer and Producer`,
 		description:
-			"Discover and stream songs, tracks and music playlists by Arai Junior.",
+			"Explore my music and enjoy streaming my latest track. Discover my unique sound and creative style in EDM, instrumental, and experimental genres.",
 		image_url: "https://amienamry.dev/images/logo/music.png",
 		path: "https://amienamry.dev/streams",
 	};

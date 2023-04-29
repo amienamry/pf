@@ -9,8 +9,9 @@ const Experience = ({ asChild }: { asChild?: boolean }) => {
 
 	const [isAnimated, setIsAnimated] = useState<boolean>(!isChild);
 	const metaData: MetaDataType = {
-		title: "Amien Amry | Experience",
-		description: "My experience",
+		title: "Amien Amry | Professional Experience",
+		description:
+			"Explore my professional journey and expertise. Learn more about my skills, achievements, and contributions in web and mobile app development.",
 		image_url: "https://amienamry.dev/images/logo/experience.png",
 		path: "https://amienamry.dev/experience",
 	};
