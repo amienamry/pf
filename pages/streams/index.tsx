@@ -8,6 +8,7 @@ import { formatDistance } from "date-fns";
 import { IoLinkSharp } from "react-icons/io5";
 import { useState } from "react";
 import { BsCheck2Square } from "react-icons/bs";
+import { BiSearch } from "react-icons/bi";
 
 const Stream = () => {
 	const metaData: MetaDataType = {
@@ -22,19 +23,35 @@ const Stream = () => {
 };
 
 const Content = () => {
-	const { songList } = useSongList({ sorted: true });
+	const { songList, search } = useSongList({ sorted: true });
 
 	return (
-		<div className="flex flex-col flex-1 max-w-screen-xl mt-20 bg-black bg-opacity-40 rounded-md">
+		<div className="relative flex flex-col flex-1 max-w-screen-xl mt-20 bg-black bg-opacity-40 rounded-md">
+			<div className="flex flex-1 px-2.5 sm:px-5 mx-2 sm:mx-0 mt-6 mb-3">
+				<input
+					onChange={(e) => search(e.target.value)}
+					className="w-full bg-neutral-600 h-10 rounded-lg pl-2 pr-8"
+					type="text"
+					placeholder="Search"
+				/>
+				<BiSearch className="absolute h-6 w-6 right-6 top-8" />
+			</div>
+
 			<div className="flex flex-1 flex-col p-2.5 sm:p-5 mx-2 sm:mx-0">
-				{songList.map((song) => {
-					return (
-						<Track
-							key={"stream-all-" + song.key + song.title}
-							song={song}
-						/>
-					);
-				})}
+				{!songList.length ? (
+					<div className="min-h-[50vh] flex flex-col items-center w-full text-center text-lg py-12">
+						No results found 😿
+					</div>
+				) : (
+					songList.map((song) => {
+						return (
+							<Track
+								key={"stream-all-" + song.key + song.title}
+								song={song}
+							/>
+						);
+					})
+				)}
 			</div>
 		</div>
 	);
@@ -91,10 +108,8 @@ const Track = ({ song }: { song: Song }) => {
 					<IoLinkSharp className="h-7 w-7 sm:h-4 sm:w-4" />
 				)}
 			</button>
-			<div
-				className="flex flex-col sm:flex-row w-full"
-				key={song.key + song.title}
-			>
+
+			<div className="flex flex-col sm:flex-row w-full">
 				<div className="relative flex sm:hidden h-56">
 					<Image
 						className="absolute object-cover rounded-t-xl"
