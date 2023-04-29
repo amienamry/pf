@@ -16,10 +16,12 @@ import Experience from "./experience";
 import Education from "./education";
 import ExtraDetails from "../components/ExtraDetails";
 
+const exp = differenceInYears(new Date(), new Date("2019-06-16"));
+
 const App = () => {
 	const metaData: MetaDataType = {
 		title: `Amien Amry | ${useCurrentRole().title}`,
-		description: "You don't know item",
+		description: `A full stack developer with ${exp}+ years of experience in web and mobile app dev, I am dedicated to delivering high-quality results. In my free time, I compose and produce music as Arai Junior.`,
 		image_url: "https://amienamry.dev/images/amien1.jpg",
 		path: "https://amienamry.dev",
 	};
@@ -150,8 +152,6 @@ const Profile = () => {
 };
 
 const Biography = () => {
-	const exp = differenceInYears(new Date(), new Date("2019-06-16"));
-
 	return (
 		<div className="flex flex-1 flex-col pb-5 px-3 md:px-5">
 			<h3 className="hidden md:block text-4xl mt-8 md:mt-3 xl:mt-3 lg:mt-3 mb-5 font-semi-bold text-gray-100"></h3>

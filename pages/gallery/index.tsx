@@ -7,8 +7,8 @@ import { useRouter } from "next/router";
 
 const Gallery = () => {
 	const metaData: MetaDataType = {
-		title: "Amien Amry | Gallery",
-		description: "My gallery",
+		title: "Amien Amry | My Gallery of Adventures and Laughter",
+		description: `Browse through my collection of unforgettable moments and cherished memories with friends. From road trips to social events, my gallery captures the fun and laughter we share.`,
 		image_url: "https://amienamry.dev/images/logo/gallery.png",
 		path: "https://amienamry.dev/gallery",
 	};
