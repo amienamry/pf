@@ -14,6 +14,10 @@ const navbarList: NavbarType[] = [
 		display_name: "Education",
 	},
 	{
+		path: "/streams",
+		display_name: "Music",
+	},
+	{
 		path: "/gallery",
 		display_name: "Gallery",
 	},
