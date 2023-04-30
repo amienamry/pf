@@ -26,7 +26,7 @@ export const InputRange = ({ onChange, value, disabled }: InputRangeProps) => {
 
 	return (
 		<div
-			className="z-[4] relative  flex justify-center items-center rounded-r-xl h-full"
+			className="z-[4] relative flex justify-center items-center rounded-r-xl h-full"
 			style={{
 				boxShadow: "-5px 0px 10px -5px rgba(0,0,0,0.75)",
 				width: 42,
@@ -42,8 +42,10 @@ export const InputRange = ({ onChange, value, disabled }: InputRangeProps) => {
 			<input
 				onChange={(e) => handleOnChange(e)}
 				className={` ${
-					disabled ? "cursor-default" : "cursor-pointer"
-				} absolute rounded outline-none rounded-t-none rounded-b-xl hover:opacity-90`}
+					disabled
+						? "cursor-default"
+						: "hover:opacity-90 cursor-pointer"
+				} absolute rounded outline-none rounded-t-none rounded-b-xl`}
 				style={{
 					transform: "rotate(270deg)",
 				}}

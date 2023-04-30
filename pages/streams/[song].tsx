@@ -7,9 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { BsPauseCircle, BsPlayCircle } from "react-icons/bs";
+import { BsCheck2Square, BsPauseCircle, BsPlayCircle } from "react-icons/bs";
 import { InputRange } from "../../components/InputRange";
 import redirect from "nextjs-redirect";
+import { IoLinkSharp } from "react-icons/io5";
 
 let tabFocusInterval;
 
@@ -43,11 +44,13 @@ const Song = ({ isMobile }) => {
 const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 	const router = useRouter();
 	const [isPlaying, setIsPlaying] = useState(false);
+	const [loadFailed, setLoadFailed] = useState<null | boolean>(null);
 	const [isReady, setIsReady] = useState(false);
 	const [volume, setVolume] = useState(isMobile ? 1 : 0.65);
 	const [waveSurfer, setWaveSurfer] = useState<undefined | WaveSurfer>(
 		undefined
 	);
+	const [linkCopied, setLinkCopied] = useState(false);
 
 	const initWaveSurfer = async () => {
 		if (!song || waveSurfer) return;
@@ -69,12 +72,25 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 		waveInstance.setVolume(volume);
 
 		waveInstance.on("finish", () => {
+			setLoadFailed(false);
 			setIsPlaying(false);
 			waveInstance.setCurrentTime(0);
 		});
 
+		waveInstance.on("error", () => {
+			setLoadFailed(true);
+		});
+
 		waveInstance.on("ready", () => {
 			setIsReady(true);
+
+			Array.from(
+				document.getElementsByTagName(
+					"wave"
+				) as HTMLCollectionOf<HTMLElement>
+			).forEach((el) => {
+				el.style.cursor = "pointer";
+			});
 		});
 
 		setWaveSurfer(waveInstance);
@@ -130,6 +146,16 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 		waveSurfer.setVolume(newVolume);
 	};
 
+	const handleCopyLink = (
+		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+	) => {
+		e.preventDefault();
+
+		navigator.clipboard.writeText(location.href);
+
+		setLinkCopied(true);
+	};
+
 	return (
 		<>
 			<div className="fixed top-[-50%] left-[-50%] w-[200%] h-[200%] bg-black z-[-100] overflow-hidden">
@@ -139,7 +165,27 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 				/>
 			</div>
 			<div className="flex flex-col w-full max-w-2xl pt-32 sm:pt-48 text-gray-100 px-4 sm:px-0">
-				<div className="w-full flex flex-col items-center sm:bg-neutral-800 sm:bg-opacity-30 rounded-xl mb-5">
+				<div className="relative w-full flex flex-col items-center sm:bg-neutral-800 sm:bg-opacity-30 rounded-xl mb-5">
+					<button
+						onClick={(e) => handleCopyLink(e)}
+						className={`${
+							linkCopied
+								? "sm:text-[#5A9367]"
+								: "sm:text-neutral-400 sm:hover:bg-neutral-900"
+						} absolute top-1 right-0.5 z-[1] hidden sm:flex flex-row items-center shadow-2xl px-2 py-0.5 rounded`}
+					>
+						<span className="hidden sm:flex text-sm mr-1">
+							{linkCopied
+								? "URL copied to clipboard"
+								: "Copy URL"}
+						</span>{" "}
+						{linkCopied ? (
+							<BsCheck2Square className="h-7 w-7 sm:h-4 sm:w-4" />
+						) : (
+							<IoLinkSharp className="h-7 w-7 sm:h-4 sm:w-4" />
+						)}
+					</button>
+
 					<div className="relative w-48 h-48 -mt-8 mb-6">
 						<Image
 							className="absolute rounded-xl"
@@ -148,6 +194,26 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 							fill={true}
 							priority={true}
 						/>
+
+						<button
+							onClick={(e) => handleCopyLink(e)}
+							className={`${
+								linkCopied
+									? "sm:text-[#5A9367]"
+									: "sm:text-neutral-400 sm:hover:bg-neutral-900"
+							} absolute top-1 right-0 z-[1] flex sm:hidden flex-row items-center shadow-2xl px-2 py-0.5 rounded`}
+						>
+							<span className="hidden sm:flex text-sm mr-1">
+								{linkCopied
+									? "URL copied to clipboard"
+									: "Copy URL"}
+							</span>{" "}
+							{linkCopied ? (
+								<BsCheck2Square className="h-6 w-6 sm:h-4 sm:w-4" />
+							) : (
+								<IoLinkSharp className="h-6 w-6 sm:h-4 sm:w-4" />
+							)}
+						</button>
 					</div>
 
 					<h1 className="text-3xl font-bold mb-2 text-center px-4">
@@ -181,7 +247,17 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 									Preview: <b>{song.title}</b>
 								</>
 							) : (
-								"Loading..."
+								<span className="flex flex-row items-end">
+									{loadFailed === true
+										? "Fail to load audio 🙁"
+										: "Loading"}
+									{!loadFailed && (
+										<img
+											className="h-4 w-4 ml-[1px] -mb-0.5 flex"
+											src="/images/blinking-ellipsis.svg"
+										/>
+									)}
+								</span>
 							)}
 						</span>
 					</div>
