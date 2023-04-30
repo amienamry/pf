@@ -11,6 +11,8 @@ import { BsPauseCircle, BsPlayCircle } from "react-icons/bs";
 import { InputRange } from "../../components/InputRange";
 import redirect from "nextjs-redirect";
 
+let tabFocusInterval;
+
 const Song = ({ isMobile }) => {
 	const router = useRouter();
 
@@ -39,6 +41,7 @@ const Song = ({ isMobile }) => {
 };
 
 const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
+	const router = useRouter();
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [isReady, setIsReady] = useState(false);
 	const [volume, setVolume] = useState(isMobile ? 1 : 0.65);
@@ -47,7 +50,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 	);
 
 	const initWaveSurfer = async () => {
-		if (!song) return;
+		if (!song || waveSurfer) return;
 
 		const WaveSurfer = (await import("wavesurfer.js")).default;
 
@@ -79,9 +82,37 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 
 	useEffect(() => {
 		initWaveSurfer();
-
-		return () => waveSurfer?.destroy();
 	}, [song]);
+
+	useEffect(() => {
+		if (!waveSurfer) return;
+
+		listenToTabFocus();
+
+		const handleRouteChange = () => {
+			waveSurfer.destroy();
+			setWaveSurfer(undefined);
+			setIsPlaying(false);
+		};
+
+		router.events.on("routeChangeStart", handleRouteChange);
+
+		return () => {
+			clearInterval(tabFocusInterval);
+			router.events.off("routeChangeStart", handleRouteChange);
+		};
+	}, [waveSurfer, router.events]);
+
+	const listenToTabFocus = () => {
+		if (tabFocusInterval) clearInterval(tabFocusInterval);
+
+		tabFocusInterval = setInterval(() => {
+			if (!document.hasFocus()) {
+				waveSurfer.pause();
+				setIsPlaying(false);
+			}
+		}, 1500);
+	};
 
 	const toggleAudio = () => {
 		if (!waveSurfer || !waveSurfer.isReady) return;

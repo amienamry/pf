@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../styles/global.css";
 import { AppProps } from "next/app";
 import { Navbar } from "../components/Navbar";
-import { useRouter } from "next/router";
 import Error404 from "../components/Error404";
 import BackgroundVideo from "../components/BackgroundVideo";
 import CreditFooter from "../components/CreditFooter";
@@ -10,17 +9,6 @@ import { Analytics } from "@vercel/analytics/react";
 
 const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 	const [hasVideoError, setHasVideoError] = useState<boolean>(false);
-	const router = useRouter();
-
-	// TODO: singleton audio player
-	// useEffect(() => {
-	// 	const handleRouteChange = (url) => {
-	// 	};
-	// 	router.events.on("routeChangeComplete", handleRouteChange);
-	// 	return () => {
-	// 		router.events.off("routeChangeComplete", handleRouteChange);
-	// 	};
-	// }, [router.events]);
 
 	const videoError = () => {
 		setHasVideoError(true);
