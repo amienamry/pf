@@ -100,7 +100,7 @@ const Track = ({ song }: { song: Song }) => {
 				} absolute top-1 right-0.5 z-[1] flex flex-row items-center shadow-2xl px-2 py-0.5 rounded`}
 			>
 				<span className="hidden sm:flex text-sm mr-1">
-					{linkCopied ? "Link copied to clipboard" : "Copy song link"}
+					{linkCopied ? "URL copied to clipboard" : "Copy URL"}
 				</span>{" "}
 				{linkCopied ? (
 					<BsCheck2Square className="h-7 w-7 sm:h-4 sm:w-4" />
@@ -134,7 +134,9 @@ const Track = ({ song }: { song: Song }) => {
 				/>
 
 				<div className="flex flex-col w-full px-2 py-1.5 sm:py-0.5">
-					<p className="text-lg font-bold">{song.title}</p>
+					<p className="text-lg font-bold w-fit hover:underline">
+						{song.title}
+					</p>
 					<p className="text-base opacity-80">{song.artist}</p>
 
 					<div className="flex flex-col h-full justify-end text-xs opacity-80 mt-5">
