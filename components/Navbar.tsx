@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import FreePalestine from "./FreePalestine";
@@ -9,6 +9,9 @@ import { useScrollPosition } from "../hooks/useScrollPosition";
 export const Navbar = () => {
 	const [active, setActive] = useState(false);
 	const [isTransparent, setTransparent] = useState<boolean>(true);
+	const [prevScrollTop, setPrevScrollTop] = useState(0);
+	const [backdropHeight, setBackdropHeight] = useState(0);
+	const navRef = useRef<HTMLElement>(null);
 
 	useScrollPosition(
 		({ currPos }) => {
@@ -18,17 +21,49 @@ export const Navbar = () => {
 		[isTransparent]
 	);
 
+	useEffect(() => {
+		if (active) {
+			const height = window.innerHeight - navRef.current.clientHeight;
+			setBackdropHeight(height);
+		}
+	}, [active]);
+
+	const freeze = () => {
+		setPrevScrollTop(document.documentElement.scrollTop);
+		document.documentElement.style.overflowY = "hidden";
+		document.documentElement.style.position = "fixed";
+	};
+
+	const unfreeze = () => {
+		document.documentElement.style.overflowY = "auto";
+		document.documentElement.style.position = "static";
+		document.documentElement.scrollTop = prevScrollTop;
+		setPrevScrollTop(0);
+	};
+
 	const handleClick = () => {
+		if (active) {
+			unfreeze();
+		} else {
+			freeze();
+		}
+
 		setActive(!active);
 	};
 
 	const close = () => {
 		setActive(false);
+		unfreeze();
+	};
+
+	const handleBackdrop = () => {
+		close();
 	};
 
 	return (
 		<>
 			<Link
+				onClick={() => close()}
 				className="fixed inline-flex items-center p-5 mr-4 z-20"
 				href="/"
 			>
@@ -43,9 +78,10 @@ export const Navbar = () => {
 			<FreePalestine />
 
 			<nav
+				ref={navRef}
 				style={{
 					transitionProperty: "background-color",
-					transitionDuration: "0.5s",
+					transitionDuration: "0.3s",
 				}}
 				className={`flex items-center flex-wrap p-3 fixed w-full z-10 bg-black ${
 					active || !isTransparent
@@ -60,20 +96,27 @@ export const Navbar = () => {
 					className="inline-flex p-3 hover:text-gray-200 rounded lg:hidden text-gray-100 ml-auto outline-none focus:outline-none"
 					onClick={handleClick}
 				>
-					<svg
-						className="w-6 h-6"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth={2}
-							d="M4 6h16M4 12h16M4 18h16"
+					{!active ? (
+						<svg
+							className="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth={2}
+								d="M4 6h16M4 12h16M4 18h16"
+							/>
+						</svg>
+					) : (
+						<img
+							className="w-4 h-4 mr-1"
+							src="/images/x-bold.svg"
 						/>
-					</svg>
+					)}
 				</button>
 				{/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
 				<div
@@ -97,6 +140,18 @@ export const Navbar = () => {
 					</div>
 				</div>
 			</nav>
+
+			<div
+				onClick={() => handleBackdrop()}
+				style={{
+					height: backdropHeight,
+					transitionProperty: "opacity",
+					transitionDuration: "0.3s",
+					opacity: active ? "1" : "0",
+					zIndex: active ? 5 : -10,
+				}}
+				className="flex justify-center items-end fixed w-full bg-[#191919] inset-shadow bottom-0 left-0"
+			></div>
 		</>
 	);
 };

@@ -109,3 +109,9 @@ wave {
 	border-top-right-radius: 1rem;
 	border-top-left-radius: 1rem;
 }
+
+.inset-shadow {
+	box-shadow: 0 200px 109px -86px black inset;
+	-webkit-box-shadow: 0 200px 109px -86px black inset;
+	-moz-box-shadow: 0 200px 109px -86px black inset;
+}

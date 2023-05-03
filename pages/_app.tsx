@@ -20,7 +20,7 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 		<div
 			className={`${
 				hasVideoError ? "bg-gray-900 " : ""
-			} relative text-gray-200 font-sans font-normal min-h-screen `}
+			} relative text-gray-200 font-sans font-normal min-h-screen`}
 		>
 			{pageProps?.statusCode === 404 && <Error404 />}
 
