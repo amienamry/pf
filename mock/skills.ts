@@ -2,8 +2,8 @@ import { BiTestTube } from "react-icons/bi";
 import { TiFlowSwitch } from "react-icons/ti";
 import { FaLaptop, FaMobileAlt, FaUsers } from "react-icons/fa";
 import { FiDatabase, FiTerminal } from "react-icons/fi";
-import { GiLifeInTheBalance, GiSoundWaves } from "react-icons/gi";
-import { MdDataObject } from "react-icons/md";
+import { GiLifeInTheBalance, GiPianoKeys } from "react-icons/gi";
+import { MdDataObject, MdMusicNote } from "react-icons/md";
 import { TbApi, TbBinaryTree } from "react-icons/tb";
 import { Extra } from "../types/Extra";
 import { BsInfinity, BsSearch } from "react-icons/bs";
@@ -67,7 +67,11 @@ export const skills: Extra[] = [
 		icon: FaUsers,
 	},
 	{
-		name: "Audio Engineering",
-		icon: GiSoundWaves,
+		name: "Music Composition",
+		icon: GiPianoKeys,
+	},
+	{
+		name: "Music Production",
+		icon: MdMusicNote,
 	},
 ];
