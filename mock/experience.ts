@@ -40,7 +40,7 @@ const exps: ExperienceType[] = [
 		company: "GogoKids",
 		points: [
 			"Maintained and developed interactive front-end applications: eCommerce web - Angular; eCommerce mobile application - React Native; and Content Management System (CMS) - Angular.",
-			"Developed API - Laravel; consumed by multiple multiple clients with thousands of active users.",
+			"Developed API - Laravel; consumed by multiple clients with thousands of active users.",
 			"Implemented Server-side Rendering (SSR) techniques to enhance SEO, resulting in increased website traffic and improved user retention.",
 			"Managed software deployment activities, specifically overseeing the setup and configuration of Virtual Private Servers (VPS) for seamless application hosting and delivery.",
 		],
