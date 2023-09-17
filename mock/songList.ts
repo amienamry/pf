@@ -753,6 +753,45 @@ const songs: Song[] = [
 			},
 		],
 	},
+	{
+		key: "good-morning-pineapple",
+		title: "good morning pineapple",
+		fullTitle: "good morning pineapple by Arai Junior",
+		artist: "Arai Junior",
+		description: "Stream and Save 'good morning pineapple'",
+		imgThumb: "/images/streams/good-morning-pineapple/thumb.jpeg",
+		imgBg: "/images/streams/good-morning-pineapple/bg.jpeg",
+		audioUrl:
+			"https://amienamry.dev/audios/good-morning-pineapple/preview.mp3",
+		releasedDate: "2023-09-16",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/1GTgjZyj7R9UpxJtI8E6dX",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/lIr0WAJvzeY",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/my/album/good-morning-pineapple-single/1707709809",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/my/album/good-morning-pineapple-single/1707709809",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B0CJ7J4DHX",
+				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+		],
+	},
 ];
 
 export default songs;
