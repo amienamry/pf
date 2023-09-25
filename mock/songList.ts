@@ -742,6 +742,11 @@ const songs: Song[] = [
 		releasedDate: "2023-04-27",
 		platforms: [
 			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/1C5agXXJfQyhcwnwvBj5WF",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
 				name: "Youtube",
 				url: "https://youtu.be/T9giCT68jN4",
 				imgUrl: "/images/streams/youtube.jpeg",
@@ -750,6 +755,21 @@ const songs: Song[] = [
 				name: "Soundcloud",
 				url: "https://soundcloud.com/araijunior/balik-kampung-arai-junior-bootleg",
 				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/my/album/balik-kampung-single/1708798678",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/my/album/balik-kampung-single/1708798678",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B0CJQ7RX5J",
+				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
 		],
 	},
@@ -774,6 +794,11 @@ const songs: Song[] = [
 				name: "Youtube",
 				url: "https://youtu.be/lIr0WAJvzeY",
 				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/good-morning-pineapple",
+				imgUrl: "/images/streams/soundcloud.jpeg",
 			},
 			{
 				name: "Apple Music",
