@@ -1,5 +1,6 @@
 import format from "date-fns/format";
 import Image from "next/image";
+import { useEffect } from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import { PfImage } from "../types/PfImage";
 
@@ -18,6 +19,12 @@ export const ImagePreview = ({
 	closePreview,
 	loadComplete,
 }: ImagePreviewProps) => {
+	useEffect(() => {
+		if (isLoading) return;
+		const htmlEl = document.getElementsByTagName("html")[0];
+		htmlEl.scrollTop = 0;
+	}, [isLoading]);
+
 	return (
 		<div className="flex flex-col w-full h-auto mt-20 items-center">
 			{isLoading && (
@@ -30,7 +37,7 @@ export const ImagePreview = ({
 			)}
 
 			{!!path && (
-				<div className="flex min-h-screen w-full max-w-3xl flex-col bg-black bg-opacity-40 rounded-md">
+				<div className="flex min-h-screen w-full max-w-3xl flex-col bg-black bg-opacity-60 rounded-md">
 					<div className="relative flex w-full max-h-[450px]">
 						<Image
 							onLoadingComplete={() => loadComplete?.()}
@@ -56,8 +63,10 @@ export const ImagePreview = ({
 						)}
 					</div>
 
-					<div className="mt-2 sm:mt-4 px-4">
-						<p className="mb-2 text-xl">{image.description}</p>
+					<div className="mt-4 px-4">
+						{image.description && (
+							<p className="mb-2 text-xl">{image.description}</p>
+						)}
 						{image.createdAt && (
 							<p className="text-sm opacity-60">
 								{format(image.createdAt, "eeee, d MMM yyyy")}
