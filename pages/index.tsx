@@ -22,7 +22,7 @@ const App = () => {
 	const metaData: MetaDataType = {
 		title: `Amien Amry | ${useCurrentRole().title}`,
 		description: `A full stack developer with ${exp}+ years of experience in web and mobile app dev, I am dedicated to delivering high-quality results. In my free time, I compose and produce music as Arai Junior.`,
-		image_url: "https://amienamry.dev/images/amien1.jpg",
+		image_url: "https://amienamry.dev/images/amien2.jpg",
 		path: "https://amienamry.dev",
 	};
 
@@ -112,7 +112,7 @@ const Profile = () => {
 				<Image
 					priority
 					className="rounded-full"
-					src="/images/amien1.jpg"
+					src="/images/amien2.jpg"
 					alt="Amien Amry"
 					width={250}
 					height={250}
