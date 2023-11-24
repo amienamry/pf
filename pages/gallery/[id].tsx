@@ -57,6 +57,7 @@ const Content = ({ image }: { image: PfImage }) => {
 
 	return (
 		<ImagePreview
+			image={image}
 			path={path}
 			isLoading={isLoading}
 			closePreview={closePreview}

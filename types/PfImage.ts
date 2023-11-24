@@ -3,4 +3,7 @@ export type PfImage = {
 	title: string;
 	description: string;
 	path: string;
+	location?: string;
+	locationUrl?: string;
+	createdAt?: Date;
 };
