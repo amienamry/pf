@@ -771,6 +771,11 @@ const songs: Song[] = [
 				url: "https://www.amazon.com/gp/product/B0CJQ7RX5J",
 				imgUrl: "/images/streams/amazon-music.jpeg",
 			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/493207261",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
 		],
 	},
 	{
@@ -814,6 +819,49 @@ const songs: Song[] = [
 				name: "Amazon Music",
 				url: "https://www.amazon.com/gp/product/B0CJ7J4DHX",
 				imgUrl: "/images/streams/amazon-music.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/488877825",
+				imgUrl: "/images/streams/deezer.jpeg",
+			},
+		],
+	},
+	{
+		key: "take-me-there",
+		title: "take me there (feat. Farisha)",
+		fullTitle: "take me there (feat. Farisha) by Arai Junior",
+		artist: "Arai Junior",
+		description: "Stream and Save 'take me there'",
+		imgThumb: "/images/streams/take-me-there/thumb.jpeg",
+		imgBg: "/images/streams/take-me-there/bg.jpeg",
+		audioUrl: "https://amienamry.dev/audios/take-me-there/preview.mp3",
+		releasedDate: "2023-12-07",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/7y0jEv8dTMWMaqE6KQpUkf",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/edwIqiqmA6E",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/take-me-there",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/my/album/take-me-there-feat-farisha-single/1720544489",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/my/album/take-me-there-feat-farisha-single/1720544489",
+				imgUrl: "/images/streams/itunes.jpeg",
 			},
 		],
 	},
