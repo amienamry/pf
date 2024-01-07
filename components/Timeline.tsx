@@ -8,6 +8,7 @@ import { format, intervalToDuration, isSameDay } from "date-fns";
 
 const Timeline = (props: TimelineType) => {
 	return (
+		// @ts-ignore
 		<VerticalTimeline animate={props.isAnimated ?? false}>
 			{props.data.map((data, i: number) => {
 				const isLastItem = props.data.length - 1 === i;
@@ -32,6 +33,7 @@ const Timeline = (props: TimelineType) => {
 				}${months ? `${months}mo${months > 1 ? "s" : ""}` : ""}`;
 
 				return (
+					// @ts-ignore
 					<VerticalTimelineElement
 						key={data?.title + i.toString()}
 						contentStyle={{

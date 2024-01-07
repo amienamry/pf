@@ -11,6 +11,7 @@ import { BsCheck2Square, BsPauseCircle, BsPlayCircle } from "react-icons/bs";
 import { InputRange } from "../../components/InputRange";
 import redirect from "nextjs-redirect";
 import { IoLinkSharp } from "react-icons/io5";
+import WaveSurfer from "wavesurfer.js";
 
 let tabFocusInterval;
 
@@ -55,15 +56,12 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 	const initWaveSurfer = async () => {
 		if (!song || waveSurfer) return;
 
-		const WaveSurfer = (await import("wavesurfer.js")).default;
-
 		const waveInstance = WaveSurfer.create({
 			container: "#waveform",
 			waveColor: "#8a9c8e",
 			progressColor: "#5A9367",
 			height: 100,
 			cursorColor: "#566b5b",
-			responsive: true,
 			cursorWidth: 0,
 		});
 
@@ -74,11 +72,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 		waveInstance.on("finish", () => {
 			setLoadFailed(false);
 			setIsPlaying(false);
-			waveInstance.setCurrentTime(0);
-		});
-
-		waveInstance.on("error", () => {
-			setLoadFailed(true);
+			waveInstance.setTime(0);
 		});
 
 		waveInstance.on("ready", () => {
@@ -131,7 +125,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 	};
 
 	const toggleAudio = () => {
-		if (!waveSurfer || !waveSurfer.isReady) return;
+		if (!waveSurfer && isReady) return;
 
 		waveSurfer.isPlaying() ? waveSurfer.pause() : waveSurfer.play();
 
@@ -139,7 +133,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 	};
 
 	const handleVolume = (volume: number) => {
-		if (!waveSurfer || !waveSurfer.isReady) return;
+		if (!waveSurfer && isReady) return;
 
 		const newVolume = volume / 100;
 		setVolume(newVolume);
