@@ -1,11 +1,5 @@
 import Image from "next/image";
-import {
-	FaGithub,
-	FaLinkedinIn,
-	FaInstagram,
-	FaSpotify,
-	FaYoutube,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaSpotify, FaYoutube } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { MetaDataType } from "../types/MetaData";
 import MainLayout from "../components/MainLayout";
@@ -55,7 +49,6 @@ const Profile = () => {
 
 	const age: number = new Date().getFullYear() - 1998;
 	const socials: {
-		index?: number;
 		component: any;
 		url: string;
 		isUrl: boolean;
@@ -66,27 +59,18 @@ const Profile = () => {
 			isUrl: false,
 		},
 		{
-			index: 3,
 			component: FaGithub,
 			url: "https://github.com/amienamry",
 			isUrl: true,
 		},
 		{
-			index: 2,
 			component: FaLinkedinIn,
 			url: "https://linkedin.com/in/amienamry",
 			isUrl: true,
 		},
 		{
-			index: 1,
 			component: FaYoutube,
 			url: "https://youtube.com/araijunior",
-			isUrl: true,
-		},
-		{
-			index: 0,
-			component: FaInstagram,
-			url: "https://instagram.com/amienamry",
 			isUrl: true,
 		},
 		{
@@ -94,17 +78,7 @@ const Profile = () => {
 			url: "https://open.spotify.com/artist/3SwgFLDekh43vfME5GUVPd",
 			isUrl: true,
 		},
-	].filter((social) => {
-		if (
-			!router.query?.src ||
-			+router.query?.src > 3 ||
-			+router.query?.src < 0
-		) {
-			return social.index !== 1;
-		}
-
-		return social.index !== +router.query?.src;
-	});
+	];
 
 	return (
 		<div className="flex flex-initial flex-col p-3 md:p-5 justify-center md:justify-start">
