@@ -1,4 +1,4 @@
-import format from "date-fns/format";
+import { format } from "date-fns";
 import Image from "next/image";
 import { useEffect } from "react";
 import { IoLocationSharp } from "react-icons/io5";
