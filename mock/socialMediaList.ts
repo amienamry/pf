@@ -7,11 +7,6 @@ const socialMedias: SocialMedia[] = [
 		path: "https://twitter.com/amienamry",
 	},
 	{
-		key: "instagram",
-		title: "Instagram",
-		path: "https://instagram.com/amienamry",
-	},
-	{
 		key: "spotify",
 		title: "Spotify",
 		path: "https://open.spotify.com/artist/3SwgFLDekh43vfME5GUVPd",
@@ -25,11 +20,6 @@ const socialMedias: SocialMedia[] = [
 		key: "soundcloud",
 		title: "SoundCloud",
 		path: "https://soundcloud.com/araijunior",
-	},
-	{
-		key: "facebook",
-		title: "Facebook",
-		path: "https://facebook.com/amienamry98",
 	},
 	{
 		key: "linkedin",
