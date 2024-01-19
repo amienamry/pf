@@ -865,6 +865,44 @@ const songs: Song[] = [
 			},
 		],
 	},
+	{
+		key: "one-more-try",
+		title: "one more try",
+		fullTitle: "one more try by Arai Junior",
+		artist: "Arai Junior",
+		description: "Stream and Save 'one more try'",
+		imgThumb: "/images/streams/one-more-try/thumb.jpeg",
+		imgBg: "/images/streams/one-more-try/bg.jpeg",
+		audioUrl: "https://amienamry.dev/audios/one-more-try/preview.mp3",
+		releasedDate: "2024-01-13",
+		platforms: [
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/2lG6YU8JeCbEuqRmoy5ruR",
+				imgUrl: "/images/streams/spotify.jpeg",
+			},
+			{
+				name: "Youtube",
+				url: "https://youtu.be/8A7IIkeCJ_c",
+				imgUrl: "/images/streams/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/one-more-try",
+				imgUrl: "/images/streams/soundcloud.jpeg",
+			},
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/my/album/one-more-try-single/1725930475",
+				imgUrl: "/images/streams/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/my/album/one-more-try-single/1725930475",
+				imgUrl: "/images/streams/itunes.jpeg",
+			},
+		],
+	},
 ];
 
 export default songs;
