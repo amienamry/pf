@@ -65,10 +65,10 @@ export const ImagePreview = ({
 
 					<div className="mt-4 px-4">
 						{image.description && (
-							<p className="mb-2 text-xl">{image.description}</p>
+							<p className="mb-2">{image.description}</p>
 						)}
 						{image.createdAt && (
-							<p className="text-sm opacity-60">
+							<p className="text-xs opacity-60">
 								{format(image.createdAt, "eeee, d MMM yyyy")}
 							</p>
 						)}

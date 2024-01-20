@@ -91,6 +91,9 @@ const Track = ({ song }: { song: Song }) => {
 			className="relative shadow-2xl mb-5 bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 rounded-xl"
 			href={`streams/${song.key}`}
 		>
+			<div className="absolute top-2 left-2 sm:hidden z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40">
+				{song.genre}
+			</div>
 			<button
 				onClick={(e) => handleCopyLink(e)}
 				className={`${
@@ -136,6 +139,10 @@ const Track = ({ song }: { song: Song }) => {
 				<div className="flex flex-col w-full px-2 py-1.5 sm:py-0.5">
 					<p className="text-lg font-bold w-fit hover:underline">
 						{song.title}
+
+						<div className="text-sm font-normal ml-2 hidden sm:inline-block bg-black py-0.5 px-1.5 rounded bg-opacity-20 text-gray-400">
+							{song.genre}
+						</div>
 					</p>
 					<p className="text-base opacity-80">{song.artist}</p>
 

@@ -9,6 +9,7 @@ export type Song = {
 	audioUrl: string;
 	platforms: StreamingPlatform[];
 	releasedDate: string;
+	genre: string;
 };
 
 export type StreamingPlatform = {
