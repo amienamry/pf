@@ -11,6 +11,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/ale-uto/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/ale-uto/preview.mp3",
 		releasedDate: "2014-10-03",
+		genre: "Bigroom",
 		platforms: [
 			{
 				name: "Spotify",
@@ -59,6 +60,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/shake-it/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/shake-it/preview.mp3",
 		releasedDate: "2014-10-26",
+		genre: "Bigroom",
 		platforms: [
 			{
 				name: "Spotify",
@@ -107,6 +109,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/bong/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/bong/preview.mp3",
 		releasedDate: "2014-11-09",
+		genre: "Bigroom",
 		platforms: [
 			{
 				name: "Spotify",
@@ -155,6 +158,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/lengleng/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/lengleng/preview.mp3",
 		releasedDate: "2015-09-26",
+		genre: "Bigroom",
 		platforms: [
 			{
 				name: "Spotify",
@@ -203,6 +207,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/badut/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/badut/preview.mp3",
 		releasedDate: "2015-12-26",
+		genre: "Bigroom",
 		platforms: [
 			{
 				name: "Spotify",
@@ -246,6 +251,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/bedal/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/bedal/preview.mp3",
 		releasedDate: "2017-12-30",
+		genre: "Big Bounce",
 		platforms: [
 			{
 				name: "Spotify",
@@ -294,6 +300,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/reborn/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/reborn/preview.mp3",
 		releasedDate: "2019-02-24",
+		genre: "Reverse Bass",
 		platforms: [
 			{
 				name: "Spotify",
@@ -342,6 +349,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/smks4bk/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/smks4bk/preview.mp3",
 		releasedDate: "2019-04-17",
+		genre: "Hardstyle",
 		platforms: [
 			{
 				name: "Spotify",
@@ -391,6 +399,7 @@ const songs: Song[] = [
 		audioUrl:
 			"https://amienamry.dev/audios/ale-uto-hardstyle-remix/preview.mp3",
 		releasedDate: "2019-12-01",
+		genre: "Hardstyle",
 		platforms: [
 			{
 				name: "Spotify",
@@ -439,6 +448,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/anarchy/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/anarchy/preview.mp3",
 		releasedDate: "2021-09-04",
+		genre: "Psytrance",
 		platforms: [
 			{
 				name: "Spotify",
@@ -482,6 +492,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/boncai/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/boncai/preview.mp3",
 		releasedDate: "2021-09-04",
+		genre: "Bigroom",
 		platforms: [
 			{
 				name: "Spotify",
@@ -525,6 +536,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/cincai/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/cincai/preview.mp3",
 		releasedDate: "2021-09-04",
+		genre: "Melbourne Bounce",
 		platforms: [
 			{
 				name: "Spotify",
@@ -568,6 +580,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/hush/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/hush/preview.mp3",
 		releasedDate: "2021-09-04",
+		genre: "Electro House",
 		platforms: [
 			{
 				name: "Spotify",
@@ -611,6 +624,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/null/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/null/preview.mp3",
 		releasedDate: "2021-09-04",
+		genre: "Hardstyle",
 		platforms: [
 			{
 				name: "Spotify",
@@ -654,6 +668,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/rararera/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/rararera/preview.mp3",
 		releasedDate: "2021-09-04",
+		genre: "Hardstyle",
 		platforms: [
 			{
 				name: "Spotify",
@@ -697,6 +712,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/rekt/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/rekt/preview.mp3",
 		releasedDate: "2021-09-04",
+		genre: "Bigroom",
 		platforms: [
 			{
 				name: "Spotify",
@@ -740,6 +756,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/balik-kampung/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/balik-kampung/preview.mp3",
 		releasedDate: "2023-04-27",
+		genre: "Hardstyle",
 		platforms: [
 			{
 				name: "Spotify",
@@ -789,6 +806,7 @@ const songs: Song[] = [
 		audioUrl:
 			"https://amienamry.dev/audios/good-morning-pineapple/preview.mp3",
 		releasedDate: "2023-09-16",
+		genre: "Hardstyle",
 		platforms: [
 			{
 				name: "Spotify",
@@ -837,6 +855,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/take-me-there/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/take-me-there/preview.mp3",
 		releasedDate: "2023-12-07",
+		genre: "Hardstyle",
 		platforms: [
 			{
 				name: "Spotify",
@@ -875,6 +894,7 @@ const songs: Song[] = [
 		imgBg: "/images/streams/one-more-try/bg.jpeg",
 		audioUrl: "https://amienamry.dev/audios/one-more-try/preview.mp3",
 		releasedDate: "2024-01-13",
+		genre: "Drum & Bass",
 		platforms: [
 			{
 				name: "Spotify",

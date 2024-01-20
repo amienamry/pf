@@ -181,6 +181,10 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 					</button>
 
 					<div className="relative w-48 h-48 -mt-8 mb-6">
+						<div className="absolute top-1.5 left-1.5 sm:hidden z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40">
+							{song.genre}
+						</div>
+
 						<Image
 							className="absolute rounded-xl"
 							alt={`${song.title}'s album cover`}
