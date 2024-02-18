@@ -78,14 +78,14 @@ export const frameworks: Extra[] = [
 		name: "Github",
 		icon: AiFillGithub,
 	},
-	{
-		name: "Blazor",
-		icon: SiBlazor,
-	},
-	{
-		name: ".NET",
-		icon: SiDotnet,
-	},
+	// {
+	// 	name: "Blazor",
+	// 	icon: SiBlazor,
+	// },
+	// {
+	// 	name: ".NET",
+	// 	icon: SiDotnet,
+	// },
 	{
 		name: "Razer Merchant Services",
 		icon: SiRazer,

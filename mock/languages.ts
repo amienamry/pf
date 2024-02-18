@@ -25,8 +25,8 @@ export const languages: Extra[] = [
 		name: "CSS",
 		icon: DiCss3,
 	},
-	{
-		name: "C#",
-		icon: SiCsharp,
-	},
+	// {
+	// 	name: "C#",
+	// 	icon: SiCsharp,
+	// },
 ];
