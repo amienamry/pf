@@ -5,17 +5,22 @@ import { IoLogoAngular, IoLogoLaravel, IoLogoReact } from "react-icons/io5";
 import { RxVercelLogo } from "react-icons/rx";
 import {
 	SiNextdotjs,
-	SiDotnet,
 	SiMailchimp,
 	SiMapbox,
 	SiRedux,
-	SiBlazor,
 	SiRazer,
 	SiTailwindcss,
 	SiXstate,
+	SiNgrx,
+	SiVerdaccio,
+	SiGerrit,
+	SiJira,
+	SiCypress,
+	SiJest,
 } from "react-icons/si";
 import { TbSquareRoundedNumber8 } from "react-icons/tb";
 import { Extra } from "../types/Extra";
+import { RiSignalTowerLine } from "react-icons/ri";
 
 export const frameworks: Extra[] = [
 	{
@@ -35,6 +40,18 @@ export const frameworks: Extra[] = [
 		icon: IoLogoReact,
 	},
 	{
+		name: "Signal",
+		icon: RiSignalTowerLine,
+	},
+	{
+		name: "Jest",
+		icon: SiJest,
+	},
+	{
+		name: "Cypress",
+		icon: SiCypress,
+	},
+	{
 		name: "Git",
 		icon: DiGit,
 	},
@@ -43,8 +60,8 @@ export const frameworks: Extra[] = [
 		icon: SiTailwindcss,
 	},
 	{
-		name: "JQuery",
-		icon: DiJqueryLogo,
+		name: "NGRX",
+		icon: SiNgrx,
 	},
 	{
 		name: "NGXS",
@@ -53,6 +70,22 @@ export const frameworks: Extra[] = [
 	{
 		name: "Redux",
 		icon: SiRedux,
+	},
+	{
+		name: "Jira",
+		icon: SiJira,
+	},
+	{
+		name: "Verdaccio",
+		icon: SiVerdaccio,
+	},
+	{
+		name: "Gerrit",
+		icon: SiGerrit,
+	},
+	{
+		name: "JQuery",
+		icon: DiJqueryLogo,
 	},
 	{
 		name: "Mailchimp",
@@ -78,14 +111,6 @@ export const frameworks: Extra[] = [
 		name: "Github",
 		icon: AiFillGithub,
 	},
-	// {
-	// 	name: "Blazor",
-	// 	icon: SiBlazor,
-	// },
-	// {
-	// 	name: ".NET",
-	// 	icon: SiDotnet,
-	// },
 	{
 		name: "Razer Merchant Services",
 		icon: SiRazer,

@@ -10,12 +10,12 @@ const exps: ExperienceType[] = [
 		title: "Full Stack Developer",
 		company: "SoftwareQ",
 		points: [
-			"Contributed to diverse software development projects spanning insurance, geomatics, and warehousing domains.",
+			"Contributed to diverse software development projects spanning insurance, geomatics, and supply chain domains.",
 			"Designed and implemented tech solutions to solve complex business challenges for clients, using industry-standard methods. Strategically implementing Domain-Driven Design (DDD) architecture.",
 			"Provided mentorship to junior developers and interns, offering guidance on technical skills, best practices, and professional development.",
 		],
 		background_color: "#5A9367",
-		link: "https://softwareq.com",
+		link: "https://www.softwareq.com/about-us",
 		icon: BiCodeAlt,
 	},
 	{
@@ -23,13 +23,13 @@ const exps: ExperienceType[] = [
 		year_to: new Date("2022-07-02"),
 		showYearDiff: true,
 		title: "Software Engineer",
-		company: "KSK City Labs",
+		company: "KSK Group",
 		points: [
 			"Designed and developed APIs using Laravel, which includes eDirectory, eDocument, Event Management, and Payment Integration. These APIs played a crucial role in ensuring seamless functionality and extending the overall capabilities of the “8 Conlay” mobile application.",
 			"Collaborated closely with the Product Owner to identify product requirements and thoroughly defined feature sets as well as worked closely with the Frontend Mobile App Developer, ensuring smooth integration and efficient workflows in the development process.",
 		],
 		background_color: "#5A9367",
-		link: "https://kskcitylabs.com",
+		link: "https://www.kskgroup.com/company",
 		icon: BiCodeAlt,
 	},
 	{
@@ -45,7 +45,7 @@ const exps: ExperienceType[] = [
 			"Managed software deployment activities, focusing on the setup and configuration of Virtual Private Servers (VPS) for streamlined application hosting and delivery.",
 		],
 		background_color: "#5A9367",
-		link: "https://gogokids.my",
+		link: "https://www.gogokids.my/about-us",
 		icon: BiCodeAlt,
 	},
 	{
@@ -53,14 +53,14 @@ const exps: ExperienceType[] = [
 		year_to: new Date("2019-06-30"),
 		showYearDiff: true,
 		title: "Admin",
-		company: "J&T Express (Outlet)",
+		company: "J&T Express",
 		points: [
 			"Engineered a streamlined customer CRUD (Create, Read, Update, Delete) application using JavaScript and PHP, resulting in a remarkable 50% enhancement in work efficiency.",
 			"Efficiently managed walk-in customers, administered package handling, oversaw financial transactions, and prepared daily sales reports.",
 			"Marketed and secured prospects into a VIP customer that increased the outlet's revenue by 150% within 6 months.",
 		],
 		background_color: "#5A9367",
-		link: "https://www.jtexpress.my/",
+		link: "https://www.jtexpress.com/en/aboutUs",
 		icon: FiUser,
 	},
 	{
