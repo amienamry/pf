@@ -9,6 +9,7 @@ export type EducationType = {
 	points?: string[];
 	background_color: string;
 	background_color2?: string;
-	icon: IconType;
 	link?: string;
+	icon?: IconType;
+	iconUrl?: string;
 };

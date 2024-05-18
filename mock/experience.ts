@@ -1,5 +1,4 @@
-import { FiUser } from "react-icons/fi";
-import { BiCalendarStar, BiCodeAlt } from "react-icons/bi";
+import { BiCalendarStar } from "react-icons/bi";
 import { ExperienceType } from "../types/Experience";
 
 const exps: ExperienceType[] = [
@@ -16,7 +15,7 @@ const exps: ExperienceType[] = [
 		],
 		background_color: "#5A9367",
 		link: "https://www.softwareq.com/about-us",
-		icon: BiCodeAlt,
+		iconUrl: "https://amienamry.dev/images/exp/swq.png",
 	},
 	{
 		year_from: new Date("2021-12-13"),
@@ -30,7 +29,7 @@ const exps: ExperienceType[] = [
 		],
 		background_color: "#5A9367",
 		link: "https://www.kskgroup.com/company",
-		icon: BiCodeAlt,
+		iconUrl: "https://amienamry.dev/images/exp/ksk.png",
 	},
 	{
 		year_from: new Date("2019-10-01"),
@@ -46,7 +45,7 @@ const exps: ExperienceType[] = [
 		],
 		background_color: "#5A9367",
 		link: "https://www.gogokids.my/about-us",
-		icon: BiCodeAlt,
+		iconUrl: "https://amienamry.dev/images/exp/ggk.png",
 	},
 	{
 		year_from: new Date("2018-09-01"),
@@ -61,7 +60,7 @@ const exps: ExperienceType[] = [
 		],
 		background_color: "#5A9367",
 		link: "https://www.jtexpress.com/en/aboutUs",
-		icon: FiUser,
+		iconUrl: "https://amienamry.dev/images/exp/jnt.png",
 	},
 	{
 		year_from: new Date("1998-03-24"),

@@ -5,8 +5,19 @@ import {
 } from "react-vertical-timeline-component";
 import { TimelineType } from "../types/Timeline";
 import { format, intervalToDuration, isSameDay } from "date-fns";
+import { EducationType } from "../types/Education";
+import { ExperienceType } from "../types/Experience";
 
 const Timeline = (props: TimelineType) => {
+	const getIcon = (data: ExperienceType | EducationType) => {
+		if (data.icon) return <data.icon />;
+
+		if (data.iconUrl)
+			return <img className="rounded-full" src={data.iconUrl} />;
+
+		return null;
+	};
+
 	return (
 		// @ts-ignore
 		<VerticalTimeline animate={props.isAnimated ?? false}>
@@ -47,42 +58,42 @@ const Timeline = (props: TimelineType) => {
 							background: data.background_color,
 							color: "#fff",
 						}}
-						icon={<data.icon />}
+						icon={getIcon(data)}
 					>
-						<span className='text-sm text-gray-100'>
+						<span className="text-sm text-gray-100">
 							{date}{" "}
 							{!!duration && data?.showYearDiff && (
 								<span>· {duration}</span>
 							)}
 						</span>
 
-						<h3 className='text-xl sm:text-2xl font-semibold'>
+						<h3 className="text-xl sm:text-2xl font-semibold">
 							{data?.title}
 						</h3>
 
 						{!isLastItem && !!data.link && (
 							<a
-								className='text-lg sm:text-xl underline'
+								className="text-lg sm:text-xl underline"
 								href={data.link}
-								target='_blank'
-								rel='noopener noreferrer'
+								target="_blank"
+								rel="noopener noreferrer"
 							>
 								{data.company}
 							</a>
 						)}
 						{!isLastItem && !data.link && (
-							<h4 className='text-lg sm:text-xl'>
+							<h4 className="text-lg sm:text-xl">
 								{data?.company}
 							</h4>
 						)}
 
 						{!isLastItem && (
-							<ul className='list-disc pl-5'>
+							<ul className="list-disc pl-5">
 								{data?.points.map((point, i) => {
 									return (
 										<li
 											key={point + i.toString()}
-											className='text-lg sm:text-xl text-white my-3'
+											className="text-lg sm:text-xl text-white my-3"
 										>
 											{point}
 										</li>
