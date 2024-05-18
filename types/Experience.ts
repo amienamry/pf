@@ -10,5 +10,6 @@ export type ExperienceType = {
 	background_color: string;
 	background_color2?: string;
 	link?: string;
-	icon: IconType;
+	icon?: IconType;
+	iconUrl?: string;
 };

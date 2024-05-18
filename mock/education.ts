@@ -1,5 +1,4 @@
 import { BiCalendarStar } from "react-icons/bi";
-import { FaUserGraduate, FaCertificate } from "react-icons/fa";
 import { EducationType } from "../types/Education";
 
 const edus: EducationType[] = [
@@ -14,7 +13,7 @@ const edus: EducationType[] = [
 			"Collaborated with peers on group projects, developing teamwork and communication skills essential for success in collaborative software development environments.",
 		],
 		background_color: "#5A9367",
-		icon: FaUserGraduate,
+		iconUrl: "https://amienamry.dev/images/edu/kvsa.png",
 		link: "https://www.facebook.com/kvsaofficial",
 	},
 	{
@@ -27,7 +26,7 @@ const edus: EducationType[] = [
 			"Learned essential knowledge in web application development, including introductory concepts of front-end and back-end technologies, such as HTML, CSS, JavaScript, PHP, and SQL, enabling the creation of simple website.",
 		],
 		background_color: "#5A9367",
-		icon: FaCertificate,
+		iconUrl: "https://amienamry.dev/images/edu/kvsa.png",
 		link: "https://www.facebook.com/kvsaofficial",
 	},
 	{
