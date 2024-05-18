@@ -7,8 +7,8 @@ import { useRouter } from "next/router";
 
 const Gallery = () => {
 	const metaData: MetaDataType = {
-		title: "Amien Amry | My Gallery of Bullshitz",
-		description: `Browse through my collection of unforgettable moments and cherished memories with friends. From road trips to social events, my gallery captures the fun and laughter we share.`,
+		title: "Amien Amry | Sedikit gambar buat kudap kudap",
+		description: `dung gudung gudung mak nak ikut tak payah, dung gudung gudung dunggudung gudung`,
 		image_url: "https://amienamry.dev/images/logo/gallery.png",
 		path: "https://amienamry.dev/gallery",
 	};
@@ -56,7 +56,7 @@ const Content = () => {
 	}, []);
 
 	return (
-		<div className="flex flex-1 max-w-screen-xl mt-16 sm:mt-20 -mb-20 px-0 pt-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md">
+		<div className="flex flex-1 max-w-screen-xl mt-16 sm:mt-20 -mb-20 px-0 pt-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-90 rounded-md">
 			<div
 				style={{
 					minHeight,

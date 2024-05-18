@@ -31,8 +31,8 @@ const Preview = () => {
 	}
 
 	const metaData: MetaDataType = {
-		title: `Amien Amry | Gallery${img.title ? " - " + img.title : ""}`,
-		description: `My photo${
+		title: `Amien Amry | Gallery${img.title ? ": " + img.title : ""}`,
+		description: `${img.title ?? ""}${
 			img.description ? " - " + img.description : ""
 		}`,
 		image_url: `https://amienamry.dev${img.path}`,

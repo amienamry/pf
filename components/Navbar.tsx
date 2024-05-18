@@ -5,8 +5,9 @@ import Image from "next/image";
 import FreePalestine from "./FreePalestine";
 import navbarList from "../mock/navbarList";
 import { useScrollPosition } from "../hooks/useScrollPosition";
-
+import { useRouter } from "next/router";
 export const Navbar = () => {
+	const location = useRouter();
 	const [active, setActive] = useState(false);
 	const [isTransparent, setTransparent] = useState<boolean>(true);
 	const [prevScrollTop, setPrevScrollTop] = useState(0);
@@ -84,7 +85,9 @@ export const Navbar = () => {
 					transitionDuration: "0.3s",
 				}}
 				className={`flex items-center flex-wrap p-3 fixed w-full z-10 bg-black ${
-					active || !isTransparent
+					active ||
+					!isTransparent ||
+					location.pathname.includes("gallery")
 						? "bg-opaque-custom"
 						: "bg-transparent-custom"
 				}`}
