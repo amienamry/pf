@@ -31,7 +31,7 @@ const Preview = () => {
 	}
 
 	const metaData: MetaDataType = {
-		title: `Amien Amry | Gallery${img.title ? ": " + img.title : ""}`,
+		title: `Amien Amry | Gallery${img.title ? " • " + img.title : ""}`,
 		description: `${img.title ?? ""}${
 			img.description ? " - " + img.description : ""
 		}`,
