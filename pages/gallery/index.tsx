@@ -49,9 +49,6 @@ const Content = () => {
 
 		window.addEventListener("resize", handleSize);
 
-		const htmlEl = document.getElementsByTagName("html")[0];
-		htmlEl.scrollTop = 0;
-
 		return () => {
 			window.removeEventListener("orientationchange", handleSize);
 			window.removeEventListener("resize", handleSize);
