@@ -50,6 +50,11 @@ export const Navbar = () => {
 		}
 
 		setActive(!active);
+
+		setTimeout(() => {
+			const htmlEl = document.getElementsByTagName("html")[0];
+			htmlEl.scrollTop = 0;
+		});
 	};
 
 	const close = () => {
