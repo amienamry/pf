@@ -1183,7 +1183,7 @@ export const images: PfImage[] = [
 	{
 		id: "559325c7-a246-4472-a8b5-4e263fb6f580",
 		title: "Gopeng",
-		description: "ada ni tengah drive H",
+		description: "sedikit termenung",
 		path: "/images/gallery/amienamry131.jpeg",
 		createdAt: new Date("2023-11-18"),
 		location: "",
