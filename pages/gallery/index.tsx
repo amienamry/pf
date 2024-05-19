@@ -49,6 +49,9 @@ const Content = () => {
 
 		window.addEventListener("resize", handleSize);
 
+		const htmlEl = document.getElementsByTagName("html")[0];
+		htmlEl.scrollTop = 0;
+
 		return () => {
 			window.removeEventListener("orientationchange", handleSize);
 			window.removeEventListener("resize", handleSize);
@@ -67,7 +70,7 @@ const Content = () => {
 					ref={imgContainerRef}
 					className="flex flex-row flex-wrap w-full mt-3 sm:mt-12 h-fit"
 				>
-					{images.map((image) => {
+					{images.map((image, i) => {
 						return (
 							<div
 								key={image.id}
@@ -81,13 +84,14 @@ const Content = () => {
 									fill={true}
 									src={image.path}
 									alt={image.path}
-									className="object-cover cursor-pointer hover:blur-xs ease-in duration-100"
+									className="object-cover cursor-pointer hover:contrast-125 ease-in duration-100"
 									quality={size > 250 ? 15 : 5}
 									sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
 									placeholder="blur"
 									blurDataURL="/images/blink.svg"
+									priority={i < 14}
 								/>
 							</div>
 						);
