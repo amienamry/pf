@@ -81,7 +81,7 @@ const Content = () => {
 									fill={true}
 									src={image.path}
 									alt={image.path}
-									className="object-cover cursor-pointer hover:blur-xs ease-in duration-100"
+									className="object-cover cursor-pointer hover:contrast-125 ease-in duration-100"
 									quality={size > 250 ? 15 : 5}
 									sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
