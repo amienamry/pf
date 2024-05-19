@@ -10,15 +10,6 @@ export const useImagePreview = () => {
 	const [, setImage] = useState<null | PfImage>(null);
 	const [isLoading, setIsLoading] = useState(true);
 
-	const handleEscKey = (event: KeyboardEvent) => {
-		event.key === "Escape" && closePreview();
-	};
-
-	useEffect(() => {
-		document.addEventListener("keydown", handleEscKey);
-		return () => document.removeEventListener("keydown", handleEscKey);
-	}, []);
-
 	const _open = (_image: PfImage) => {
 		globalImage = _image;
 
