@@ -57,8 +57,8 @@ export const images: PfImage[] = [
 	},
 	{
 		id: "31e2e173-fe6a-4b5b-ac47-33b53d4eb4ce",
-		title: "Raya @ rumah Acap Jambang, the legendary playboy",
-		description: "openhouse acap jambang",
+		title: "raya 2019 - acap jambang",
+		description: "raya 2019 - acap jambang",
 		path: "/images/gallery/amienamry42.jpeg",
 		createdAt: new Date("2019-06-22"),
 		location: "",
