@@ -1,6 +1,5 @@
 export type PfImage = {
 	id: string;
-	shortId: string;
 	title: string;
 	description: string;
 	path: string;
