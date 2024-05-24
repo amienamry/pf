@@ -5,9 +5,6 @@ import { Song, StreamingPlatform } from "../../types/Song";
 import Image from "next/image";
 import Link from "next/link";
 import { formatDistance } from "date-fns";
-import { IoLinkSharp } from "react-icons/io5";
-import { useState } from "react";
-import { BsCheck2Square } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 
 const Stream = () => {
@@ -58,8 +55,6 @@ const Content = () => {
 };
 
 const Track = ({ song }: { song: Song }) => {
-	const [linkCopied, setLinkCopied] = useState(false);
-
 	const releaseDate = formatDistance(
 		new Date(song.releasedDate),
 		new Date(),
@@ -76,16 +71,6 @@ const Track = ({ song }: { song: Song }) => {
 		window.open(platform.url, "_blank");
 	};
 
-	const handleCopyLink = (
-		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-	) => {
-		e.preventDefault();
-
-		navigator.clipboard.writeText(`${location.href}/${song.key}`);
-
-		setLinkCopied(true);
-	};
-
 	return (
 		<Link
 			className="relative shadow-2xl mb-5 bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 rounded-xl"
@@ -94,23 +79,6 @@ const Track = ({ song }: { song: Song }) => {
 			<div className="absolute top-2 left-2 sm:hidden z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40">
 				{song.genre}
 			</div>
-			<button
-				onClick={(e) => handleCopyLink(e)}
-				className={`${
-					linkCopied
-						? "sm:text-[#5A9367]"
-						: "sm:text-neutral-400 sm:hover:bg-neutral-900"
-				} absolute top-1 right-0.5 z-[1] flex flex-row items-center shadow-2xl px-2 py-0.5 rounded`}
-			>
-				<span className="hidden sm:flex text-sm mr-1">
-					{linkCopied ? "URL copied to clipboard" : "Copy URL"}
-				</span>{" "}
-				{linkCopied ? (
-					<BsCheck2Square className="h-7 w-7 sm:h-4 sm:w-4" />
-				) : (
-					<IoLinkSharp className="h-7 w-7 sm:h-4 sm:w-4" />
-				)}
-			</button>
 
 			<div className="flex flex-col sm:flex-row w-full">
 				<div className="relative flex sm:hidden h-56">
