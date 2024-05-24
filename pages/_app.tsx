@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/global.css";
+import "react-spring-bottom-sheet/dist/style.css";
 import { AppProps } from "next/app";
 import { Navbar } from "../components/Navbar";
 import Error404 from "../components/Error404";
@@ -33,6 +34,7 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 				!excludedRoutes.includes(componentRouter.route)) ||
 				componentRouter.route === "/streams/[song]") && <Navbar />}
 
+			{/* @ts-ignore */}
 			<Component {...pageProps} />
 
 			{pageProps?.statusCode !== 404 &&
