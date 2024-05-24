@@ -705,7 +705,7 @@ export const images: PfImage[] = [
 	},
 	{
 		id: "0de845b7-8579-4f62-a9d7-d57ac8828b34",
-		title: "BBG rumah acap",
+		title: "BBQ rumah acap",
 		description: "power rangers",
 		path: "/images/gallery/amienamry77.jpeg",
 		createdAt: new Date("2017-04-23"),

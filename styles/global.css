@@ -115,3 +115,8 @@ wave {
 	-webkit-box-shadow: 0 200px 109px -86px black inset;
 	-moz-box-shadow: 0 200px 109px -86px black inset;
 }
+
+:root {
+	--rsbs-bg: rgb(35, 35, 35);
+	--rsbs-handle-bg: rgb(200, 200, 200);
+}
