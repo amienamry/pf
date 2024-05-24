@@ -4,4 +4,6 @@ User-agent: *
 Allow: /*
 Allow: /api/sitemap.xml
 Disallow: /api/*
+Disallow: /r/*
+Disallow: /e/*
 Crawl-delay: 10
