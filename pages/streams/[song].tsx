@@ -7,11 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { BsCheck2Square, BsPauseCircle, BsPlayCircle } from "react-icons/bs";
+import { BsPauseCircle, BsPlayCircle } from "react-icons/bs";
 import { InputRange } from "../../components/InputRange";
 import redirect from "nextjs-redirect";
-import { IoLinkSharp } from "react-icons/io5";
 import WaveSurfer from "wavesurfer.js";
+import ShareButton from "../../components/ShareButton";
 
 let tabFocusInterval;
 
@@ -51,7 +51,6 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 	const [waveSurfer, setWaveSurfer] = useState<undefined | WaveSurfer>(
 		undefined
 	);
-	const [linkCopied, setLinkCopied] = useState(false);
 
 	const initWaveSurfer = async () => {
 		if (!song || waveSurfer) return;
@@ -140,16 +139,6 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 		waveSurfer.setVolume(newVolume);
 	};
 
-	const handleCopyLink = (
-		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-	) => {
-		e.preventDefault();
-
-		navigator.clipboard.writeText(location.href);
-
-		setLinkCopied(true);
-	};
-
 	return (
 		<>
 			<div className="fixed top-[-50%] left-[-50%] w-[200%] h-[200%] bg-black z-[-100] overflow-hidden">
@@ -160,26 +149,6 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 			</div>
 			<div className="flex flex-col w-full max-w-2xl pt-32 sm:pt-48 text-gray-100 px-4 sm:px-0">
 				<div className="relative w-full flex flex-col items-center sm:bg-neutral-800 sm:bg-opacity-30 rounded-xl mb-5">
-					<button
-						onClick={(e) => handleCopyLink(e)}
-						className={`${
-							linkCopied
-								? "sm:text-[#5A9367]"
-								: "sm:text-neutral-400 sm:hover:bg-neutral-900"
-						} absolute top-1 right-0.5 z-[1] hidden sm:flex flex-row items-center shadow-2xl px-2 py-0.5 rounded`}
-					>
-						<span className="hidden sm:flex text-sm mr-1">
-							{linkCopied
-								? "URL copied to clipboard"
-								: "Copy URL"}
-						</span>{" "}
-						{linkCopied ? (
-							<BsCheck2Square className="h-7 w-7 sm:h-4 sm:w-4" />
-						) : (
-							<IoLinkSharp className="h-7 w-7 sm:h-4 sm:w-4" />
-						)}
-					</button>
-
 					<div className="relative w-48 h-48 -mt-8 mb-6">
 						<div className="absolute top-1.5 left-1.5 z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40">
 							{song.genre}
@@ -193,25 +162,15 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 							priority={true}
 						/>
 
-						<button
-							onClick={(e) => handleCopyLink(e)}
-							className={`${
-								linkCopied
-									? "sm:text-[#5A9367]"
-									: "sm:text-neutral-400 sm:hover:bg-neutral-900"
-							} absolute top-1 right-0 z-[1] flex sm:hidden flex-row items-center shadow-2xl px-2 py-0.5 rounded`}
-						>
-							<span className="hidden sm:flex text-sm mr-1">
-								{linkCopied
-									? "URL copied to clipboard"
-									: "Copy URL"}
-							</span>{" "}
-							{linkCopied ? (
-								<BsCheck2Square className="h-6 w-6 sm:h-4 sm:w-4" />
-							) : (
-								<IoLinkSharp className="h-6 w-6 sm:h-4 sm:w-4" />
-							)}
-						</button>
+						<div className="absolute top-1 right-0 z-[1] flex flex-row items-center shadow-2xl px-2 py-0.5">
+							<ShareButton
+								className="bg-black bg-opacity-20 rounded"
+								title={song.fullTitle}
+								description={`Available on ${song.platforms
+									.map((p) => p.name)
+									.join(", ")}`}
+							/>
+						</div>
 					</div>
 
 					<h1 className="text-3xl font-bold mb-2 text-center px-4">
@@ -226,7 +185,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 						onClick={() => toggleAudio()}
 						className={`${
 							isReady ? "hover:bg-opacity-70" : ""
-						} z-[4] w-[80px] h-[100px] rounded-l-xl flex justify-center items-center bg-neutral-700 bg-opacity-50`}
+						} z-[3] w-[80px] h-[100px] rounded-l-xl flex justify-center items-center bg-neutral-700 bg-opacity-50`}
 						style={{
 							boxShadow: "5px 0px 10px -5px rgba(0,0,0,0.75)",
 						}}
@@ -239,7 +198,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 					</button>
 
 					<div id="waveform" className="relative w-full h-full">
-						<span className="absolute select-none z-[4] text-xs py-1 px-2.5 bg-neutral-700 bg-opacity-50 rounded-br-lg">
+						<span className="absolute select-none z-[3] text-xs py-1 px-2.5 bg-neutral-700 bg-opacity-50 rounded-br-lg">
 							{isReady ? (
 								<>
 									Preview: <b>{song.title}</b>

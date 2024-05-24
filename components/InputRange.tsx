@@ -26,7 +26,7 @@ export const InputRange = ({ onChange, value, disabled }: InputRangeProps) => {
 
 	return (
 		<div
-			className="z-[4] relative flex justify-center items-center rounded-r-xl h-full"
+			className="z-[3] relative flex justify-center items-center rounded-r-xl h-full"
 			style={{
 				boxShadow: "-5px 0px 10px -5px rgba(0,0,0,0.75)",
 				width: 42,

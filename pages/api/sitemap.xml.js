@@ -8,7 +8,6 @@ export default async (req, res) => {
 
 	images.forEach((image) => {
 		paths.push(`/gallery/${image.id}`);
-		paths.push(image.path);
 	});
 
 	songs.forEach((song) => {
