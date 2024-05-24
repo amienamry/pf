@@ -15,8 +15,6 @@ const ShortenedUrl = () => {
 
 	const { id } = router.query;
 
-	if (!id) return null;
-
 	const img = images.find((img) => img.shortId === id);
 
 	if (!img) {
