@@ -56,7 +56,7 @@ const Content = () => {
 	}, []);
 
 	return (
-		<div className="flex flex-1 max-w-screen-xl mt-16 sm:mt-20 -mb-20 px-0 pt-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-90 rounded-md">
+		<div className="flex flex-1 max-w-screen-lg mt-16 sm:mt-20 -mb-20 px-0 pt-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-90 rounded-md">
 			<div
 				style={{
 					minHeight,
