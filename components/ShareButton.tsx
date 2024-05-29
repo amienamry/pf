@@ -101,7 +101,6 @@ const ShareButton = ({
 						<WhatsappShareButton
 							className="flex flex-col items-center"
 							url={url}
-							title={`${title} - ${description}`}
 						>
 							<WhatsappIcon round={true} />
 							<ShareName>Whatsapp</ShareName>
@@ -131,7 +130,6 @@ const ShareButton = ({
 						<TelegramShareButton
 							className="flex flex-col items-center"
 							url={url}
-							title={`${title} - ${description}`}
 						>
 							<TelegramIcon round={true} />
 							<ShareName>Telegram</ShareName>
