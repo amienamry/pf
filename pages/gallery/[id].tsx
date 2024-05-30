@@ -7,6 +7,7 @@ import { images } from "../../mock/images";
 import { MetaDataType } from "../../types/MetaData";
 import { PfImage } from "../../types/PfImage";
 import redirect from "nextjs-redirect";
+import { format } from "date-fns";
 
 const LoadingPage = () => (
 	<div className="w-screen h-screen bg-black absolute top-0 left-0 z-50 flex justify-center items-center">
@@ -31,10 +32,15 @@ const Preview = () => {
 	}
 
 	const metaData: MetaDataType = {
-		title: `Amien Amry | Gallery${img.title ? " • " + img.title : ""}`,
+		title: `${
+			img.title ? img.title + " - @amienamry • " : ""
+		}Amien Amry | Gallery`,
 		description: `${img.title ?? ""}${
 			img.description ? " - " + img.description : ""
-		}`,
+		}${img.location ? " @ " + img.location : ""}${`, ${format(
+			img.createdAt,
+			"d MMM yyyy"
+		)}`}`,
 		image_url: `https://amienamry.dev${img.path}`,
 		path: `https://amienamry.dev/gallery/${img.id}`,
 	};

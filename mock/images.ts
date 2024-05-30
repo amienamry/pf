@@ -1182,7 +1182,7 @@ export const images: PfImage[] = [
 	},
 	{
 		id: "QwtUAEF",
-		title: "Y15ZR",
+		title: "sedikit rempit",
 		description: "motor baru maa",
 		path: "/images/gallery/amienamry130.jpeg",
 		createdAt: new Date("2024-04-09"),
@@ -1209,7 +1209,7 @@ export const images: PfImage[] = [
 	},
 	{
 		id: "QgwPBEc",
-		title: "Perodua Bezza",
+		title: "boleh la buat kudap kudap",
 		description: "kereta baru maa",
 		path: "/images/gallery/amienamry133.jpeg",
 		createdAt: new Date("2022-10-29"),
