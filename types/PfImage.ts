@@ -5,5 +5,5 @@ export type PfImage = {
 	path: string;
 	location?: string;
 	locationUrl?: string;
-	createdAt?: Date;
+	createdAt: Date;
 };
