@@ -1297,6 +1297,24 @@ export const images: PfImage[] = [
 		location: "Asam Pedas Kambink",
 		locationUrl: "https://maps.app.goo.gl/WDcr4G3YrupjUpVd8",
 	},
+	{
+		id: "ug4oAwX",
+		title: "ataih bukuit kupuit",
+		description: "anashnyew",
+		path: "/images/gallery/amienamry144.jpeg",
+		createdAt: new Date("2024-06-02"),
+		location: "Pantai Pasir Lanun",
+		locationUrl: "https://maps.app.goo.gl/Do9ANFcBeKkYf3Ru6",
+	},
+	{
+		id: "PqWfgxq",
+		title: "sebelums geraks",
+		description: "bukan mat rempitz",
+		path: "/images/gallery/amienamry145.jpeg",
+		createdAt: new Date("2024-06-01"),
+		location: "tepi jalan",
+		locationUrl: "https://maps.app.goo.gl/9JDGU9Ucd9q4rSQt9",
+	},
 ];
 
 Object.freeze(
