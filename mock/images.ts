@@ -1246,7 +1246,7 @@ export const images: PfImage[] = [
 	{
 		id: "EglUB0d",
 		title: "swq team building",
-		description: "jungle trekking manja with swq team",
+		description: "jungle trekking manja",
 		path: "/images/gallery/amienamry137.jpeg",
 		createdAt: new Date("2022-08-20"),
 		location: "",

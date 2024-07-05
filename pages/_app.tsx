@@ -15,7 +15,7 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 		setHasVideoError(true);
 	};
 
-	const excludedRoutes = ["/r/[social]", "/streams/[song]"];
+	const excludedRoutes = ["/r/[social]", "/music/[song]"];
 
 	return (
 		<div
@@ -32,7 +32,7 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 
 			{((pageProps?.statusCode !== 404 &&
 				!excludedRoutes.includes(componentRouter.route)) ||
-				componentRouter.route === "/streams/[song]") && <Navbar />}
+				componentRouter.route === "/music/[song]") && <Navbar />}
 
 			{/* @ts-ignore */}
 			<Component {...pageProps} />

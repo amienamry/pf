@@ -13,7 +13,7 @@ const Stream = () => {
 		description:
 			"Explore my music and enjoy streaming my latest track. Discover my unique sound and creative style in EDM, instrumental, and experimental genres.",
 		image_url: "https://amienamry.dev/images/logo/music.png",
-		path: "https://amienamry.dev/streams",
+		path: "https://amienamry.dev/music",
 	};
 
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;
@@ -74,7 +74,7 @@ const Track = ({ song }: { song: Song }) => {
 	return (
 		<Link
 			className="relative shadow-2xl mb-5 bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 rounded-xl"
-			href={`streams/${song.key}`}
+			href={`music/${song.key}`}
 		>
 			<div className="absolute top-2 left-2 sm:hidden z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40">
 				{song.genre}
