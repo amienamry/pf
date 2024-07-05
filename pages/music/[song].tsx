@@ -31,7 +31,7 @@ const Song = ({ isMobile }) => {
 		title: song.fullTitle,
 		description: song.description,
 		image_url: `https://amienamry.dev${song.imgThumb}`,
-		path: `https://amienamry.dev/streams/${song.key}`,
+		path: `https://amienamry.dev/music/${song.key}`,
 	};
 
 	return (
