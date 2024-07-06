@@ -9,7 +9,7 @@ const exps: ExperienceType[] = [
 		title: "Full Stack Developer",
 		company: "SoftwareQ",
 		points: [
-			"Contributed to diverse software development projects spanning insurance, geomatics, and supply chain domains.",
+			"Contributed to diverse software development projects spanning insurance, geomatics, and supply-chain domains.",
 			"Designed and implemented tech solutions to solve complex business challenges for clients, using industry-standard methods. Strategically implementing Domain-Driven Design (DDD) architecture.",
 			"Provided mentorship to junior developers and interns, offering guidance on technical skills, best practices, and professional development.",
 		],

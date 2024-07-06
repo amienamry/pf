@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-
+import { usePathname } from "next/navigation";
 import FreePalestine from "./FreePalestine";
 import navbarList from "../mock/navbarList";
 import { useScrollPosition } from "../hooks/useScrollPosition";
@@ -13,6 +13,7 @@ export const Navbar = () => {
 	const [prevScrollTop, setPrevScrollTop] = useState(0);
 	const [backdropHeight, setBackdropHeight] = useState(0);
 	const navRef = useRef<HTMLElement>(null);
+	const pathname = usePathname();
 
 	useScrollPosition(
 		({ currPos }) => {
@@ -64,6 +65,10 @@ export const Navbar = () => {
 
 	const handleBackdrop = () => {
 		close();
+	};
+
+	const isCurrentPath = (path: string) => {
+		return path === "/" ? path === pathname : pathname.includes(path);
 	};
 
 	return (
@@ -139,7 +144,11 @@ export const Navbar = () => {
 									key={nav.path + nav.display_name}
 									href={nav.path}
 									onClick={close}
-									className="lg:inline-flex lg:w-auto w-full px-3 py-3 rounded text-gray-100 text-lg items-center justify-center hover:text-gray-200"
+									className={`lg:inline-flex lg:w-auto w-full px-3 py-3 rounded text-lg items-center justify-center hover:text-gray-200 ${
+										isCurrentPath(nav.path)
+											? "text-white"
+											: "text-gray-400"
+									}`}
 								>
 									{nav.display_name}
 								</Link>
