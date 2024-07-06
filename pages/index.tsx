@@ -92,15 +92,11 @@ const Profile = () => {
 					height={250}
 				/>
 			</div>
-			<h1 className="text-4xl font-semi-bold text-gray-100 my-1 pt-5 text-center md:text-left">
+			<h1 className="text-4xl font-semi-bold text-gray-100 my-1 pt-5 text-center">
 				Amien Amry
 			</h1>
-			<p className="text-xl mt-2 text-center md:text-left">
-				{useCurrentRole().title}
-			</p>
-			<p className="text-xl text-center md:text-left">
-				{age} &#8729; Selangor/KL
-			</p>
+			<p className="text-xl mt-2 text-center">{useCurrentRole().title}</p>
+			<p className="text-xl text-center">{age} &#8729; Selangor/KL</p>
 
 			<div className="flex flex-1 items-stretch flex-row mt-8 mb-3">
 				{socials.map((social, i) => {

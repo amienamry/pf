@@ -3,15 +3,19 @@ import { MetaDataType } from "../../types/MetaData";
 import exps from "../../mock/experience";
 import Timeline from "../../components/Timeline";
 import MainLayout from "../../components/MainLayout";
+import { useCurrentRole } from "../../hooks/useCurrentRole";
 
 const Experience = ({ asChild }: { asChild?: boolean }) => {
 	const isChild = asChild !== undefined && asChild;
 
 	const [isAnimated, setIsAnimated] = useState<boolean>(!isChild);
+
+	const exp = useCurrentRole();
 	const metaData: MetaDataType = {
-		title: "Amien Amry | Professional Experience",
-		description:
-			"Explore my professional journey and expertise. Learn more about my skills, achievements, and contributions in web and mobile app development.",
+		title: `Amien Amry | ${exp.title} at ${exp.company}`,
+		description: `${exp.year_from.getFullYear()} - ${exp.year_to.getFullYear()} | ${exp.points.join(
+			" "
+		)}`,
 		image_url: "https://amienamry.dev/images/logo/experience.png",
 		path: "https://amienamry.dev/experience",
 	};

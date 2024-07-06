@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MainLayout from "../../components/MainLayout";
 import Timeline from "../../components/Timeline";
+import { useCurrentEdu } from "../../hooks/useCurrentEdu";
 import edus from "../../mock/education";
 import { MetaDataType } from "../../types/MetaData";
 
@@ -8,10 +9,12 @@ const Education = ({ asChild }: { asChild?: boolean }) => {
 	const isChild = asChild !== undefined && asChild;
 
 	const [isAnimated, setIsAnimated] = useState<boolean>(!isChild);
+	const edu = useCurrentEdu();
 	const metaData: MetaDataType = {
-		title: "Amien Amry | Education Background",
-		description:
-			"Discover my academic background and qualifications in full stack development. Learn more about my education in the field of web and mobile app development.",
+		title: `Amien Amry | ${edu.title} at ${edu.company}`,
+		description: `${edu.year_from.getFullYear()} - ${edu.year_to.getFullYear()} | ${edu.points.join(
+			" "
+		)}`,
 		image_url: "https://amienamry.dev/images/logo/education.png",
 		path: "https://amienamry.dev/education",
 	};
