@@ -4,7 +4,14 @@ import songs from "../../mock/songList";
 import { images } from "../../mock/images";
 
 export default async (req, res) => {
-	const paths = ["/", "/experience", "/education", "/music", "/gallery"];
+	const paths = [
+		"/",
+		"/experience",
+		"/education",
+		"/projects",
+		"/music",
+		"/gallery",
+	];
 
 	images.forEach((image) => {
 		paths.push(`/gallery/${image.id}`);
