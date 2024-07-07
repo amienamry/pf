@@ -2,6 +2,7 @@ import { Song } from "../types/Song";
 
 const songs: Song[] = [
 	{
+		verified: true,
 		key: "ale-uto",
 		title: "ALE UTO",
 		fullTitle: "ALE UTO by Arai Junior",
@@ -51,6 +52,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "shake-it",
 		title: "Shake It",
 		fullTitle: "Shake It by Arai Junior",
@@ -100,6 +102,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "bong",
 		title: "Bong",
 		fullTitle: "Bong by Arai Junior",
@@ -149,6 +152,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "lengleng",
 		title: "Lengleng",
 		fullTitle: "Lengleng by Arai Junior",
@@ -198,6 +202,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "badut",
 		title: "Badut",
 		fullTitle: "Badut by Arai Junior",
@@ -242,6 +247,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "bedal",
 		title: "Bedal",
 		fullTitle: "Bedal by Arai Junior",
@@ -291,6 +297,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "reborn",
 		title: "Reborn",
 		fullTitle: "Reborn by Arai Junior",
@@ -340,6 +347,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "smks4bk",
 		title: "SMKS4BK",
 		fullTitle: "SMKS4BK by Arai Junior",
@@ -389,6 +397,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "ale-uto-hardstyle-remix",
 		title: "ALE UTO (Hardstyle Remix)",
 		fullTitle: "ALE UTO (Hardstyle Remix) by Arai Junior",
@@ -439,6 +448,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "anarchy",
 		title: "Anarchy",
 		fullTitle: "Anarchy by Arai Junior",
@@ -483,6 +493,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "boncai",
 		title: "Boncai",
 		fullTitle: "Boncai by Arai Junior",
@@ -527,6 +538,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "cincai",
 		title: "Cincai",
 		fullTitle: "Cincai by Arai Junior",
@@ -571,6 +583,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "hush",
 		title: "Hush",
 		fullTitle: "Hush by Arai Junior",
@@ -615,6 +628,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "null",
 		title: "null",
 		fullTitle: "null by Arai Junior",
@@ -659,6 +673,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "rararera",
 		title: "Rararera",
 		fullTitle: "Rararera by Arai Junior",
@@ -703,6 +718,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "rekt",
 		title: "Rekt",
 		fullTitle: "Rekt by Arai Junior",
@@ -747,6 +763,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "balik-kampung",
 		title: "Balik Kampung (Hardstyle Remix)",
 		fullTitle: "Balik Kampung (Hardstyle Remix) by Arai Junior",
@@ -796,6 +813,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "good-morning-pineapple",
 		title: "good morning pineapple",
 		fullTitle: "good morning pineapple by Arai Junior",
@@ -846,6 +864,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "take-me-there",
 		title: "take me there (feat. Farisha)",
 		fullTitle: "take me there (feat. Farisha) by Arai Junior",
@@ -885,6 +904,7 @@ const songs: Song[] = [
 		],
 	},
 	{
+		verified: true,
 		key: "one-more-try",
 		title: "one more try",
 		fullTitle: "one more try by Arai Junior",
@@ -920,6 +940,180 @@ const songs: Song[] = [
 				name: "iTunes",
 				url: "https://music.apple.com/my/album/one-more-try-single/1725930475",
 				imgUrl: "/images/music/itunes.jpeg",
+			},
+		],
+	},
+	{
+		verified: false,
+		key: "adakah-engkau-menungguku-remix",
+		title: "Adakah Engkau Menungguku (EDM Remix)",
+		fullTitle: "Adakah Engkau Menungguku (EDM Remix) by Arai Junior",
+		artist: "Naim Daniel ft. Tuju",
+		description: "Stream and Save 'Adakah Engkau Menungguku (EDM Remix)'",
+		imgThumb: "/images/music/adakah-engkau-menungguku/thumb.jpeg",
+		imgBg: "/images/music/adakah-engkau-menungguku/bg.jpeg",
+		audioUrl:
+			"https://amienamry.dev/audios/adakah-engkau-menungguku/preview.mp3",
+		releasedDate: "2019-09-30",
+		genre: "Dance & Electronic",
+		platforms: [
+			{
+				name: "Youtube",
+				url: "https://youtu.be/gRQogeGNPmA",
+				imgUrl: "/images/music/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/adakah-engkau-menungguku-arai-junior-bootleg",
+				imgUrl: "/images/music/soundcloud.jpeg",
+			},
+		],
+	},
+	{
+		verified: false,
+		key: "bal-remix",
+		title: "BAL (Trap Remix)",
+		fullTitle: "BAL (Trap Remix) by Arai Junior",
+		artist: "Caprice, MK, Tuju, Zynakal",
+		description: "Stream and Save 'BAL (Trap Remix)'",
+		imgThumb: "/images/music/bal/thumb.jpeg",
+		imgBg: "/images/music/bal/bg.jpeg",
+		audioUrl: "https://amienamry.dev/audios/bal/preview.mp3",
+		releasedDate: "2019-07-14",
+		genre: "Trap",
+		platforms: [
+			{
+				name: "Youtube",
+				url: "https://youtu.be/anCTHnYjU6I",
+				imgUrl: "/images/music/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/caprice-mk-tuju-zynakal-bal-arai-junior-bootleg",
+				imgUrl: "/images/music/soundcloud.jpeg",
+			},
+		],
+	},
+	{
+		verified: false,
+		key: "comethru-remix",
+		title: "comethru (Chillstep Remix)",
+		fullTitle: "comethru (Chillstep Remix) by Arai Junior",
+		artist: "Jeremy Zucker",
+		description: "Stream and Save 'comethru (Chillstep Remix)'",
+		imgThumb: "/images/music/comethru/thumb.jpeg",
+		imgBg: "/images/music/comethru/bg.jpeg",
+		audioUrl: "https://amienamry.dev/audios/comethru/preview.mp3",
+		releasedDate: "2019-08-04",
+		genre: "Chillstep",
+		platforms: [
+			{
+				name: "Youtube",
+				url: "https://youtu.be/auy6OaM8uvc",
+				imgUrl: "/images/music/youtube.jpeg",
+			},
+		],
+	},
+	{
+		verified: false,
+		key: "falling-like-the-stars-remix",
+		title: "Falling Like The Stars (Progressive House Remix)",
+		fullTitle:
+			"Falling Like The Stars (Progressive House Remix) by Arai Junior",
+		artist: "James Arthur",
+		description:
+			"Stream and Save 'Falling Like The Stars (Progressive House Remix)'",
+		imgThumb: "/images/music/falling-like-the-stars/thumb.jpeg",
+		imgBg: "/images/music/falling-like-the-stars/bg.jpeg",
+		audioUrl:
+			"https://amienamry.dev/audios/falling-like-the-stars/preview.mp3",
+		releasedDate: "2019-05-27",
+		genre: "Progressive House",
+		platforms: [
+			{
+				name: "Youtube",
+				url: "https://youtu.be/LaPK6RfbKTo",
+				imgUrl: "/images/music/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/james-arthur-falling-like-the-stars-arai-junior-bootleg",
+				imgUrl: "/images/music/soundcloud.jpeg",
+			},
+		],
+	},
+	{
+		verified: false,
+		key: "now-youre-gone-remix",
+		title: "Now You're Gone (Electro House Remix)",
+		fullTitle: "Now You're Gone (Electro House Remix) by Arai Junior",
+		artist: "Basshunter",
+		description: "Stream and Save 'Now You're Gone (Electro House Remix)'",
+		imgThumb: "/images/music/now-youre-gone/thumb.jpeg",
+		imgBg: "/images/music/now-youre-gone/bg.jpeg",
+		audioUrl: "https://amienamry.dev/audios/now-youre-gone/preview.mp3",
+		releasedDate: "2019-08-31",
+		genre: "Electro House",
+		platforms: [
+			{
+				name: "Youtube",
+				url: "https://youtu.be/_XQ9MlCNp04",
+				imgUrl: "/images/music/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/basshunter-now-youre-gone-arai-junior-bootleg",
+				imgUrl: "/images/music/soundcloud.jpeg",
+			},
+		],
+	},
+	{
+		verified: false,
+		key: "sad-face-remix",
+		title: ":( (Progressive House Remix)",
+		fullTitle: ":( (Progressive House Remix) by Arai Junior",
+		artist: "Bahari",
+		description: "Stream and Save ':( (Progressive House Remix)'",
+		imgThumb: "/images/music/sad-face/thumb.jpeg",
+		imgBg: "/images/music/sad-face/bg.jpeg",
+		audioUrl: "https://amienamry.dev/audios/sad-face/preview.mp3",
+		releasedDate: "2019-05-23",
+		genre: "Progressive House",
+		platforms: [
+			{
+				name: "Youtube",
+				url: "https://youtu.be/4LjdahXYWJ8",
+				imgUrl: "/images/music/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/bahari-sadface-arai-junior-bootleg",
+				imgUrl: "/images/music/soundcloud.jpeg",
+			},
+		],
+	},
+	{
+		verified: false,
+		key: "somebody-else-remix",
+		title: "Somebody Else (EDM Remix)",
+		fullTitle: "Somebody Else (EDM Remix) by Arai Junior",
+		artist: "Ebony Day | The 1975",
+		description: "Stream and Save 'Somebody Else (EDM Remix)'",
+		imgThumb: "/images/music/somebody-else/thumb.jpeg",
+		imgBg: "/images/music/somebody-else/bg.jpeg",
+		audioUrl: "https://amienamry.dev/audios/somebody-else/preview.mp3",
+		releasedDate: "2019-07-12",
+		genre: "Dance & Electronic",
+		platforms: [
+			{
+				name: "Youtube",
+				url: "https://youtu.be/61yAaHbDxuo",
+				imgUrl: "/images/music/youtube.jpeg",
+			},
+			{
+				name: "Soundcloud",
+				url: "https://soundcloud.com/araijunior/somebody-else-arai-junior-bootleg",
+				imgUrl: "/images/music/soundcloud.jpeg",
 			},
 		],
 	},

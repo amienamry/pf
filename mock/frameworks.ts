@@ -21,6 +21,7 @@ import {
 import { TbSquareRoundedNumber8 } from "react-icons/tb";
 import { Extra } from "../types/Extra";
 import { RiSignalTowerLine } from "react-icons/ri";
+import { BsFiletypePhp } from "react-icons/bs";
 
 export const frameworks: Extra[] = [
 	{
@@ -50,6 +51,10 @@ export const frameworks: Extra[] = [
 	{
 		name: "Cypress",
 		icon: SiCypress,
+	},
+	{
+		name: "PHPUnit",
+		icon: BsFiletypePhp,
 	},
 	{
 		name: "Git",

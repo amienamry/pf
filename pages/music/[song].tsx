@@ -12,6 +12,7 @@ import { InputRange } from "../../components/InputRange";
 import redirect from "nextjs-redirect";
 import WaveSurfer from "wavesurfer.js";
 import ShareButton from "../../components/ShareButton";
+import { MdVerified } from "react-icons/md";
 
 let tabFocusInterval;
 
@@ -29,7 +30,11 @@ const Song = ({ isMobile }) => {
 
 	const metaData: MetaDataType = {
 		title: song.fullTitle,
-		description: song.description,
+		description: `${song.description} original by ${
+			song.artist
+		}. Avaiable on ${song.platforms.map((e) => e.name).join(", ")} - ${
+			song.releasedDate
+		}`,
 		image_url: `https://amienamry.dev${song.imgThumb}`,
 		path: `https://amienamry.dev/music/${song.key}`,
 	};
@@ -141,30 +146,30 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 
 	return (
 		<>
-			<div className="fixed top-[-50%] left-[-50%] w-[200%] h-[200%] bg-black z-[-100] overflow-hidden">
+			<div className='fixed top-[-50%] left-[-50%] w-[200%] h-[200%] bg-black z-[-100] overflow-hidden'>
 				<img
-					className="absolute top-0 left-0 right-0 bottom-0 m-auto min-w-[55%] min-h-[55%] blur-lg opacity-30"
+					className='absolute top-0 left-0 right-0 bottom-0 m-auto min-w-[55%] min-h-[55%] blur-lg opacity-30'
 					src={song.imgBg}
 				/>
 			</div>
-			<div className="flex flex-col w-full max-w-2xl pt-32 sm:pt-48 text-gray-100 px-4 sm:px-0">
-				<div className="relative w-full flex flex-col items-center sm:bg-neutral-800 sm:bg-opacity-30 rounded-xl mb-5">
-					<div className="relative w-48 h-48 -mt-8 mb-6">
-						<div className="absolute top-1.5 left-1.5 z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40">
+			<div className='flex flex-col w-full max-w-2xl pt-32 sm:pt-48 text-gray-100 px-4 sm:px-0'>
+				<div className='relative w-full flex flex-col items-center sm:bg-neutral-800 sm:bg-opacity-30 rounded-xl mb-5'>
+					<div className='relative w-48 h-48 -mt-8 mb-6'>
+						<div className='absolute top-1.5 left-1.5 z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40'>
 							{song.genre}
 						</div>
 
 						<Image
-							className="absolute rounded-xl"
+							className='absolute rounded-xl'
 							alt={`${song.title}'s album cover`}
 							src={song.imgThumb}
 							fill={true}
 							priority={true}
 						/>
 
-						<div className="absolute top-1 right-0 z-[1] flex flex-row items-center shadow-2xl px-2 py-0.5">
+						<div className='absolute top-1 right-0 z-[1] flex flex-row items-center shadow-2xl px-2 py-0.5'>
 							<ShareButton
-								className="bg-black bg-opacity-20 rounded"
+								className='bg-black bg-opacity-20 rounded'
 								title={song.fullTitle}
 								description={`Available on ${song.platforms
 									.map((p) => p.name)
@@ -173,13 +178,19 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 						</div>
 					</div>
 
-					<h1 className="text-3xl font-bold mb-2 text-center px-4">
+					<h1 className='text-3xl font-bold mb-2 text-center px-4'>
 						{song.title}
+						{song.verified && (
+							<MdVerified
+								title='Verified and officially released.'
+								className='ml-1 align-text-top inline-flex text-blue-400'
+							/>
+						)}
 					</h1>
-					<h3 className="text-lg mb-3 sm:mb-8 px-4">{song.artist}</h3>
+					<h3 className='text-lg mb-3 sm:mb-8 px-4'>{song.artist}</h3>
 				</div>
 
-				<div className="w-full flex flex-row items-center bg-neutral-700 bg-opacity-30  rounded-xl mb-5">
+				<div className='w-full flex flex-row items-center bg-neutral-700 bg-opacity-30  rounded-xl mb-5'>
 					<button
 						disabled={!isReady}
 						onClick={() => toggleAudio()}
@@ -191,27 +202,27 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 						}}
 					>
 						{isPlaying ? (
-							<BsPauseCircle className="h-10 w-10 text-[#5A9367]" />
+							<BsPauseCircle className='h-10 w-10 text-[#5A9367]' />
 						) : (
-							<BsPlayCircle className="h-10 w-10 text-gray-100" />
+							<BsPlayCircle className='h-10 w-10 text-gray-100' />
 						)}
 					</button>
 
-					<div id="waveform" className="relative w-full h-full">
-						<span className="absolute select-none z-[3] text-xs py-1 px-2.5 bg-neutral-700 bg-opacity-50 rounded-br-lg">
+					<div id='waveform' className='relative w-full h-full'>
+						<span className='absolute select-none z-[3] text-xs py-1 px-2.5 bg-neutral-700 bg-opacity-50 rounded-br-lg truncate max-w-[100%]'>
 							{isReady ? (
 								<>
 									Preview: <b>{song.title}</b>
 								</>
 							) : (
-								<span className="flex flex-row items-end">
+								<span className='flex flex-row items-end'>
 									{loadFailed === true
 										? "Fail to load audio 🙁"
 										: "Loading"}
 									{!loadFailed && (
 										<img
-											className="h-4 w-4 ml-[1px] -mb-0.5 flex"
-											src="/images/blinking-ellipsis.svg"
+											className='h-4 w-4 ml-[1px] -mb-0.5 flex'
+											src='/images/blinking-ellipsis.svg'
 										/>
 									)}
 								</span>
@@ -241,14 +252,14 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 
 const Platform = ({ platform }: { platform: StreamingPlatform }) => {
 	return (
-		<div className="w-full flex flex-row items-center bg-neutral-700 rounded-xl mb-5 hover:bg-opacity-70 bg-opacity-50">
+		<div className='w-full flex flex-row items-center bg-neutral-700 rounded-xl mb-5 hover:bg-opacity-70 bg-opacity-50'>
 			<Link
-				className="w-full flex flex-row"
+				className='w-full flex flex-row'
 				href={platform.url}
-				target="_blank"
+				target='_blank'
 			>
 				<Image
-					className="rounded-l-xl"
+					className='rounded-l-xl'
 					alt={`${platform.name}'s logo`}
 					src={platform.imgUrl}
 					width={65}
@@ -257,8 +268,8 @@ const Platform = ({ platform }: { platform: StreamingPlatform }) => {
 						boxShadow: "0px 0px 5px #000000",
 					}}
 				/>
-				<div className="flex flex-row w-full items-center justify-between px-4">
-					<p className="font-semibold">{platform.name}</p>
+				<div className='flex flex-row w-full items-center justify-between px-4'>
+					<p className='font-semibold'>{platform.name}</p>
 
 					<FaChevronRight />
 				</div>

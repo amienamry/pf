@@ -10,6 +10,7 @@ export type Song = {
 	platforms: StreamingPlatform[];
 	releasedDate: string;
 	genre: string;
+	verified: boolean;
 };
 
 export type StreamingPlatform = {
