@@ -1126,7 +1126,7 @@ const songs: Song[] = [
 		description: "Stream and Save 'Finger Flex'",
 		imgThumb: "/images/music/finger-flex/thumb.jpeg",
 		imgBg: "/images/music/finger-flex/bg.jpeg",
-		audioUrl: "http://localhost:3000/audios/finger-flex/preview.mp3",
+		audioUrl: "https://amienamry.dev/audios/finger-flex/preview.mp3",
 		releasedDate: "2014-11-30",
 		genre: "Bigroom",
 		platforms: [
