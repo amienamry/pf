@@ -1130,11 +1130,11 @@ const songs: Song[] = [
 		releasedDate: "2014-11-30",
 		genre: "Bigroom",
 		platforms: [
-			// {
-			// 	name: "Spotify",
-			// 	url: "https://open.spotify.com/album/3UUYZ5h0rs8mkcT6rYpyrG",
-			// 	imgUrl: "/images/music/spotify.jpeg",
-			// },
+			{
+				name: "Spotify",
+				url: "https://open.spotify.com/album/361bywnn3ppt6kzQRjmIhv",
+				imgUrl: "/images/music/spotify.jpeg",
+			},
 			{
 				name: "Youtube",
 				url: "https://youtu.be/ya55UsSevWs",
@@ -1145,21 +1145,21 @@ const songs: Song[] = [
 				url: "https://soundcloud.com/araijunior/arai-junior-finger-flex-original-mix",
 				imgUrl: "/images/music/soundcloud.jpeg",
 			},
-			// {
-			// 	name: "Apple Music",
-			// 	url: "https://music.apple.com/us/album/finger-flex-single/1586199501",
-			// 	imgUrl: "/images/music/apple-music.jpeg",
-			// },
-			// {
-			// 	name: "iTunes",
-			// 	url: "https://music.apple.com/us/album/finger-flex-single/1586199501",
-			// 	imgUrl: "/images/music/itunes.jpeg",
-			// },
-			// {
-			// 	name: "Amazon Music",
-			// 	url: "https://www.amazon.com/gp/product/B09GGVKZ7W",
-			// 	imgUrl: "/images/music/amazon-music.jpeg",
-			// },
+			{
+				name: "Apple Music",
+				url: "https://music.apple.com/us/album/finger-flex-single/1756293376",
+				imgUrl: "/images/music/apple-music.jpeg",
+			},
+			{
+				name: "iTunes",
+				url: "https://music.apple.com/us/album/finger-flex-single/1756293376",
+				imgUrl: "/images/music/itunes.jpeg",
+			},
+			{
+				name: "Amazon Music",
+				url: "https://www.amazon.com/gp/product/B0D91YYW5Q",
+				imgUrl: "/images/music/amazon-music.jpeg",
+			},
 			// {
 			// 	name: "Deezer",
 			// 	url: "https://www.deezer.com/album/259368202",
