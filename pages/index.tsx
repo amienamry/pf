@@ -9,6 +9,7 @@ import { useCurrentRole } from "../hooks/useCurrentRole";
 import Experience from "./experience";
 import Education from "./education";
 import ExtraDetails from "../components/ExtraDetails";
+import { useEffect, useState } from "react";
 
 const exp = differenceInYears(new Date(), new Date("2019-06-16"));
 
@@ -48,37 +49,77 @@ const Profile = () => {
 	const router = useRouter();
 
 	const age: number = new Date().getFullYear() - 1998;
-	const socials: {
+	const _socials: {
 		component: any;
 		url: string;
 		isUrl: boolean;
+		isBouncing: boolean;
 	}[] = [
 		{
 			component: HiOutlineMail,
 			url: "mailto:hi@amienamry.dev",
 			isUrl: false,
+			isBouncing: false,
 		},
 		{
 			component: FaGithub,
 			url: "https://github.com/amienamry",
 			isUrl: true,
+			isBouncing: false,
 		},
 		{
 			component: FaLinkedinIn,
 			url: "https://linkedin.com/in/amienamry",
 			isUrl: true,
+			isBouncing: false,
 		},
 		{
 			component: FaYoutube,
 			url: "https://youtube.com/araijunior",
 			isUrl: true,
+			isBouncing: false,
 		},
 		{
 			component: FaSpotify,
 			url: "https://open.spotify.com/artist/3SwgFLDekh43vfME5GUVPd",
 			isUrl: true,
+			isBouncing: false,
 		},
 	];
+
+	const [socials, setSocials] = useState(_socials);
+
+	useEffect(() => {
+		let currentIndex = 0;
+
+		const getRandomIndex = (): number => {
+			const index = Math.floor(Math.random() * socials.length);
+
+			if (index === currentIndex) {
+				return getRandomIndex();
+			}
+
+			currentIndex = index;
+
+			return currentIndex;
+		};
+
+		const startBouncing = (): void => {
+			socials.forEach((social) => (social.isBouncing = false));
+
+			socials[getRandomIndex()].isBouncing = true;
+
+			setSocials([...socials]);
+		};
+
+		startBouncing();
+
+		const interval = setInterval(() => {
+			startBouncing();
+		}, 2000);
+
+		return () => clearInterval(interval);
+	}, []);
 
 	return (
 		<div className="flex flex-initial flex-col p-3 md:p-5 justify-center md:justify-start">
@@ -111,7 +152,11 @@ const Profile = () => {
 								rel="noopener noreferrer"
 								className="h-fit"
 							>
-								<social.component className="text-5xl md:text-4xl lg:text-4xl xl:text-4xl min-w-full hover:opacity-80" />
+								<social.component
+									className={`${
+										social.isBouncing ? "bounce" : ""
+									} text-5xl md:text-4xl lg:text-4xl xl:text-4xl min-w-full hover:opacity-80`}
+								/>
 							</a>
 						</div>
 					);
