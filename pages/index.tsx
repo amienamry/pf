@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaGithub, FaLinkedinIn, FaSpotify, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaSpotify, FaYoutube } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { MetaDataType } from "../types/MetaData";
 import MainLayout from "../components/MainLayout";
@@ -54,36 +54,42 @@ const Profile = () => {
 		url: string;
 		isUrl: boolean;
 		isBouncing: boolean;
+		textClass: string;
 	}[] = [
 		{
 			component: HiOutlineMail,
 			url: "mailto:hi@amienamry.dev",
 			isUrl: false,
 			isBouncing: false,
+			textClass: "email",
 		},
 		{
 			component: FaGithub,
 			url: "https://github.com/amienamry",
 			isUrl: true,
 			isBouncing: false,
+			textClass: "github",
 		},
 		{
-			component: FaLinkedinIn,
+			component: FaLinkedin,
 			url: "https://linkedin.com/in/amienamry",
 			isUrl: true,
 			isBouncing: false,
+			textClass: "linkedin",
 		},
 		{
 			component: FaYoutube,
 			url: "https://youtube.com/araijunior",
 			isUrl: true,
 			isBouncing: false,
+			textClass: "youtube",
 		},
 		{
 			component: FaSpotify,
 			url: "https://open.spotify.com/artist/3SwgFLDekh43vfME5GUVPd",
 			isUrl: true,
 			isBouncing: false,
+			textClass: "spotify",
 		},
 	];
 
@@ -137,7 +143,7 @@ const Profile = () => {
 				Amien Amry
 			</h1>
 			<p className="text-xl mt-2 text-center">{useCurrentRole().title}</p>
-			<p className="text-xl text-center">{age} &#8729; Selangor/KL</p>
+			<p className="text-xl text-center">{age} &#8729; Puchong</p>
 
 			<div className="flex flex-1 items-stretch flex-row mt-8 mb-3">
 				{socials.map((social, i) => {
@@ -155,6 +161,8 @@ const Profile = () => {
 								<social.component
 									className={`${
 										social.isBouncing ? "bounce" : ""
+									} ${
+										social.textClass
 									} text-5xl md:text-4xl lg:text-4xl xl:text-4xl min-w-full hover:opacity-80`}
 								/>
 							</a>
