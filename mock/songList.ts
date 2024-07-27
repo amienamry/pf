@@ -901,6 +901,11 @@ const songs: Song[] = [
 				url: "https://music.apple.com/my/album/take-me-there-feat-farisha-single/1720544489",
 				imgUrl: "/images/music/itunes.jpeg",
 			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/523971572",
+				imgUrl: "/images/music/deezer.jpeg",
+			},
 		],
 	},
 	{
@@ -940,6 +945,11 @@ const songs: Song[] = [
 				name: "iTunes",
 				url: "https://music.apple.com/my/album/one-more-try-single/1725930475",
 				imgUrl: "/images/music/itunes.jpeg",
+			},
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/534809882",
+				imgUrl: "/images/music/deezer.jpeg",
 			},
 		],
 	},

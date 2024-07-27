@@ -115,9 +115,9 @@ const Track = ({ song }: { song: Song }) => {
 							/>
 						)}
 
-						<div className="text-sm font-normal ml-2 hidden sm:inline-block bg-black py-0.5 px-1.5 rounded bg-opacity-20 text-gray-400">
+						<span className="text-sm font-normal ml-2 hidden sm:inline-block bg-black py-0.5 px-1.5 rounded bg-opacity-20 text-gray-400">
 							{song.genre}
-						</div>
+						</span>
 					</p>
 					<p className="text-base opacity-80">{song.artist}</p>
 
