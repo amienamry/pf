@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import { toast } from "react-hot-toast";
+import { FiLink } from "react-icons/fi";
 import { RiShareBoxLine } from "react-icons/ri";
 import {
 	WhatsappShareButton,
@@ -15,8 +17,6 @@ import {
 	RedditIcon,
 	TumblrShareButton,
 	TumblrIcon,
-	EmailShareButton,
-	EmailIcon,
 } from "react-share";
 import { BottomSheet, BottomSheetRef } from "react-spring-bottom-sheet";
 
@@ -99,14 +99,15 @@ const ShareButton = ({
 					<h5 className="ml-1 pb-4">Share la bunk:</h5>
 					<div className="grid grid-cols-4 gap-4 justify-between">
 						<WhatsappShareButton
+							onClick={() => setIsOpen(false)}
 							className="flex flex-col items-center"
 							url={url}
 						>
 							<WhatsappIcon round={true} />
 							<ShareName>Whatsapp</ShareName>
 						</WhatsappShareButton>
-
 						<LinkedinShareButton
+							onClick={() => setIsOpen(false)}
 							className="flex flex-col items-center"
 							url={url}
 							title={title}
@@ -116,8 +117,8 @@ const ShareButton = ({
 							<LinkedinIcon round={true} />
 							<ShareName>LinkedIn</ShareName>
 						</LinkedinShareButton>
-
 						<TwitterShareButton
+							onClick={() => setIsOpen(false)}
 							className="flex flex-col items-center"
 							url={url}
 							title={`${title} - ${description}`}
@@ -126,16 +127,16 @@ const ShareButton = ({
 							<XIcon round={true} />
 							<ShareName>Twitter</ShareName>
 						</TwitterShareButton>
-
 						<TelegramShareButton
+							onClick={() => setIsOpen(false)}
 							className="flex flex-col items-center"
 							url={url}
 						>
 							<TelegramIcon round={true} />
 							<ShareName>Telegram</ShareName>
 						</TelegramShareButton>
-
 						<FacebookShareButton
+							onClick={() => setIsOpen(false)}
 							className="flex flex-col items-center"
 							url={url}
 							hashtag={`#${title
@@ -145,8 +146,8 @@ const ShareButton = ({
 							<FacebookIcon round={true} />
 							<ShareName>Facebook</ShareName>
 						</FacebookShareButton>
-
 						<RedditShareButton
+							onClick={() => setIsOpen(false)}
 							className="flex flex-col items-center"
 							url={url}
 							title={`${title} - ${description}`}
@@ -154,8 +155,8 @@ const ShareButton = ({
 							<RedditIcon round={true} />
 							<ShareName>Reddit</ShareName>
 						</RedditShareButton>
-
 						<TumblrShareButton
+							onClick={() => setIsOpen(false)}
 							className="flex flex-col items-center"
 							url={url}
 							title={title}
@@ -164,16 +165,31 @@ const ShareButton = ({
 							<TumblrIcon round={true} />
 							<ShareName>Tumblr</ShareName>
 						</TumblrShareButton>
-
-						<EmailShareButton
-							className="flex flex-col items-center"
-							url={url}
-							subject={title}
-							body={description}
+						<div
+							onClick={() => {
+								navigator.clipboard.writeText(
+									`${window.location.origin}${window.location.pathname}`
+								);
+								setIsOpen(false);
+								toast.success("Link copied to clipboard", {
+									duration: 5000,
+									icon: null,
+									style: {
+										borderRadius: "10px",
+										background: "#333",
+										color: "#fff",
+									},
+								});
+							}}
+							className="flex flex-col items-center cursor-pointer"
 						>
-							<EmailIcon round={true} />
-							<ShareName>Email</ShareName>
-						</EmailShareButton>
+							<div className="flex flex-col w-[64px] h-[64px] justify-center items-center rounded-full bg-gray-600">
+								<FiLink className="w-[45%] h-[45%]" />
+							</div>
+							<span className="text-sm mt-2 opacity-80">
+								Copy Link
+							</span>
+						</div>
 					</div>
 				</div>
 			</BottomSheet>
