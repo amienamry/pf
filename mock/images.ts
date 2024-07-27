@@ -156,8 +156,8 @@ export const images: PfImage[] = [
 	},
 	{
 		id: "R1pfVEV",
-		title: "GogoKids farewell",
-		description: "with Liam n Yan from GogoKids Technologies",
+		title: "GogoKids Technologies Sdn Bhd",
+		description: "gogokids farewell",
 		path: "/images/gallery/amienamry21.jpeg",
 		createdAt: new Date("2021-12-06"),
 		location: "GogoKids - KL Eco City",
@@ -1191,10 +1191,10 @@ export const images: PfImage[] = [
 	},
 	{
 		id: "RlpUVkF",
-		title: "Gopeng",
+		title: "jaley jaley",
 		description: "sedikit termenung",
 		path: "/images/gallery/amienamry131.jpeg",
-		createdAt: new Date("2023-11-18"),
+		createdAt: new Date("2023-11-17"),
 		location: "",
 		locationUrl: "",
 	},

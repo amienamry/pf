@@ -33,7 +33,8 @@ export const useSongList = ({ sorted }: { sorted?: boolean }) => {
 			return queryChunk.some((q) => {
 				return (
 					song.title.toLowerCase().includes(q) ||
-					song.artist.toLowerCase().includes(q)
+					song.artist.toLowerCase().includes(q) ||
+					song.genre.toLowerCase().includes(q)
 				);
 			});
 		});

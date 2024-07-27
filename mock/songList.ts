@@ -1160,11 +1160,11 @@ const songs: Song[] = [
 				url: "https://www.amazon.com/gp/product/B0D91YYW5Q",
 				imgUrl: "/images/music/amazon-music.jpeg",
 			},
-			// {
-			// 	name: "Deezer",
-			// 	url: "https://www.deezer.com/album/259368202",
-			// 	imgUrl: "/images/music/deezer.jpeg",
-			// },
+			{
+				name: "Deezer",
+				url: "https://www.deezer.com/album/612379922",
+				imgUrl: "/images/music/deezer.jpeg",
+			},
 		],
 	},
 ];
