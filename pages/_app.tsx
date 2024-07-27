@@ -7,6 +7,7 @@ import Error404 from "../components/Error404";
 import BackgroundVideo from "../components/BackgroundVideo";
 import CreditFooter from "../components/CreditFooter";
 import { Analytics } from "@vercel/analytics/react";
+import { Toaster } from "react-hot-toast";
 
 const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 	const [hasVideoError, setHasVideoError] = useState<boolean>(false);
@@ -23,6 +24,8 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 				hasVideoError ? "bg-gray-900 " : ""
 			} relative text-gray-200 font-sans font-normal min-h-screen`}
 		>
+			<Toaster position="bottom-center" />
+
 			{pageProps?.statusCode === 404 && <Error404 />}
 
 			{pageProps?.statusCode !== 404 &&
