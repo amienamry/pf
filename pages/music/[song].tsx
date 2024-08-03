@@ -40,6 +40,27 @@ const Song = ({ isMobile }) => {
 		path: `https://amienamry.dev/music/${song.key}`,
 	};
 
+	useEffect(() => {
+		// if the song is a remixed version
+		const prefix = !song.artist.includes('Arai Junior')
+			? 'Arai Junior, '
+			: '';
+
+		// add media metadata - useful for mobile devices
+		navigator.mediaSession.metadata = new MediaMetadata({
+			title: song.title,
+			artist: `${prefix}${song.artist}`,
+			album: song.title,
+			artwork: [
+				{
+					src: song.imgBg,
+					sizes: '512x512',
+					type: 'image/jpg',
+				},
+			],
+		});
+	}, []);
+
 	return (
 		<MainLayout
 			metaData={metaData}
