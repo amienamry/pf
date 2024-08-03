@@ -1,9 +1,13 @@
-import { format } from "date-fns";
-import Image from "next/image";
-import { useEffect } from "react";
-import { IoLocationSharp } from "react-icons/io5";
-import { PfImage } from "../types/PfImage";
-import ShareButton from "./ShareButton";
+import { format } from 'date-fns';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { MutableRefObject, useEffect, useRef } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import { IoLocationSharp } from 'react-icons/io5';
+import { useSwipe } from '../hooks/useSwipe';
+import { images } from '../mock/images';
+import { PfImage } from '../types/PfImage';
+import ShareButton from './ShareButton';
 
 type ImagePreviewProps = {
 	image: PfImage;
@@ -13,7 +17,7 @@ type ImagePreviewProps = {
 	loadComplete?: () => void;
 };
 
-export const ImagePreview = ({
+const ImagePreview = ({
 	image,
 	path,
 	isLoading,
@@ -22,7 +26,7 @@ export const ImagePreview = ({
 }: ImagePreviewProps) => {
 	useEffect(() => {
 		if (isLoading) return;
-		const htmlEl = document.getElementsByTagName("html")[0];
+		const htmlEl = document.getElementsByTagName('html')[0];
 		htmlEl.scrollTop = 0;
 	}, [isLoading]);
 
@@ -54,18 +58,21 @@ export const ImagePreview = ({
 								quality={100}
 								priority={true}
 							/>
-
 							{image.location && image.locationUrl && (
 								<a
 									href={image.locationUrl}
 									target='_blank'
 									rel='noreferrer'
-									className='absolute text-sm flex flex-row items-center bg-black bg-opacity-70 m-1.5 pl-1 pr-2 py-1 rounded right-0'
+									className='absolute text-sm flex flex-row items-center bg-black bg-opacity-70 m-1.5 pl-1 pr-2 py-1 rounded right-0 max-w-[90%]'
 								>
 									<IoLocationSharp className='mr-1' />
-									{image.location}
+									<span className='flex truncate max-w-[100%]'>
+										{image.location}
+									</span>
 								</a>
 							)}
+
+							{!isLoading && <ImageNavigator id={image.id} />}
 						</div>
 
 						<div className='mt-4 px-4 flex flex-row '>
@@ -75,10 +82,7 @@ export const ImagePreview = ({
 								)}
 								{image.createdAt && (
 									<p className='text-xs opacity-60'>
-										{format(
-											image.createdAt,
-											"eeee, d MMM yyyy"
-										)}
+										{format(image.createdAt, 'd MMM yyyy')}
 									</p>
 								)}
 							</div>
@@ -95,3 +99,58 @@ export const ImagePreview = ({
 		</>
 	);
 };
+
+const ImageNavigator = ({ id }: { id: string }) => {
+	const swipeAreaRef = useRef(null);
+
+	useSwipe<HTMLDivElement>({
+		ref: swipeAreaRef,
+		onLeftSwipe: () => onPrev(),
+		onRightSwipe: () => onNext(),
+	});
+
+	const router = useRouter();
+
+	const currentIndex = images.findIndex((img) => img.id === id);
+	const prevImg = currentIndex > 0 ? images[currentIndex - 1] : null;
+	const nextImg =
+		currentIndex < images.length ? images[currentIndex + 1] : null;
+
+	const onPrev = () => {
+		if (!prevImg) return;
+		router.push(prevImg.id);
+	};
+
+	const onNext = () => {
+		if (!nextImg) return;
+		router.push(nextImg.id);
+	};
+
+	return (
+		<>
+			<div
+				ref={swipeAreaRef}
+				className='absolute flex self-center justify-center items-center w-[60%] h-[60%] z-10'
+			/>
+
+			<div className='absolute flex self-center left-2 sm:left-4'>
+				{!!prevImg && (
+					<FaChevronLeft
+						onClick={onPrev}
+						className='cursor-pointer text-4xl bg-black bg-opacity-30 rounded-full p-1.5'
+					/>
+				)}
+			</div>
+			<div className='absolute flex self-center right-2 sm:right-4'>
+				{!!nextImg && (
+					<FaChevronRight
+						onClick={onNext}
+						className='cursor-pointer text-4xl bg-black bg-opacity-30 rounded-full p-1.5'
+					/>
+				)}
+			</div>
+		</>
+	);
+};
+
+export default ImagePreview;
