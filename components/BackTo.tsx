@@ -16,7 +16,7 @@ const BackTo = ({
 	return (
 		<button
 			onClick={() => router.push(config.path)}
-			className='flex flex-row items-center sticky border border-white text-white bottom-3 ml-3 w-fit rounded-full bg-black py-2 px-3'
+			className='flex flex-row items-center sticky border border-white text-white text-sm bottom-3 ml-3 w-fit rounded-full bg-black py-1.5 px-2.5'
 		>
 			<FaArrowLeft className='mr-1.5' />
 			Back to {config.name}
