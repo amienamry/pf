@@ -72,9 +72,15 @@ const Content = ({ image }: { image: PfImage }) => {
 	);
 };
 
-export const getServerSideProps = (context) => {
+export const getServerSideProps = () => {
 	return {
-		props: { params: context.params },
+		props: {
+			backToButtonConfig: {
+				show: true,
+				path: '/gallery',
+				name: 'Gallery',
+			},
+		},
 	};
 };
 

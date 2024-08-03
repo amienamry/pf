@@ -292,6 +292,11 @@ export const getServerSideProps = (ctx) => {
 			isMobile: !!userAgent.match(
 				/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
 			),
+			backToButtonConfig: {
+				show: true,
+				path: '/music',
+				name: 'Music',
+			},
 		},
 	};
 };
