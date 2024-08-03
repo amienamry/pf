@@ -1,18 +1,19 @@
-import { MetaDataType } from "../../types/MetaData";
-import MainLayout from "../../components/MainLayout";
-import { useRouter } from "next/router";
-import songs from "../../mock/songList";
-import { Song, StreamingPlatform } from "../../types/Song";
-import Image from "next/image";
-import Link from "next/link";
-import { FaChevronRight } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import { BsPauseCircle, BsPlayCircle } from "react-icons/bs";
-import { InputRange } from "../../components/InputRange";
-import redirect from "nextjs-redirect";
-import WaveSurfer from "wavesurfer.js";
-import ShareButton from "../../components/ShareButton";
-import { MdVerified } from "react-icons/md";
+import { MetaDataType } from '../../types/MetaData';
+import MainLayout from '../../components/MainLayout';
+import { useRouter } from 'next/router';
+import songs from '../../mock/songList';
+import { Song, StreamingPlatform } from '../../types/Song';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaChevronRight } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { BsPauseCircle, BsPlayCircle } from 'react-icons/bs';
+import { InputRange } from '../../components/InputRange';
+import redirect from 'nextjs-redirect';
+import WaveSurfer from 'wavesurfer.js';
+import ShareButton from '../../components/ShareButton';
+import { MdVerified } from 'react-icons/md';
+import { format } from 'date-fns';
 
 let tabFocusInterval;
 
@@ -21,10 +22,10 @@ const Song = ({ isMobile }) => {
 
 	const song = songs.find((sm) => sm.key === router.query.song);
 
-	if (!router.isReady) return "Loading...";
+	if (!router.isReady) return 'Loading...';
 
 	if (!song) {
-		const Redirect = redirect("https://amienamry.dev");
+		const Redirect = redirect('https://amienamry.dev');
 		return <Redirect> Not found </Redirect>;
 	}
 
@@ -32,7 +33,7 @@ const Song = ({ isMobile }) => {
 		title: song.fullTitle,
 		description: `${song.description} original by ${
 			song.artist
-		}. Avaiable on ${song.platforms.map((e) => e.name).join(", ")} - ${
+		}. Avaiable on ${song.platforms.map((e) => e.name).join(', ')} - ${
 			song.releasedDate
 		}`,
 		image_url: `https://amienamry.dev${song.imgThumb}`,
@@ -61,11 +62,11 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 		if (!song || waveSurfer) return;
 
 		const waveInstance = WaveSurfer.create({
-			container: "#waveform",
-			waveColor: "#8a9c8e",
-			progressColor: "#5A9367",
+			container: '#waveform',
+			waveColor: '#8a9c8e',
+			progressColor: '#5A9367',
 			height: 100,
-			cursorColor: "#566b5b",
+			cursorColor: '#566b5b',
 			cursorWidth: 0,
 		});
 
@@ -73,21 +74,21 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 
 		waveInstance.setVolume(volume);
 
-		waveInstance.on("finish", () => {
+		waveInstance.on('finish', () => {
 			setLoadFailed(false);
 			setIsPlaying(false);
 			waveInstance.setTime(0);
 		});
 
-		waveInstance.on("ready", () => {
+		waveInstance.on('ready', () => {
 			setIsReady(true);
 
 			Array.from(
 				document.getElementsByTagName(
-					"wave"
+					'wave'
 				) as HTMLCollectionOf<HTMLElement>
 			).forEach((el) => {
-				el.style.cursor = "pointer";
+				el.style.cursor = 'pointer';
 			});
 		});
 
@@ -109,11 +110,11 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 			setIsPlaying(false);
 		};
 
-		router.events.on("routeChangeStart", handleRouteChange);
+		router.events.on('routeChangeStart', handleRouteChange);
 
 		return () => {
 			clearInterval(tabFocusInterval);
-			router.events.off("routeChangeStart", handleRouteChange);
+			router.events.off('routeChangeStart', handleRouteChange);
 		};
 	}, [waveSurfer, router.events]);
 
@@ -173,12 +174,12 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 								title={song.fullTitle}
 								description={`Available on ${song.platforms
 									.map((p) => p.name)
-									.join(", ")}`}
+									.join(', ')}`}
 							/>
 						</div>
 					</div>
 
-					<h1 className='text-3xl font-bold mb-2 text-center px-4'>
+					<h1 className='text-2xl font-bold mb-2 text-center px-8'>
 						{song.title}
 						{song.verified && (
 							<MdVerified
@@ -187,7 +188,10 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 							/>
 						)}
 					</h1>
-					<h3 className='text-lg mb-3 sm:mb-8 px-4'>{song.artist}</h3>
+					<h3 className='text-lg px-4 mb-1'>{song.artist}</h3>
+					<span className='text-sm mb-3 sm:mb-8 px-4 opacity-50'>
+						Released: {format(song.releasedDate, 'd MMM yyy')}
+					</span>
 				</div>
 
 				<div className='w-full flex flex-row items-center bg-neutral-700 bg-opacity-30  rounded-xl mb-5'>
@@ -195,10 +199,10 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 						disabled={!isReady}
 						onClick={() => toggleAudio()}
 						className={`${
-							isReady ? "hover:bg-opacity-70" : ""
+							isReady ? 'hover:bg-opacity-70' : ''
 						} z-[3] w-[80px] h-[100px] rounded-l-xl flex justify-center items-center bg-neutral-700 bg-opacity-50`}
 						style={{
-							boxShadow: "5px 0px 10px -5px rgba(0,0,0,0.75)",
+							boxShadow: '5px 0px 10px -5px rgba(0,0,0,0.75)',
 						}}
 					>
 						{isPlaying ? (
@@ -217,8 +221,8 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 							) : (
 								<span className='flex flex-row items-end'>
 									{loadFailed === true
-										? "Fail to load audio 🙁"
-										: "Loading"}
+										? 'Fail to load audio 🙁'
+										: 'Loading'}
 									{!loadFailed && (
 										<img
 											className='h-4 w-4 ml-[1px] -mb-0.5 flex'
@@ -265,7 +269,7 @@ const Platform = ({ platform }: { platform: StreamingPlatform }) => {
 					width={65}
 					height={65}
 					style={{
-						boxShadow: "0px 0px 5px #000000",
+						boxShadow: '0px 0px 5px #000000',
 					}}
 				/>
 				<div className='flex flex-row w-full items-center justify-between px-4'>
@@ -280,7 +284,7 @@ const Platform = ({ platform }: { platform: StreamingPlatform }) => {
 
 export const getServerSideProps = (ctx) => {
 	const userAgent = ctx?.req
-		? ctx.req.headers["user-agent"]
+		? ctx.req.headers['user-agent']
 		: navigator.userAgent;
 
 	return {
