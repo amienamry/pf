@@ -1,9 +1,10 @@
 import { format } from 'date-fns';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { MutableRefObject, useEffect, useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { IoLocationSharp } from 'react-icons/io5';
+import { useSwipe } from '../hooks/useSwipe';
 import { images } from '../mock/images';
 import { PfImage } from '../types/PfImage';
 import ShareButton from './ShareButton';
@@ -23,6 +24,8 @@ const ImagePreview = ({
 	closePreview,
 	loadComplete,
 }: ImagePreviewProps) => {
+	const ref = useRef(null);
+
 	useEffect(() => {
 		if (isLoading) return;
 		const htmlEl = document.getElementsByTagName('html')[0];
@@ -48,6 +51,7 @@ const ImagePreview = ({
 								/>
 							)}
 							<Image
+								ref={ref}
 								onLoad={() => loadComplete?.()}
 								className='flex object-contain w-auto h-auto'
 								width={window.screen.width}
@@ -71,7 +75,9 @@ const ImagePreview = ({
 								</a>
 							)}
 
-							{!isLoading && <ImageNavigator id={image.id} />}
+							{!isLoading && (
+								<ImageNavigator imageRef={ref} id={image.id} />
+							)}
 						</div>
 
 						<div className='mt-4 px-4 flex flex-row '>
@@ -99,7 +105,19 @@ const ImagePreview = ({
 	);
 };
 
-const ImageNavigator = ({ id }: { id: string }) => {
+const ImageNavigator = ({
+	id,
+	imageRef,
+}: {
+	id: string;
+	imageRef: MutableRefObject<HTMLImageElement>;
+}) => {
+	useSwipe<HTMLImageElement>({
+		ref: imageRef,
+		onLeftSwipe: () => onPrev(),
+		onRightSwipe: () => onNext(),
+	});
+
 	const router = useRouter();
 
 	const currentIndex = images.findIndex((img) => img.id === id);
