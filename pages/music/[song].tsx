@@ -190,7 +190,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 					</h1>
 					<h3 className='text-lg px-4 mb-1'>{song.artist}</h3>
 					<span className='text-sm mb-3 sm:mb-8 px-4 opacity-50'>
-						Released: {format(song.releasedDate, 'd MMM yyy')}
+						Released: {format(song.releasedDate, 'd MMM yyyy')}
 					</span>
 				</div>
 
