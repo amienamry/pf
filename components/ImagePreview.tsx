@@ -24,8 +24,6 @@ const ImagePreview = ({
 	closePreview,
 	loadComplete,
 }: ImagePreviewProps) => {
-	const ref = useRef(null);
-
 	useEffect(() => {
 		if (isLoading) return;
 		const htmlEl = document.getElementsByTagName('html')[0];
@@ -51,7 +49,6 @@ const ImagePreview = ({
 								/>
 							)}
 							<Image
-								ref={ref}
 								onLoad={() => loadComplete?.()}
 								className='flex object-contain w-auto h-auto'
 								width={window.screen.width}
@@ -75,9 +72,7 @@ const ImagePreview = ({
 								</a>
 							)}
 
-							{!isLoading && (
-								<ImageNavigator imageRef={ref} id={image.id} />
-							)}
+							{!isLoading && <ImageNavigator id={image.id} />}
 						</div>
 
 						<div className='mt-4 px-4 flex flex-row '>
@@ -105,15 +100,11 @@ const ImagePreview = ({
 	);
 };
 
-const ImageNavigator = ({
-	id,
-	imageRef,
-}: {
-	id: string;
-	imageRef: MutableRefObject<HTMLImageElement>;
-}) => {
-	useSwipe<HTMLImageElement>({
-		ref: imageRef,
+const ImageNavigator = ({ id }: { id: string }) => {
+	const swipeAreaRef = useRef(null);
+
+	useSwipe<HTMLDivElement>({
+		ref: swipeAreaRef,
 		onLeftSwipe: () => onPrev(),
 		onRightSwipe: () => onNext(),
 	});
@@ -137,6 +128,11 @@ const ImageNavigator = ({
 
 	return (
 		<>
+			<div
+				ref={swipeAreaRef}
+				className='absolute flex self-center justify-center items-center w-[60%] h-[60%] z-10'
+			/>
+
 			<div className='absolute flex self-center left-2 sm:left-4'>
 				{!!prevImg && (
 					<FaChevronLeft

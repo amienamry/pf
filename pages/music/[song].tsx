@@ -112,6 +112,11 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 
 		router.events.on('routeChangeStart', handleRouteChange);
 
+		// workaround - we scroll top once everythings done!
+		setTimeout(() => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}, 350);
+
 		return () => {
 			clearInterval(tabFocusInterval);
 			router.events.off('routeChangeStart', handleRouteChange);
