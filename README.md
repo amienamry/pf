@@ -1,1 +1,1 @@
-[hehe](https://amienamry.dev/)
+hehe
