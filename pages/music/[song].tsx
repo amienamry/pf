@@ -89,6 +89,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 			height: 100,
 			cursorColor: '#566b5b',
 			cursorWidth: 0,
+			dragToSeek: true,
 		});
 
 		waveInstance.load(song.audioUrl);
@@ -134,12 +135,16 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 		router.events.on('routeChangeStart', handleRouteChange);
 
 		// workaround - we scroll top once everythings done!
-		setTimeout(() => {
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		}, 350);
+		let scrollUpTimeout = null;
+		if (!scrollUpTimeout) {
+			scrollUpTimeout = setTimeout(() => {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}, 350);
+		}
 
 		return () => {
 			clearInterval(tabFocusInterval);
+			clearTimeout(scrollUpTimeout);
 			router.events.off('routeChangeStart', handleRouteChange);
 		};
 	}, [waveSurfer, router.events]);
