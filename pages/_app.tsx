@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../styles/global.css';
 import 'react-spring-bottom-sheet/dist/style.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { AppProps } from 'next/app';
 import { Navbar } from '../components/Navbar';
 import Error404 from '../components/Error404';
