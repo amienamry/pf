@@ -1,10 +1,10 @@
 export const fetchIf = (
 	condition: boolean,
-	url: string,
+	input: string | URL | Request,
 	cb: (json: any) => void
 ) => {
 	if (condition) {
-		fetch(url)
+		fetch(input)
 			.then((res) => res.json())
 			.then((json) => cb(json));
 	}

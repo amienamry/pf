@@ -1,6 +1,16 @@
 import { BiTestTube } from 'react-icons/bi';
 import { TiFlowSwitch } from 'react-icons/ti';
-import { FaLaptop, FaMobileAlt, FaUsers } from 'react-icons/fa';
+import {
+	FaGithub,
+	FaLaptop,
+	FaLinkedin,
+	FaMobileAlt,
+	FaSoundcloud,
+	FaSpotify,
+	FaTwitter,
+	FaUsers,
+	FaYoutube,
+} from 'react-icons/fa';
 import { FiDatabase, FiTerminal } from 'react-icons/fi';
 import { GiLifeInTheBalance, GiPianoKeys } from 'react-icons/gi';
 import { MdDataObject, MdMusicNote } from 'react-icons/md';
@@ -39,6 +49,7 @@ import { MdLockOutline } from 'react-icons/md';
 import { FaLaptopCode } from 'react-icons/fa';
 import { GiCampingTent } from 'react-icons/gi';
 import { BsMusicNote } from 'react-icons/bs';
+import { HiOutlineMail } from 'react-icons/hi';
 
 export const useIconMapper = (name: string) => {
 	const cmp = {
@@ -95,6 +106,13 @@ export const useIconMapper = (name: string) => {
 		FaLaptopCode: FaLaptopCode,
 		BsMusicNote: BsMusicNote,
 		GiCampingTent: GiCampingTent,
+		HiOutlineMail: HiOutlineMail,
+		FaGithub: FaGithub,
+		FaLinkedin: FaLinkedin,
+		FaYoutube: FaYoutube,
+		FaSpotify: FaSpotify,
+		FaSoundcloud: FaSoundcloud,
+		FaTwitter: FaTwitter,
 	}[name];
 
 	if (!cmp) return TbError404;

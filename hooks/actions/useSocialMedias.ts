@@ -1,19 +1,19 @@
-import { addMinutes } from 'date-fns';
+import { addDays } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../constants';
 import { fetchIf } from '../../helpers';
-import { HomeData } from '../../types/data/HomeData';
+import { SocialMediaData } from '../../types/data/SocialMediaData';
 
 type ReturnType = {
-	data: HomeData | null;
+	data: SocialMediaData[];
 	getData: (params?: { [key: string]: string }, force?: boolean) => void;
 };
 
 let _lastFetched: Date | null = null;
-let _data: ReturnType['data'] = null;
+let _data: ReturnType['data'] = [];
 
-export const useHome = (): ReturnType => {
-	const [data, setData] = useState<ReturnType['data']>(null);
+export const useSocialMedias = (): ReturnType => {
+	const [data, setData] = useState<ReturnType['data']>([]);
 
 	useEffect(() => {
 		_data && setData(_data);
@@ -21,9 +21,9 @@ export const useHome = (): ReturnType => {
 
 	const getData: ReturnType['getData'] = (params, force = false) => {
 		const dataIsFresh =
-			!force && _lastFetched && new Date() < addMinutes(_lastFetched, 5);
+			!force && _lastFetched && new Date() < addDays(_lastFetched, 1);
 
-		const url = new URL(`${API_URL}/home`);
+		const url = new URL(`${API_URL}/social-medias`);
 
 		url.search = params ? new URLSearchParams(params).toString() : '';
 

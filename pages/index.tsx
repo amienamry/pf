@@ -1,9 +1,6 @@
 import Image from 'next/image';
-import { FaGithub, FaLinkedin, FaSpotify, FaYoutube } from 'react-icons/fa';
-import { HiOutlineMail } from 'react-icons/hi';
 import { MetaDataType } from '../types/MetaData';
 import MainLayout from '../components/MainLayout';
-import { differenceInYears } from 'date-fns';
 import Experience from './experience';
 import Education from './education';
 import ExtraDetails from '../components/ExtraDetails';
@@ -11,6 +8,8 @@ import { useEffect, useState } from 'react';
 import { API_URL } from '../constants';
 import { useHome } from '../hooks/actions/useHome';
 import { HomeData } from '../types/data/HomeData';
+import { useSocialMedias } from '../hooks/actions/useSocialMedias';
+import PfIcon from '../components/PfIcon';
 
 const App = ({ metaData }: { metaData: MetaDataType }) => {
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;
@@ -44,54 +43,38 @@ const Content = () => {
 };
 
 const Profile = ({ data }: { data?: HomeData }) => {
-	const age: number = new Date().getFullYear() - 1998;
-	const _socials: {
-		component: any;
-		url: string;
-		isUrl: boolean;
-		isBouncing: boolean;
-		textClass: string;
-	}[] = [
-		{
-			component: HiOutlineMail,
-			url: 'mailto:hi@amienamry.dev',
-			isUrl: false,
-			isBouncing: false,
-			textClass: 'email',
-		},
-		{
-			component: FaGithub,
-			url: 'https://github.com/amienamry',
-			isUrl: true,
-			isBouncing: false,
-			textClass: 'github',
-		},
-		{
-			component: FaLinkedin,
-			url: 'https://linkedin.com/in/amienamry',
-			isUrl: true,
-			isBouncing: false,
-			textClass: 'linkedin',
-		},
-		{
-			component: FaYoutube,
-			url: 'https://youtube.com/araijunior',
-			isUrl: true,
-			isBouncing: false,
-			textClass: 'youtube',
-		},
-		{
-			component: FaSpotify,
-			url: 'https://open.spotify.com/artist/3SwgFLDekh43vfME5GUVPd',
-			isUrl: true,
-			isBouncing: false,
-			textClass: 'spotify',
-		},
-	];
+	const { data: socialMedias, getData } = useSocialMedias();
 
-	const [socials, setSocials] = useState(_socials);
+	const [socials, setSocials] = useState([]);
+	const [bounceStarted, setBounceStarted] = useState(false);
 
 	useEffect(() => {
+		getData({
+			filter: 'email,github,linkedin,youtube,spotify',
+		});
+	}, []);
+
+	useEffect(() => {
+		if (!socialMedias.length) return;
+
+		setSocials(
+			socialMedias.map((sm) => {
+				return {
+					icon: sm.icon,
+					path: sm.path,
+					isUrl: sm.slug !== 'email',
+					isBouncing: false,
+					textClass: sm.slug,
+				};
+			})
+		);
+	}, [socialMedias]);
+
+	useEffect(() => {
+		if (bounceStarted || !socials.length) return;
+
+		setBounceStarted(true);
+
 		let currentIndex = 0;
 
 		const getRandomIndex = (): number => {
@@ -121,7 +104,7 @@ const Profile = ({ data }: { data?: HomeData }) => {
 		}, 2000);
 
 		return () => clearInterval(interval);
-	}, []);
+	}, [socials]);
 
 	return (
 		<div className='flex flex-initial flex-col p-3 md:p-5 justify-center md:justify-start'>
@@ -145,7 +128,7 @@ const Profile = ({ data }: { data?: HomeData }) => {
 			)}
 			{data?.city && (
 				<p className='text-xl text-center'>
-					{age} &#8729; {data?.city}
+					{data.age} &#8729; {data?.city}
 				</p>
 			)}
 
@@ -153,16 +136,17 @@ const Profile = ({ data }: { data?: HomeData }) => {
 				{socials.map((social, i) => {
 					return (
 						<div
-							key={social.url + i}
+							key={social.path + i}
 							className='flex flex-1 justify-center mx-1'
 						>
 							<a
-								href={social.url}
+								href={social.path}
 								target={social.isUrl ? '_blank' : undefined}
 								rel='noopener noreferrer'
 								className='h-fit'
 							>
-								<social.component
+								<PfIcon
+									name={social.icon}
 									className={`${
 										social.isBouncing ? 'bounce' : ''
 									} ${
