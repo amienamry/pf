@@ -11,6 +11,7 @@ import { HomeData } from '../types/data/HomeData';
 import { useSocialMedias } from '../hooks/actions/useSocialMedias';
 import PfIcon from '../components/PfIcon';
 import Skeleton from 'react-loading-skeleton';
+import { SocialMediaData } from '../types/data/SocialMediaData';
 
 const App = ({ metaData }: { metaData: MetaDataType }) => {
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;
@@ -46,7 +47,13 @@ const Content = () => {
 const Profile = ({ data }: { data?: HomeData }) => {
 	const { data: socialMedias, getData } = useSocialMedias();
 
-	const [socials, setSocials] = useState([]);
+	const [socials, setSocials] = useState<
+		(Partial<SocialMediaData> & {
+			isUrl: boolean;
+			isBouncing: boolean;
+			textClass: string;
+		})[]
+	>([]);
 	const [bounceStarted, setBounceStarted] = useState(false);
 
 	useEffect(() => {
@@ -62,7 +69,7 @@ const Profile = ({ data }: { data?: HomeData }) => {
 			socialMedias.map((sm) => {
 				return {
 					icon: sm.icon,
-					path: sm.path,
+					url: sm.url,
 					isUrl: sm.slug !== 'email',
 					isBouncing: false,
 					textClass: sm.slug,
@@ -163,11 +170,11 @@ const Profile = ({ data }: { data?: HomeData }) => {
 					{socials.map((social, i) => {
 						return (
 							<div
-								key={social.path + i}
+								key={social.url + i}
 								className='flex flex-1 justify-center mx-1'
 							>
 								<a
-									href={social.path}
+									href={social.url}
 									target={social.isUrl ? '_blank' : undefined}
 									rel='noopener noreferrer'
 									className='h-fit'

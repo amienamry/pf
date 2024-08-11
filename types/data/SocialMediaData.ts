@@ -1,6 +1,6 @@
 export type SocialMediaData = {
 	slug: string;
 	title: string;
-	path: string;
+	url: string;
 	icon: string;
 };
