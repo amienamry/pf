@@ -9,8 +9,8 @@ import { useHome } from '../hooks/actions/useHome';
 import { HomeData } from '../types/data/HomeData';
 import { useSocialMedias } from '../hooks/actions/useSocialMedias';
 import PfIcon from '../components/PfIcon';
-import Skeleton from 'react-loading-skeleton';
 import { SocialMediaData } from '../types/data/SocialMediaData';
+import PfSkeleton from '../components/PfSkeleton';
 
 const App = ({ metaData }: { metaData: MetaDataType }) => {
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;
@@ -131,7 +131,7 @@ const Profile = ({ data }: { data?: HomeData }) => {
 					{data.name}
 				</h1>
 			) : (
-				<Skeleton
+				<PfSkeleton
 					baseColor='rgb(44,44,44)'
 					highlightColor='rgb(99,99,99)'
 					width='75%'
@@ -142,7 +142,7 @@ const Profile = ({ data }: { data?: HomeData }) => {
 			{data?.role ? (
 				<p className='text-xl mt-2 text-center'>{data.role}</p>
 			) : (
-				<Skeleton
+				<PfSkeleton
 					baseColor='rgb(44,44,44)'
 					highlightColor='rgb(99,99,99)'
 					width='70%'
@@ -155,7 +155,7 @@ const Profile = ({ data }: { data?: HomeData }) => {
 					{data.age} &#8729; {data?.city}
 				</p>
 			) : (
-				<Skeleton
+				<PfSkeleton
 					baseColor='rgb(44,44,44)'
 					highlightColor='rgb(99,99,99)'
 					width='50%'
@@ -192,7 +192,7 @@ const Profile = ({ data }: { data?: HomeData }) => {
 					})}
 				</div>
 			) : (
-				<Skeleton
+				<PfSkeleton
 					baseColor='rgb(44,44,44)'
 					highlightColor='rgb(99,99,99)'
 					className='text-5xl mt-6'
@@ -215,7 +215,7 @@ const Biography = ({ data }: { data?: HomeData }) => {
 					);
 				})
 			) : (
-				<Skeleton
+				<PfSkeleton
 					baseColor='rgb(44,44,44)'
 					highlightColor='rgb(99,99,99)'
 					containerClassName='mt-4'
