@@ -1,7 +1,6 @@
 import { addDays } from 'date-fns';
 import { useEffect, useState } from 'react';
-import { API_URL } from '../../constants';
-import { fetchIf } from '../../helpers';
+import { fetchIf, setupApiRequest } from '../../helpers';
 import { SocialMediaData } from '../../types/data/SocialMediaData';
 
 type ReturnType = {
@@ -23,11 +22,7 @@ export const useSocialMedias = (): ReturnType => {
 		const dataIsFresh =
 			!force && _lastFetched && new Date() < addDays(_lastFetched, 1);
 
-		const url = new URL(`${API_URL}/social-medias`);
-
-		url.search = params ? new URLSearchParams(params).toString() : '';
-
-		const request = new Request(url.toString());
+		const request = setupApiRequest('/social-medias', params);
 
 		fetchIf(!dataIsFresh, request, (json) => {
 			_lastFetched = new Date();

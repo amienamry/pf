@@ -1,7 +1,6 @@
 import { addMinutes } from 'date-fns';
 import { useEffect, useState } from 'react';
-import { API_URL } from '../../constants';
-import { fetchIf } from '../../helpers';
+import { fetchIf, setupApiRequest } from '../../helpers';
 import { HomeData } from '../../types/data/HomeData';
 
 type ReturnType = {
@@ -23,11 +22,7 @@ export const useHome = (): ReturnType => {
 		const dataIsFresh =
 			!force && _lastFetched && new Date() < addMinutes(_lastFetched, 5);
 
-		const url = new URL(`${API_URL}/home`);
-
-		url.search = params ? new URLSearchParams(params).toString() : '';
-
-		const request = new Request(url.toString());
+		const request = setupApiRequest('/home', params);
 
 		fetchIf(!dataIsFresh, request, (json) => {
 			_lastFetched = new Date();
