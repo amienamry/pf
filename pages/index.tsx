@@ -5,7 +5,6 @@ import Experience from './experience';
 import Education from './education';
 import ExtraDetails from '../components/ExtraDetails';
 import { useEffect, useState } from 'react';
-import { API_URL } from '../constants';
 import { useHome } from '../hooks/actions/useHome';
 import { HomeData } from '../types/data/HomeData';
 import { useSocialMedias } from '../hooks/actions/useSocialMedias';
@@ -244,9 +243,12 @@ const BasicWrapper = (props) => {
 };
 
 export const getServerSideProps = async () => {
-	const res = await fetch(`${API_URL}/home/metadata`, {
-		cache: 'force-cache',
-	});
+	const res = await fetch(
+		`${process.env.NEXT_PUBLIC_API_URL}/home/metadata`,
+		{
+			cache: 'force-cache',
+		}
+	);
 
 	return {
 		props: {
