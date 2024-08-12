@@ -1,12 +1,21 @@
+import { toast } from 'react-hot-toast';
+
 export const fetchIf = (
 	condition: boolean,
 	input: string | URL | Request,
-	cb: (json: any) => void
+	cb: (json: any) => void,
+	elseCb?: () => void
 ) => {
 	if (condition) {
 		fetch(input)
 			.then((res) => res.json())
-			.then((json) => cb(json));
+			.then((json) => cb(json))
+			.catch((err) => {
+				console.error(err);
+				toast.error('Unable to fetch data');
+			});
+	} else {
+		elseCb();
 	}
 };
 

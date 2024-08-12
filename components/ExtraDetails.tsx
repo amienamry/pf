@@ -11,13 +11,16 @@ const ExtraDetails = ({ data }: { data?: HomeData }) => {
 					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
 						Skills
 					</h3>
-					<CollapsibleList list={data.skills} type='skills' />
+					<CollapsibleList list={data.skills ?? []} type='skills' />
 				</div>
 				<div className='flex flex-1 flex-col mt-6'>
 					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
 						Languages
 					</h3>
-					<CollapsibleList list={data.languages} type='languages' />
+					<CollapsibleList
+						list={data.languages ?? []}
+						type='languages'
+					/>
 				</div>
 			</div>
 			<div className='flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
@@ -26,7 +29,7 @@ const ExtraDetails = ({ data }: { data?: HomeData }) => {
 						Frameworks & Tools
 					</h3>
 					<CollapsibleList
-						list={data.frameworks}
+						list={data.frameworks ?? []}
 						type='frameworks & tools'
 					/>
 				</div>
@@ -34,7 +37,10 @@ const ExtraDetails = ({ data }: { data?: HomeData }) => {
 					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
 						Keen to Explore
 					</h3>
-					<CollapsibleList list={data.interests} type='interests' />
+					<CollapsibleList
+						list={data.interests ?? []}
+						type='interests'
+					/>
 				</div>
 			</div>
 			<div className='flex flex-1 flex-col flex-wrap md:flex-row lg:flex-row xl:flex-row 2xl:flex-row'>
@@ -42,7 +48,10 @@ const ExtraDetails = ({ data }: { data?: HomeData }) => {
 					<h3 className='text-4xl mt-3 mb-5 font-semi-bold text-gray-100'>
 						Hobbies
 					</h3>
-					<CollapsibleList list={data.hobbies} type='frameworks' />
+					<CollapsibleList
+						list={data.hobbies ?? []}
+						type='frameworks'
+					/>
 				</div>
 			</div>
 		</>
