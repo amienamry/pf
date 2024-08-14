@@ -1,14 +1,15 @@
-import { HomeData } from '../../types/data/HomeData';
+import { ExperienceData } from '../../types/data/ExperienceData';
 import { _useAction } from './_useAction';
 
 type ReturnType = {
-	data: HomeData | null;
+	data: ExperienceData[] | null;
 	getData: (params?: { [key: string]: string }, force?: boolean) => void;
 };
 
-export const useHome = (): ReturnType => {
+export const useExperienceApi = (): ReturnType => {
 	const { data, actionGet } = _useAction<ReturnType['data']>({
-		path: '/home',
+		path: '/experiences',
+		defaultState: [],
 	});
 
 	const getData: ReturnType['getData'] = (params, force = false) => {

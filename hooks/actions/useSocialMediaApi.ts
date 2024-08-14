@@ -6,7 +6,7 @@ type ReturnType = {
 	getData: (params?: { [key: string]: string }, force?: boolean) => void;
 };
 
-export const useSocialMedias = (): ReturnType => {
+export const useSocialMediaApi = (): ReturnType => {
 	const { data, actionGet } = _useAction<ReturnType['data']>({
 		path: '/social-medias',
 		defaultState: [],
