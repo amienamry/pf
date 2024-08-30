@@ -101,13 +101,13 @@ const ImagePreview = ({
 };
 
 const ImageNavigator = ({ id }: { id: string }) => {
-	const swipeAreaRef = useRef(null);
+	// const swipeAreaRef = useRef(null);
 
-	useSwipe<HTMLDivElement>({
-		ref: swipeAreaRef,
-		onLeftSwipe: () => onPrev(),
-		onRightSwipe: () => onNext(),
-	});
+	// useSwipe<HTMLDivElement>({
+	// 	ref: swipeAreaRef,
+	// 	onLeftSwipe: () => onPrev(),
+	// 	onRightSwipe: () => onNext(),
+	// });
 
 	const router = useRouter();
 
@@ -129,7 +129,7 @@ const ImageNavigator = ({ id }: { id: string }) => {
 	return (
 		<>
 			<div
-				ref={swipeAreaRef}
+				// ref={swipeAreaRef}
 				className='absolute flex self-center justify-center items-center w-[60%] h-[60%] z-10'
 			/>
 
