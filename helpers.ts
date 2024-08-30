@@ -12,7 +12,13 @@ export const fetchIf = (
 			.then((json) => cb(json))
 			.catch((err) => {
 				console.error(err);
-				toast.error('Unable to fetch data');
+				toast.error('Unable to fetch data', {
+					style: {
+						borderRadius: '10px',
+						background: '#333',
+						color: '#fff',
+					},
+				});
 			});
 	} else {
 		elseCb();

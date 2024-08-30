@@ -1,4 +1,4 @@
-import { BiTestTube } from 'react-icons/bi';
+import { BiCalendarStar, BiTestTube } from 'react-icons/bi';
 import { TiFlowSwitch } from 'react-icons/ti';
 import {
 	FaGithub,
@@ -113,6 +113,7 @@ export const useIconMapper = (name: string) => {
 		FaSpotify: FaSpotify,
 		FaSoundcloud: FaSoundcloud,
 		FaTwitter: FaTwitter,
+		BiCalendarStar: BiCalendarStar,
 	}[name];
 
 	if (!cmp) return TbError404;

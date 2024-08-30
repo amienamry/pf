@@ -1,7 +1,8 @@
-import { EducationType } from "./Education";
-import { ExperienceType } from "./Experience";
+import { ExperienceData } from './data/ExperienceData';
+import { EducationType } from './Education';
+import { ExperienceType } from './Experience';
 
 export type TimelineType = {
-    data: ExperienceType[] | EducationType[],
-    isAnimated?: boolean,
+	data: ExperienceData[] | ExperienceType[] | EducationType[];
+	isAnimated?: boolean;
 };

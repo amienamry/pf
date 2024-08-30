@@ -2,24 +2,24 @@ import Image from 'next/image';
 import { MetaDataType } from '../types/MetaData';
 import MainLayout from '../components/MainLayout';
 import Experience from './experience';
-import Education from './education';
 import ExtraDetails from '../components/ExtraDetails';
 import { useEffect, useState } from 'react';
-import { useHome } from '../hooks/actions/useHome';
+import { useHomeApi } from '../hooks/actions/useHomeApi';
 import { HomeData } from '../types/data/HomeData';
-import { useSocialMedias } from '../hooks/actions/useSocialMedias';
+import { useSocialMediaApi } from '../hooks/actions/useSocialMediaApi';
 import PfIcon from '../components/PfIcon';
 import { SocialMediaData } from '../types/data/SocialMediaData';
 import PfSkeleton from '../components/PfSkeleton';
+import { defaultMetaData } from '../constants';
 
 const App = ({ metaData }: { metaData: MetaDataType }) => {
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;
 };
 
 const Content = () => {
-	const { data, getData } = useHome();
+	const { data, getData } = useHomeApi();
 	const { data: socialMedias, getData: getSocialMediaData } =
-		useSocialMedias();
+		useSocialMediaApi();
 
 	useEffect(() => {
 		getData();
@@ -36,14 +36,13 @@ const Content = () => {
 				{/* right */}
 				<Biography data={data} />
 			</div>
-
 			<BasicWrapper marginClassName='mt-2' title='Experience'>
 				<Experience asChild />
 			</BasicWrapper>
-
-			<BasicWrapper marginClassName='mt-12 sm:mt-20' title='Education'>
+			TODO: education timeline
+			{/* <BasicWrapper marginClassName='mt-12 sm:mt-20' title='Education'>
 				<Education asChild />
-			</BasicWrapper>
+			</BasicWrapper> */}
 		</div>
 	);
 };
@@ -246,18 +245,33 @@ const BasicWrapper = (props) => {
 };
 
 export const getServerSideProps = async () => {
-	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}/home/metadata`,
-		{
-			cache: 'force-cache',
-		}
-	);
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_API_URL}/home/metadata`,
+			{
+				cache: 'force-cache',
+			}
+		);
 
-	return {
-		props: {
-			metaData: await res.json(),
-		},
-	};
+		if (res.status < 200 || res.status >= 300) {
+			throw new Error();
+		}
+
+		const metaData = (await res.json()) as MetaDataType;
+
+		return {
+			props: {
+				metaData,
+			},
+		};
+	} catch (err) {
+		console.error('Fail to fetch home metadata.');
+		return {
+			props: {
+				metaData: defaultMetaData,
+			},
+		};
+	}
 };
 
 export default App;
