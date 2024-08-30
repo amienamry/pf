@@ -10,7 +10,7 @@ import { useSocialMediaApi } from '../hooks/actions/useSocialMediaApi';
 import PfIcon from '../components/PfIcon';
 import { SocialMediaData } from '../types/data/SocialMediaData';
 import PfSkeleton from '../components/PfSkeleton';
-import { differenceInYears } from 'date-fns';
+import { defaultMetaData } from '../constants';
 
 const App = ({ metaData }: { metaData: MetaDataType }) => {
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;
@@ -245,15 +245,6 @@ const BasicWrapper = (props) => {
 };
 
 export const getServerSideProps = async () => {
-	const exp = differenceInYears(new Date(), new Date('2019-06-16'));
-
-	const metaData: MetaDataType = {
-		title: 'Amien Amry | Full Stack Developer',
-		description: `A full stack developer with ${exp}+ years of experience in web and mobile app dev, I am dedicated to delivering high-quality results. In my free time, I compose and produce music as Arai Junior.`,
-		image_url: 'https://amienamry.dev/images/amien2.jpg',
-		path: 'https://amienamry.dev',
-	};
-
 	try {
 		const res = await fetch(
 			`${process.env.NEXT_PUBLIC_API_URL}/home/metadata`,
@@ -262,21 +253,25 @@ export const getServerSideProps = async () => {
 			}
 		);
 
-		const fromApi = (await res.json()) as MetaDataType;
+		if (res.status < 200 || res.status >= 300) {
+			throw new Error();
+		}
 
-		metaData.title = fromApi.title;
-		metaData.description = fromApi.description;
-		metaData.image_url = fromApi.image_url;
-		metaData.path = fromApi.path;
+		const metaData = (await res.json()) as MetaDataType;
+
+		return {
+			props: {
+				metaData,
+			},
+		};
 	} catch (err) {
 		console.error('Fail to fetch home metadata.');
+		return {
+			props: {
+				metaData: defaultMetaData,
+			},
+		};
 	}
-
-	return {
-		props: {
-			metaData,
-		},
-	};
 };
 
 export default App;

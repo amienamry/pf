@@ -10,7 +10,11 @@ import {
 } from '../../types/data/Action';
 
 // TODO: store in localStorage
-const stores = new Map<string, { data: any; lastFetched: Date | null }>();
+type Store = {
+	data: any;
+	lastFetched: Date | null;
+};
+const stores = new Map<string, Store>();
 
 /**
  * Custom hook to handle API actions with caching.

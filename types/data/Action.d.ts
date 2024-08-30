@@ -14,7 +14,7 @@ export type ActionReturn<T> = {
 	actionDelete: ActionMethod<T>;
 };
 
-export type ActionCallback<T> = (data: T, lastFetched: Date) => void;
+export type ActionCallback<T> = (data: T, lastFetched?: Date) => void;
 
 export type ActionMethod<T> = (
 	params?: { [key: string]: string },
