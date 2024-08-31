@@ -11,6 +11,7 @@ import PfIcon from '../components/PfIcon';
 import { SocialMediaData } from '../types/data/SocialMediaData';
 import PfSkeleton from '../components/PfSkeleton';
 import { defaultMetaData } from '../constants';
+import Education from './education';
 
 const App = ({ metaData }: { metaData: MetaDataType }) => {
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;
@@ -39,10 +40,9 @@ const Content = () => {
 			<BasicWrapper marginClassName='mt-2' title='Experience'>
 				<Experience asChild />
 			</BasicWrapper>
-			TODO: education timeline
-			{/* <BasicWrapper marginClassName='mt-12 sm:mt-20' title='Education'>
+			<BasicWrapper marginClassName='mt-12 sm:mt-20' title='Education'>
 				<Education asChild />
-			</BasicWrapper> */}
+			</BasicWrapper>
 		</div>
 	);
 };

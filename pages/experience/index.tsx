@@ -2,46 +2,35 @@ import { useState, useEffect } from 'react';
 import { MetaDataType } from '../../types/MetaData';
 import Timeline from '../../components/Timeline';
 import MainLayout from '../../components/MainLayout';
-import { useCurrentRole } from '../../hooks/useCurrentRole';
 import { useExperienceApi } from '../../hooks/actions/useExperienceApi';
 import { ExperienceData } from '../../types/data/ExperienceData';
+import { defaultMetaData } from '../../constants';
+import { OneOf } from '../../types/OneOf';
 
-const Experience = ({ asChild }: { asChild?: boolean }) => {
+const Experience = ({
+	metaData,
+	asChild,
+}: OneOf<{
+	metaData: MetaDataType;
+	asChild: boolean;
+}>) => {
 	const { data, getData } = useExperienceApi();
 	const isChild = asChild !== undefined && asChild;
 
 	const [isAnimated, setIsAnimated] = useState<boolean>(!isChild);
 
-	const exp = useCurrentRole();
-	const metaData: MetaDataType = {
-		title: `Amien Amry | ${exp.title} at ${exp.company}`,
-		description: `${exp.year_from.getFullYear()} - ${exp.year_to.getFullYear()} | ${exp.points.join(
-			' '
-		)}`,
-		image_url: 'https://amienamry.dev/images/logo/experience.png',
-		path: 'https://amienamry.dev/experience',
-	};
+	useEffect(() => getData(), []);
 
 	useEffect(() => {
-		getData();
+		let timeoutId;
 
-		if (isChild) return;
-
-		setTimeout(() => {
-			setIsAnimated(false);
-		}, 500);
-
-		return;
-	}, []);
-
-	useEffect(() => {
 		if (!data.length || isChild) return;
 
-		const timeout = setTimeout(() => {
+		timeoutId = setTimeout(() => {
 			setIsAnimated(false);
-		}, 500);
+		}, 1000);
 
-		return () => clearTimeout(timeout);
+		return () => timeoutId && clearTimeout(timeoutId);
 	}, [data]);
 
 	if (isChild) {
@@ -62,6 +51,36 @@ const Content = (props: { data: ExperienceData[]; isAnimated: boolean }) => {
 			<Timeline isAnimated={props.isAnimated} data={props.data} />
 		</div>
 	);
+};
+
+export const getServerSideProps = async () => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_API_URL}/experiences/metadata`,
+			{
+				cache: 'force-cache',
+			}
+		);
+
+		if (res.status < 200 || res.status >= 300) {
+			throw new Error();
+		}
+
+		const metaData = (await res.json()) as MetaDataType;
+
+		return {
+			props: {
+				metaData,
+			},
+		};
+	} catch (err) {
+		console.error('Fail to fetch experience metadata.');
+		return {
+			props: {
+				metaData: defaultMetaData,
+			},
+		};
+	}
 };
 
 export default Experience;
