@@ -10,8 +10,8 @@ import { useSocialMediaApi } from '../hooks/actions/useSocialMediaApi';
 import PfIcon from '../components/PfIcon';
 import { SocialMediaData } from '../types/data/SocialMediaData';
 import PfSkeleton from '../components/PfSkeleton';
-import { defaultMetaData } from '../constants';
 import Education from './education';
+import { getMetaData } from '../helpers';
 
 const App = ({ metaData }: { metaData: MetaDataType }) => {
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;
@@ -245,33 +245,11 @@ const BasicWrapper = (props) => {
 };
 
 export const getServerSideProps = async () => {
-	try {
-		const res = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}/home/metadata`,
-			{
-				cache: 'force-cache',
-			}
-		);
-
-		if (res.status < 200 || res.status >= 300) {
-			throw new Error();
-		}
-
-		const metaData = (await res.json()) as MetaDataType;
-
-		return {
-			props: {
-				metaData,
-			},
-		};
-	} catch (err) {
-		console.error('Fail to fetch home metadata.');
-		return {
-			props: {
-				metaData: defaultMetaData,
-			},
-		};
-	}
+	return {
+		props: {
+			metaData: await getMetaData('/home/metadata'),
+		},
+	};
 };
 
 export default App;

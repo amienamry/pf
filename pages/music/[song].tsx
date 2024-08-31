@@ -212,16 +212,18 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 
 					<h1 className='text-2xl font-bold mb-2 text-center px-8'>
 						{song.title}
+					</h1>
+					<h3 className='text-lg px-4 mb-1'>{song.artist}</h3>
+					<span>
+						<span className='text-sm mb-3 sm:mb-8 pl-4 opacity-50'>
+							Released: {format(song.releasedDate, 'd MMM yyyy')}
+						</span>
 						{song.verified && (
 							<MdVerified
 								title='Verified and officially released.'
 								className='ml-1 align-text-top inline-flex text-blue-400'
 							/>
 						)}
-					</h1>
-					<h3 className='text-lg px-4 mb-1'>{song.artist}</h3>
-					<span className='text-sm mb-3 sm:mb-8 px-4 opacity-50'>
-						Released: {format(song.releasedDate, 'd MMM yyyy')}
 					</span>
 				</div>
 

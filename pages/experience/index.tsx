@@ -4,8 +4,8 @@ import Timeline from '../../components/Timeline';
 import MainLayout from '../../components/MainLayout';
 import { useExperienceApi } from '../../hooks/actions/useExperienceApi';
 import { ExperienceData } from '../../types/data/ExperienceData';
-import { defaultMetaData } from '../../constants';
 import { OneOf } from '../../types/OneOf';
+import { getMetaData } from '../../helpers';
 
 const Experience = ({
 	metaData,
@@ -54,33 +54,11 @@ const Content = (props: { data: ExperienceData[]; isAnimated: boolean }) => {
 };
 
 export const getServerSideProps = async () => {
-	try {
-		const res = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}/experiences/metadata`,
-			{
-				cache: 'force-cache',
-			}
-		);
-
-		if (res.status < 200 || res.status >= 300) {
-			throw new Error();
-		}
-
-		const metaData = (await res.json()) as MetaDataType;
-
-		return {
-			props: {
-				metaData,
-			},
-		};
-	} catch (err) {
-		console.error('Fail to fetch experience metadata.');
-		return {
-			props: {
-				metaData: defaultMetaData,
-			},
-		};
-	}
+	return {
+		props: {
+			metaData: await getMetaData('/experiences/metadata'),
+		},
+	};
 };
 
 export default Experience;
