@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import MainLayout from '../../components/MainLayout';
 import Timeline from '../../components/Timeline';
-import { defaultMetaData } from '../../constants';
 import { useEducationApi } from '../../hooks/actions/useEducationApi';
+import { getMetaData } from '../../shared/getMetaData';
 import { EducationData } from '../../types/data/EducationData';
 import { MetaDataType } from '../../types/MetaData';
 import { OneOf } from '../../types/OneOf';
@@ -54,33 +54,11 @@ const Content = (props: { data: EducationData[]; isAnimated: boolean }) => {
 };
 
 export const getServerSideProps = async () => {
-	try {
-		const res = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}/educations/metadata`,
-			{
-				cache: 'force-cache',
-			}
-		);
-
-		if (res.status < 200 || res.status >= 300) {
-			throw new Error();
-		}
-
-		const metaData = (await res.json()) as MetaDataType;
-
-		return {
-			props: {
-				metaData,
-			},
-		};
-	} catch (err) {
-		console.error('Fail to fetch education metadata.');
-		return {
-			props: {
-				metaData: defaultMetaData,
-			},
-		};
-	}
+	return {
+		props: {
+			metaData: await getMetaData('/educations/metadata'),
+		},
+	};
 };
 
 export default Education;
