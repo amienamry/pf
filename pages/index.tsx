@@ -11,7 +11,7 @@ import PfIcon from '../components/PfIcon';
 import { SocialMediaData } from '../types/data/SocialMediaData';
 import PfSkeleton from '../components/PfSkeleton';
 import Education from './education';
-import { getMetaData } from '../shared/getMetaData';
+import { getMetaData } from '../helpers';
 
 const App = ({ metaData }: { metaData: MetaDataType }) => {
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import MainLayout from '../../components/MainLayout';
 import Timeline from '../../components/Timeline';
+import { getMetaData } from '../../helpers';
 import { useEducationApi } from '../../hooks/actions/useEducationApi';
-import { getMetaData } from '../../shared/getMetaData';
 import { EducationData } from '../../types/data/EducationData';
 import { MetaDataType } from '../../types/MetaData';
 import { OneOf } from '../../types/OneOf';

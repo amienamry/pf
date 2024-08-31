@@ -5,7 +5,7 @@ import MainLayout from '../../components/MainLayout';
 import { useExperienceApi } from '../../hooks/actions/useExperienceApi';
 import { ExperienceData } from '../../types/data/ExperienceData';
 import { OneOf } from '../../types/OneOf';
-import { getMetaData } from '../../shared/getMetaData';
+import { getMetaData } from '../../helpers';
 
 const Experience = ({
 	metaData,
