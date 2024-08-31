@@ -1,52 +1,86 @@
-import { useState, useEffect } from "react";
-import MainLayout from "../../components/MainLayout";
-import Timeline from "../../components/Timeline";
-import { useCurrentEdu } from "../../hooks/useCurrentEdu";
-import edus from "../../mock/education";
-import { MetaDataType } from "../../types/MetaData";
+import { useState, useEffect } from 'react';
+import MainLayout from '../../components/MainLayout';
+import Timeline from '../../components/Timeline';
+import { defaultMetaData } from '../../constants';
+import { useEducationApi } from '../../hooks/actions/useEducationApi';
+import { EducationData } from '../../types/data/EducationData';
+import { MetaDataType } from '../../types/MetaData';
+import { OneOf } from '../../types/OneOf';
 
-const Education = ({ asChild }: { asChild?: boolean }) => {
+const Education = ({
+	metaData,
+	asChild,
+}: OneOf<{
+	metaData: MetaDataType;
+	asChild: boolean;
+}>) => {
+	const { data, getData } = useEducationApi();
 	const isChild = asChild !== undefined && asChild;
 
 	const [isAnimated, setIsAnimated] = useState<boolean>(!isChild);
-	const edu = useCurrentEdu();
-	const metaData: MetaDataType = {
-		title: `Amien Amry | ${edu.title} at ${edu.company}`,
-		description: `${edu.year_from.getFullYear()} - ${edu.year_to.getFullYear()} | ${edu.points.join(
-			" "
-		)}`,
-		image_url: "https://amienamry.dev/images/logo/education.png",
-		path: "https://amienamry.dev/education",
-	};
+
+	useEffect(() => getData(), []);
 
 	useEffect(() => {
-		if (isChild) return;
+		let timeoutId;
 
-		setTimeout(() => {
+		if (!data.length || isChild) return;
+
+		timeoutId = setTimeout(() => {
 			setIsAnimated(false);
-		}, 500);
+		}, 1000);
 
-		return;
-	}, []);
+		return () => timeoutId && clearTimeout(timeoutId);
+	}, [data]);
 
 	if (isChild) {
-		return <Timeline data={edus} />;
+		return <Timeline data={data} />;
 	}
 
 	return (
 		<MainLayout
 			metaData={metaData}
-			Content={() => <Content isAnimated={isAnimated} />}
+			Content={() => <Content data={data} isAnimated={isAnimated} />}
 		/>
 	);
 };
 
-const Content = (props: { isAnimated: boolean }) => {
+const Content = (props: { data: EducationData[]; isAnimated: boolean }) => {
 	return (
-		<div className="flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md">
-			<Timeline isAnimated={props.isAnimated} data={edus} />
+		<div className='flex flex-1 max-w-screen-xl mt-20 p-2.5 sm:p-5 flex-col md:flex-row bg-black bg-opacity-40 rounded-md'>
+			<Timeline isAnimated={props.isAnimated} data={props.data} />
 		</div>
 	);
+};
+
+export const getServerSideProps = async () => {
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_API_URL}/educations/metadata`,
+			{
+				cache: 'force-cache',
+			}
+		);
+
+		if (res.status < 200 || res.status >= 300) {
+			throw new Error();
+		}
+
+		const metaData = (await res.json()) as MetaDataType;
+
+		return {
+			props: {
+				metaData,
+			},
+		};
+	} catch (err) {
+		console.error('Fail to fetch education metadata.');
+		return {
+			props: {
+				metaData: defaultMetaData,
+			},
+		};
+	}
 };
 
 export default Education;

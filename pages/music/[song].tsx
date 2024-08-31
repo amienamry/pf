@@ -33,7 +33,7 @@ const Song = ({ isMobile }) => {
 		title: song.fullTitle,
 		description: `${song.description} original by ${
 			song.artist
-		}. Avaiable on ${song.platforms.map((e) => e.name).join(', ')} - ${
+		}. Available on ${song.platforms.map((e) => e.name).join(', ')} - ${
 			song.releasedDate
 		}`,
 		image_url: `https://amienamry.dev${song.imgThumb}`,
