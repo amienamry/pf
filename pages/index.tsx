@@ -54,66 +54,24 @@ const Profile = ({
 	data?: HomeData;
 	socialMedias: SocialMediaData[];
 }) => {
-	const [socials, setSocials] = useState<
-		(Partial<SocialMediaData> & {
-			isUrl: boolean;
-			isBouncing: boolean;
-			textClass: string;
-		})[]
-	>([]);
-	const [bounceStarted, setBounceStarted] = useState(false);
+	const [bouncingIndex, setBouncingIndex] = useState(0);
+
+	const startBouncing = (): void => {
+		const index = Math.floor(Math.random() * socialMedias.length);
+		index === bouncingIndex ? startBouncing() : setBouncingIndex(index);
+	};
 
 	useEffect(() => {
+		let intervalId = null;
+
 		if (!socialMedias.length) return;
 
-		setSocials(
-			socialMedias.map((sm) => {
-				return {
-					icon: sm.icon,
-					url: sm.url,
-					isUrl: sm.slug !== 'email',
-					isBouncing: false,
-					textClass: sm.slug,
-				};
-			})
-		);
-	}, [socialMedias]);
-
-	useEffect(() => {
-		if (bounceStarted || !socials.length) return;
-
-		setBounceStarted(true);
-
-		let currentIndex = 0;
-
-		const getRandomIndex = (): number => {
-			const index = Math.floor(Math.random() * socials.length);
-
-			if (index === currentIndex) {
-				return getRandomIndex();
-			}
-
-			currentIndex = index;
-
-			return currentIndex;
-		};
-
-		const startBouncing = (): void => {
-			socials.forEach((social) => (social.isBouncing = false));
-
-			socials[getRandomIndex()].isBouncing = true;
-
-			setSocials([...socials]);
-		};
-
-		startBouncing();
-
-		const interval = setInterval(() => {
+		intervalId = setInterval(() => {
 			startBouncing();
 		}, 2000);
 
-		return () => clearInterval(interval);
-	}, [socials]);
+		return () => intervalId && clearInterval(intervalId);
+	}, [socialMedias, bouncingIndex]);
 
 	return (
 		<div className='flex flex-initial flex-col p-3 md:p-5 justify-center md:justify-start'>
@@ -166,9 +124,9 @@ const Profile = ({
 				/>
 			)}
 
-			{socials.length ? (
+			{socialMedias.length ? (
 				<div className='flex flex-1 items-stretch flex-row mt-8 mb-3'>
-					{socials.map((social, i) => {
+					{socialMedias.map((social, i) => {
 						return (
 							<div
 								key={social.url + i}
@@ -176,16 +134,20 @@ const Profile = ({
 							>
 								<a
 									href={social.url}
-									target={social.isUrl ? '_blank' : undefined}
+									target={
+										social.slug !== 'email'
+											? '_blank'
+											: undefined
+									}
 									rel='noopener noreferrer'
 									className='h-fit'
 								>
 									<PfIcon
 										name={social.icon}
 										className={`${
-											social.isBouncing ? 'bounce' : ''
+											bouncingIndex === i ? 'bounce' : ''
 										} ${
-											social.textClass
+											social.slug
 										} text-5xl md:text-4xl lg:text-4xl xl:text-4xl min-w-full hover:opacity-80`}
 									/>
 								</a>
