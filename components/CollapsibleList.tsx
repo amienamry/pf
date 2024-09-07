@@ -1,10 +1,11 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { RxCaretDown, RxCaretUp } from 'react-icons/rx';
 import { CollapsibleType } from '../types/Collapsible';
 import PfIcon from './PfIcon';
 
 const CollapsibleList = ({ list, type }: CollapsibleType) => {
+	const listRef = useRef<HTMLUListElement | null>(null);
 	const [showAll, setShowAll] = useState(false);
 	const [styles, setStyles] = useState({});
 	const filtered = showAll ? list : list.slice(0, 3);
@@ -18,9 +19,25 @@ const CollapsibleList = ({ list, type }: CollapsibleType) => {
 
 		return () => setStyles({});
 	}, [showAll]);
+
+	const scrollToTopList = () => {
+		if (!listRef.current) return;
+
+		const listTop =
+			listRef.current.getBoundingClientRect().top + window.pageYOffset;
+
+		setTimeout(() => {
+			// we have 150 padding for the navbar
+			window.scrollTo({
+				top: listTop - 150,
+				behavior: 'smooth',
+			});
+		}, 50);
+	};
+
 	return (
 		<div style={styles}>
-			<ul>
+			<ul ref={listRef}>
 				{filtered.map((item, i) => {
 					return (
 						<li
@@ -40,7 +57,14 @@ const CollapsibleList = ({ list, type }: CollapsibleType) => {
 			{list.length > 3 && (
 				<div className='mt-2'>
 					<span
-						onClick={() => setShowAll(!showAll)}
+						onClick={() => {
+							// currently expanded? that means we are collapsing the list. so we need to scroll top
+							if (showAll) {
+								scrollToTopList();
+							}
+
+							setShowAll(!showAll);
+						}}
 						className='select-none hover:bg-slate-800 py-1 pl-1.5 rounded font-semibold flex flex-row items-center cursor-pointer w-fit'
 					>
 						Show {showAll ? 'less' : 'all'}{' '}

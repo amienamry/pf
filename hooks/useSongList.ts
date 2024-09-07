@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import songList from "../mock/songList";
+import { useEffect, useState } from 'react';
+import songList from '../mock/songList';
+import { Song } from '../types/Song';
 
 const IMMUTABLE_LIST = Object.freeze(structuredClone(songList));
 
@@ -22,21 +23,29 @@ export const useSongList = ({ sorted }: { sorted?: boolean }) => {
 	};
 
 	const search = (q: string): boolean => {
+		q = q.trim();
+
 		if (!q) {
 			sorted ? sortList() : setList(IMMUTABLE_LIST);
 			return true;
 		}
 
-		const queryChunk = q.split(" ").filter(Boolean);
+		const queryChunk = q.split(' ').filter(Boolean);
+
+		const filter = (song: Song, queryString: string) => {
+			return (
+				song.title.toLowerCase().includes(queryString) ||
+				song.artist.toLowerCase().includes(queryString) ||
+				song.genre.toLowerCase().includes(queryString)
+			);
+		};
 
 		const filtered = IMMUTABLE_LIST.filter((song) => {
-			return queryChunk.some((q) => {
-				return (
-					song.title.toLowerCase().includes(q) ||
-					song.artist.toLowerCase().includes(q) ||
-					song.genre.toLowerCase().includes(q)
-				);
-			});
+			return queryChunk.length > 1
+				? filter(song, q)
+				: queryChunk.some((oneOfQuery) => {
+						return filter(song, oneOfQuery);
+				  });
 		});
 
 		setList(filtered);

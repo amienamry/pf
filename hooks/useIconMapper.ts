@@ -50,6 +50,7 @@ import { FaLaptopCode } from 'react-icons/fa';
 import { GiCampingTent } from 'react-icons/gi';
 import { BsMusicNote } from 'react-icons/bs';
 import { HiOutlineMail } from 'react-icons/hi';
+import { PiWaveform } from 'react-icons/pi';
 
 export const useIconMapper = (name: string) => {
 	const cmp = {
@@ -114,6 +115,7 @@ export const useIconMapper = (name: string) => {
 		FaSoundcloud: FaSoundcloud,
 		FaTwitter: FaTwitter,
 		BiCalendarStar: BiCalendarStar,
+		PiWaveform: PiWaveform,
 	}[name];
 
 	if (!cmp) return TbError404;
