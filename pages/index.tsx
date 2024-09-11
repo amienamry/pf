@@ -4,7 +4,6 @@ import MainLayout from '../components/MainLayout';
 import Experience from './experience';
 import ExtraDetails from '../components/ExtraDetails';
 import { useEffect, useState } from 'react';
-import { useHomeApi } from '../hooks/actions/useHomeApi';
 import { HomeData } from '../types/data/HomeData';
 import { useSocialMediaApi } from '../hooks/actions/useSocialMediaApi';
 import PfIcon from '../components/PfIcon';
@@ -12,18 +11,33 @@ import { SocialMediaData } from '../types/data/SocialMediaData';
 import PfSkeleton from '../components/PfSkeleton';
 import Education from './education';
 import { getMetaData } from '../helpers';
+import { useQuery } from '@tanstack/react-query';
+
+const fetchHomeData = async () => {
+	const res = await fetch('http://localhost:3001/api/home');
+
+	if (!res.ok) {
+		throw new Error('Unable to fetch home data');
+	}
+
+	return res.json();
+};
 
 const App = ({ metaData }: { metaData: MetaDataType }) => {
 	return <MainLayout metaData={metaData} Content={() => <Content />} />;
 };
 
 const Content = () => {
-	const { data, getData } = useHomeApi();
+	const { data, isLoading, error } = useQuery<HomeData>({
+		queryKey: ['homeData'],
+		queryFn: fetchHomeData,
+		staleTime: 1000 * 60 * 10,
+	});
+
 	const { data: socialMedias, getData: getSocialMediaData } =
 		useSocialMediaApi();
 
 	useEffect(() => {
-		getData();
 		getSocialMediaData({
 			filter: 'email,github,linkedin,youtube,spotify',
 		});

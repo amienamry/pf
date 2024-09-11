@@ -1,4 +1,6 @@
-import { useState } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
 import '../styles/global.css';
 import 'react-spring-bottom-sheet/dist/style.css';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -10,6 +12,17 @@ import CreditFooter from '../components/CreditFooter';
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from 'react-hot-toast';
 import BackTo from '../components/BackTo';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
+import { persistQueryClient } from '@tanstack/react-query-persist-client';
+
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			gcTime: 1000 * 60 * 60 * 1, // 1 hour then it's cleared from memory
+		},
+	},
+});
 
 const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 	const [hasVideoError, setHasVideoError] = useState<boolean>(false);
@@ -20,36 +33,50 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 
 	const excludedRoutes = ['/r/[social]', '/music/[song]'];
 
+	useEffect(() => {
+		const localStoragePersister = createSyncStoragePersister({
+			storage: window.localStorage,
+		});
+
+		persistQueryClient({
+			queryClient,
+			persister: localStoragePersister,
+			maxAge: 1000 * 60 * 60 * 1, // 1 hour then it's cleared from localStorage
+		});
+	}, []);
+
 	return (
-		<div
-			className={`${
-				hasVideoError ? 'bg-gray-900 ' : ''
-			} relative text-gray-200 font-sans font-normal min-h-screen`}
-		>
-			<Toaster position='bottom-center' />
+		<QueryClientProvider client={queryClient}>
+			<div
+				className={`${
+					hasVideoError ? 'bg-gray-900 ' : ''
+				} relative text-gray-200 font-sans font-normal min-h-screen`}
+			>
+				<Toaster position='bottom-center' />
 
-			{pageProps?.statusCode === 404 && <Error404 />}
+				{pageProps?.statusCode === 404 && <Error404 />}
 
-			{pageProps?.statusCode !== 404 &&
-				!excludedRoutes.includes(componentRouter.route) && (
-					<BackgroundVideo videoError={videoError} />
-				)}
+				{pageProps?.statusCode !== 404 &&
+					!excludedRoutes.includes(componentRouter.route) && (
+						<BackgroundVideo videoError={videoError} />
+					)}
 
-			{((pageProps?.statusCode !== 404 &&
-				!excludedRoutes.includes(componentRouter.route)) ||
-				componentRouter.route === '/music/[song]') && <Navbar />}
+				{((pageProps?.statusCode !== 404 &&
+					!excludedRoutes.includes(componentRouter.route)) ||
+					componentRouter.route === '/music/[song]') && <Navbar />}
 
-			{/* @ts-ignore */}
-			<Component {...pageProps} />
+				{/* @ts-ignore */}
+				<Component {...pageProps} />
 
-			{pageProps?.statusCode !== 404 &&
-				!excludedRoutes.includes(componentRouter.route) &&
-				!hasVideoError && <CreditFooter />}
+				{pageProps?.statusCode !== 404 &&
+					!excludedRoutes.includes(componentRouter.route) &&
+					!hasVideoError && <CreditFooter />}
 
-			<BackTo {...pageProps} />
+				<BackTo {...pageProps} />
 
-			<Analytics />
-		</div>
+				<Analytics />
+			</div>
+		</QueryClientProvider>
 	);
 };
 
