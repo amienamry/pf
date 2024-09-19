@@ -1369,6 +1369,24 @@ export const images: PfImage[] = [
 		location: '',
 		locationUrl: '',
 	},
+	{
+		id: 'xXr77s6D',
+		title: 'ride santai bukan bantai!',
+		description: 'balik bunk',
+		path: '/images/gallery/amienamry152.jpeg',
+		createdAt: new Date('2024-09-17'),
+		location: '',
+		locationUrl: '',
+	},
+	{
+		id: '1RL6A5uh',
+		title: 'motor motoran',
+		description: 'sangat hensem',
+		path: '/images/gallery/amienamry153.jpeg',
+		createdAt: new Date('2024-09-17'),
+		location: 'Sungai Sendat',
+		locationUrl: 'https://maps.app.goo.gl/c2aqzaXrxiRpmdqH9',
+	},
 ];
 
 Object.freeze(
