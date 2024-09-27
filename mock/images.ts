@@ -1181,15 +1181,6 @@ export const images: PfImage[] = [
 		locationUrl: 'https://maps.app.goo.gl/Wua1SpMjiMGd13hM7',
 	},
 	{
-		id: 'QwtUAEF',
-		title: 'sedikit rempit',
-		description: 'ysukui',
-		path: '/images/gallery/amienamry130.jpeg',
-		createdAt: new Date('2024-04-09'),
-		location: 'YesRide Kajang',
-		locationUrl: 'https://maps.app.goo.gl/FAc54KCinFjv6Qvu8',
-	},
-	{
 		id: 'RlpUVkF',
 		title: 'jaley jaley',
 		description: 'sedikit termenung',
@@ -1206,15 +1197,6 @@ export const images: PfImage[] = [
 		createdAt: new Date('2024-05-12'),
 		location: 'Restoran Nasi Vanggey',
 		locationUrl: 'https://maps.app.goo.gl/S99r8KgLUNXrhm7S9',
-	},
-	{
-		id: 'QgwPBEc',
-		title: 'boleh la buat kudap kudap',
-		description: 'memang berbezza',
-		path: '/images/gallery/amienamry133.jpeg',
-		createdAt: new Date('2022-10-29'),
-		location: 'Perodua Kinrara',
-		locationUrl: 'https://maps.app.goo.gl/qUgFzFSKHwfvtmHC7',
 	},
 	{
 		id: 'EglYVUA',
@@ -1314,15 +1296,6 @@ export const images: PfImage[] = [
 		createdAt: new Date('2024-06-01'),
 		location: 'tepi jalan',
 		locationUrl: 'https://maps.app.goo.gl/9JDGU9Ucd9q4rSQt9',
-	},
-	{
-		id: '0cRPUrr',
-		title: 'motor kawankasi',
-		description: 'hehe',
-		path: '/images/gallery/amienamry146.jpeg',
-		createdAt: new Date('2024-07-13'),
-		location: 'Kawasaki Shah Ale',
-		locationUrl: 'https://maps.app.goo.gl/xsT789GFNWM53KNXA',
 	},
 	{
 		id: 'pQ1VzSd',
