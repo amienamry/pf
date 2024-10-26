@@ -185,7 +185,7 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 				/>
 			</div>
 			<div className='flex flex-col w-full max-w-2xl pt-32 sm:pt-48 text-gray-100 px-4 sm:px-0'>
-				<div className='relative w-full flex flex-col items-center sm:bg-neutral-800 sm:bg-opacity-30 rounded-xl mb-5'>
+				<div className='relative w-full flex flex-col items-center sm:bg-neutral-800 sm:bg-opacity-30 rounded-xl mb-5 pb-0 sm:pb-3'>
 					<div className='relative w-48 h-48 -mt-8 mb-6'>
 						<div className='absolute top-1.5 left-1.5 z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40'>
 							{song.genre}
@@ -199,7 +199,10 @@ const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
 							priority={true}
 						/>
 
-						<div className='absolute top-1 right-0 z-[1] flex flex-row items-center shadow-2xl px-2 py-0.5'>
+						<div
+							onClick={() => toggleAudio()}
+							className='absolute top-1 right-0 z-[1] flex flex-row items-center shadow-2xl px-2 py-0.5'
+						>
 							<ShareButton
 								className='bg-black bg-opacity-20 rounded'
 								title={song.fullTitle}
