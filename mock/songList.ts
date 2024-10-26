@@ -1196,16 +1196,16 @@ const songs: Song[] = [
 				url: 'https://open.spotify.com/album/5OlYcISCL7OhjwYLcIqzNW',
 				imgUrl: '/images/music/spotify.jpeg',
 			},
-			// {
-			// 	name: "Youtube",
-			// 	url: "https://youtu.be/4ZamS0w7QEA",
-			// 	imgUrl: "/images/music/youtube.jpeg",
-			// },
-			// {
-			// 	name: "Soundcloud",
-			// 	url: "https://soundcloud.com/araijunior/ale-uto-original-mix",
-			// 	imgUrl: "/images/music/soundcloud.jpeg",
-			// },
+			{
+				name: 'Youtube',
+				url: 'https://youtu.be/3oEHoUZ5LlA',
+				imgUrl: '/images/music/youtube.jpeg',
+			},
+			{
+				name: 'Soundcloud',
+				url: 'https://soundcloud.com/araijunior/alright-dude-what-the-flip',
+				imgUrl: '/images/music/soundcloud.jpeg',
+			},
 			{
 				name: 'Apple Music',
 				url: 'https://music.apple.com/us/album/alright-dude-what-the-flip-single/1770118937',
@@ -1216,11 +1216,11 @@ const songs: Song[] = [
 				url: 'https://music.apple.com/us/album/alright-dude-what-the-flip-single/1770118937',
 				imgUrl: '/images/music/itunes.jpeg',
 			},
-			// {
-			// 	name: "Amazon Music",
-			// 	url: "https://www.amazon.com/gp/product/B09FKKT16P",
-			// 	imgUrl: "/images/music/amazon-music.jpeg",
-			// },
+			{
+				name: 'Amazon Music',
+				url: 'https://music.amazon.com/albums/B0DHQTX5FK',
+				imgUrl: '/images/music/amazon-music.jpeg',
+			},
 			{
 				name: 'Deezer',
 				url: 'https://www.deezer.com/album/648033531',
