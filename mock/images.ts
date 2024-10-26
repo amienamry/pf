@@ -1360,6 +1360,15 @@ export const images: PfImage[] = [
 		location: 'Sungai Sendat',
 		locationUrl: 'https://maps.app.goo.gl/c2aqzaXrxiRpmdqH9',
 	},
+	{
+		id: '9sA1a00h',
+		title: 'gokart!!!',
+		description: 'sedikit racing',
+		path: '/images/gallery/amienamry154.jpeg',
+		createdAt: new Date('2024-10-23'),
+		location: 'Evolt Karting',
+		locationUrl: 'https://maps.app.goo.gl/carckoic8vdzF5F38',
+	},
 ];
 
 Object.freeze(
