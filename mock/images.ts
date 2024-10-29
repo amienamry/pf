@@ -1369,6 +1369,33 @@ export const images: PfImage[] = [
 		location: 'Evolt Karting',
 		locationUrl: 'https://maps.app.goo.gl/carckoic8vdzF5F38',
 	},
+	{
+		id: '71ppOPrZ',
+		title: 'weekend ride',
+		description: 'makan bunk',
+		path: '/images/gallery/amienamry156.jpeg',
+		createdAt: new Date('2024-10-27'),
+		location: "Lemang To'ki 2",
+		locationUrl: 'https://maps.app.goo.gl/b7kqkqXDPHE8S7Uz7',
+	},
+	{
+		id: 'atJ5a59w',
+		title: 'tepi jaley',
+		description: 'power rangers',
+		path: '/images/gallery/amienamry155.jpeg',
+		createdAt: new Date('2024-10-27'),
+		location: 'traffic light mana tah',
+		locationUrl: 'https://maps.app.goo.gl/3YJdK6zbkpkuViUm6',
+	},
+	{
+		id: 'L1l3nEqG',
+		title: 'solo ride ngopi',
+		description: 'berdezus martt',
+		path: '/images/gallery/amienamry157.jpeg',
+		createdAt: new Date('2024-10-27'),
+		location: 'Zus Coffee - Genting Xintiandi Sales Gallery',
+		locationUrl: 'https://maps.app.goo.gl/4LEB1ahbfYfjm9uF7',
+	},
 ];
 
 Object.freeze(
