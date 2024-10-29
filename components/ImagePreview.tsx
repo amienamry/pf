@@ -58,41 +58,50 @@ const ImagePreview = ({
 								quality={100}
 								priority={true}
 							/>
-							{image.location && image.locationUrl && (
-								<a
-									href={image.locationUrl}
-									target='_blank'
-									rel='noreferrer'
-									className='absolute text-sm flex flex-row items-center bg-black bg-opacity-70 m-1.5 pl-1 pr-2 py-1 rounded right-0 max-w-[90%]'
-								>
-									<IoLocationSharp className='mr-1' />
-									<span className='flex truncate max-w-[100%]'>
-										{image.location}
-									</span>
-								</a>
-							)}
+							{!isLoading &&
+								image.location &&
+								image.locationUrl && (
+									<a
+										href={image.locationUrl}
+										target='_blank'
+										rel='noreferrer'
+										className='absolute text-sm flex flex-row items-center bg-black bg-opacity-70 m-1.5 pl-1 pr-2 py-1 rounded right-0 max-w-[90%]'
+									>
+										<IoLocationSharp className='mr-1' />
+										<span className='flex truncate max-w-[100%]'>
+											{image.location}
+										</span>
+									</a>
+								)}
 
 							{!isLoading && <ImageNavigator id={image.id} />}
 						</div>
 
-						<div className='mt-4 px-4 flex flex-row '>
-							<div className='flex flex-col flex-1'>
-								{image.description && (
-									<p className='mb-2'>{image.description}</p>
-								)}
-								{image.createdAt && (
-									<p className='text-xs opacity-60'>
-										{format(image.createdAt, 'd MMM yyyy')}
-									</p>
-								)}
+						{!isLoading && (
+							<div className='mt-1.5 px-3 flex flex-row '>
+								<div className='flex flex-col flex-1'>
+									{image.description && (
+										<p className='mb-2'>
+											{image.description}
+										</p>
+									)}
+									{image.createdAt && (
+										<p className='text-xs opacity-60'>
+											{format(
+												image.createdAt,
+												'd MMM yyyy'
+											)}
+										</p>
+									)}
+								</div>
+								<div className='mt-0.5 -mr-1'>
+									<ShareButton
+										title={image.title}
+										description={image.description}
+									/>
+								</div>
 							</div>
-							<div>
-								<ShareButton
-									title={image.title}
-									description={image.description}
-								/>
-							</div>
-						</div>
+						)}
 					</div>
 				)}
 			</div>
