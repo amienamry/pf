@@ -1,10 +1,9 @@
 import { format } from 'date-fns';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { MutableRefObject, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { IoLocationSharp } from 'react-icons/io5';
-import { useSwipe } from '../hooks/useSwipe';
 import { images } from '../mock/images';
 import { PfImage } from '../types/PfImage';
 import ShareButton from './ShareButton';
@@ -15,6 +14,8 @@ type ImagePreviewProps = {
 	isLoading?: boolean;
 	closePreview?: () => void;
 	loadComplete?: () => void;
+	hasNavigator?: boolean;
+	isFirstImage?: boolean;
 };
 
 const ImagePreview = ({
@@ -23,6 +24,8 @@ const ImagePreview = ({
 	isLoading,
 	closePreview,
 	loadComplete,
+	hasNavigator = true,
+	isFirstImage = true,
 }: ImagePreviewProps) => {
 	useEffect(() => {
 		if (isLoading) return;
@@ -32,7 +35,11 @@ const ImagePreview = ({
 
 	return (
 		<>
-			<div className='flex flex-col w-full h-auto mt-20 items-center'>
+			<div
+				className={`${
+					isFirstImage ? 'mt-20' : '-mt-24'
+				} flex flex-col w-full h-auto  items-center`}
+			>
 				{!!path && (
 					<div className='flex min-h-screen w-full max-w-3xl flex-col bg-black bg-opacity-80 rounded-md'>
 						<div
@@ -51,12 +58,17 @@ const ImagePreview = ({
 							<Image
 								onLoad={() => loadComplete?.()}
 								className='flex object-contain w-auto h-auto'
-								width={window.screen.width}
-								height={1000}
+								width='0'
+								height='0'
 								src={path}
 								alt={path}
 								quality={100}
 								priority={true}
+								sizes='100vw'
+								style={{
+									width: window.screen.width,
+									height: 'auto',
+								}}
 							/>
 							{!isLoading &&
 								image.location &&
@@ -74,7 +86,9 @@ const ImagePreview = ({
 									</a>
 								)}
 
-							{!isLoading && <ImageNavigator id={image.id} />}
+							{!isLoading && hasNavigator && (
+								<ImageNavigator id={image.id} />
+							)}
 						</div>
 
 						{!isLoading && (

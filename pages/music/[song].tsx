@@ -2,7 +2,7 @@ import { MetaDataType } from '../../types/MetaData';
 import MainLayout from '../../components/MainLayout';
 import { useRouter } from 'next/router';
 import songs from '../../mock/songList';
-import { Song, StreamingPlatform } from '../../types/Song';
+import { Song as SongType, StreamingPlatform } from '../../types/Song';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaChevronRight } from 'react-icons/fa';
@@ -14,6 +14,8 @@ import WaveSurfer from 'wavesurfer.js';
 import ShareButton from '../../components/ShareButton';
 import { MdVerified } from 'react-icons/md';
 import { format } from 'date-fns';
+import { GetServerSidePropsContext } from 'next';
+import { isMobile } from '../../helpers';
 
 let tabFocusInterval;
 
@@ -69,7 +71,7 @@ const Song = ({ isMobile }) => {
 	);
 };
 
-const Content = ({ song, isMobile }: { song: Song; isMobile: boolean }) => {
+const Content = ({ song, isMobile }: { song: SongType; isMobile: boolean }) => {
 	const router = useRouter();
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [loadFailed, setLoadFailed] = useState<null | boolean>(null);
@@ -318,16 +320,10 @@ const Platform = ({ platform }: { platform: StreamingPlatform }) => {
 	);
 };
 
-export const getServerSideProps = (ctx) => {
-	const userAgent = ctx?.req
-		? ctx.req.headers['user-agent']
-		: navigator.userAgent;
-
+export const getServerSideProps = (ctx?: GetServerSidePropsContext) => {
 	return {
 		props: {
-			isMobile: !!userAgent.match(
-				/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-			),
+			isMobile: isMobile(ctx),
 			backToButtonConfig: {
 				show: true,
 				path: '/music',
