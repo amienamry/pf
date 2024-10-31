@@ -4,3 +4,4 @@ User-agent: *
 Allow: /*
 Allow: /api/sitemap.xml
 Disallow: /api/*
+Disallow: /gallery-scroll

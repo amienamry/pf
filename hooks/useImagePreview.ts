@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { PfImage } from "../types/PfImage";
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { PfImage } from '../types/PfImage';
 
 let globalImage = null;
 
@@ -26,7 +26,7 @@ export const useImagePreview = () => {
 
 	const openPreview = (_image?: PfImage) => {
 		if (!_image?.path) {
-			throw new Error("Path is empty, please provide a valid path");
+			throw new Error('Path is empty, please provide a valid path');
 		}
 
 		_open(_image);
@@ -38,7 +38,7 @@ export const useImagePreview = () => {
 		_close();
 
 		cannotGoBack
-			? router.push("/gallery", undefined, { scroll: true })
+			? router.push('/gallery', undefined, { scroll: true })
 			: router.back();
 	};
 

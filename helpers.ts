@@ -1,6 +1,7 @@
 import { toast } from 'react-hot-toast';
 import { defaultMetaData } from './constants';
 import { MetaDataType } from './types/MetaData';
+import { GetServerSidePropsContext } from 'next';
 
 export const fetchIf = (
 	condition: boolean,
@@ -53,4 +54,14 @@ export const getMetaData = async (path: string): Promise<MetaDataType> => {
 		console.error(`Couldn't fetch ${path}.`);
 		return defaultMetaData;
 	}
+};
+
+export const isMobile = (ctx?: GetServerSidePropsContext): boolean => {
+	const userAgent = ctx?.req
+		? ctx.req.headers['user-agent']
+		: navigator.userAgent;
+
+	return !!userAgent.match(
+		/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+	);
 };
