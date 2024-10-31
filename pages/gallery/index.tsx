@@ -80,13 +80,13 @@ const Content = ({ isMobile }) => {
 								key={image.id}
 								className='relative border border-neutral-900'
 								style={{ width: size, height: size }}
-								onClick={() =>
+								onClick={() => {
 									isMobile
 										? router.push(
 												`/gallery-scroll?i=${image.id}`
 										  )
-										: router.push(`/gallery/${image.id}`)
-								}
+										: router.push(`/gallery/${image.id}`);
+								}}
 							>
 								<Image
 									fill={true}
