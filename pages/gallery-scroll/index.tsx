@@ -3,7 +3,14 @@ import { isMobile } from '../../helpers';
 import { useSearchParams } from 'next/navigation';
 import { images } from '../../mock/images';
 import ImagePreview from '../../components/ImagePreview';
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import {
+	Dispatch,
+	MutableRefObject,
+	SetStateAction,
+	useEffect,
+	useRef,
+	useState,
+} from 'react';
 import MainLayout from '../../components/MainLayout';
 import { defaultMetaData } from '../../constants';
 import { PfImage } from '../../types/PfImage';
@@ -34,8 +41,16 @@ const GalleryScroll = ({ isMobile }) => {
 };
 
 const Content = ({ id }: { id: string }) => {
-	const imageRef = useRef<HTMLDivElement | null>();
+	if (typeof document !== 'undefined') {
+		document.documentElement.scrollTop = 0;
+		document.documentElement.style.overflowY = 'hidden';
+	}
+
+	const [imageRef, setImageRef] = useState<
+		MutableRefObject<HTMLDivElement | null>
+	>(useRef());
 	const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+	const [loadedImageCount, setLoadedImageCount] = useState(0);
 
 	const currentIndex = images.findIndex((img) => img.id === id);
 
@@ -44,33 +59,30 @@ const Content = ({ id }: { id: string }) => {
 		return <Redirect />;
 	}
 
-	const loaded = () => {
-		setAllImagesLoaded(true);
-	};
+	useEffect(() => {
+		if (loadedImageCount === images.length) {
+			setAllImagesLoaded(true);
+		}
+	}, [loadedImageCount]);
 
 	useEffect(() => {
-		if (allImagesLoaded) {
-			document.documentElement.style.overflowY = 'auto';
+		document.documentElement.style.overflowY = 'auto';
 
-			if (imageRef.current) {
-				const topOffset = 80;
-				const elementPosition =
-					imageRef.current.getBoundingClientRect().top +
-					window.scrollY;
-				const offsetPosition = elementPosition - topOffset;
+		if (imageRef?.current) {
+			const topOffset = 80;
+			const elementPosition =
+				imageRef.current.getBoundingClientRect().top + window.scrollY;
+			const offsetPosition = elementPosition - topOffset;
 
-				window.scrollTo({
-					top: offsetPosition,
-					behavior: 'instant',
-				});
-			}
-		} else {
-			document.documentElement.style.overflowY = 'hidden';
+			document.documentElement.scrollTo({
+				top: offsetPosition,
+				behavior: 'instant',
+			});
 		}
 	}, [allImagesLoaded]);
 
 	return (
-		<div>
+		<div className='bg-black'>
 			{!allImagesLoaded && <Loader />}
 			{images.map((image, index) => {
 				return (
@@ -78,8 +90,12 @@ const Content = ({ id }: { id: string }) => {
 						key={image.path + image.id}
 						image={image}
 						index={index}
-						loaded={() => loaded()}
-						currentImage={currentIndex === index ? imageRef : null}
+						loaded={() => {
+							setLoadedImageCount((prev) => prev + 1);
+						}}
+						setImageRef={
+							currentIndex === index ? setImageRef : null
+						}
 					/>
 				);
 			})}
@@ -91,19 +107,19 @@ const Image101 = ({
 	image,
 	index,
 	loaded,
-	currentImage = null,
+	setImageRef = null,
 }: {
 	image: PfImage;
 	index: number;
 	loaded: () => void;
-	currentImage?: MutableRefObject<HTMLDivElement>;
+	setImageRef?: Dispatch<SetStateAction<MutableRefObject<HTMLDivElement>>>;
 }) => {
 	const imgRef = useRef<null | HTMLDivElement>(null);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		if (currentImage) {
-			currentImage.current = imgRef.current;
+		if (setImageRef) {
+			setImageRef(imgRef);
 		}
 	}, []);
 
@@ -112,7 +128,8 @@ const Image101 = ({
 	};
 
 	useEffect(() => {
-		if (!isLoading && images.length - 1 === index) {
+		// if (!isLoading && images.length - 1 === index) {
+		if (!isLoading) {
 			loaded();
 		}
 	}, [isLoading]);

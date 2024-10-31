@@ -1,12 +1,13 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from 'react';
 
 const BackgroundVideo = (props: { videoError: () => void }) => {
 	const videoRef = useRef(null);
 
 	useEffect(() => {
 		const videoReplayInterval = setInterval(() => {
-			if (videoRef.current.paused || videoRef.current.ended) {
-				videoRef.current.play();
+			if (videoRef.current?.paused || videoRef.current?.ended) {
+				videoRef.current.muted = true;
+				videoRef.current.play().catch((err) => console.log(err));
 			}
 		}, 1000);
 
@@ -17,15 +18,15 @@ const BackgroundVideo = (props: { videoError: () => void }) => {
 		<video
 			onError={props.videoError}
 			ref={videoRef}
-			autoPlay
 			muted
+			autoPlay
 			loop
 			playsInline
 			style={{
-				objectFit: "cover",
-				width: "100%",
-				height: "100%",
-				position: "fixed",
+				objectFit: 'cover',
+				width: '100%',
+				height: '100%',
+				position: 'fixed',
 				top: 0,
 				left: 0,
 				zIndex: -1,
