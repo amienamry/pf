@@ -44,8 +44,14 @@ const Content = ({ id }: { id: string }) => {
 		return <Redirect />;
 	}
 
+	useEffect(() => {
+		document.documentElement.style.overflowY = 'hidden';
+	}, []);
+
 	const loaded = () => {
 		if (imageRef.current) {
+			document.documentElement.style.overflowY = 'auto';
+
 			const topOffset = 80;
 			const elementPosition =
 				imageRef.current.getBoundingClientRect().top + window.scrollY;
@@ -56,17 +62,8 @@ const Content = ({ id }: { id: string }) => {
 				behavior: 'instant',
 			});
 		}
-
-		setAllImagesLoaded(true);
 	};
 
-	useEffect(() => {
-		if (allImagesLoaded) {
-			document.documentElement.style.overflowY = 'auto';
-		} else {
-			document.documentElement.style.overflowY = 'hidden';
-		}
-	}, [allImagesLoaded]);
 	return (
 		<div>
 			{!allImagesLoaded && <Loader />}
@@ -76,7 +73,7 @@ const Content = ({ id }: { id: string }) => {
 						key={image.path + image.id}
 						image={image}
 						index={index}
-						loaded={loaded}
+						loaded={() => loaded()}
 						currentImage={currentIndex === index ? imageRef : null}
 					/>
 				);
