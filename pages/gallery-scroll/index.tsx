@@ -52,18 +52,20 @@ const Content = ({ id }: { id: string }) => {
 		if (allImagesLoaded) {
 			document.documentElement.style.overflowY = 'auto';
 
-			if (imageRef.current) {
-				const topOffset = 80;
-				const elementPosition =
-					imageRef.current.getBoundingClientRect().top +
-					window.scrollY;
-				const offsetPosition = elementPosition - topOffset;
+			setTimeout(() => {
+				if (imageRef.current) {
+					const topOffset = 80;
+					const elementPosition =
+						imageRef.current.getBoundingClientRect().top +
+						window.scrollY;
+					const offsetPosition = elementPosition - topOffset;
 
-				window.scrollTo({
-					top: offsetPosition,
-					behavior: 'instant',
-				});
-			}
+					window.scrollTo({
+						top: offsetPosition,
+						behavior: 'instant',
+					});
+				}
+			}, 50);
 		} else {
 			document.documentElement.style.overflowY = 'hidden';
 		}
