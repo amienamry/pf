@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { IoLocationSharp } from 'react-icons/io5';
 import { images } from '../mock/images';
@@ -27,24 +27,30 @@ const ImagePreview = ({
 	hasNavigator = true,
 	isFirstImage = true,
 }: ImagePreviewProps) => {
+	const [screenWidth, setScreenWidth] = useState(0);
+
 	useEffect(() => {
 		if (isLoading) return;
 		const htmlEl = document.getElementsByTagName('html')[0];
 		htmlEl.scrollTop = 0;
 	}, [isLoading]);
 
+	useEffect(() => {
+		setScreenWidth(window.screen.width);
+	}, []);
+
 	return (
 		<>
 			<div
 				className={`${
-					isFirstImage ? 'mt-20' : '-mt-24'
+					isFirstImage ? 'mt-20' : '-mt-32'
 				} flex flex-col w-full h-auto  items-center`}
 			>
 				{!!path && (
 					<div className='flex min-h-screen w-full max-w-3xl flex-col bg-black bg-opacity-80 rounded-md'>
 						<div
 							style={{
-								maxHeight: window.screen.width,
+								maxHeight: screenWidth,
 								minHeight: 150,
 							}}
 							className={`relative flex w-full justify-center bg-black`}
@@ -66,7 +72,7 @@ const ImagePreview = ({
 								priority={true}
 								sizes='100vw'
 								style={{
-									width: window.screen.width,
+									width: screenWidth,
 									height: 'auto',
 								}}
 							/>
@@ -112,6 +118,11 @@ const ImagePreview = ({
 									<ShareButton
 										title={image.title}
 										description={image.description}
+										url={
+											process.env.NEXT_PUBLIC_WEB_URL +
+											'/gallery/' +
+											image.id
+										}
 									/>
 								</div>
 							</div>

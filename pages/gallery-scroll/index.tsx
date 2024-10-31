@@ -3,23 +3,26 @@ import { isMobile } from '../../helpers';
 import { useSearchParams } from 'next/navigation';
 import { images } from '../../mock/images';
 import ImagePreview from '../../components/ImagePreview';
-import { useImagePreview } from '../../hooks/useImagePreview';
-import { useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import MainLayout from '../../components/MainLayout';
 import { defaultMetaData } from '../../constants';
 import { PfImage } from '../../types/PfImage';
+import redirect from 'nextjs-redirect';
 
 const GalleryScroll = ({ isMobile }) => {
-	if (!isMobile) {
-		// TODO: redirect default view - gallery/{id}
-	}
-
 	const searchParams = useSearchParams();
-
 	const id = searchParams.get('i');
 
-	if (!id) {
-		// TODO: redirect home
+	if (!isMobile && id) {
+		const Redirect = redirect(
+			`${process.env.NEXT_PUBLIC_WEB_URL}/gallery/${id}`
+		);
+		return <Redirect />;
+	}
+
+	if (!isMobile && !id) {
+		const Redirect = redirect(`${process.env.NEXT_PUBLIC_WEB_URL}/gallery`);
+		return <Redirect />;
 	}
 
 	return (
@@ -31,61 +34,50 @@ const GalleryScroll = ({ isMobile }) => {
 };
 
 const Content = ({ id }: { id: string }) => {
-	const [currentImgRef, setCurrentImgRef] = useState<{
-		current: HTMLDivElement;
-	}>(null);
-	const [toRenderImages, setToRenderImages] = useState<PfImage[]>([]);
+	const imageRef = useRef<HTMLDivElement | null>();
+	const [allImagesLoaded, setAllImagesLoaded] = useState(false);
 
-	const indexCurrent = images.findIndex((img) => img.id === id);
+	const currentIndex = images.findIndex((img) => img.id === id);
 
-	if (indexCurrent < 0) {
-		// TODO: redirect home
+	if (currentIndex < 0) {
+		const Redirect = redirect(`${process.env.NEXT_PUBLIC_WEB_URL}/gallery`);
+		return <Redirect />;
 	}
 
-	useEffect(() => {
-		const _toRenderImages: PfImage[] = [];
+	const loaded = () => {
+		if (imageRef.current) {
+			const topOffset = 80;
+			const elementPosition =
+				imageRef.current.getBoundingClientRect().top + window.scrollY;
+			const offsetPosition = elementPosition - topOffset;
 
-		const indexBefore = indexCurrent - 1;
-		if (indexBefore !== -1) {
-			_toRenderImages.push(images[indexBefore]);
+			window.scrollTo({
+				top: offsetPosition,
+				behavior: 'instant',
+			});
 		}
 
-		_toRenderImages.push(images[indexCurrent]);
-
-		const indexAfter = indexCurrent + 1;
-		if (images[indexAfter]) {
-			_toRenderImages.push(images[indexAfter]);
-		}
-
-		setToRenderImages(_toRenderImages);
-	}, []);
+		setAllImagesLoaded(true);
+	};
 
 	useEffect(() => {
-		setTimeout(() => {
-			if (indexCurrent !== 0 && currentImgRef?.current) {
-				const topOffset = 80;
-				const elementPosition =
-					currentImgRef.current.getBoundingClientRect().top +
-					window.scrollY;
-				const offsetPosition = elementPosition - topOffset;
-
-				window.scrollTo({
-					top: offsetPosition,
-					behavior: 'instant',
-				});
-			}
-		});
-	}, [currentImgRef]);
-
+		if (allImagesLoaded) {
+			document.documentElement.style.overflowY = 'auto';
+		} else {
+			document.documentElement.style.overflowY = 'hidden';
+		}
+	}, [allImagesLoaded]);
 	return (
 		<div>
-			{toRenderImages.map((image, index) => {
+			{!allImagesLoaded && <Loader />}
+			{images.map((image, index) => {
 				return (
 					<Image101
-						setCurrentImgRef={setCurrentImgRef}
 						key={image.path + image.id}
 						image={image}
 						index={index}
+						loaded={loaded}
+						currentImage={currentIndex === index ? imageRef : null}
 					/>
 				);
 			})}
@@ -96,39 +88,53 @@ const Content = ({ id }: { id: string }) => {
 const Image101 = ({
 	image,
 	index,
-	setCurrentImgRef,
+	loaded,
+	currentImage = null,
 }: {
 	image: PfImage;
 	index: number;
-	setCurrentImgRef;
+	loaded: () => void;
+	currentImage?: MutableRefObject<HTMLDivElement>;
 }) => {
 	const imgRef = useRef<null | HTMLDivElement>(null);
-
-	const { path, isLoading, openPreview, closePreview, loadComplete } =
-		useImagePreview();
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		openPreview(image);
+		if (currentImage) {
+			currentImage.current = imgRef.current;
+		}
 	}, []);
+
+	const loadComplete = () => {
+		setIsLoading(false);
+	};
+
+	useEffect(() => {
+		if (!isLoading && images.length - 1 === index) {
+			loaded();
+		}
+	}, [isLoading]);
 
 	return (
 		<div ref={imgRef}>
 			<ImagePreview
 				image={image}
-				path={path}
+				path={image.path}
 				isLoading={isLoading}
-				closePreview={closePreview}
-				loadComplete={() => {
-					loadComplete();
-
-					setTimeout(() => {
-						if (index === 1 && imgRef?.current) {
-							setCurrentImgRef(imgRef);
-						}
-					}, 50);
-				}}
+				loadComplete={() => loadComplete()}
 				hasNavigator={false}
 				isFirstImage={index === 0}
+			/>
+		</div>
+	);
+};
+
+const Loader = () => {
+	return (
+		<div className='z-10 bg-black w-screen h-screen relative mt-20'>
+			<img
+				className='absolute left-0 right-0 -top-36 bottom-0 m-auto w-16 h-16 z-50'
+				src='/images/loader.svg'
 			/>
 		</div>
 	);
@@ -138,6 +144,11 @@ export const getServerSideProps = (ctx?: GetServerSidePropsContext) => {
 	return {
 		props: {
 			isMobile: isMobile(ctx),
+			backToButtonConfig: {
+				show: true,
+				path: '/gallery',
+				name: 'Gallery',
+			},
 		},
 	};
 };
