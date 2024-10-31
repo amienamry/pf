@@ -44,43 +44,26 @@ const Content = ({ id }: { id: string }) => {
 		return <Redirect />;
 	}
 
-	const loaded = () => {
-		setAllImagesLoaded(true);
-	};
+	const cloneImages = structuredClone(images);
 
-	useEffect(() => {
-		if (allImagesLoaded) {
-			document.documentElement.style.overflowY = 'auto';
+	const currentImage = cloneImages[currentIndex];
 
-			setTimeout(() => {
-				if (imageRef.current) {
-					const topOffset = 80;
-					const elementPosition =
-						imageRef.current.getBoundingClientRect().top +
-						window.scrollY;
-					const offsetPosition = elementPosition - topOffset;
+	cloneImages.splice(currentIndex, 1);
 
-					window.scrollTo({
-						top: offsetPosition,
-						behavior: 'instant',
-					});
-				}
-			}, 50);
-		} else {
-			document.documentElement.style.overflowY = 'hidden';
-		}
-	}, [allImagesLoaded]);
+	const toRenderImages = [currentImage, ...cloneImages];
+
+	cloneImages.splice(currentIndex, 1);
 
 	return (
 		<div>
 			{!allImagesLoaded && <Loader />}
-			{images.map((image, index) => {
+			{toRenderImages.map((image, index) => {
 				return (
 					<Image101
 						key={image.path + image.id}
 						image={image}
 						index={index}
-						loaded={() => loaded()}
+						loaded={() => setAllImagesLoaded(true)}
 						currentImage={currentIndex === index ? imageRef : null}
 					/>
 				);
