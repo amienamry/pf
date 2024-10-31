@@ -44,25 +44,30 @@ const Content = ({ id }: { id: string }) => {
 		return <Redirect />;
 	}
 
-	useEffect(() => {
-		document.documentElement.style.overflowY = 'hidden';
-	}, []);
-
 	const loaded = () => {
-		if (imageRef.current) {
+		setAllImagesLoaded(true);
+	};
+
+	useEffect(() => {
+		if (allImagesLoaded) {
 			document.documentElement.style.overflowY = 'auto';
 
-			const topOffset = 80;
-			const elementPosition =
-				imageRef.current.getBoundingClientRect().top + window.scrollY;
-			const offsetPosition = elementPosition - topOffset;
+			if (imageRef.current) {
+				const topOffset = 80;
+				const elementPosition =
+					imageRef.current.getBoundingClientRect().top +
+					window.scrollY;
+				const offsetPosition = elementPosition - topOffset;
 
-			window.scrollTo({
-				top: offsetPosition,
-				behavior: 'instant',
-			});
+				window.scrollTo({
+					top: offsetPosition,
+					behavior: 'instant',
+				});
+			}
+		} else {
+			document.documentElement.style.overflowY = 'hidden';
 		}
-	};
+	}, [allImagesLoaded]);
 
 	return (
 		<div>
