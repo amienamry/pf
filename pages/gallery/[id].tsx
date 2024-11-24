@@ -31,16 +31,40 @@ const Preview = () => {
 		);
 	}
 
+	const defaultText = 'Amien Amry | Gallery';
+
+	const makeTitle = (): string => {
+		let result = '';
+
+		if (img.title) {
+			result =
+				img.title.charAt(0).toUpperCase() + String(img.title).slice(1);
+		}
+
+		if (img.description && img.title !== img.description) {
+			result = `${result} - ${img.description}`;
+		}
+
+		if (img.location) {
+			result = `${result} at ${img.location}`;
+		}
+
+		if (result.length < 40) {
+			result = `${result} - ${defaultText}`;
+		}
+
+		return result;
+	};
+
+	const makeDescription = (): string => {
+		const date = format(img.createdAt, 'd MMM yyyy');
+
+		return `${defaultText} - ${date}, Never gonna give you up, Never gonna let you down, Never gonna run around and desert you, Never gonna make you cry, Never gonna say goodbye, Never gonna tell a lie and hurt you`;
+	};
+
 	const metaData: MetaDataType = {
-		title: `${
-			img.title ? img.title + ' - @amienamry • ' : ''
-		}Amien Amry | Gallery`,
-		description: `${img.title ?? ''}${
-			img.description ? ' - ' + img.description : ''
-		}${img.location ? ' @ ' + img.location : ''}${`, ${format(
-			img.createdAt,
-			'd MMM yyyy'
-		)}`}`,
+		title: makeTitle(),
+		description: makeDescription(),
 		image_url: `https://amienamry.dev${img.path}`,
 		path: `https://amienamry.dev/gallery/${img.id}`,
 	};

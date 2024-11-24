@@ -6,6 +6,7 @@ import FreePalestine from './FreePalestine';
 import navbarList from '../mock/navbarList';
 import { useScrollPosition } from '../hooks/useScrollPosition';
 import { useRouter } from 'next/router';
+
 export const Navbar = () => {
 	const location = useRouter();
 	const [active, setActive] = useState(false);
