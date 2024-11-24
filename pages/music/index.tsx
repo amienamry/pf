@@ -1,12 +1,8 @@
 import MainLayout from '../../components/MainLayout';
 import { useSongList } from '../../hooks/useSongList';
 import { MetaDataType } from '../../types/MetaData';
-import { Song, StreamingPlatform } from '../../types/Song';
-import Image from 'next/image';
-import Link from 'next/link';
-import { formatDistance } from 'date-fns';
 import { BiSearch } from 'react-icons/bi';
-import { MdVerified } from 'react-icons/md';
+import Card from '../../components/Card';
 
 const Stream = () => {
 	const metaData: MetaDataType = {
@@ -43,115 +39,26 @@ const Content = () => {
 				) : (
 					songList.map((song) => {
 						return (
-							<Track
+							<Card
 								key={'stream-all-' + song.key + song.title}
-								song={song}
+								data={{
+									id: song.key,
+									href: `music/${song.key}`,
+									title: song.title,
+									description: song.artist,
+									date: new Date(song.releasedDate),
+									tag: song.genre,
+									imgThumb: song.imgThumb,
+									imgAltText: `${song.title}'s album cover`,
+									verified: song.verified,
+									icons: song.platforms,
+								}}
 							/>
 						);
 					})
 				)}
 			</div>
 		</div>
-	);
-};
-
-const Track = ({ song }: { song: Song }) => {
-	const releaseDate = formatDistance(
-		new Date(song.releasedDate),
-		new Date(),
-		{
-			addSuffix: true,
-		}
-	);
-
-	const handlePlatformClick = (
-		e: React.MouseEvent<HTMLImageElement, MouseEvent>,
-		platform: StreamingPlatform
-	) => {
-		e.preventDefault();
-		window.open(platform.url, '_blank');
-	};
-
-	return (
-		<Link
-			className='relative shadow-2xl mb-5 bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 rounded-xl'
-			href={`music/${song.key}`}
-		>
-			<div className='absolute top-2 left-2 sm:hidden z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40'>
-				{song.genre}
-			</div>
-
-			<div className='flex flex-col sm:flex-row w-full'>
-				<div className='relative flex sm:hidden h-56'>
-					<Image
-						className='absolute object-cover rounded-t-xl'
-						fill={true}
-						src={song.imgThumb}
-						alt={`${song.title}'s album cover`}
-						sizes='(max-width: 768px) 100vw,
-                (max-width: 1200px) 50vw,
-                33vw'
-					/>
-				</div>
-
-				<Image
-					className='hidden sm:flex rounded-l-xl'
-					src={song.imgThumb}
-					alt={`${song.title}'s album cover`}
-					width={150}
-					height={150}
-					sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
-				/>
-
-				<div className='flex flex-col w-full px-2 py-1.5 sm:py-0.5'>
-					<p className='text-lg font-bold w-fit hover:underline'>
-						{song.title}
-
-						<span className='text-sm font-normal ml-2 hidden sm:inline-block bg-black py-0.5 px-1.5 rounded bg-opacity-20 text-gray-400'>
-							{song.genre}
-						</span>
-					</p>
-					<p className='text-base opacity-80'>{song.artist}</p>
-
-					<div className='flex flex-col h-full justify-end text-xs opacity-80 mt-5'>
-						<div className='hidden sm:flex flex-row mb-2'>
-							{song.platforms.map((platform) => {
-								return (
-									<Image
-										onClick={(e) =>
-											handlePlatformClick(e, platform)
-										}
-										className='mr-1 hover:opacity-90'
-										key={
-											'stream-all-' +
-											song.key +
-											song.title +
-											platform.name
-										}
-										title={`On ${platform.name}`}
-										alt={`${platform.imgUrl}'s logo`}
-										src={platform.imgUrl}
-										width={25}
-										height={25}
-									/>
-								);
-							})}
-						</div>
-						<span>
-							{releaseDate}
-							{song.verified && (
-								<MdVerified
-									title='Verified and officially released.'
-									className='ml-1 text-base -mt-0.5 align-text-top inline-flex text-blue-400'
-								/>
-							)}
-						</span>
-					</div>
-				</div>
-			</div>
-		</Link>
 	);
 };
 

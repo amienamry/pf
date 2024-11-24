@@ -6,6 +6,7 @@ import FreePalestine from './FreePalestine';
 import navbarList from '../mock/navbarList';
 import { useScrollPosition } from '../hooks/useScrollPosition';
 import { useRouter } from 'next/router';
+
 export const Navbar = () => {
 	const location = useRouter();
 	const [active, setActive] = useState(false);
@@ -62,7 +63,11 @@ export const Navbar = () => {
 		close();
 	};
 
-	const isCurrentPath = (path: string) => {
+	const isCurrentPath = (path: string): boolean => {
+		if (typeof pathname !== 'string') {
+			return false;
+		}
+
 		return path === '/' ? path === pathname : pathname.includes(path);
 	};
 
