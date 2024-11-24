@@ -63,7 +63,11 @@ export const Navbar = () => {
 		close();
 	};
 
-	const isCurrentPath = (path: string) => {
+	const isCurrentPath = (path: string): boolean => {
+		if (typeof pathname !== 'string') {
+			return false;
+		}
+
 		return path === '/' ? path === pathname : pathname.includes(path);
 	};
 
