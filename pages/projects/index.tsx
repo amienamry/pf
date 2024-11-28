@@ -24,14 +24,26 @@ const Content = () => {
 
 	return (
 		<div className='relative flex flex-col flex-1 max-w-screen-lg mt-20 bg-black bg-opacity-40 rounded-md'>
-			<div className='flex flex-1 px-2.5 sm:px-5 mx-2 sm:mx-0 mt-6 mb-3'>
+			<div className='mt-6 mx-5 py-1 px-2 rounded bg-amber-400 text-black text-sm bg-opacity-90'>
+				Are you one of my clients or my current/previous employer and
+				don’t want your project listed here? Drop me an email at{' '}
+				<a
+					href='mailto:hi@amienamry.dev'
+					className='underline font-bold'
+				>
+					hi@amienamry.dev
+				</a>
+				, and I’ll take it down ASAPPP!! 🏃🏻💨
+			</div>
+
+			<div className='relative flex flex-1 px-2.5 sm:px-5 mx-2 sm:mx-0 mt-4 mb-6 sm:mb-3'>
 				<input
 					onChange={(e) => {}} // TODO:
 					className='w-full bg-neutral-600 h-10 rounded-lg pl-2 pr-8'
 					type='text'
-					placeholder='Search by project name, type or company name'
+					placeholder='TODO: Search by project name, type or company name'
 				/>
-				<BiSearch className='absolute h-6 w-6 right-6 top-8' />
+				<BiSearch className='absolute h-6 w-6 right-4 sm:right-6 top-2' />
 			</div>
 
 			<div className='flex flex-1 flex-col p-2.5 sm:p-5 mx-2 sm:mx-0'>
@@ -59,6 +71,7 @@ const Content = () => {
 									description: project.company,
 									imgThumb: project.imgThumb,
 									imgAltText: `${project.name}'s cover`,
+									icons: project.primaryStacks,
 								}}
 							/>
 						);
