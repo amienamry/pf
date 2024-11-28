@@ -24,7 +24,7 @@ import { SiTypescript } from 'react-icons/si';
 import { AiFillGithub } from 'react-icons/ai';
 import { DiGit, DiJavascript1, DiJqueryLogo } from 'react-icons/di';
 import { FaDocker, FaRegMoneyBillAlt } from 'react-icons/fa';
-import { IoLogoAngular, IoLogoLaravel, IoLogoReact } from 'react-icons/io5';
+import { IoLogoAngular, IoLogoReact } from 'react-icons/io5';
 import { RxVercelLogo } from 'react-icons/rx';
 import {
 	SiNextdotjs,
@@ -41,7 +41,7 @@ import {
 	SiCypress,
 	SiJest,
 } from 'react-icons/si';
-import { TbSquareRoundedNumber8 } from 'react-icons/tb';
+import { TbSquareRoundedNumber8, TbBrandLaravel } from 'react-icons/tb';
 import { RiSignalTowerLine } from 'react-icons/ri';
 import { BsFiletypePhp } from 'react-icons/bs';
 import { AiOutlineRobot, AiOutlineCloud } from 'react-icons/ai';
@@ -76,7 +76,7 @@ export const useIconMapper = (name: string) => {
 		GrMysql: GrMysql,
 		SiTypescript: SiTypescript,
 		IoLogoAngular: IoLogoAngular,
-		IoLogoLaravel: IoLogoLaravel,
+		TbBrandLaravel: TbBrandLaravel,
 		SiNextdotjs: SiNextdotjs,
 		IoLogoReact: IoLogoReact,
 		RiSignalTowerLine: RiSignalTowerLine,

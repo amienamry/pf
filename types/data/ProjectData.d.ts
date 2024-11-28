@@ -7,10 +7,10 @@ export type ProjectData = {
 	startDate: string;
 	type: string;
 	imgThumb: string;
-	mainTools: ProjectTool[];
+	primaryStacks: ProjectTool[];
+	secondaryStacks?: ProjectTool[];
 	paragraphs?: string[];
 	images?: ProjectImage[];
-	tools?: ProjectTool[];
 };
 
 export type ProjectImage = {

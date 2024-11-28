@@ -9,10 +9,46 @@ export const projects: ProjectData[] = [
 		type: 'Mobile App',
 		startDate: '2019-10-16',
 		imgThumb: '/images/projects/gogokids-mobile-app/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'React Native',
+				url: 'https://reactnative.dev',
+				imgUrl: '/icons/tools/react-native.png',
+			},
+			{
+				name: 'Redux Saga',
+				url: 'https://redux-saga.js.org',
+				imgUrl: '/icons/tools/redux-saga.png',
+			},
+			{
+				name: 'Laravel',
+				url: 'https://laravel.com',
+				imgUrl: '/icons/tools/laravel.png',
+			},
+			{
+				name: 'MySQL',
+				url: 'https://mysql.com',
+				imgUrl: '/icons/tools/mysql.png',
+			},
+			{
+				name: 'Android Studio',
+				url: 'https://developer.android.com/studio',
+				imgUrl: '/icons/tools/android-studio.png',
+			},
+			{
+				name: 'Razer Merchant Services',
+				url: 'https://fiuu.com',
+				imgUrl: '/icons/tools/razer-merchant-services.png',
+			},
+			{
+				name: 'Billplz',
+				url: 'https://billplz.com',
+				imgUrl: '/icons/tools/billplz.png',
+			},
+		],
+		secondaryStacks: [],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 	{
 		id: '',
@@ -22,10 +58,36 @@ export const projects: ProjectData[] = [
 		type: 'Web App',
 		startDate: '2019-10-16',
 		imgThumb: '/images/projects/gogokids-web/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'Angular',
+				url: 'https://angular.dev',
+				imgUrl: '/icons/tools/angular.png',
+			},
+			{
+				name: 'Laravel',
+				url: 'https://laravel.com',
+				imgUrl: '/icons/tools/laravel.png',
+			},
+			{
+				name: 'MySQL',
+				url: 'https://mysql.com',
+				imgUrl: '/icons/tools/mysql.png',
+			},
+			{
+				name: 'Razer Merchant Services',
+				url: 'https://fiuu.com',
+				imgUrl: '/icons/tools/razer-merchant-services.png',
+			},
+			{
+				name: 'Billplz',
+				url: 'https://billplz.com',
+				imgUrl: '/icons/tools/billplz.png',
+			},
+		],
+		secondaryStacks: [],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 	{
 		id: '',
@@ -35,10 +97,26 @@ export const projects: ProjectData[] = [
 		type: 'Web App',
 		startDate: '2019-10-16',
 		imgThumb: '/images/projects/gogokids-admin-cms/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'Angular',
+				url: 'https://angular.dev',
+				imgUrl: '/icons/tools/angular.png',
+			},
+			{
+				name: 'Laravel',
+				url: 'https://laravel.com',
+				imgUrl: '/icons/tools/laravel.png',
+			},
+			{
+				name: 'MySQL',
+				url: 'https://mysql.com',
+				imgUrl: '/icons/tools/mysql.png',
+			},
+		],
+		secondaryStacks: [],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 	{
 		id: '',
@@ -48,24 +126,62 @@ export const projects: ProjectData[] = [
 		type: 'Web App',
 		startDate: '2019-10-16',
 		imgThumb: '/images/projects/gogokids-provider-cms/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'Angular',
+				url: 'https://angular.dev',
+				imgUrl: '/icons/tools/angular.png',
+			},
+			{
+				name: 'Laravel',
+				url: 'https://laravel.com',
+				imgUrl: '/icons/tools/laravel.png',
+			},
+			{
+				name: 'MySQL',
+				url: 'https://mysql.com',
+				imgUrl: '/icons/tools/mysql.png',
+			},
+		],
+		secondaryStacks: [],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 	{
 		id: '',
 		slug: '8-conlay',
-		name: '8 Conlay',
+		name: '8 Conlay App',
 		company: 'KSK Group',
 		subCompany: 'KSK City Labs',
 		type: 'Mobile App',
 		startDate: '2021-12-13',
 		imgThumb: '/images/projects/8-conlay/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'Laravel Backpack',
+				url: 'https://backpackforlaravel.com/',
+				imgUrl: '/icons/tools/laravel-backpack.png',
+			},
+			{
+				name: 'MySQL',
+				url: 'https://mysql.com',
+				imgUrl: '/icons/tools/mysql.png',
+			},
+			{
+				name: 'iPay88',
+				url: 'https://ipay88.com',
+				imgUrl: '/icons/tools/ipay88.png',
+			},
+		],
+		secondaryStacks: [
+			{
+				name: 'Flutter',
+				url: 'https://flutter.dev',
+				imgUrl: '/icons/tools/flutter.png',
+			},
+		],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 	{
 		id: '',
@@ -76,10 +192,37 @@ export const projects: ProjectData[] = [
 		type: 'Web App',
 		startDate: '2022-08-02',
 		imgThumb: '/images/projects/trustpal/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'Angular',
+				url: 'https://angular.dev',
+				imgUrl: '/icons/tools/angular.png',
+			},
+			{
+				name: 'Chartjs',
+				url: 'https://chartjs.org',
+				imgUrl: '/icons/tools/chartjs.png',
+			},
+			{
+				name: 'NGXS',
+				url: 'https://ngxs.io',
+				imgUrl: '/icons/tools/ngxs.png',
+			},
+		],
+		secondaryStacks: [
+			{
+				name: '.NET',
+				url: 'https://dotnet.microsoft.com/',
+				imgUrl: '/icons/tools/dotnet.png',
+			},
+			{
+				name: 'Cosmos DB',
+				url: 'https://azure.microsoft.com/en-us/products/cosmos-db',
+				imgUrl: '/icons/tools/cosmosdb.png',
+			},
+		],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 	{
 		id: '',
@@ -90,10 +233,37 @@ export const projects: ProjectData[] = [
 		type: 'Web App (Mobile Focused)',
 		startDate: '2022-11-11',
 		imgThumb: '/images/projects/amlakas-e-kyc/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'Angular',
+				url: 'https://angular.dev',
+				imgUrl: '/icons/tools/angular.png',
+			},
+			{
+				name: 'Capacitor',
+				url: 'https://capacitorjs.com',
+				imgUrl: '/icons/tools/capacitor.png',
+			},
+			{
+				name: 'ml5.js',
+				url: 'https://ml5js.org',
+				imgUrl: '/icons/tools/ml5.png',
+			},
+		],
+		secondaryStacks: [
+			{
+				name: '.NET',
+				url: 'https://dotnet.microsoft.com/',
+				imgUrl: '/icons/tools/dotnet.png',
+			},
+			{
+				name: 'Cosmos DB',
+				url: 'https://azure.microsoft.com/en-us/products/cosmos-db',
+				imgUrl: '/icons/tools/cosmosdb.png',
+			},
+		],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 	{
 		id: '',
@@ -104,10 +274,42 @@ export const projects: ProjectData[] = [
 		type: 'Web App',
 		startDate: '2023-01-09',
 		imgThumb: '/images/projects/seismic-grid-qc/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'Angular',
+				url: 'https://angular.dev',
+				imgUrl: '/icons/tools/angular.png',
+			},
+			{
+				name: 'NGXS',
+				url: 'https://ngxs.io',
+				imgUrl: '/icons/tools/ngxs.png',
+			},
+			{
+				name: 'Mapbox',
+				url: 'https://mapbox.com',
+				imgUrl: '/icons/tools/mapbox.png',
+			},
+			{
+				name: 'MapLibre',
+				url: 'https://maplibre.org',
+				imgUrl: '/icons/tools/maplibre.png',
+			},
+		],
+		secondaryStacks: [
+			{
+				name: '.NET',
+				url: 'https://dotnet.microsoft.com/',
+				imgUrl: '/icons/tools/dotnet.png',
+			},
+			{
+				name: 'Cosmos DB',
+				url: 'https://azure.microsoft.com/en-us/products/cosmos-db',
+				imgUrl: '/icons/tools/cosmosdb.png',
+			},
+		],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 	{
 		id: '',
@@ -118,10 +320,37 @@ export const projects: ProjectData[] = [
 		type: 'Mobile App',
 		startDate: '2023-06-13',
 		imgThumb: '/images/projects/wamas/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'Angular',
+				url: 'https://angular.dev',
+				imgUrl: '/icons/tools/angular.png',
+			},
+			{
+				name: 'Capacitor',
+				url: 'https://capacitorjs.com',
+				imgUrl: '/icons/tools/capacitor.png',
+			},
+			{
+				name: 'NGRX',
+				url: 'https://ngrx.io',
+				imgUrl: '/icons/tools/ngrx.png',
+			},
+			{
+				name: 'Android Studio',
+				url: 'https://developer.android.com/studio',
+				imgUrl: '/icons/tools/android-studio.png',
+			},
+		],
+		secondaryStacks: [
+			{
+				name: 'Spring Boot',
+				url: 'https://spring.io/',
+				imgUrl: '/icons/tools/spring-boot.png',
+			},
+		],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 	{
 		id: '',
@@ -132,9 +361,26 @@ export const projects: ProjectData[] = [
 		type: 'Web App',
 		startDate: '2024-05-01',
 		imgThumb: '/images/projects/iqsms/thumb.jpg',
-		mainTools: [],
+		primaryStacks: [
+			{
+				name: 'Laravel',
+				url: 'https://laravel.com',
+				imgUrl: '/icons/tools/laravel.png',
+			},
+			{
+				name: 'Maria DB',
+				url: 'https://mariadb.org',
+				imgUrl: '/icons/tools/mariadb.png',
+			},
+		],
+		secondaryStacks: [
+			{
+				name: 'Angular',
+				url: 'https://angular.dev',
+				imgUrl: '/icons/tools/angular.png',
+			},
+		],
 		paragraphs: [],
 		images: [],
-		tools: [],
 	},
 ];

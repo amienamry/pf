@@ -21,7 +21,7 @@ const Content = () => {
 
 	return (
 		<div className='relative flex flex-col flex-1 max-w-screen-lg mt-20 bg-black bg-opacity-40 rounded-md'>
-			<div className='flex flex-1 px-2.5 sm:px-5 mx-2 sm:mx-0 mt-6 mb-3'>
+			<div className='flex flex-1 px-2.5 sm:px-5 mx-2 sm:mx-0 mt-6 mb-6 sm:mb-3'>
 				<input
 					onChange={(e) => search(e.target.value)}
 					className='w-full bg-neutral-600 h-10 rounded-lg pl-2 pr-8'

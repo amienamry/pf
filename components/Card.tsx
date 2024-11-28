@@ -1,3 +1,4 @@
+'use client';
 import { formatDistance } from 'date-fns';
 import Link from 'next/link';
 import { CardData, CardDataIcon } from '../types/CardData';
@@ -10,7 +11,7 @@ const Card = ({ data }: { data: CardData }) => {
 	});
 
 	const handleIconClick = (
-		e: React.MouseEvent<HTMLImageElement, MouseEvent>,
+		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
 		icon: CardDataIcon
 	) => {
 		e.preventDefault();
@@ -19,8 +20,9 @@ const Card = ({ data }: { data: CardData }) => {
 
 	return (
 		<Link
-			className='relative shadow-2xl mb-5 bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 rounded-xl'
+			className='relative shadow-2xl mb-7 sm:mb-5 bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 rounded-xl'
 			href={data.href}
+			rel='noopener noreferrer'
 		>
 			<div className='absolute top-2 left-2 sm:hidden z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-60'>
 				{data.tag}
@@ -57,26 +59,33 @@ const Card = ({ data }: { data: CardData }) => {
 					<p className='text-base opacity-80'>{data.description}</p>
 
 					<div className='flex flex-col h-full justify-end text-xs opacity-80 mt-5'>
-						<div className='hidden sm:flex flex-row mb-2'>
+						<div className='flex flex-row mb-2'>
 							{data.icons?.map((icon) => {
 								return (
-									<Image
+									<Link
+										href={icon.url}
+										target='_blank'
+										rel='noopener noreferrer'
+										className='relative flex mr-1.5  hover:opacity-90 bg-slate-100 rounded h-8 sm:h-10 w-8 sm:w-10'
 										onClick={(e) =>
 											handleIconClick(e, icon)
 										}
-										className='mr-1 hover:opacity-90'
 										key={
-											'stream-all-' +
+											'card-icon-' +
 											data.id +
 											data.title +
 											icon.name
 										}
-										title={`On ${icon.name}`}
-										alt={`${icon.imgUrl}'s logo`}
-										src={icon.imgUrl}
-										width={25}
-										height={25}
-									/>
+										title={icon.name}
+									>
+										<Image
+											className='rounded-sm sm:rounded'
+											sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+											fill
+											alt={`${icon.imgUrl}'s logo`}
+											src={icon.imgUrl}
+										/>
+									</Link>
 								);
 							})}
 						</div>
