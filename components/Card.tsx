@@ -1,9 +1,9 @@
 'use client';
 import { formatDistance } from 'date-fns';
-import Link from 'next/link';
 import { CardData, CardDataIcon } from '../types/CardData';
 import Image from 'next/image';
 import { MdVerified } from 'react-icons/md';
+import PfLink from './PfLink';
 
 const Card = ({ data }: { data: CardData }) => {
 	const formattedDate = formatDistance(data.date, new Date(), {
@@ -11,7 +11,7 @@ const Card = ({ data }: { data: CardData }) => {
 	});
 
 	const handleIconClick = (
-		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+		e: React.MouseEvent<HTMLDivElement, MouseEvent>,
 		icon: CardDataIcon
 	) => {
 		e.preventDefault();
@@ -19,7 +19,7 @@ const Card = ({ data }: { data: CardData }) => {
 	};
 
 	return (
-		<Link
+		<PfLink
 			className='relative shadow-2xl mb-7 sm:mb-5 bg-neutral-700 hover:bg-opacity-70 bg-opacity-50 rounded-xl'
 			href={data.href}
 			rel='noopener noreferrer'
@@ -62,7 +62,7 @@ const Card = ({ data }: { data: CardData }) => {
 						<div className='flex flex-row mb-2'>
 							{data.icons?.map((icon) => {
 								return (
-									<Link
+									<PfLink
 										href={icon.url}
 										target='_blank'
 										rel='noopener noreferrer'
@@ -85,7 +85,7 @@ const Card = ({ data }: { data: CardData }) => {
 											alt={`${icon.imgUrl}'s logo`}
 											src={icon.imgUrl}
 										/>
-									</Link>
+									</PfLink>
 								);
 							})}
 						</div>
@@ -101,7 +101,7 @@ const Card = ({ data }: { data: CardData }) => {
 					</div>
 				</div>
 			</div>
-		</Link>
+		</PfLink>
 	);
 };
 
