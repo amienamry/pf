@@ -37,7 +37,7 @@
 	background-color: rgba(0, 0, 0, 1);
 }
 
-input[type="range"] {
+input[type='range'] {
 	margin: auto;
 	-webkit-appearance: none;
 	appearance: none;
@@ -154,4 +154,16 @@ wave {
 }
 .spotify {
 	color: #1db954;
+}
+
+.url-hover-tag {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: black;
+	color: white;
+	font-size: 12px;
+	padding: 2px 5px;
+	z-index: 999999;
+	transition: opacity 0.3s ease-in-out;
 }
