@@ -80,7 +80,9 @@ const PfLink: React.FC<PfLinkProps> = ({
 			clearState();
 		} else {
 			state.timeout = setTimeout(() => {
-				state.element.innerText = state.stack[state.stack.length - 1];
+				state.element &&
+					(state.element.innerText =
+						state.stack[state.stack.length - 1]);
 			}, 300);
 		}
 	};
