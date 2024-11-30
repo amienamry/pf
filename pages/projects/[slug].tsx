@@ -43,7 +43,7 @@ const Project = () => {
 		}
 
 		if (result.length < 40) {
-			result = `${result} - ${defaultText}`;
+			result = `${result} • ${defaultText}`;
 		}
 
 		return result;
@@ -52,8 +52,8 @@ const Project = () => {
 	const metaData: MetaDataType = {
 		title: makeTitle(),
 		description:
-			'Explore my portfolio of projects developed as a full stack developer. Discover various web and mobile applications showcasing my skills and expertise in full stack development.',
-		image_url: project.imgThumb,
+			'Explore my portfolio of projects developed as a full stack developer. Discover various web and mobile applications showcasing my skills and expertise in full stack development.', // TODO: project summary
+		image_url: `https://amienamry.dev${project.imgThumb}`,
 		path: `https://amienamry.dev/projects/${project.slug}`,
 	};
 
@@ -63,7 +63,7 @@ const Project = () => {
 const Content = () => {
 	return (
 		<div className='relative flex flex-col flex-1 max-w-screen-lg mt-20 bg-black bg-opacity-40 rounded-md'>
-			TODO: hehe
+			TODO: hehe &#x2022;
 		</div>
 	);
 };
