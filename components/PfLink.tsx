@@ -1,6 +1,5 @@
+'use client';
 import { HTMLAttributeAnchorTarget, HTMLAttributes } from 'react';
-import { isMobile } from '../helpers';
-import { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
 
 const SUPER_UNIQUE_ID_LOL = 'pfLinkUrlBottomLeftMakKauHijauDungGudungGudung';
@@ -17,7 +16,12 @@ type PfLinkProps = {
 	isMobile?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-const PfLink: React.FC<PfLinkProps> = (props) => {
+const PfLink: React.FC<PfLinkProps> = ({
+	href,
+	target,
+	isMobile,
+	...props
+}) => {
 	const router = useRouter();
 
 	const isCompleteHref = (url: string) => {
@@ -29,8 +33,8 @@ const PfLink: React.FC<PfLinkProps> = (props) => {
 		}
 	};
 
-	const handlerHoverIn = () => {
-		if (props.isMobile) {
+	const handleHoverIn = () => {
+		if (isMobile) {
 			return;
 		}
 
@@ -46,15 +50,15 @@ const PfLink: React.FC<PfLinkProps> = (props) => {
 			element.classList.add('url-hover-tag');
 		}
 
-		const href = isCompleteHref(props.href)
-			? props.href
-			: `${location.origin}/${props.href}`;
+		const fullHref = isCompleteHref(href)
+			? href
+			: `${location.origin}/${href}`;
 
 		state.timeout = setTimeout(() => {
-			element.innerText = href;
+			element.innerText = fullHref;
 		}, 300);
 
-		state.stack.push(href);
+		state.stack.push(fullHref);
 
 		if (!document.getElementById(SUPER_UNIQUE_ID_LOL)) {
 			document.body.appendChild(element);
@@ -63,8 +67,8 @@ const PfLink: React.FC<PfLinkProps> = (props) => {
 		state.element = element;
 	};
 
-	const handlerHoverOut = () => {
-		if (props.isMobile) {
+	const handleHoverOut = () => {
+		if (isMobile) {
 			return;
 		}
 
@@ -73,8 +77,7 @@ const PfLink: React.FC<PfLinkProps> = (props) => {
 		state.stack.pop();
 
 		if (!state.stack.length && state?.element) {
-			state.element.remove();
-			state.element = null;
+			clearState();
 		} else {
 			state.timeout = setTimeout(() => {
 				state.element.innerText = state.stack[state.stack.length - 1];
@@ -83,20 +86,30 @@ const PfLink: React.FC<PfLinkProps> = (props) => {
 	};
 
 	const openInNewTab = () => {
-		isCompleteHref(props.href)
-			? window.open(props.href, '_blank')
-			: window.open(`${location.origin}/${props.href}`, '_blank');
+		isCompleteHref(href)
+			? window.open(href, '_blank')
+			: window.open(`${location.origin}/${href}`, '_blank');
 	};
 
 	const goToNextPage = () => {
-		isCompleteHref(props.href)
-			? (location.href = props.href)
-			: router.push(props.href);
+		isCompleteHref(href) ? (location.href = href) : router.push(href);
 	};
 
 	const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		e.stopPropagation();
-		props.target === '_blank' ? openInNewTab() : goToNextPage();
+
+		if (target === '_blank') {
+			openInNewTab();
+		} else {
+			goToNextPage();
+			clearState();
+		}
+	};
+
+	const clearState = () => {
+		state.stack.length = 0;
+		state.element.remove();
+		state.element = null;
 	};
 
 	const handleMouseDown = (
@@ -118,21 +131,13 @@ const PfLink: React.FC<PfLinkProps> = (props) => {
 		<div
 			{...props}
 			className={(props?.className ?? '') + ' cursor-pointer'}
-			onMouseEnter={() => handlerHoverIn()}
-			onMouseLeave={() => handlerHoverOut()}
+			onMouseEnter={() => handleHoverIn()}
+			onMouseLeave={() => handleHoverOut()}
 			onMouseUp={(e) => handleMouseUp(e)}
 			onMouseDown={(e) => handleMouseDown(e)}
 			onClick={(e) => handleClick(e)}
 		/>
 	);
-};
-
-export const getServerSideProps = (ctx?: GetServerSidePropsContext) => {
-	return {
-		props: {
-			isMobile: isMobile(ctx),
-		},
-	};
 };
 
 export default PfLink;

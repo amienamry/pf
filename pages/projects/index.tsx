@@ -3,8 +3,10 @@ import Card from '../../components/Card';
 import MainLayout from '../../components/MainLayout';
 import { MetaDataType } from '../../types/MetaData';
 import { projects } from '../../mock/projects';
+import { isMobile } from '../../helpers';
+import { GetServerSidePropsContext } from 'next';
 
-const Projects = () => {
+const Projects = ({ isMobile }) => {
 	const metaData: MetaDataType = {
 		title: 'Amien Amry | Projects',
 		description:
@@ -13,10 +15,15 @@ const Projects = () => {
 		path: 'https://amienamry.dev/projects',
 	};
 
-	return <MainLayout metaData={metaData} Content={() => <Content />} />;
+	return (
+		<MainLayout
+			metaData={metaData}
+			Content={() => <Content isMobile={isMobile} />}
+		/>
+	);
 };
 
-const Content = () => {
+const Content = ({ isMobile }) => {
 	projects.sort(
 		(a, b) =>
 			new Date(b.startDate).valueOf() - new Date(a.startDate).valueOf()
@@ -73,6 +80,7 @@ const Content = () => {
 									imgAltText: `${project.name}'s cover`,
 									icons: project.primaryStacks,
 								}}
+								isMobile={isMobile}
 							/>
 						);
 					})
@@ -80,6 +88,14 @@ const Content = () => {
 			</div>
 		</div>
 	);
+};
+
+export const getServerSideProps = async (ctx?: GetServerSidePropsContext) => {
+	return {
+		props: {
+			isMobile: isMobile(ctx),
+		},
+	};
 };
 
 export default Projects;

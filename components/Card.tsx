@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { MdVerified } from 'react-icons/md';
 import PfLink from './PfLink';
 
-const Card = ({ data }: { data: CardData }) => {
+const Card = ({ data, isMobile }: { data: CardData; isMobile?: boolean }) => {
 	const formattedDate = formatDistance(data.date, new Date(), {
 		addSuffix: true,
 	});
@@ -77,6 +77,7 @@ const Card = ({ data }: { data: CardData }) => {
 											icon.name
 										}
 										title={icon.name}
+										isMobile={isMobile}
 									>
 										<Image
 											className='rounded-sm sm:rounded'
