@@ -30,7 +30,7 @@ const Content = () => {
 	}, []);
 
 	return (
-		<div className='flex flex-col flex-1 max-w-screen-xl mt-20 bg-black bg-opacity-40 rounded-md'>
+		<div className='flex flex-col flex-1 max-w-screen-xl mt-20 rounded-md'>
 			<div className='flex flex-1 p-2.5 sm:p-5 flex-col md:flex-row'>
 				{/* left */}
 				<Profile data={data} socialMedias={socialMedias} />

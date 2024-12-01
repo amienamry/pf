@@ -9,6 +9,7 @@ export type ProjectData = {
 	imgThumb: string;
 	primaryStacks: ProjectTool[];
 	secondaryStacks?: ProjectTool[];
+	summary?: string;
 	paragraphs?: string[];
 	images?: ProjectImage[];
 };

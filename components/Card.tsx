@@ -58,7 +58,7 @@ const Card = ({ data, isMobile }: { data: CardData; isMobile?: boolean }) => {
 					</p>
 					<p className='text-base opacity-80'>{data.description}</p>
 
-					<div className='flex flex-col h-full justify-end text-xs opacity-80 mt-5'>
+					<div className='flex flex-col h-full justify-end text-xs mt-5'>
 						<div className='flex flex-row mb-2'>
 							{data.icons?.map((icon) => {
 								return (
