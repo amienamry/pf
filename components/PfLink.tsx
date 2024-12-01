@@ -1,5 +1,5 @@
 'use client';
-import { HTMLAttributeAnchorTarget, HTMLAttributes } from 'react';
+import { HTMLAttributeAnchorTarget, HTMLAttributes, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 const SUPER_UNIQUE_ID_LOL = 'pfLinkUrlBottomLeftMakKauHijauDungGudungGudung';
@@ -122,12 +122,17 @@ const PfLink: React.FC<PfLinkProps> = ({
 			e.preventDefault();
 		}
 	};
+
 	const handleMouseUp = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		// mouse scroll btn up
 		if (e.button === 1) {
 			openInNewTab();
 		}
 	};
+
+	useEffect(() => {
+		return () => clearState();
+	}, []);
 
 	return (
 		<div

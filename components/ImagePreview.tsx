@@ -47,7 +47,7 @@ const ImagePreview = ({
 				} flex flex-col w-full h-auto  items-center`}
 			>
 				{!!path && (
-					<div className='flex max-h-[650px] h-screen sm:max-h-screen sm:h-[80vh] w-full max-w-3xl flex-col bg-black bg-opacity-80 rounded-md'>
+					<div className='flex max-h-[650px] h-screen sm:max-h-screen sm:h-[80vh] w-full max-w-3xl flex-col rounded-md'>
 						<div
 							style={{
 								maxHeight: screenWidth,

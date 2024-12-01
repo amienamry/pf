@@ -30,7 +30,7 @@ const Content = ({ isMobile }) => {
 	);
 
 	return (
-		<div className='relative flex flex-col flex-1 max-w-screen-lg mt-20 bg-black bg-opacity-40 rounded-md'>
+		<div className='relative flex flex-col flex-1 max-w-screen-lg mt-20 rounded-md'>
 			<div className='mt-6 mx-5 py-1 px-2 rounded bg-amber-400 text-black text-sm bg-opacity-90'>
 				Are you one of my clients or my current/previous employer and
 				don’t want your project listed here? Drop me an email at{' '}
