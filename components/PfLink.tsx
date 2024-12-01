@@ -110,7 +110,7 @@ const PfLink: React.FC<PfLinkProps> = ({
 
 	const clearState = () => {
 		state.stack.length = 0;
-		state.element.remove();
+		state.element?.remove();
 		state.element = null;
 	};
 
