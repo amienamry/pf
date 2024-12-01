@@ -9,8 +9,11 @@ import Image from 'next/image';
 import PfLink from '../../components/PfLink';
 import { isMobile } from '../../helpers';
 import { GetServerSidePropsContext } from 'next';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
+import dynamic from 'next/dynamic';
+
+const ImageViewer = dynamic(() => import('react-viewer'), { ssr: false });
 
 const Project = ({ isMobile }) => {
 	const router = useRouter();
@@ -34,14 +37,15 @@ const Project = ({ isMobile }) => {
 		let result = project.name;
 
 		if (project.subCompany) {
-			result = `${result} - ${project.subCompany}`;
-		}
-		if (project.company) {
-			result = `${result} - ${project.company}`;
+			result = `${result} at ${project.subCompany}`;
 		}
 
+		result = `${result} ${project.subCompany ? 'and' : 'at'} ${
+			project.company
+		}`;
+
 		if (result.length < 40) {
-			result = `${result} • ${defaultText}`;
+			result = `${result} - ${defaultText}`;
 		}
 
 		return result;
@@ -88,18 +92,18 @@ const Content = ({ project }: { project: ProjectData; isMobile?: boolean }) => {
 		: project.primaryStacks;
 
 	return (
-		<div className='relative flex flex-col flex-1 max-w-screen-lg mt-20  rounded-md'>
+		<article className='relative flex flex-col flex-1 max-w-screen-xl mt-20 rounded-md'>
 			<div className='relative flex flex-col lg:flex-row w-full sm:pt-8 mb-2'>
 				{!!project.images?.length && (
 					<div
-						className='embla w-full sm:w-3/8 relative'
+						className='embla w-full lg:max-w-xl relative'
 						ref={emblaRef}
 					>
 						<ImagesCarousel project={project} />
 
-						<div className='absolute top-1.5 left-1.5 z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40'>
+						<label className='absolute top-1.5 left-1.5 z-[1] text-sm bg-black py-0.5 px-1.5 rounded bg-opacity-40'>
 							{project.type}
-						</div>
+						</label>
 					</div>
 				)}
 
@@ -112,7 +116,7 @@ const Content = ({ project }: { project: ProjectData; isMobile?: boolean }) => {
 
 					<TechStack tools={tools} />
 
-					<span className='text-lg'>{project.summary}</span>
+					<p className='text-lg'>{project.summary}</p>
 				</div>
 			</div>
 
@@ -129,7 +133,7 @@ const Content = ({ project }: { project: ProjectData; isMobile?: boolean }) => {
 			<div className='px-3 lg:px-2 py-2'>
 				<TechStackString tools={tools} />
 			</div>
-		</div>
+		</article>
 	);
 };
 
@@ -179,30 +183,60 @@ const MappedTools = ({ tools }: { tools: ProjectTool[] }) => {
 };
 
 const ImagesCarousel = ({ project }: { project: ProjectData }) => {
-	return (
-		<div className='embla__container'>
-			{project.images.map((image, i) => {
-				const from = i % 2 === 0 ? 'from-gray-900' : 'from-slate-600';
-				const to = i % 2 === 0 ? 'to-slate-600' : 'to-gray-900';
+	const [visible, setVisible] = useState(false);
+	const [activeIndex, setActiveIndex] = useState(0);
 
-				const bgGradientClassName = `bg-gradient-to-r ${from} ${to}`;
-				return (
-					<div
-						key={`${image.altText}-${i}`}
-						className={`embla__slide relative h-72 w-full  rounded-sm ${bgGradientClassName}`}
-					>
-						<Image
-							className='absolute object-contain'
-							alt={image.altText}
-							src={image.url}
-							fill={true}
-							priority={true}
-							sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-						/>
-					</div>
-				);
-			})}
-		</div>
+	return (
+		<>
+			<div className='embla__container'>
+				{project.images.map((image, i) => {
+					const from =
+						i % 2 === 0 ? 'from-gray-900' : 'from-slate-600';
+					const to = i % 2 === 0 ? 'to-slate-600' : 'to-gray-900';
+
+					const bgGradientClassName = `bg-gradient-to-r ${from} ${to}`;
+					return (
+						<div
+							key={`${image.altText}-${i}`}
+							className={`embla__slide relative h-80 w-full  rounded-sm ${bgGradientClassName}`}
+						>
+							<Image
+								className='absolute object-contain'
+								alt={image.altText}
+								src={image.url}
+								fill={true}
+								priority={true}
+								sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+								onClick={() => {
+									setVisible(true);
+									setActiveIndex(i);
+								}}
+							/>
+						</div>
+					);
+				})}
+			</div>
+			<ImageViewer
+				activeIndex={activeIndex}
+				visible={visible}
+				onClose={() => {
+					setVisible(false);
+				}}
+				scalable={false}
+				rotatable={false}
+				zoomable={false}
+				attribute={false}
+				drag={false}
+				images={project.images.map((img) => ({
+					src: img.url,
+					alt: img.altText,
+				}))}
+				onMaskClick={() => setVisible(false)}
+				zoomSpeed={0.35}
+				minScale={0.5}
+				maxScale={5}
+			/>
+		</>
 	);
 };
 
@@ -211,7 +245,9 @@ const TechStackString = ({ tools }: { tools: ProjectTool[] }) => {
 	const result = `${tools.map(({ name }) => name).join(', ')} and ${last}`;
 
 	return (
-		<p className='text-base mb-3 text-gray-400'>Tech stack: {result}.</p>
+		<label className='text-base mb-3 text-gray-400'>
+			Tech stack: {result}.
+		</label>
 	);
 };
 
