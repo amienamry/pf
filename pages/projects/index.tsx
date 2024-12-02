@@ -31,18 +31,6 @@ const Content = ({ isMobile }) => {
 
 	return (
 		<div className='relative flex flex-col flex-1 max-w-screen-lg mt-20 rounded-md'>
-			<div className='mt-6 mx-5 py-1 px-2 rounded bg-amber-400 text-black text-sm bg-opacity-90'>
-				Are you one of my clients or my current/previous employer and
-				don’t want your project listed here? Drop me an email at{' '}
-				<a
-					href='mailto:hi@amienamry.dev'
-					className='underline font-bold'
-				>
-					hi@amienamry.dev
-				</a>
-				, and I’ll take it down ASAPPP!! 🏃🏻💨
-			</div>
-
 			<div className='relative flex flex-1 px-2.5 sm:px-5 mx-2 sm:mx-0 mt-4 mb-6 sm:mb-3'>
 				<input
 					onChange={(e) => {}} // TODO:
