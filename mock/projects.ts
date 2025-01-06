@@ -7,7 +7,7 @@ export const projects: ProjectData[] = [
 		name: 'GogoKids Mobile App',
 		company: 'GogoKids',
 		type: 'Mobile App',
-		summary: `A versatile mobile application tailored for parents with children under 18 years old. Built using the React Native framework and Redux Saga for efficient state management, the app combines diverse functionalities into a single platform. It offers features like e-commerce activity kits, ticket booking for classes, family events, and an educational learning platform designed to engage and inspire young minds while fostering parental convenience and ease of use.`,
+		summary: '',
 		startDate: '2019-10-16',
 		imgThumb: '/images/projects/gogokids-mobile-app/thumb.jpg',
 		primaryStacks: [
@@ -49,10 +49,7 @@ export const projects: ProjectData[] = [
 				imgUrl: '/icons/tools/android-studio.png',
 			},
 		],
-		paragraphs: [
-			`This project marked my first foray into mobile app development, a milestone both challenging and rewarding. Using React Native and Redux-Saga, I dove deep into state management workflows, rapidly gaining hands-on experience. Collaborating closely with the CTO, I self-taught the intricacies of React Native, which not only solidified my expertise but also sparked my interest in React. This journey laid the foundation for exploring frameworks like Next.js, which I later utilized to build this very website, https://amienamry.dev.`,
-			`This app is an extension of the web platform, featuring activity and product listing, booking, shopping cart, and checkout options. It uses the same APIs and synced with CMS systems for admins and providers. The app includes a personalized profile feature, allowing users to create a family tree and link accounts via phone number, fostering a deeper personal connection to the platform. Push notifications via OneSignal keep users informed about updates, classes, and promotions. This project was a tremendous learning curve, allowing me to contribute meaningfully while expanding my technical and problem-solving skills.`,
-		],
+		paragraphs: [],
 		images: [
 			{
 				url: '/images/projects/gogokids-mobile-app/images/home.jpg',
@@ -359,7 +356,7 @@ export const projects: ProjectData[] = [
 		company: 'SoftwareQ',
 		subCompany: 'SSI Schaefer',
 		type: 'Mobile App',
-		summary: `A robust warehouse management system tailored to optimize logistics workflows. Designed to support manual, semi-automated, and fully automated warehouses, it scales seamlessly for businesses of varying sizes and complexities. The app was developed using Angular and Capacitor, only for Android devices, delivering intuitive interfaces for efficient warehouse operations. This system provides solutions for inventory management, goods processing, and real-time monitoring.`,
+		summary: '',
 		startDate: '2023-06-13',
 		imgThumb: '/images/projects/wamas/thumb.jpg',
 		primaryStacks: [
@@ -391,10 +388,7 @@ export const projects: ProjectData[] = [
 				imgUrl: '/icons/tools/spring-boot.png',
 			},
 		],
-		paragraphs: [
-			`The WAMAS WMS frontend development involved crafting an intuitive interface using Angular and implementing the Domain-Driven Design (DDD) architecture. Working together with a colleague from SoftwareQ, the development process emphasized maintainability and scalability, integrating unit testing via Jest and end-to-end testing using Cypress. The frontend leverages CapacitorJS to bridge web technologies with native Android functionality, enabling seamless barcode scanning and keystroke handling for warehouse-specific tasks.`,
-			`The backend, powered by the Spring Boot, ensured a reliable and efficient foundation for the application's functionalities. Close collaboration with SSI Schaefer's in-house backend team facilitated smooth integration of services, maintaining high performance across inventory tracking, stock data management, and logistics, meeting the rigorous demands of automated and manual warehouses. With a focus on performance and usability, the app enhances operational workflows, streamlining processes and ensuring reliability in fast-paced logistics environments.`,
-		],
+		paragraphs: [],
 		images: [
 			{
 				url: '/images/projects/wamas/images/login.jpg',
@@ -429,7 +423,7 @@ export const projects: ProjectData[] = [
 		company: 'SoftwareQ',
 		subCompany: 'ASQS',
 		type: 'Web App',
-		summary: `A cutting-edge aviation safety and compliance platform combining Laravel for its backend and Angular for its frontend. It features online and offline auditing, customizable reporting, and proactive risk management tools to enhance operational efficiency. The system integrates seamlessly with regulatory standards like ECCAIRS 2 and provides interactive dashboards and data import/export capabilities. It empowers users with real-time insights, collaboration tools, and streamlined workflows.`,
+		summary: '',
 		startDate: '2024-05-01',
 		imgThumb: '/images/projects/iqsms/thumb.jpg',
 		primaryStacks: [
@@ -451,10 +445,7 @@ export const projects: ProjectData[] = [
 				imgUrl: '/icons/tools/angular.png',
 			},
 		],
-		paragraphs: [
-			`My role involves developing and maintaining robust APIs using Laravel, structured with Domain-Driven Design (DDD) architecture. This design ensures scalability and clarity in handling the extensive functionalities of iQSMS. My responsibilities also include rigorous bug fixes, utilizing PHPUnit for comprehensive unit testing, and ensuring seamless integration with other modules. Collaborating closely with the backend lead and following Agile methodologies, we utilize Jira for task management and sprint planning.`,
-			`My efforts are focused on streamlining the reporting, quality management, and some of risk assessment modules, ensuring they meet the needs of aviation compliance and safety. By adhering to strict standards and timelines, I play a vital role in enhancing the system's reliability and functionality. This project has been a rewarding experience, particularly in tackling complex architecture and ensuring precise implementation of critical features. I often receive feedback to "chill" due to my pace in completing tasks, a testament to my passion and dedication to delivering results efficiently.`,
-		],
+		paragraphs: [],
 		images: [
 			{
 				url: '/images/projects/iqsms/images/create-audit.jpg',
