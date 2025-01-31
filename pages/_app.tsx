@@ -23,8 +23,12 @@ const MyApp = ({ Component, pageProps, router: componentRouter }: AppProps) => {
 	return (
 		<div
 			className={`${
-				hasVideoError ? 'bg-gray-900 ' : ''
-			} relative text-gray-200 font-sans font-normal min-h-screen bg-black bg-opacity-80`}
+				hasVideoError ? 'bg-gray-900' : ''
+			} relative text-gray-200 font-sans font-normal min-h-screen ${
+				componentRouter.route !== '/music/[song]'
+					? 'bg-black bg-opacity-80'
+					: ''
+			}`}
 		>
 			<Toaster position='bottom-center' />
 
