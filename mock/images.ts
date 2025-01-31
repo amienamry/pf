@@ -481,7 +481,7 @@ export const images: PfImage[] = [
 	{
 		id: 'EVtbVxB',
 		title: 'trong waterfall',
-		description: 'the most homesick-inducing camping trip',
+		description: 'camping paling tak rilek',
 		path: '/images/gallery/amienamry72.jpeg',
 		createdAt: new Date('2022-06-12'),
 		location: 'Trong Waterfall',
@@ -1431,6 +1431,15 @@ export const images: PfImage[] = [
 		createdAt: new Date('2025-01-01'),
 		location: 'Zus Coffee - PD Waterfront',
 		locationUrl: 'https://maps.app.goo.gl/ZdbRYSGpenjVJ5g68',
+	},
+	{
+		id: '18HiZl5S',
+		title: 'sedikit ride',
+		description: 'rusa music',
+		path: '/images/gallery/amienamry162.jpeg',
+		createdAt: new Date('2025-01-26'),
+		location: 'Anuar Rusa Steak House',
+		locationUrl: 'https://maps.app.goo.gl/T1FyFHLRhMZqXViD8',
 	},
 ];
 
