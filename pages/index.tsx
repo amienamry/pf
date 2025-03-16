@@ -79,7 +79,7 @@ const Profile = ({
 				<Image
 					priority
 					className='rounded-full'
-					src='/images/amien3.jpg'
+					src='/images/amien4.jpg'
 					alt='Amien Amry'
 					width={250}
 					height={250}

@@ -1441,6 +1441,33 @@ export const images: PfImage[] = [
 		location: 'Anuar Rusa Steak House',
 		locationUrl: 'https://maps.app.goo.gl/T1FyFHLRhMZqXViD8',
 	},
+	{
+		id: '2z90zeEg',
+		title: 'berdezus mart',
+		description: 'buat binat',
+		path: '/images/gallery/amienamry163.jpeg',
+		createdAt: new Date('2025-03-14'),
+		location: 'Zus Signature - Sunway Pyramid',
+		locationUrl: 'https://maps.app.goo.gl/2W4yHv5KTRuy1B536',
+	},
+	{
+		id: 'lltc176x',
+		title: 'makan di kedai arab',
+		description: "'mini ride' w mirza ghulam ahmad",
+		path: '/images/gallery/amienamry164.jpeg',
+		createdAt: new Date('2025-03-01'),
+		location: 'Restoran Nasi Arab Tareem',
+		locationUrl: 'https://maps.app.goo.gl/JXtJ2zc1FK1vYZdVA',
+	},
+	{
+		id: 'vb1s3m98',
+		title: 'makan bunk',
+		description: 'ride buka pose',
+		path: '/images/gallery/amienamry165.jpeg',
+		createdAt: new Date('2025-03-10'),
+		location: 'Restoran Seri Mesra Ikan Bakar',
+		locationUrl: 'https://maps.app.goo.gl/nSdWhwAeQuu2Jkks5',
+	},
 ];
 
 Object.freeze(
