@@ -99,7 +99,7 @@ const ImagePreview = ({
 
 						{!isLoading && (
 							<div className='mt-1.5 px-3 flex flex-row '>
-								<div className='flex flex-col flex-1'>
+								<div className='flex flex-col flex-1 whitespace-pre-wrap'>
 									{image.description && (
 										<p className='mb-2'>
 											{image.description}
