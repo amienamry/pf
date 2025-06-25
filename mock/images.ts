@@ -1478,6 +1478,15 @@ export const images: PfImage[] = [
 		locationUrl: 'https://maps.app.goo.gl/ixShuHF7iaZwMLXB6',
 	},
 	{
+		id: 'j90uti1r',
+		title: 'orientasi',
+		description: 'buat binat',
+		path: '/images/gallery/amienamry171.jpeg',
+		createdAt: new Date('2025-05-24'),
+		location: 'OUM PJ',
+		locationUrl: 'https://maps.app.goo.gl/NiRiDEKeJnoqEafQ6',
+	},
+	{
 		id: '2a4B13jj',
 		title: 'serupabike',
 		description: 'bajet bajet',
@@ -1512,6 +1521,34 @@ export const images: PfImage[] = [
 		createdAt: new Date('2025-05-17'),
 		location: 'Zus Signature - Paramount PJ',
 		locationUrl: 'https://maps.app.goo.gl/Pk2fUVRJuecVoKVB8',
+	},
+	{
+		id: 'a2m7xzv2',
+		title: 'makan makan kecil kecilan',
+		description: 'ultramen',
+		path: '/images/gallery/amienamry172.jpeg',
+		createdAt: new Date('2025-06-08'),
+		location: 'rumah acap jambang',
+		locationUrl: 'https://maps.app.goo.gl/Z1LrBKjmSLxtQtq96',
+	},
+	{
+		id: '04b11d9m',
+		title: 'hari raya haji 2025',
+		description:
+			'anda mencari daging? boleh hubungi penjual daging, jangan hubungi saya.',
+		path: '/images/gallery/amienamry173.jpeg',
+		createdAt: new Date('2025-06-08'),
+		location: 'MAE BK',
+		locationUrl: 'https://maps.app.goo.gl/M9gG6Sy3n1dr5qgP6',
+	},
+	{
+		id: '5ll9a3nf',
+		title: 'buat binat',
+		description: 'Fokus\nUntuk\nCapai\nKejayaan',
+		path: '/images/gallery/amienamry174.jpeg',
+		createdAt: new Date('2025-06-22'),
+		location: 'OUM PJ',
+		locationUrl: 'https://maps.app.goo.gl/NiRiDEKeJnoqEafQ6',
 	},
 ];
 
